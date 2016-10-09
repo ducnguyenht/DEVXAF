@@ -1,3 +1,10 @@
+/*
+ MSbuild40
+C:\Windows\Microasoft.NET\Framework\v4.0.30319\MSBuild.exe
+/m $(SolutionFileName) /v:m
+$SolutionDir
+6
+ */
 using System;
 using System.Linq;
 using System.Text;
