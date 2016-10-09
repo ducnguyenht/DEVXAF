@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems>
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="UserControl" ViewId="UserControl" IsNewNode="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Options UseServerMode="True" LookupSmallCollectionItemCount="1000" />
+  <SchemaModules>
+    <SchemaModule Name="SystemAspNetModule" Version="13.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="13.2.7.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <DashboardView Id="UserControl" IsNewNode="True">
+      <Items IsNewNode="True">
+        <WebCustomUserControlViewItem Id="@b1bbd07d-c3aa-449d-9ebf-e02af8f1023e" CustomControlPath="WebUserControl1.ascx" IsNewNode="True" />
+      </Items>
+    </DashboardView>
+  </Views>
+</Application>
