@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel>
+    <Class Name="DXExample.Module.Master">
+      <OwnMembers>
+        <Member Name="Details" PropertyEditorType="DropMutilChoice.Module.Web.Editors.WebCheckedListBoxPropertyEditor" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <SchemaModules>
+    <SchemaModule Name="SystemAspNetModule" Version="13.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="13.2.7.0" IsNewNode="True" />
+  </SchemaModules>
+</Application>
