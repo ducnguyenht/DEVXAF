@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="DXExample" Logo="ExpressAppLogo">
+  <NavigationItems StartupNavigationItem="Master_ListView" />
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="13.2.7.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <DetailView Id="Master_DetailView">
+      <Layout Width="461" Height="404">
+        <LayoutGroup Id="Main" CaptionLocation="Default" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" CaptionLocation="Default" RelativeSize="100">
+            <LayoutGroup Id="Master" CaptionLocation="Default" RelativeSize="22.744360902255639">
+              <LayoutGroup Id="Master_col1" RelativeSize="26.748251748251747">
+                <LayoutItem Id="Code" SizeConstraintsType="Default" RelativeSize="36.363636363636367" />
+                <LayoutItem Id="MasterName" SizeConstraintsType="Default" RelativeSize="27.272727272727273" />
+                <LayoutItem Id="Description" SizeConstraintsType="Default" RelativeSize="36.363636363636367" />
+              </LayoutGroup>
+              <LayoutGroup Id="Master_col2" RelativeSize="69.4055944055944">
+                <LayoutItem Id="DateCreate" SizeConstraintsType="Default" RelativeSize="36.363636363636367" />
+                <LayoutItem Id="ShowHideDetail" SizeConstraintsType="Default" RelativeSize="63.636363636363633" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutItem Id="Details" ViewItem="Details" SizeConstraintsType="Default" Index="1" RelativeSize="77.255639097744364" IsNewNode="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="Details_Group" Removed="True" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>
