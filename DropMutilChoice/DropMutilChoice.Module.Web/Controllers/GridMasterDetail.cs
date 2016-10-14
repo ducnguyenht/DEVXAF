@@ -37,6 +37,10 @@ namespace DropMutilChoice.Module.Web.Controllers
                     listEditor.Grid.SettingsDetail.ShowDetailRow = true;
                     listEditor.Grid.Templates.DetailRow = new ASPxGridViewDetailRowTemplate(View);
                 }
+                if (Frame != null && Frame.Template is ISupportActionsToolbarVisibility)
+                {
+                    ((ISupportActionsToolbarVisibility)(Frame.Template)).SetVisible(false);// = false;
+                }
             }
         }
         class ASPxGridViewDetailRowTemplate : ITemplate
@@ -65,6 +69,11 @@ namespace DropMutilChoice.Module.Web.Controllers
                         ListView detailsListView = WebApplication.Instance.CreateListView(listViewId, cs, false);
 
                         Frame detailsFrame = WebApplication.Instance.CreateFrame(TemplateContext.NestedFrame);
+                        if (detailsFrame.Template!=null)
+                        {
+                            ((ISupportActionsToolbarVisibility)(detailsFrame.Template)).SetVisible(false);// = false;
+                        }
+                     
                         detailsFrame.SetView(detailsListView);
                         detailsFrame.CreateTemplate();
 
@@ -76,6 +85,7 @@ namespace DropMutilChoice.Module.Web.Controllers
                     }
                 }
             }
+          
         }
     }
 }

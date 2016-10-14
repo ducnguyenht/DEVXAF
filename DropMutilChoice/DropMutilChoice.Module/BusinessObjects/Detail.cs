@@ -11,6 +11,8 @@ using DevExpress.Persistent.Validation;
 
 namespace DXExample.Module {
     [DefaultClassOptions]
+    [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
+
     public class Detail : BaseObject {
         public Detail(Session session) : base(session) { }
         private string _DetailName;

@@ -13,6 +13,8 @@ using DevExpress.ExpressApp.Editors;
 
 namespace DXExample.Module {
     [DefaultClassOptions]
+    [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
+
     public class Master : BaseObject {
         public Master(Session session) : base(session) { DateCreate = DateTime.Now; }
         private DateTime _DateCreate;
