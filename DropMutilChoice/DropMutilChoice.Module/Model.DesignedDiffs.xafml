@@ -9,4 +9,7 @@
       <RuleRequiredField Id="Test_Copy" TargetType="DXExample.Module.Master" TargetPropertyName="MasterName" TargetContextIDs="Save" ResultType="Warning" SkipNullOrEmptyValues="True" IsNewNode="True" />
     </Rules>
   </Validation>
+  <Views>
+    <ListView Id="Category_ListView" MasterDetailMode="ListViewAndDetailView" />
+  </Views>
 </Application>

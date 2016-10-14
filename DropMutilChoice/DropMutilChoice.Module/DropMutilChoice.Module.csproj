@@ -85,8 +85,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessObjects\Category.cs" />
     <Compile Include="BusinessObjects\Detail.cs" />
     <Compile Include="BusinessObjects\Master.cs" />
+    <Compile Include="BusinessObjects\Product.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>
     </Compile>
