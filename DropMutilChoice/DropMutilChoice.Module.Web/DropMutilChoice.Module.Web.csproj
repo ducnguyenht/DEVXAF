@@ -102,6 +102,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\GridMasterDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Editors\WebCheckedListBoxPropertyEditor.cs" />
     <Compile Include="WebModule.cs">
       <SubType>Component</SubType>
