@@ -1,5 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DXExample.Module", "DXExample.Module\DXExample.Module.csproj", "{604CDFE5-0403-448C-A15A-E72627FC69DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DXExample.Module.Web", "DXExample.Module.Web\DXExample.Module.Web.csproj", "{CD09183A-C24B-4BF9-8B19-4D657EC24898}"
@@ -11,6 +13,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DXExample.Win", "DXExample.Win\DXExample.Win.csproj", "{63A9FF05-BFE6-4B2A-AE04-E1C424E6DBC6}"
 EndProject
 Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		EasyTest|Any CPU = EasyTest|Any CPU
