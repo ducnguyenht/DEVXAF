@@ -93,7 +93,12 @@ namespace Solution1.Module.Web
             {
                 var dataSource = Helper.CreateCollectionSource(this.CurrentObject);
                 var enumerable = dataSource.Collection as IEnumerable;
-                return enumerable.Cast<T>();
+                if (enumerable!=null)
+                {
+                    return enumerable.Cast<T>();
+                }
+                return ObjectSpace.GetObjects<T>(CriteriaOperator.Parse(this.Model.ModelMember.DataSourceCriteria));
+                
             }
             else
             {

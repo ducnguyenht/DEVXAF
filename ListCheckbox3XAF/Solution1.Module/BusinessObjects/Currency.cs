@@ -4,6 +4,7 @@ using System.Linq;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
+using DevExpress.ExpressApp;
 
 namespace Solution1.Module.BusinessObjects
 {
@@ -25,6 +26,8 @@ namespace Solution1.Module.BusinessObjects
     //}
 
     [DefaultClassOptions]
+    [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
+
     [DefaultProperty("Code")]
     public class Currency : BaseObject
     { 

@@ -5,6 +5,7 @@ using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
 using DevExpress.Data.Filtering;
+using DevExpress.ExpressApp;
 
 namespace Solution1.Module.BusinessObjects
 {
@@ -21,6 +22,8 @@ namespace Solution1.Module.BusinessObjects
     //}
 
     [DefaultClassOptions]
+    [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
+
     public class Container : BaseObject
     {
         public Container(Session session)
