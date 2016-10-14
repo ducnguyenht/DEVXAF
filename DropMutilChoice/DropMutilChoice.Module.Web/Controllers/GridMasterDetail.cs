@@ -21,6 +21,7 @@ using DevExpress.Web.ASPxTabControl;
 using System.Web.UI.WebControls;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Web;
+using DevExpress.Web.ASPxClasses;
 
 namespace DropMutilChoice.Module.Web.Controllers
 {
@@ -29,6 +30,7 @@ namespace DropMutilChoice.Module.Web.Controllers
         protected override void OnViewControlsCreated()
         {
             base.OnViewControlsCreated();
+            //hide toolbar
             if (Frame != null && Frame.Template is ISupportActionsToolbarVisibility)
             {
                 ((ISupportActionsToolbarVisibility)(Frame.Template)).SetVisible(false);// = false;
@@ -40,11 +42,14 @@ namespace DropMutilChoice.Module.Web.Controllers
                 {
                     listEditor.Grid.SettingsDetail.ShowDetailRow = true;
                     listEditor.Grid.Templates.DetailRow = new ASPxGridViewDetailRowTemplate(View);
+                    listEditor.Grid.RowUpdating += new DevExpress.Web.Data.ASPxDataUpdatingEventHandler(Grid_RowUpdating);
                 }
               
             }
         }
-      
+       void Grid_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e) {
+           ObjectSpace.CommitChanges();
+        }
         class ASPxGridViewDetailRowTemplate : ITemplate
         {
             private ListView masterListViewCore;
@@ -71,11 +76,7 @@ namespace DropMutilChoice.Module.Web.Controllers
                         ListView detailsListView = WebApplication.Instance.CreateListView(listViewId, cs, false);
 
                         Frame detailsFrame = WebApplication.Instance.CreateFrame(TemplateContext.NestedFrame);
-                        //if (detailsFrame.Template!=null)
-                        //{
-                        //    ((ISupportActionsToolbarVisibility)(detailsFrame.Template)).SetVisible(false);// = false;
-                        //}
-                     
+                  
                         detailsFrame.SetView(detailsListView);
                         detailsFrame.CreateTemplate();
 
@@ -83,6 +84,7 @@ namespace DropMutilChoice.Module.Web.Controllers
                         detailsTemplateControl.ID = string.Format("detailsTemplateControl_{0}", mi.Name);
                         TabPage page = new TabPage(mi.DisplayName);
                         page.Controls.Add(detailsTemplateControl);
+                        pageControl.ShowTabs = false;
                         pageControl.TabPages.Add(page);
                     }
                 }
