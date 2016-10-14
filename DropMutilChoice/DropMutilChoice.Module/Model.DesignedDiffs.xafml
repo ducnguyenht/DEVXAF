@@ -1,3 +1,12 @@
-﻿<?xml version="1.0" ?>
-<Application Title="DropMutilChoice" Logo="ExpressAppLogo" />
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="DropMutilChoice" Logo="ExpressAppLogo">
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="13.2.7.0" IsNewNode="True" />
+  </SchemaModules>
+  <Validation>
+    <Rules>
+      <RuleRequiredField Id="Test" TargetType="DXExample.Module.Master" TargetPropertyName="Code" ResultType="Error" TargetContextIDs="Save" IsNewNode="True" />
+      <RuleRequiredField Id="Test_Copy" TargetType="DXExample.Module.Master" TargetPropertyName="MasterName" TargetContextIDs="Save" ResultType="Warning" SkipNullOrEmptyValues="True" IsNewNode="True" />
+    </Rules>
+  </Validation>
+</Application>
