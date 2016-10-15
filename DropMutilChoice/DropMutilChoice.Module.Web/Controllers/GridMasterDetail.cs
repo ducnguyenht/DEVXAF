@@ -42,17 +42,16 @@ namespace DropMutilChoice.Module.Web.Controllers
                 {
                     listEditor.Grid.SettingsDetail.ShowDetailRow = true;
                     listEditor.Grid.Templates.DetailRow = new ASPxGridViewDetailRowTemplate(View);
-                    listEditor.Grid.RowUpdating += new DevExpress.Web.Data.ASPxDataUpdatingEventHandler(Grid_RowUpdating);
                 }
               
             }
         }
-       void Grid_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e) {
-           ObjectSpace.CommitChanges();
-        }
+      
         class ASPxGridViewDetailRowTemplate : ITemplate
         {
+            bool init = false;
             private ListView masterListViewCore;
+            CollectionSourceBase cs;
             public ASPxGridViewDetailRowTemplate(ListView masterListView)
             {
                 masterListViewCore = masterListView;
@@ -72,7 +71,12 @@ namespace DropMutilChoice.Module.Web.Controllers
                     {
                         IObjectSpace os = WebApplication.Instance.CreateObjectSpace();
                         string listViewId = DevExpress.ExpressApp.Model.NodeGenerators.ModelNestedListViewNodesGeneratorHelper.GetNestedListViewId(mi);
-                        CollectionSourceBase cs = new PropertyCollectionSource(os, mi.ListElementType, os.GetObject(masterObject), mi, CollectionSourceMode.Proxy);
+                        if (!init)
+                        {
+                            cs = new PropertyCollectionSource(os, mi.ListElementType, os.GetObject(masterObject), mi, CollectionSourceMode.Proxy);
+                            init = true;
+                        }
+                        
                         ListView detailsListView = WebApplication.Instance.CreateListView(listViewId, cs, false);
 
                         Frame detailsFrame = WebApplication.Instance.CreateFrame(TemplateContext.NestedFrame);
