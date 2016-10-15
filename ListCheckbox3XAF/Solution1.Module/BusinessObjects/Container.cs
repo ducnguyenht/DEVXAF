@@ -30,6 +30,7 @@ namespace Solution1.Module.BusinessObjects
             : base(session)
         { }
 
+        private string _TestListMutilChoice;
         private XPCollection<Currency> _AvailableCurrencies;
         [MemberDesignTimeVisibility(false)]
         [NonPersistent]
@@ -84,6 +85,18 @@ namespace Solution1.Module.BusinessObjects
             set
             {
                 SetPropertyValue("CurrencyListWithDataSource", ref _CurrencyListWithDataSource, value);
+            }
+        }
+        [ModelDefault("PropertyEditorType", "Solution1.Module.Web.CurrencyListPropertyEditor")]
+        public string TestListMutilChoice
+        {
+            get
+            {
+                return _TestListMutilChoice;
+            }
+            set
+            {
+                SetPropertyValue("TestListMutilChoice", ref _TestListMutilChoice, value);
             }
         }
     }
