@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <SchemaModules>
+    <SchemaModule Name="SchedulerAspNetModule" Version="14.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerModuleBase" Version="14.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemAspNetModule" Version="14.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="14.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="XpandSchedulerAspNetModule" Version="14.2.7.1" IsNewNode="True" />
+    <SchemaModule Name="XpandSchedulerModule" Version="14.2.7.1" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <ListView Id="WorkOrder_ListView">
+      <OptionsScheduler ResourceDataSourceID="">
+        <Storage>
+          <Resources>
+            <Mappings Image="Photo" />
+          </Resources>
+        </Storage>
+      </OptionsScheduler>
+    </ListView>
+  </Views>
+</Application>

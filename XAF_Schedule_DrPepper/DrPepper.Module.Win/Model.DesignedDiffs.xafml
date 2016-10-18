@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <SchemaModules>
+    <SchemaModule Name="SchedulerModuleBase" Version="14.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerWindowsFormsModule" Version="14.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="14.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="14.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="XpandSchedulerModule" Version="14.2.7.1" IsNewNode="True" />
+    <SchemaModule Name="XpandSchedulerWindowsFormsModule" Version="14.2.7.1" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <ListView Id="WorkOrder_ListView">
+      <OptionsScheduler>
+        <OptionsView>
+          <ResourceHeaders ImageAlign="Top" ImageInterpolationMode="HighQualityBicubic" ImageSize="80, 50" ImageSizeMode="ZoomImage" />
+        </OptionsView>
+        <Storage>
+          <Resources>
+            <Mappings Image="Photo" />
+          </Resources>
+        </Storage>
+      </OptionsScheduler>
+    </ListView>
+  </Views>
+</Application>
