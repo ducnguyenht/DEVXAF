@@ -41,14 +41,17 @@ namespace WinWebSolution.Module {
             get { return Color.FromArgb(_Color); }
             set { SetPropertyValue("Color", ref _Color, value.ToArgb()); }
         }
-        [Association("Employee-Group", UseAssociationNameAsIntermediateTableName = true)]
-        [RuleRequiredField(null, DefaultContexts.Save, TargetCriteria = "IsActive", CustomMessageTemplate = "You cannot save an Active employee without Groups")]
-        public XPCollection<Group> Groups {
-            get { return GetCollection<Group>("Groups"); }
-        }
+                
         [Association("Activity-Employees", UseAssociationNameAsIntermediateTableName = true)]
         public XPCollection<Activity> Activities {
             get { return GetCollection<Activity>("Activities"); }
+        }
+
+        [Association("Employee-Group", UseAssociationNameAsIntermediateTableName = true)]
+        [RuleRequiredField(null, DefaultContexts.Save, TargetCriteria = "IsActive", CustomMessageTemplate = "You cannot save an Active employee without Groups")]
+        public XPCollection<Group> Groups
+        {
+            get { return GetCollection<Group>("Groups"); }
         }
         [MemberDesignTimeVisibility(false)]
         public string StoredPassword {

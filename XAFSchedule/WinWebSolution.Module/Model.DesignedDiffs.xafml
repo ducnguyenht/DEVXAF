@@ -4,10 +4,10 @@
     <Class Name="WinWebSolution.Module.Activity" ImageName="BO_Appointment" />
   </BOModel>
   <SchemaModules>
-    <SchemaModule Name="BusinessClassLibraryCustomizationModule" Version="10.2.2.0" IsNewNode="True" />
-    <SchemaModule Name="SecurityModule" Version="10.2.2.0" IsNewNode="True" />
-    <SchemaModule Name="SystemModule" Version="10.2.2.0" IsNewNode="True" />
-    <SchemaModule Name="WinWebSolutionModule" Version="1.0.3979.29436" IsNewNode="True" />
+    <SchemaModule Name="BusinessClassLibraryCustomizationModule" Version="13.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SecurityModule" Version="13.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="13.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="WinWebSolutionModule" Version="1.0.6120.24526" IsNewNode="True" />
   </SchemaModules>
   <Views>
     <DetailView Id="AuthenticationStandardLogonParameters_DetailView">
@@ -19,7 +19,7 @@
           <LayoutGroup Id="RootGroup">
             <LayoutGroup Id="EditorsGroup">
               <LayoutGroup Id="Editors">
-                <LayoutItem Id="PasswordHint" Index="3" IsNewNode="True" ViewItem="PasswordHint" />
+                <LayoutItem Id="PasswordHint" Index="3" ViewItem="PasswordHint" IsNewNode="True" />
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
