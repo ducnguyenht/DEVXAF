@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="Product_Orders_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Total" SummaryType="Sum" />
+        <ColumnInfo Id="Description" SummaryType="Count" />
+      </Columns>
+    </ListView>
+    <ListView Id="Product_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="OrdersCount" PropertyName="OrdersCount" Width="100" />
+        <ColumnInfo Id="MaximumOrder" PropertyName="MaximumOrder" Width="100" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

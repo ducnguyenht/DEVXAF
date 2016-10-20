@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="WinWebSolution" Logo="ExpressAppLogo">
+  <BOModel>
+    <Class Name="WinWebSolution.Module.Order" ImageName="BO_Order" />
+    <Class Name="WinWebSolution.Module.Product" ImageName="BO_Product" />
+  </BOModel>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="13.2.7.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <ListView Id="Order_ListView" NewItemRowPosition="Top" />
+    <ListView Id="Product_ListView" NewItemRowPosition="Top">
+      <Columns>
+        <ColumnInfo Id="Name" PropertyName="Name" Width="100" />
+        <ColumnInfo Id="OrdersTotal" PropertyName="OrdersTotal" Width="100" />
+      </Columns>
+    </ListView>
+    <ListView Id="Product_Orders_ListView" AllowEdit="True" NewItemRowPosition="Top">
+      <Columns>
+        <ColumnInfo Id="Description" PropertyName="Description" Width="200" SummaryType="Count" />
+        <ColumnInfo Id="Total" PropertyName="Total" Width="200" SummaryType="Sum" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>
