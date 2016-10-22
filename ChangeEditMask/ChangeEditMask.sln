@@ -1,0 +1,56 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeEditMask.Module", "ChangeEditMask.Module\ChangeEditMask.Module.csproj", "{CDF8CAF5-36BF-4A85-B032-4222CB17168B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeEditMask.Module.Win", "ChangeEditMask.Module.Win\ChangeEditMask.Module.Win.csproj", "{D30CCF1C-F191-45F2-9C9E-749621C38C76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeEditMask.Win", "ChangeEditMask.Win\ChangeEditMask.Win.csproj", "{4F8164ED-2B37-4C08-AD87-845EECB224A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeEditMask.Module.Web", "ChangeEditMask.Module.Web\ChangeEditMask.Module.Web.csproj", "{0C729AAD-7626-4668-A7F1-35F7D240489D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeEditMask.Web", "ChangeEditMask.Web\ChangeEditMask.Web.csproj", "{82A6DBC9-B1B4-44E4-9718-55DF930CD349}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		EasyTest|Any CPU = EasyTest|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDF8CAF5-36BF-4A85-B032-4222CB17168B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDF8CAF5-36BF-4A85-B032-4222CB17168B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDF8CAF5-36BF-4A85-B032-4222CB17168B}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{CDF8CAF5-36BF-4A85-B032-4222CB17168B}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{CDF8CAF5-36BF-4A85-B032-4222CB17168B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDF8CAF5-36BF-4A85-B032-4222CB17168B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D30CCF1C-F191-45F2-9C9E-749621C38C76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D30CCF1C-F191-45F2-9C9E-749621C38C76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D30CCF1C-F191-45F2-9C9E-749621C38C76}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{D30CCF1C-F191-45F2-9C9E-749621C38C76}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{D30CCF1C-F191-45F2-9C9E-749621C38C76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D30CCF1C-F191-45F2-9C9E-749621C38C76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F8164ED-2B37-4C08-AD87-845EECB224A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F8164ED-2B37-4C08-AD87-845EECB224A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F8164ED-2B37-4C08-AD87-845EECB224A6}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{4F8164ED-2B37-4C08-AD87-845EECB224A6}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{4F8164ED-2B37-4C08-AD87-845EECB224A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F8164ED-2B37-4C08-AD87-845EECB224A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C729AAD-7626-4668-A7F1-35F7D240489D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C729AAD-7626-4668-A7F1-35F7D240489D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C729AAD-7626-4668-A7F1-35F7D240489D}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{0C729AAD-7626-4668-A7F1-35F7D240489D}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{0C729AAD-7626-4668-A7F1-35F7D240489D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C729AAD-7626-4668-A7F1-35F7D240489D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82A6DBC9-B1B4-44E4-9718-55DF930CD349}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82A6DBC9-B1B4-44E4-9718-55DF930CD349}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82A6DBC9-B1B4-44E4-9718-55DF930CD349}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{82A6DBC9-B1B4-44E4-9718-55DF930CD349}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{82A6DBC9-B1B4-44E4-9718-55DF930CD349}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82A6DBC9-B1B4-44E4-9718-55DF930CD349}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
