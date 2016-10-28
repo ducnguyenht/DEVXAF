@@ -1,5 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwoXpoModelsForDifferentDatabases.Win", "TwoXpoModelsForDifferentDatabases.Win\TwoXpoModelsForDifferentDatabases.Win.csproj", "{D05D93DF-312D-4D4E-B980-726871EC7833}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{1B5022FB-00A5-4D63-923E-CBC3BDD7DBD0}"
@@ -9,6 +11,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwoXpoModelsForDifferentDatabases.Web", "TwoXpoModelsForDifferentDatabases.Web\TwoXpoModelsForDifferentDatabases.Web.csproj", "{82A6DBC9-B1B4-44E4-9718-55DF930CD349}"
 EndProject
 Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		EasyTest|Any CPU = EasyTest|Any CPU
