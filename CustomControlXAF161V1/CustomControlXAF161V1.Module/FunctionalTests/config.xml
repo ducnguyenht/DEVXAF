@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Options xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" TestRunTimeLimit="3" EnableUpperCase="CustomControlXAF161V1.Web">
+	<Applications>
+		<!-- Web -->
+		<Application
+			Name="CustomControlXAF161V1.Web"
+			UseIISExpress="True"
+			Url="http://localhost:4030"
+			PhysicalPath="[WebAppBin]"
+			AdapterAssemblyName="[WebAdapterAssemblyName]"/>
+		<!-- For IIS -->
+		<!--Application
+			Name="CustomControlXAF161V1.Web"
+			Url="http://localhost/CustomControlXAF161V1.Web/Default.aspx"
+			AdapterAssemblyName="[WebAdapterAssemblyName]"/-->
+	</Applications>
+	<TestDatabases>
+		<Database xsi:type="TestMSSQLDatabase" Server="(localdb)\mssqllocaldb" DBName="CustomControlXAF161V1EasyTest"/>
+	</TestDatabases>
+
+	<Aliases>
+		<Alias Name="DomainUserName" Value="%USERDOMAIN%\%USERNAME%" />
+		<Alias Name="WebAdapterAssemblyName" Value="DevExpress.ExpressApp.EasyTest.WebAdapter.v16.1, Version=16.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+		<Alias Name="WebAppBin" Value="[ConfigPath]\..\..\CustomControlXAF161V1.Web" />
+	</Aliases>
+</Options>
