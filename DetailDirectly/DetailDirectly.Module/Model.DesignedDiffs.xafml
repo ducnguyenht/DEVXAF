@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="DetailDirectly" Logo="ExpressAppLogo">
+  <NavigationItems>
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="SiteAEng" ViewId="Test_DetailView" Caption="SiteAEng" IsNewNode="True" />
+          <Item Id="SiteAVn" ViewId="Test_DetailView" Caption="SiteAVn" IsNewNode="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="13.2.7.0" IsNewNode="True" />
+  </SchemaModules>
+</Application>
