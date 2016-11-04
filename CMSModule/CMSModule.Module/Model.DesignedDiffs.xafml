@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="CMSModule" Logo="ExpressAppLogo">
+  <NavigationItems>
+    <Items>
+      <Item Id="CMS" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="SiteA" Caption="www.SiteA.com" IsNewNode="True">
+            <Items IsNewNode="True">
+              <Item Id="Home" IsNewNode="True">
+                <Items IsNewNode="True">
+                  <Item Id="Banner" ViewId="1_Home_Banner" Caption="Banner" IsNewNode="True" />
+                  <Item Id="Câu chuyện cà phê" ObjectKey="3c9d9cb9-d40a-4f00-bf69-509e449db291" Caption="Câu chuyện cà phê" ViewId="Article_DetailView_Copy" IsNewNode="True" />
+                  <Item Id="Giới thiệu sản phẩm" Caption="Giới thiệu sản phẩm" ViewId="Article_ListView_Copy" IsNewNode="True" />
+                </Items>
+              </Item>
+            </Items>
+          </Item>
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="13.2.7.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <DashboardView Id="@Home" IsNewNode="True" />
+    <ListView Id="1_Home_Banner" ClassName="CMSModule.Module.BusinessObjects.CMS.ImageDocument" Caption="Banner" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Description" PropertyName="Description" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="PageComponent" PropertyName="PageComponent" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Title" PropertyName="Title" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Image" PropertyName="Image" Width="70" Index="0" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Article_DetailView_Copy" ClassName="CMSModule.Module.BusinessObjects.CMS.Contents.Article" IsNewNode="True">
+      <Items IsNewNode="True">
+        <PropertyEditor Id="Description" PropertyName="Description" IsNewNode="True" />
+        <PropertyEditor Id="DescriptionVN" PropertyName="DescriptionVN" IsNewNode="True" />
+        <PropertyEditor Id="Title" PropertyName="Title" IsNewNode="True" />
+        <PropertyEditor Id="TitleVN" PropertyName="TitleVN" IsNewNode="True" />
+      </Items>
+      <Layout IsNewNode="True">
+        <LayoutGroup Id="Main" IsNewNode="True">
+          <LayoutItem Id="Description" ViewItem="Description" Index="0" IsNewNode="True" />
+          <LayoutItem Id="DescriptionVN" ViewItem="DescriptionVN" Index="1" IsNewNode="True" />
+          <LayoutItem Id="Title" ViewItem="Title" Index="2" IsNewNode="True" />
+          <LayoutItem Id="TitleVN" ViewItem="TitleVN" Index="3" IsNewNode="True" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Article_ListView" Criteria="" />
+    <ListView Id="Article_ListView_Copy" ClassName="CMSModule.Module.BusinessObjects.CMS.Contents.Article" Criteria="[PageComponent] = '67b75485-e047-4f3d-9153-2bea20022e3a'" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Description" PropertyName="Description" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="DescriptionVN" PropertyName="DescriptionVN" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="PageComponent" PropertyName="PageComponent" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Title" PropertyName="Title" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="TitleVN" PropertyName="TitleVN" Width="70" Index="0" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Content_DetailView_GioiThieuSanPham" ClassName="CMSModule.Module.BusinessObjects.CMS.Contents.Content" IsNewNode="True">
+      <Items IsNewNode="True">
+        <PropertyEditor Id="Description" PropertyName="Description" IsNewNode="True" />
+        <PropertyEditor Id="Title" PropertyName="Title" IsNewNode="True" />
+      </Items>
+      <Layout IsNewNode="True">
+        <LayoutGroup Id="Main" Index="0" ShowCaption="False" IsNewNode="True">
+          <LayoutGroup Id="SimpleEditors" Index="0" ShowCaption="False" IsNewNode="True">
+            <LayoutGroup Id="Content" Index="0" ShowCaption="False" IsNewNode="True">
+              <LayoutItem Id="Title" ViewItem="Title" Index="0" IsNewNode="True" />
+              <LayoutItem Id="Description" ViewItem="Description" Index="1" IsNewNode="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Content_ListView_GioiThieuSanPham" ClassName="CMSModule.Module.BusinessObjects.CMS.Contents.Content" Caption="Giới thiệu sản phẩm" Criteria="[PageComponent.Oid] = {cd60b613-e16d-466f-9cda-c27160cdc100}" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Title" PropertyName="Title" Width="70" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="Description" PropertyName="Description" Width="70" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="PageComponent" PropertyName="PageComponent" Width="70" Index="2" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="Event_ListView" Criteria="[PageComponent.Oid] = {d34ccd60-53eb-4fe1-880e-33524a907a92}" />
+  </Views>
+</Application>
