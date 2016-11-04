@@ -46,7 +46,7 @@ namespace CMSModule.BusinessObjects.CMS.WebStructure
         #endregion Foreign Key
 
         #region Properties
-        [Browsable(false)]
+
         [Size(128), Indexed]
         public string Code
         {

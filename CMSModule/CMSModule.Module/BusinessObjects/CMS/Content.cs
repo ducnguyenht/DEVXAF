@@ -100,7 +100,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Contents
                 SetPropertyValue("PageComponent", ref _PageComponent, value);
             }
         }
-
+        [Size(SizeAttribute.Unlimited), Browsable(false)]
         public string DataJson
         {
             get

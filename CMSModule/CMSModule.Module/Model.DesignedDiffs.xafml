@@ -32,6 +32,34 @@
         <ColumnInfo Id="Image" PropertyName="Image" Width="70" Index="0" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="Article_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="39.145907473309606">
+            <LayoutGroup Id="Article" RelativeSize="100" Caption="Title VN">
+              <TabbedGroup Id="Item3" CaptionLocation="Top" Index="0" RelativeSize="100" IsNewNode="True">
+                <LayoutGroup Id="Item1" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" IsNewNode="True">
+                  <LayoutItem Id="TitleVN" ViewItem="TitleVN" SizeConstraintsType="Default" Index="0" RelativeSize="50" IsNewNode="True" />
+                  <LayoutItem Id="DescriptionVN" ViewItem="DescriptionVN" SizeConstraintsType="Default" Index="1" RelativeSize="50" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Index="1" RelativeSize="100" IsNewNode="True">
+                  <LayoutItem Id="Title" ViewItem="Title" SizeConstraintsType="Default" Index="0" RelativeSize="50" IsNewNode="True" />
+                  <LayoutItem Id="Description" ViewItem="Description" SizeConstraintsType="Default" Index="1" RelativeSize="50" IsNewNode="True" />
+                </LayoutGroup>
+              </TabbedGroup>
+              <LayoutItem Id="TitleVN" Removed="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Content" RelativeSize="48.3739837398374" Direction="Horizontal" Caption="Title" Index="2" Removed="True">
+              <LayoutItem Id="Title" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="60.854092526690394" Caption="SizeableEditors" Direction="Horizontal">
+            <LayoutItem Id="Description" Removed="True" />
+            <LayoutItem Id="DescriptionVN" Removed="True" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <DetailView Id="Article_DetailView_Copy" ClassName="CMSModule.Module.BusinessObjects.CMS.Contents.Article" IsNewNode="True">
       <Items IsNewNode="True">
         <PropertyEditor Id="Description" PropertyName="Description" IsNewNode="True" />
@@ -40,11 +68,22 @@
         <PropertyEditor Id="TitleVN" PropertyName="TitleVN" IsNewNode="True" />
       </Items>
       <Layout IsNewNode="True">
-        <LayoutGroup Id="Main" IsNewNode="True">
-          <LayoutItem Id="Description" ViewItem="Description" Index="0" IsNewNode="True" />
-          <LayoutItem Id="DescriptionVN" ViewItem="DescriptionVN" Index="1" IsNewNode="True" />
-          <LayoutItem Id="Title" ViewItem="Title" Index="2" IsNewNode="True" />
-          <LayoutItem Id="TitleVN" ViewItem="TitleVN" Index="3" IsNewNode="True" />
+        <LayoutGroup Id="Main" Index="0" ShowCaption="False" RelativeSize="100" IsNewNode="True">
+          <LayoutGroup Id="SimpleEditors" Index="0" ShowCaption="False" RelativeSize="39.145907473309606" IsNewNode="True">
+            <LayoutGroup Id="Article" Index="0" ShowCaption="False" RelativeSize="100" Caption="Title VN" IsNewNode="True">
+              <TabbedGroup Id="Item3" CaptionLocation="Top" Index="0" RelativeSize="100" IsNewNode="True">
+                <LayoutGroup Id="Item1" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" IsNewNode="True">
+                  <LayoutItem Id="TitleVN" ViewItem="TitleVN" SizeConstraintsType="Default" Index="0" RelativeSize="50" IsNewNode="True" />
+                  <LayoutItem Id="DescriptionVN" ViewItem="DescriptionVN" SizeConstraintsType="Default" Index="1" RelativeSize="50" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Index="1" RelativeSize="100" IsNewNode="True">
+                  <LayoutItem Id="Title" ViewItem="Title" SizeConstraintsType="Default" Index="0" RelativeSize="50" IsNewNode="True" />
+                  <LayoutItem Id="Description" ViewItem="Description" SizeConstraintsType="Default" Index="1" RelativeSize="50" IsNewNode="True" />
+                </LayoutGroup>
+              </TabbedGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" Index="1" Direction="Horizontal" ShowCaption="False" RelativeSize="60.854092526690394" IsNewNode="True" />
         </LayoutGroup>
       </Layout>
     </DetailView>
