@@ -4,6 +4,7 @@
     <Items>
       <Item Id="Default">
         <Items>
+          <Item Id="BBB" ViewId="Test_DetailView" ObjectKey="995620d9-c1e8-4f37-b0b4-bbc1dc5715ab" Caption="Test AAA" IsNewNode="True" />
           <Item Id="SiteAEng" ViewId="Test_DetailView" Caption="SiteAEng" IsNewNode="True" />
           <Item Id="SiteAVn" ViewId="Test_DetailView" Caption="SiteAVn" IsNewNode="True" />
         </Items>
@@ -13,4 +14,25 @@
   <SchemaModules>
     <SchemaModule Name="SystemModule" Version="13.2.7.0" IsNewNode="True" />
   </SchemaModules>
+  <Views>
+    <DetailView Id="Test_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="Test" RelativeSize="100">
+              <LayoutItem Id="Code" SizeConstraintsType="Default" RelativeSize="4.2666666666666666" />
+              <LayoutItem Id="Name" SizeConstraintsType="Default" RelativeSize="3.2" />
+              <TabbedGroup Id="Item2" CaptionLocation="Top" Index="2" RelativeSize="92.533333333333331" IsNewNode="True">
+                <LayoutGroup Id="Item1" ShowCaption="True" Caption="Tieng Viet" CaptionLocation="Top" Index="0" RelativeSize="100" IsNewNode="True">
+                  <LayoutItem Id="Description" ViewItem="Description" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Item3" ShowCaption="True" CaptionLocation="Top" Direction="Horizontal" Index="1" RelativeSize="0" Caption="Tieng Anh" IsNewNode="True" />
+              </TabbedGroup>
+              <LayoutItem Id="Description" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
 </Application>
