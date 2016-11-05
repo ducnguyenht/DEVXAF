@@ -8,8 +8,8 @@
             <Items IsNewNode="True">
               <Item Id="Home" IsNewNode="True">
                 <Items IsNewNode="True">
-                  <Item Id="Banner" ViewId="1_Home_Banner" Caption="Banner" IsNewNode="True" />
-                  <Item Id="Câu chuyện cà phê" ObjectKey="3c9d9cb9-d40a-4f00-bf69-509e449db291" Caption="Câu chuyện cà phê" ViewId="Article_DetailView_Copy" IsNewNode="True" />
+                  <Item Id="Banner" Caption="Banner" ViewId="ImageDocument_ListView_Home_Banner" IsNewNode="True" />
+                  <Item Id="Câu chuyện cà phê" ObjectKey="b715ce48-02cb-4e97-bd80-311a97faf2b2" Caption="Câu chuyện cà phê" ViewId="Article_DetailView_Copy" IsNewNode="True" />
                   <Item Id="Giới thiệu sản phẩm" Caption="Giới thiệu sản phẩm" ViewId="Article_ListView_Copy" IsNewNode="True" />
                 </Items>
               </Item>
@@ -24,14 +24,6 @@
   </SchemaModules>
   <Views>
     <DashboardView Id="@Home" IsNewNode="True" />
-    <ListView Id="1_Home_Banner" ClassName="CMSModule.Module.BusinessObjects.CMS.ImageDocument" Caption="Banner" IsNewNode="True">
-      <Columns IsNewNode="True">
-        <ColumnInfo Id="Description" PropertyName="Description" Width="70" Index="-1" IsNewNode="True" />
-        <ColumnInfo Id="PageComponent" PropertyName="PageComponent" Width="70" Index="-1" IsNewNode="True" />
-        <ColumnInfo Id="Title" PropertyName="Title" Width="70" Index="-1" IsNewNode="True" />
-        <ColumnInfo Id="Image" PropertyName="Image" Width="70" Index="0" IsNewNode="True" />
-      </Columns>
-    </ListView>
     <DetailView Id="Article_DetailView">
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
@@ -88,7 +80,7 @@
       </Layout>
     </DetailView>
     <ListView Id="Article_ListView" Criteria="" />
-    <ListView Id="Article_ListView_Copy" ClassName="CMSModule.Module.BusinessObjects.CMS.Contents.Article" Criteria="[PageComponent] = '67b75485-e047-4f3d-9153-2bea20022e3a'" IsNewNode="True">
+    <ListView Id="Article_ListView_Copy" ClassName="CMSModule.Module.BusinessObjects.CMS.Contents.Article" Criteria="[PageComponent] = '0ed960d3-907c-43df-b05f-e35c7a3cd9e9'" IsNewNode="True">
       <Columns IsNewNode="True">
         <ColumnInfo Id="Description" PropertyName="Description" Width="70" Index="-1" IsNewNode="True" />
         <ColumnInfo Id="DescriptionVN" PropertyName="DescriptionVN" Width="70" Index="-1" IsNewNode="True" />
@@ -121,5 +113,13 @@
       </Columns>
     </ListView>
     <ListView Id="Event_ListView" Criteria="[PageComponent.Oid] = {d34ccd60-53eb-4fe1-880e-33524a907a92}" />
+    <ListView Id="ImageDocument_ListView_Home_Banner" ClassName="CMSModule.Module.BusinessObjects.CMS.ImageDocument" Caption="Banner" Criteria="[PageComponent] = '4da5f8f9-e5be-4854-9080-437cc9c4bab0'" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Description" PropertyName="Description" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="PageComponent" PropertyName="PageComponent" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Title" PropertyName="Title" Width="70" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Image" PropertyName="Image" Width="70" Index="0" IsNewNode="True" />
+      </Columns>
+    </ListView>
   </Views>
 </Application>

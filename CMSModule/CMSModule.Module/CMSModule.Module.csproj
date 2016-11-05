@@ -94,6 +94,12 @@
     <Compile Include="Controllers\CMSNewObject.Designer.cs">
       <DependentUpon>CMSNewObject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ViewController1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\ViewController1.designer.cs">
+      <DependentUpon>ViewController1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Module.cs">
       <SubType>Component</SubType>
     </Compile>
