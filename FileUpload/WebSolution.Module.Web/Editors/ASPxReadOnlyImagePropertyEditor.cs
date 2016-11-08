@@ -14,6 +14,7 @@ using DevExpress.ExpressApp.SystemModule;
 using System.Diagnostics;
 using DevExpress.ExpressApp.Web;
 using DevExpress.Web.ASPxObjectContainer;
+using System.Web;
 
 namespace WebSolution.Module.Web.Editors
 {
@@ -49,8 +50,12 @@ namespace WebSolution.Module.Web.Editors
                 {
                     try
                     {
-                        int targetWidth = (int)this.ObjectTypeInfo.FindMember(attr.WidthProperty).GetValue(this.CurrentObject);
-                        int targetHeight = (int)this.ObjectTypeInfo.FindMember(attr.HeightProperty).GetValue(this.CurrentObject);
+                        
+                        var filePath = this.CurrentObject.GetType().GetProperty("ImageUrl").GetValue(this.CurrentObject, null).ToString();
+                        string serverFilePath = HttpContext.Current.Request.MapPath(filePath);
+                        var image = System.Drawing.Image.FromFile(serverFilePath, true);
+                        int targetWidth = image.Width; //(int)this.ObjectTypeInfo.FindMember(attr.WidthProperty).GetValue(this.CurrentObject);
+                        int targetHeight = image.Height;//(int)this.ObjectTypeInfo.FindMember(attr.HeightProperty).GetValue(this.CurrentObject);
                         int newWidth = attr.Width;
                         int newHeight = attr.Height;
                         if (targetWidth != 0 && targetHeight != 0)
