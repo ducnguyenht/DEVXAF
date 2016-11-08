@@ -74,7 +74,12 @@ namespace WebSolution.Module
                 {
                     string filePath = HttpContext.Current.Request.MapPath("~/FileData/" + FileData.FileName);
                     Stream stream = new FileStream(filePath, FileMode.CreateNew, FileAccess.Write);
-                    FileData.SaveToStream(stream);
+                    //FileData.SaveToStream(stream);
+                    ////Bitmap bitmap = new Bitmap(stream);
+                    //System.Drawing.Image currentPicture = System.Drawing.Image.FromFile(FileData.FileName);
+                    ////var imgcurrentPicture = Image.FromFile(filePath);
+                    //Image thumb = currentPicture.GetThumbnailImage(120, 120, () => false, IntPtr.Zero);
+                    //thumb.Save(Path.ChangeExtension(FileData.FileName, "thumb"));
                     ImageUrl = "FileData/" + FileData.FileName;
                     stream.Close();
                     FileData.Clear();
