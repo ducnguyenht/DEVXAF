@@ -12,6 +12,7 @@ namespace WebSolution.Web {
         private DevExpress.ExpressApp.SystemModule.SystemModule module1;
         private DevExpress.ExpressApp.Web.SystemModule.SystemAspNetModule module2;
         private WebSolution.Module.WebSolutionModule module3;
+        private DevExpress.ExpressApp.FileAttachments.Web.FileAttachmentsAspNetModule fileAttachmentsAspNetModule1;
         private WebSolution.Module.Web.WebSolutionAspNetModule module4;
 
         public WebSolutionAspNetApplication() {
@@ -54,6 +55,7 @@ namespace WebSolution.Web {
             this.module2 = new DevExpress.ExpressApp.Web.SystemModule.SystemAspNetModule();
             this.module3 = new WebSolution.Module.WebSolutionModule();
             this.module4 = new WebSolution.Module.Web.WebSolutionAspNetModule();
+            this.fileAttachmentsAspNetModule1 = new DevExpress.ExpressApp.FileAttachments.Web.FileAttachmentsAspNetModule();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // WebSolutionAspNetApplication
@@ -62,8 +64,8 @@ namespace WebSolution.Web {
             this.Modules.Add(this.module1);
             this.Modules.Add(this.module2);
             this.Modules.Add(this.module3);
+            this.Modules.Add(this.fileAttachmentsAspNetModule1);
             this.Modules.Add(this.module4);
-
             this.DatabaseVersionMismatch += new System.EventHandler<DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs>(this.WebSolutionAspNetApplication_DatabaseVersionMismatch);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
