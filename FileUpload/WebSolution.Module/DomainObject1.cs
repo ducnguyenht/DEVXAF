@@ -21,10 +21,10 @@ namespace WebSolution.Module
             : base(session)
         {
         }
-        [Aggregated]
-        [ExpandObjectMembers(ExpandObjectMembers.Never)]
+
         private FileData _file;
-        public FileData File
+        [NonPersistent]
+        public FileData FileData
         {
             get
             {
@@ -68,14 +68,24 @@ namespace WebSolution.Module
         protected override void OnSaving()
         {
             base.OnSaving();
-            if (File != null)
+            if (FileData != null)
             {
-                string filePath = HttpContext.Current.Request.MapPath("~/FileData/" + File.FileName);
-                Stream stream = new FileStream(filePath, FileMode.CreateNew, FileAccess.Write);
-                File.SaveToStream(stream);
-                ImageUrl = "~/FileData/" + File.FileName;
-                File.Clear();
+                if (!FileData.IsEmpty)
+                {
+                    string filePath = HttpContext.Current.Request.MapPath("~/FileData/" + FileData.FileName);
+                    Stream stream = new FileStream(filePath, FileMode.CreateNew, FileAccess.Write);
+                    FileData.SaveToStream(stream);
+                    ImageUrl = "FileData/" + FileData.FileName;
+                    stream.Close();
+                    FileData.Clear();
+                }
             }
+        }
+        protected override void OnDeleting()
+        {
+            base.OnDeleting();
+            string filePath = HttpContext.Current.Request.MapPath(ImageUrl);
+            File.Delete(filePath);
         }
     }
 }
