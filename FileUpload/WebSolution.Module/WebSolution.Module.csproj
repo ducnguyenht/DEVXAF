@@ -84,7 +84,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassA.cs" />
     <Compile Include="DomainObject1.cs" />
     <Compile Include="Editors\ASPxReadOnlyImageSizeAttribute.cs" />
     <Compile Include="Module.cs">
