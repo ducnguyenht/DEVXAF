@@ -8,6 +8,8 @@ using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using System.Drawing;
 using WebSolution.Module.Web.Editors;
+using System.Web;
+using System.IO;
 
 namespace WebSolution.Module
 {
@@ -66,6 +68,14 @@ namespace WebSolution.Module
         protected override void OnSaving()
         {
             base.OnSaving();
+            if (File != null)
+            {
+                string filePath = HttpContext.Current.Request.MapPath("~/FileData/" + File.FileName);
+                Stream stream = new FileStream(filePath, FileMode.CreateNew, FileAccess.Write);
+                File.SaveToStream(stream);
+                ImageUrl = "~/FileData/" + File.FileName;
+                File.Clear();
+            }
         }
     }
 }

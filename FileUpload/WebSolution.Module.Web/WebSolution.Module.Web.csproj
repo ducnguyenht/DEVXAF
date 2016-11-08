@@ -104,12 +104,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Editors\ASPxReadOnlyImagePropertyEditor.cs" />
-    <Compile Include="ViewController1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ViewController1.Designer.cs">
-      <DependentUpon>ViewController1.cs</DependentUpon>
-    </Compile>
     <Compile Include="WebModule.cs">
       <SubType>Component</SubType>
     </Compile>
