@@ -1,5 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseFunctionCriteriaOperators.Module", "UseFunctionCriteriaOperators.Module\UseFunctionCriteriaOperators.Module.csproj", "{7131633A-6F96-4814-A2B0-182120DFE632}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseFunctionCriteriaOperators.Web", "UseFunctionCriteriaOperators.Web\UseFunctionCriteriaOperators.Web.csproj", "{B863768C-1E24-47EB-B014-A0FA90775B19}"
@@ -7,6 +9,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseFunctionCriteriaOperators.Win", "UseFunctionCriteriaOperators.Win\UseFunctionCriteriaOperators.Win.csproj", "{9DD4CA98-F778-4022-A26B-E2E2C5E62A51}"
 EndProject
 Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		EasyTest|Any CPU = EasyTest|Any CPU
