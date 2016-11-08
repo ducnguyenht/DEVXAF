@@ -36,10 +36,10 @@ namespace WebSolution.Module
             }
         }
 
-
+        //can refesh listview
         [EditorAlias("ASPxReadOnlyImagePropertyEditor")]
         [ASPxReadOnlyImageSizeAttribute(100, 100, "Width", "Height")]
-        [VisibleInListView(false), VisibleInLookupListView(false)]
+        [VisibleInLookupListView(false)]//VisibleInListView(false),
         public string PresentationImage
         {
             get

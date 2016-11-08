@@ -49,8 +49,7 @@ namespace WebSolution.Module.Web.Editors
                 if (this.CurrentObject != null)
                 {
                     try
-                    {
-                        
+                    {  
                         var filePath = this.CurrentObject.GetType().GetProperty("ImageUrl").GetValue(this.CurrentObject, null).ToString();
                         string serverFilePath = HttpContext.Current.Request.MapPath(filePath);
                         var image = System.Drawing.Image.FromFile(serverFilePath, true);
