@@ -91,7 +91,6 @@ namespace WebSolution.Module
                     //string path = "FileData/" + Path.ChangeExtension(FileData.FileName, "thumb");
                     //thumbImage.Save("FileData/" + thumbPath);//+ Path.ChangeExtension(FileData.FileName, "thumb"));
                     thumbImage.Save(HttpContext.Current.Request.MapPath("~/FileData/" + thumbPath));
-
                     ImageUrl = "FileData/" + FileData.FileName;
                     stream.Close();
                     FileData.Clear();
