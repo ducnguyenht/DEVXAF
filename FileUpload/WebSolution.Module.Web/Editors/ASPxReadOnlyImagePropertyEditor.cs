@@ -44,6 +44,7 @@ namespace WebSolution.Module.Web.Editors
         private ASPxObjectContainer CreateContainer()
         {
             ASPxObjectContainer container = new ASPxObjectContainer();
+            container.Width = 100;
             //ASPxReadOnlyImageSizeAttribute attr = this.MemberInfo.FindAttribute<ASPxReadOnlyImageSizeAttribute>();
             //if ((string)PropertyValue != "")
             //{
