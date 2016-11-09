@@ -7,7 +7,6 @@ using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using System.Drawing;
-using WebSolution.Module.Web.Editors;
 using System.Web;
 using System.IO;
 using System.ComponentModel;
