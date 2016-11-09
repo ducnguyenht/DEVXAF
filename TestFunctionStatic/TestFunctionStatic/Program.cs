@@ -42,6 +42,15 @@ namespace TestFunctionStatic
         static void Main(string[] args)
         {
             Debug.WriteLine(RejectMarks("Ô Bài Trang 1", "-"));
+            //string s = "asdfsdfdf.sdfsd.wer";
+            //string aa = s.Substring(0, s.LastIndexOf('.')) + "_thumb" + s.Substring(idx + 1);
+
+            string s = "Hinh1.png";
+            //int idx = s.LastIndexOf('.');
+            //Console.WriteLine(s.Substring(0, s.LastIndexOf('.'))); // "My. name. is Bond"
+            //Console.WriteLine(s.Substring(s.LastIndexOf('.') + 1)); // "_James Bond!"
+            string bbb = s.Substring(0, s.LastIndexOf('.')) + "_thumb" + s.Substring(s.LastIndexOf('.'));
+            Debug.WriteLine(bbb);
         }
     }
 
