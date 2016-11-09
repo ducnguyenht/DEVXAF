@@ -118,11 +118,8 @@ namespace WebSolution.Module
         protected override void OnDeleting()
         {
             base.OnDeleting();
-            string filePath = HttpContext.Current.Request.MapPath(ImageUrl);
-            string thumbPath = "";
-            thumbPath = ToThumb(ImageUrl);
-            File.Delete(filePath);
-            File.Delete(HttpContext.Current.Request.MapPath(thumbPath));
+            File.Delete(HttpContext.Current.Request.MapPath(ImageUrl));
+            File.Delete(HttpContext.Current.Request.MapPath(ToThumb(ImageUrl)));
         }
     }
 }
