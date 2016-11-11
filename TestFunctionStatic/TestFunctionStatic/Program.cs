@@ -51,6 +51,15 @@ namespace TestFunctionStatic
             //Console.WriteLine(s.Substring(s.LastIndexOf('.') + 1)); // "_James Bond!"
             string bbb = s.Substring(0, s.LastIndexOf('.')) + "_thumb" + s.Substring(s.LastIndexOf('.'));
             Debug.WriteLine(bbb);
+            System.Uri uri = new Uri("http://localhost:1173/FileData/Chrysanthemum.jpg");
+            string uriWithoutScheme =  uri.PathAndQuery;
+            var urii = new Uri("http://www.example.com:80/dir/?query=test");
+            var clean = urii.GetComponents(UriComponents.Scheme |
+                                           UriComponents.Host |
+                                           UriComponents.PathAndQuery,
+                                           UriFormat.UriEscaped);
+            Debug.WriteLine(clean);
+            Debug.WriteLine(uriWithoutScheme);
         }
     }
 
