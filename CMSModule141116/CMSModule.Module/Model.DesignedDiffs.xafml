@@ -19,6 +19,7 @@
                 </Items>
               </Item>
               <Item Id="Explore Nha Trang" Index="7" ViewId="ExploreNhaTrang_ListView" IsNewNode="True" />
+              <Item Id="Contact" ViewId="Contact_DetailView" IsNewNode="True" />
             </Items>
           </Item>
         </Items>
@@ -114,6 +115,65 @@
               <LayoutItem Id="TitleVN" RelativeSize="51.612903225806448" Index="0" Removed="True" />
               <LayoutItem Id="Title" RelativeSize="37.2093023255814" Removed="True" />
             </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Contact_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="64.190981432360743">
+            <TabbedGroup Id="Item1" CaptionLocation="Top" Index="0" RelativeSize="42.97520661157025" IsNewNode="True">
+              <LayoutGroup Id="Contact" ShowCaption="True" Direction="Vertical" Index="0" RelativeSize="100" Caption="English" IsNewNode="True">
+                <LayoutGroup Id="Contact_col1" ShowCaption="False" Index="0" RelativeSize="100" IsNewNode="True">
+                  <LayoutItem Id="Title" ViewItem="Title" Index="0" RelativeSize="50" IsNewNode="True" />
+                  <LayoutItem Id="Routing" ViewItem="Routing" Index="1" RelativeSize="50" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="1" Caption="Vietnamese" RelativeSize="100" IsNewNode="True">
+                <LayoutItem Id="TitleVN" ViewItem="TitleVN" Index="0" RelativeSize="50" IsNewNode="True" />
+                <LayoutItem Id="RoutingVN" ViewItem="RoutingVN" Index="1" RelativeSize="50" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Item3" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="2" Caption="Russian" RelativeSize="100" IsNewNode="True">
+                <LayoutItem Id="TitleRU" ViewItem="TitleRU" Index="0" RelativeSize="50" IsNewNode="True" />
+                <LayoutItem Id="RoutingRU" ViewItem="RoutingRU" Index="1" RelativeSize="50" IsNewNode="True" />
+              </LayoutGroup>
+            </TabbedGroup>
+            <LayoutItem Id="Address" ViewItem="Address" Index="1" RelativeSize="22.314049586776861" IsNewNode="True" />
+            <LayoutGroup Id="Auto2422017d-dc4a-4d43-9e5d-6a35b12eaf16" ShowCaption="False" Caption="Auto2422017d-dc4a-4d43-9e5d-6a35b12eaf16(14)" Direction="Horizontal" Index="2" RelativeSize="34.710743801652896" IsNewNode="True">
+              <LayoutGroup Id="Auto6e5b90bb-abf6-4127-939a-b137e580e583" ShowCaption="False" Caption="Auto6e5b90bb-abf6-4127-939a-b137e580e583(15)" Index="0" RelativeSize="49.662921348314605" IsNewNode="True">
+                <LayoutItem Id="Phone" ViewItem="Phone" Index="0" RelativeSize="35.714285714285715" IsNewNode="True" />
+                <LayoutItem Id="Email" ViewItem="Email" Index="1" RelativeSize="28.571428571428573" IsNewNode="True" />
+                <LayoutItem Id="Website" ViewItem="Website" Index="2" RelativeSize="35.714285714285715" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Auto316030c2-4f5d-4468-b7b4-2d3603c2aa4a" ShowCaption="False" Caption="Auto316030c2-4f5d-4468-b7b4-2d3603c2aa4a(19)" Index="1" RelativeSize="50.337078651685395" IsNewNode="True">
+                <LayoutItem Id="MobilePhone" ViewItem="MobilePhone" Index="0" RelativeSize="35.714285714285715" IsNewNode="True" />
+                <LayoutItem Id="Longitude" ViewItem="Longitude" Index="1" RelativeSize="28.571428571428573" IsNewNode="True" />
+                <LayoutItem Id="Latitude" ViewItem="Latitude" Index="2" RelativeSize="35.714285714285715" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="Contact" RelativeSize="100" Removed="True">
+              <LayoutGroup Id="Contact_col1" RelativeSize="50">
+                <LayoutItem Id="Title" Index="0" RelativeSize="23.529411764705884" />
+                <LayoutItem Id="TitleVN" Index="1" RelativeSize="17.647058823529413" />
+                <LayoutItem Id="TitleRU" Index="2" RelativeSize="17.647058823529413" />
+                <LayoutItem Id="Phone" Index="3" RelativeSize="41.1764705882353" />
+                <LayoutItem Id="Code" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Contact_col2" RelativeSize="50">
+                <LayoutItem Id="Email" RelativeSize="17.647058823529413" />
+                <LayoutItem Id="Latitude" RelativeSize="17.647058823529413" />
+                <LayoutItem Id="Longitude" RelativeSize="23.529411764705884" />
+                <LayoutItem Id="MobilePhone" RelativeSize="23.529411764705884" />
+                <LayoutItem Id="Website" RelativeSize="17.647058823529413" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="ContactList_Group" Direction="Vertical" RelativeSize="32.095490716180372" Index="1">
+            <LayoutItem Id="ContactList" RelativeSize="100" />
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" Caption="Address" Direction="Horizontal" Index="2" RelativeSize="3.7135278514588861">
+            <LayoutItem Id="Address" Removed="True" />
           </LayoutGroup>
         </LayoutGroup>
       </Layout>

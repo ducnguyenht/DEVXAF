@@ -85,7 +85,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
                 SetPropertyValue("Routing", ref _Routing, value);
             }
         }
-        
+
         [Size(SizeAttribute.Unlimited), ModelDefault("PropertyEditorType", "DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor")]
         public string Content
         {
@@ -125,7 +125,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
                 SetPropertyValue("RoutingVN", ref _RoutingVN, value);
             }
         }
-        
+
         [Size(SizeAttribute.Unlimited), ModelDefault("PropertyEditorType", "DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor")]
         public string ContentVN
         {

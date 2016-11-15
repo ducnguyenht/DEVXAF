@@ -28,6 +28,12 @@ namespace CMSModule.Module.DatabaseUpdate
                 theObject = ObjectSpace.CreateObject<About>();
                 theObject.Code = About;
             }
+            Contact Contact = ObjectSpace.FindObject<Contact>(CriteriaOperator.Parse("Code=?", "Contact"));
+            if (Contact == null)
+            {
+                Contact = ObjectSpace.CreateObject<Contact>();
+                Contact.Code = "Contact";
+            }
             ObjectSpace.CommitChanges();
             //string name = "MyName";
             //DomainObject1 theObject = ObjectSpace.FindObject<DomainObject1>(CriteriaOperator.Parse("Name=?", name));

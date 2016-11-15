@@ -91,6 +91,8 @@
   <ItemGroup>
     <Compile Include="BusinessObjects\CMS\Galina\About.cs" />
     <Compile Include="BusinessObjects\CMS\Galina\Accomodation.cs" />
+    <Compile Include="BusinessObjects\CMS\Galina\Contact.cs" />
+    <Compile Include="BusinessObjects\CMS\Galina\ContactList.cs" />
     <Compile Include="BusinessObjects\CMS\Galina\Dining.cs" />
     <Compile Include="BusinessObjects\CMS\Galina\ExploreNhaTrang.cs" />
     <Compile Include="BusinessObjects\CMS\Galina\HeathCare.cs" />
@@ -107,6 +109,12 @@
     </Compile>
     <Compile Include="Controllers\CMS\Galina\AboutViewController.Designer.cs">
       <DependentUpon>AboutViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\CMS\Galina\ContactViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\CMS\Galina\ContactViewController.Designer.cs">
+      <DependentUpon>ContactViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseUpdate\Updater.cs" />
     <Compile Include="Editors\ASPxReadOnlyImagePropertyEditor.cs" />
