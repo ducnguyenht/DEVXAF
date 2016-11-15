@@ -102,6 +102,7 @@
     <Compile Include="BusinessObjects\CMS\Galina\MudBathAndSpaPremiumService.cs" />
     <Compile Include="BusinessObjects\CMS\Galina\MudBathAndSpaRegularService.cs" />
     <Compile Include="BusinessObjects\CMS\Galina\Picture.cs" />
+    <Compile Include="BusinessObjects\CMS\Galina\Promotion.cs" />
     <Compile Include="BusinessObjects\CMS\Galina\Wedding.cs" />
     <Compile Include="BusinessObjects\CMS\Galina\WeddingAdvice.cs" />
     <Compile Include="Controllers\CMS\Galina\AboutViewController.cs">
