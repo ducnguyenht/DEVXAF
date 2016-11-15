@@ -8,7 +8,6 @@
     XpoDAO dao = new XpoDAO();
     var uow = dao.ProvideUnitOfWork();
     var result = new XPCollection<About>(uow, new BinaryOperator("Code", "About")).FirstOrDefault();
-
 }
 
 @{
@@ -18,6 +17,19 @@
 <h2>@result.Title</h2>
 
 
-test : @result.Code </br>
-test : @result.Routing </br>
-test :@Html.Raw(result.Content)  </br>
+title : @result.Title </br>
+routing : @result.Routing </br>
+Content :@Html.Raw(result.Content)  </br>
+
+
+title : @result.TitleVN </br>
+routing : @result.RoutingVN </br>
+
+title : @result.TitleRU </br>
+routing : @result.RoutingRU </br>
+
+Images
+@foreach (var item in result.Pictures)
+{
+    <img src="@item.ImageUrl" alt="Image" style="width:304px;height:228px;"/><br/>
+}
