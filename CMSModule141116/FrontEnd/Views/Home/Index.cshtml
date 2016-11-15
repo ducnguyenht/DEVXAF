@@ -5,9 +5,12 @@
 
 
 @{
-    XpoDAO dao = new XpoDAO();
-    var uow = dao.ProvideUnitOfWork();
-    var result = new XPCollection<About>(uow, new BinaryOperator("Code", "About")).FirstOrDefault();
+    //XpoDAO dao = new XpoDAO();
+    //var uow = dao.ProvideUnitOfWork();
+    //var result = new XPCollection<About>(uow, new BinaryOperator("Code", "About")).FirstOrDefault();
+    var result = new XPCollection<About>(new XpoDAO().ProvideUnitOfWork(), 
+        new BinaryOperator("Code", "About")).FirstOrDefault();
+
 }
 
 @{
