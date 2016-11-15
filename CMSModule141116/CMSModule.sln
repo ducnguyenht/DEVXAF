@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMSModule.Module.Web", "CMS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMSModule.Web", "CMSModule.Web\CMSModule.Web.csproj", "{82A6DBC9-B1B4-44E4-9718-55DF930CD349}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "FrontEnd\FrontEnd.csproj", "{EEF4A764-AD86-4E8A-A317-58E685DCA666}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -38,6 +40,12 @@ Global
 		{82A6DBC9-B1B4-44E4-9718-55DF930CD349}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
 		{82A6DBC9-B1B4-44E4-9718-55DF930CD349}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82A6DBC9-B1B4-44E4-9718-55DF930CD349}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEF4A764-AD86-4E8A-A317-58E685DCA666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEF4A764-AD86-4E8A-A317-58E685DCA666}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEF4A764-AD86-4E8A-A317-58E685DCA666}.EasyTest|Any CPU.ActiveCfg = Release|Any CPU
+		{EEF4A764-AD86-4E8A-A317-58E685DCA666}.EasyTest|Any CPU.Build.0 = Release|Any CPU
+		{EEF4A764-AD86-4E8A-A317-58E685DCA666}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEF4A764-AD86-4E8A-A317-58E685DCA666}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
