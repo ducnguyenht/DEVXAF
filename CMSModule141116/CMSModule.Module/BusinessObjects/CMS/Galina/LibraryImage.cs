@@ -75,7 +75,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
                 SetPropertyValue("TitleRU", ref _TitleRU, value);
             }
         }
-        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        [Size(SizeAttribute.DefaultStringMappingFieldSize), VisibleInListView(false)]
         public string Routing
         {
             get
@@ -89,7 +89,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
         }
 
 
-        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        [Size(SizeAttribute.DefaultStringMappingFieldSize), VisibleInListView(false)]
         public string RoutingVN
         {
             get
@@ -102,7 +102,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
             }
         }
 
-        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        [Size(SizeAttribute.DefaultStringMappingFieldSize), VisibleInListView(false)]
         public string RoutingRU
         {
             get
@@ -137,6 +137,78 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
                 case "TitleRU":
                     RoutingRU = ValidateSystem.RejectMarks(TitleRU, "-");
                     break;
+            }
+        }
+
+        [EditorAlias("ASPxReadOnlyImagePropertyEditor")]
+        [VisibleInListView(true), VisibleInLookupListView(false)]//VisibleInListView(false),
+        //[XafDisplayName("Image")]
+        public string PresentationThumbnail
+        {
+            get
+            {
+                if (PresentationImageUrl != null)
+                {
+                    return PresentationImageUrl.Substring(0, PresentationImageUrl.LastIndexOf('.')) + "_thumb" + PresentationImageUrl.Substring(PresentationImageUrl.LastIndexOf('.'));
+                }
+                return "";
+            }
+        }
+
+        private string _PresentationImageUrl;
+        [Size(1028), ModelDefault("RowCount", "1"), VisibleInListView(false)]//, Browsable(false)]
+        public string PresentationImageUrl
+        {
+            get
+            {
+                return _PresentationImageUrl;
+            }
+            set
+            {
+                SetPropertyValue("PresentationImageUrl", ref _PresentationImageUrl, value);
+            }
+        }
+
+        private FileData _FileData;
+        [NonPersistent, XafDisplayName("Choose Image"), VisibleInListView(false)]//, 
+        public FileData FileData
+        {
+            get
+            {
+                return _FileData;
+            }
+            set
+            {
+                SetPropertyValue("FileData", ref _FileData, value);
+            }
+        }
+        protected override void OnSaving()
+        {
+            base.OnSaving();
+            if (FileData != null)
+            {
+                if (!FileData.IsEmpty)
+                {
+                    var request = System.Web.HttpContext.Current.Request;
+                    var requestUrl = request.Url;
+                    string filePath = request.MapPath("~/FileData/" + FileData.FileName);
+                    if (!System.IO.File.Exists(filePath))
+                    {
+                        System.IO.Stream stream = new System.IO.FileStream(filePath, System.IO.FileMode.Create, System.IO.FileAccess.Write);
+                        FileData.SaveToStream(stream);
+                        var currentPicture = System.Drawing.Image.FromStream(new System.IO.MemoryStream(FileData.Content));
+                        var thumbImage = ImageHelper.ScaleImage(currentPicture, 100);
+                        int fileExtPos = FileData.FileName.LastIndexOf(".");
+                        string thumbPath = "";
+                        if (fileExtPos >= 0)
+                            thumbPath = FileData.FileName.Substring(0, fileExtPos) + "_thumb" + System.IO.Path.GetExtension(FileData.FileName);
+                        thumbImage.Save(request.MapPath("~/FileData/" + thumbPath));
+                        stream.Close();
+
+                    }
+                    PresentationImageUrl = requestUrl.Scheme + "://" + requestUrl.Host + ":" + requestUrl.Port + "/FileData/" + FileData.FileName;
+                    FileData.Clear();
+                }
             }
         }
     }

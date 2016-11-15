@@ -109,7 +109,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
 
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        [XafDisplayName("Name")]
+        [XafDisplayName("Name"), VisibleInListView(false)]
         public string SubName
         {
             get
@@ -123,7 +123,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
         }
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        [XafDisplayName("Title")]
+        [XafDisplayName("Title"), VisibleInListView(false)]
         public string SubTitle
         {
             get
@@ -201,7 +201,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
         }
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        [XafDisplayName("Name VN")]
+        [XafDisplayName("Name VN"), VisibleInListView(false)]
         public string SubNameVN
         {
             get
@@ -215,7 +215,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
         }
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        [XafDisplayName("Title VN")]
+        [XafDisplayName("Title VN"), VisibleInListView(false)]
         public string SubTitleVN
         {
             get
@@ -296,7 +296,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
 
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        [XafDisplayName("Name RU")]
+        [XafDisplayName("Name RU"), VisibleInListView(false)]
         public string SubNameRU
         {
             get
@@ -309,7 +309,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
             }
         }
 
-        [XafDisplayName("Title RU")]
+        [XafDisplayName("Title RU"), VisibleInListView(false)]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string SubTitleRU
         {

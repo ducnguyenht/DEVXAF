@@ -92,6 +92,7 @@
     <Compile Include="BusinessObjects\CMS\Galina\About.cs" />
     <Compile Include="BusinessObjects\CMS\Galina\Accomodation.cs" />
     <Compile Include="BusinessObjects\CMS\Galina\Dining.cs" />
+    <Compile Include="BusinessObjects\CMS\Galina\ExploreNhaTrang.cs" />
     <Compile Include="BusinessObjects\CMS\Galina\HeathCare.cs" />
     <Compile Include="BusinessObjects\CMS\Galina\LibraryImage.cs" />
     <Compile Include="BusinessObjects\CMS\Galina\LibraryVideo.cs" />

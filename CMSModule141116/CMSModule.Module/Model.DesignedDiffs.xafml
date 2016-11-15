@@ -12,12 +12,13 @@
               <Item Id="Wedding" ViewId="Wedding_ListView" Index="3" IsNewNode="True" />
               <Item Id="Mud Bath &amp; Spa" Caption="Mud Bath &amp; Spa" Index="4" ViewId="MudBathAndSpa_ListView" IsNewNode="True" />
               <Item Id="Heath Care" Caption="Heath Care" ViewId="HeathCare_ListView" Index="5" IsNewNode="True" />
-              <Item Id="Gallery" IsNewNode="True">
+              <Item Id="Gallery" Index="6" IsNewNode="True">
                 <Items IsNewNode="True">
                   <Item Id="Image" ViewId="LibraryImage_ListView" Caption="Image" IsNewNode="True" />
                   <Item Id="Video" ViewId="LibraryVideo_ListView" Caption="Video" IsNewNode="True" />
                 </Items>
               </Item>
+              <Item Id="Explore Nha Trang" Index="7" ViewId="ExploreNhaTrang_ListView" IsNewNode="True" />
             </Items>
           </Item>
         </Items>
@@ -159,55 +160,111 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <DetailView Id="ExploreNhaTrang_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <TabbedGroup Id="Item1" CaptionLocation="Top" Index="0" RelativeSize="100" IsNewNode="True">
+              <LayoutGroup Id="ExploreNhaTrang" ShowCaption="True" Caption="English" Direction="Vertical" Index="0" RelativeSize="100" IsNewNode="True">
+                <LayoutGroup Id="ExploreNhaTrang_col1" ShowCaption="False" Index="0" RelativeSize="100" IsNewNode="True">
+                  <LayoutItem Id="Title" ViewItem="Title" Index="0" RelativeSize="9.9688473520249214" IsNewNode="True" />
+                  <LayoutItem Id="Routing" ViewItem="Routing" Index="1" RelativeSize="7.4766355140186915" IsNewNode="True" />
+                  <LayoutItem Id="ShortDescription" ViewItem="ShortDescription" Index="2" RelativeSize="7.4766355140186915" IsNewNode="True" />
+                  <LayoutItem Id="Content" ViewItem="Content" Index="3" RelativeSize="75.0778816199377" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="1" Caption="Vietnamese" RelativeSize="100" IsNewNode="True">
+                <LayoutItem Id="TitleVN" ViewItem="TitleVN" Index="0" RelativeSize="9.9688473520249214" IsNewNode="True" />
+                <LayoutItem Id="RoutingVN" ViewItem="RoutingVN" Index="1" RelativeSize="7.4766355140186915" IsNewNode="True" />
+                <LayoutItem Id="ShortDescriptionVN" ViewItem="ShortDescriptionVN" Index="2" RelativeSize="7.4766355140186915" IsNewNode="True" />
+                <LayoutItem Id="ContentVN" ViewItem="ContentVN" Index="3" RelativeSize="75.0778816199377" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Item3" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="2" Caption="Russian" RelativeSize="100" IsNewNode="True">
+                <LayoutItem Id="TitleRU" ViewItem="TitleRU" Index="0" RelativeSize="9.9688473520249214" IsNewNode="True" />
+                <LayoutItem Id="RoutingRU" ViewItem="RoutingRU" Index="1" RelativeSize="7.4766355140186915" IsNewNode="True" />
+                <LayoutItem Id="ShortDescriptionRU" ViewItem="ShortDescriptionRU" Index="2" RelativeSize="7.4766355140186915" IsNewNode="True" />
+                <LayoutItem Id="ContentRU" ViewItem="ContentRU" Index="3" RelativeSize="75.0778816199377" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Item4" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="3" Caption="Presentation Image" RelativeSize="100" IsNewNode="True">
+                <LayoutItem Id="FileData" ViewItem="FileData" Index="0" RelativeSize="9.9688473520249214" IsNewNode="True" />
+                <LayoutItem Id="PresentationThumbnail" ViewItem="PresentationThumbnail" Index="1" RelativeSize="7.4766355140186915" IsNewNode="True" />
+                <LayoutItem Id="PresentationImageUrl" ViewItem="PresentationImageUrl" Index="2" RelativeSize="82.554517133956381" IsNewNode="True" />
+              </LayoutGroup>
+            </TabbedGroup>
+            <LayoutGroup Id="ExploreNhaTrang" Caption="English" RelativeSize="100" Removed="True">
+              <LayoutGroup Id="ExploreNhaTrang_col1" RelativeSize="50">
+                <LayoutItem Id="Routing" RelativeSize="17.647058823529413" />
+                <LayoutItem Id="RoutingVN" RelativeSize="23.529411764705884" />
+                <LayoutItem Id="ShortDescription" RelativeSize="17.647058823529413" />
+                <LayoutItem Id="Title" RelativeSize="23.529411764705884" />
+                <LayoutItem Id="TitleVN" RelativeSize="17.647058823529413" />
+              </LayoutGroup>
+              <LayoutGroup Id="ExploreNhaTrang_col2" RelativeSize="50">
+                <LayoutItem Id="RoutingRU" RelativeSize="17.647058823529413" />
+                <LayoutItem Id="ShortDescriptionRU" RelativeSize="41.1764705882353" />
+                <LayoutItem Id="ShortDescriptionVN" RelativeSize="23.529411764705884" />
+                <LayoutItem Id="TitleRU" RelativeSize="17.647058823529413" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="48.633879781420767" Caption="SizeableEditors" Direction="Horizontal" Removed="True">
+            <LayoutItem Id="ContentVN" RelativeSize="100" Index="0" Removed="True" />
+            <LayoutItem Id="ContentRU" RelativeSize="57.142857142857146" Index="1" Removed="True" />
+            <LayoutItem Id="Content" RelativeSize="32.947976878612714" Removed="True" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <DetailView Id="HeathCare_DetailView">
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
           <LayoutGroup Id="SizeableEditors" RelativeSize="100" Index="0" Direction="Horizontal">
-            <TabbedGroup Id="Item2" CaptionLocation="Top" Index="0" RelativeSize="68.709677419354833" IsNewNode="True">
+            <TabbedGroup Id="Item2" CaptionLocation="Top" Index="0" RelativeSize="62.116564417177912" IsNewNode="True">
               <LayoutGroup Id="Item1" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" Caption="English" IsNewNode="True">
                 <LayoutItem Id="Title" ViewItem="Title" Index="0" RelativeSize="10.256410256410257" IsNewNode="True" />
                 <LayoutItem Id="Routing" ViewItem="Routing" Index="1" RelativeSize="7.6923076923076925" IsNewNode="True" />
                 <LayoutItem Id="ShortDescription" ViewItem="ShortDescription" Index="2" RelativeSize="7.6923076923076925" IsNewNode="True" />
-                <LayoutItem Id="Content" ViewItem="Content" Index="3" RelativeSize="23.717948717948719" IsNewNode="True" />
-                <TabbedGroup Id="Item8" CaptionLocation="Top" Index="4" RelativeSize="50.641025641025642" IsNewNode="True">
+                <LayoutItem Id="Content" ViewItem="Content" Index="3" RelativeSize="21.794871794871796" IsNewNode="True" />
+                <TabbedGroup Id="Item8" CaptionLocation="Top" Index="4" RelativeSize="52.564102564102562" IsNewNode="True">
                   <LayoutGroup Id="Item5" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" Caption="Package/Service" IsNewNode="True">
-                    <LayoutItem Id="SubName" ViewItem="SubName" Index="0" RelativeSize="27.118644067796609" IsNewNode="True" />
-                    <LayoutItem Id="SubTitle" ViewItem="SubTitle" Index="1" RelativeSize="20.338983050847457" IsNewNode="True" />
-                    <LayoutItem Id="SubContent" ViewItem="SubContent" Index="2" RelativeSize="52.542372881355931" IsNewNode="True" />
+                    <LayoutItem Id="SubName" ViewItem="SubName" Index="0" RelativeSize="25.806451612903224" IsNewNode="True" />
+                    <LayoutItem Id="SubTitle" ViewItem="SubTitle" Index="1" RelativeSize="19.35483870967742" IsNewNode="True" />
+                    <LayoutItem Id="SubContent" ViewItem="SubContent" Index="2" RelativeSize="54.838709677419352" IsNewNode="True" />
                   </LayoutGroup>
                 </TabbedGroup>
               </LayoutGroup>
               <LayoutGroup Id="Item3" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="1" Caption="Vietnamese" RelativeSize="100" IsNewNode="True">
-                <LayoutItem Id="TitleVN" ViewItem="TitleVN" Index="0" RelativeSize="10.256410256410257" IsNewNode="True" />
-                <LayoutItem Id="RoutingVN" ViewItem="RoutingVN" Index="1" RelativeSize="7.6923076923076925" IsNewNode="True" />
-                <LayoutItem Id="ShortDescriptionVN" ViewItem="ShortDescriptionVN" Index="2" RelativeSize="7.6923076923076925" IsNewNode="True" />
-                <LayoutItem Id="ContentVN" ViewItem="ContentVN" Index="3" RelativeSize="23.717948717948719" IsNewNode="True" />
-                <TabbedGroup Id="Item10" CaptionLocation="Top" Index="4" RelativeSize="50.641025641025642" IsNewNode="True">
+                <LayoutItem Id="TitleVN" ViewItem="TitleVN" Index="0" RelativeSize="8.9743589743589744" IsNewNode="True" />
+                <LayoutItem Id="RoutingVN" ViewItem="RoutingVN" Index="1" RelativeSize="7.3717948717948714" IsNewNode="True" />
+                <LayoutItem Id="ShortDescriptionVN" ViewItem="ShortDescriptionVN" Index="2" RelativeSize="7.3717948717948714" IsNewNode="True" />
+                <LayoutItem Id="ContentVN" ViewItem="ContentVN" Index="3" RelativeSize="22.435897435897434" IsNewNode="True" />
+                <TabbedGroup Id="Item10" CaptionLocation="Top" Index="4" RelativeSize="53.846153846153847" IsNewNode="True">
                   <LayoutGroup Id="Item9" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" Caption="Package/Service VN" IsNewNode="True">
-                    <LayoutItem Id="SubNameVN" ViewItem="SubNameVN" Index="0" RelativeSize="27.118644067796609" IsNewNode="True" />
-                    <LayoutItem Id="SubTitleVN" ViewItem="SubTitleVN" Index="1" RelativeSize="20.338983050847457" IsNewNode="True" />
-                    <LayoutItem Id="SubContentVN" ViewItem="SubContentVN" Index="2" RelativeSize="52.542372881355931" IsNewNode="True" />
+                    <LayoutItem Id="SubNameVN" ViewItem="SubNameVN" Index="0" RelativeSize="27.34375" IsNewNode="True" />
+                    <LayoutItem Id="SubTitleVN" ViewItem="SubTitleVN" Index="1" RelativeSize="20.3125" IsNewNode="True" />
+                    <LayoutItem Id="SubContentVN" ViewItem="SubContentVN" Index="2" RelativeSize="52.34375" IsNewNode="True" />
                   </LayoutGroup>
                 </TabbedGroup>
               </LayoutGroup>
               <LayoutGroup Id="Item4" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="2" Caption="Russian" RelativeSize="100" IsNewNode="True">
-                <LayoutItem Id="TitleRU" ViewItem="TitleRU" Index="0" RelativeSize="10.256410256410257" IsNewNode="True" />
-                <LayoutItem Id="RoutingRU" ViewItem="RoutingRU" Index="1" RelativeSize="7.6923076923076925" IsNewNode="True" />
-                <LayoutItem Id="ShortDescriptionRU" ViewItem="ShortDescriptionRU" Index="2" RelativeSize="7.6923076923076925" IsNewNode="True" />
-                <LayoutItem Id="ContentRU" ViewItem="ContentRU" Index="3" RelativeSize="23.717948717948719" IsNewNode="True" />
-                <TabbedGroup Id="Item7" CaptionLocation="Top" Index="4" RelativeSize="50.641025641025642" IsNewNode="True">
+                <LayoutItem Id="TitleRU" ViewItem="TitleRU" Index="0" RelativeSize="8.9743589743589744" IsNewNode="True" />
+                <LayoutItem Id="RoutingRU" ViewItem="RoutingRU" Index="1" RelativeSize="7.3717948717948714" IsNewNode="True" />
+                <LayoutItem Id="ShortDescriptionRU" ViewItem="ShortDescriptionRU" Index="2" RelativeSize="7.3717948717948714" IsNewNode="True" />
+                <LayoutItem Id="ContentRU" ViewItem="ContentRU" Index="3" RelativeSize="22.435897435897434" IsNewNode="True" />
+                <TabbedGroup Id="Item7" CaptionLocation="Top" Index="4" RelativeSize="53.846153846153847" IsNewNode="True">
                   <LayoutGroup Id="Item6" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" Caption="Package/Service RU" Direction="Vertical" IsNewNode="True">
-                    <LayoutItem Id="SubNameRU" ViewItem="SubNameRU" Index="0" RelativeSize="27.118644067796609" IsNewNode="True" />
-                    <LayoutItem Id="SubTitleRU" ViewItem="SubTitleRU" Index="1" RelativeSize="20.338983050847457" IsNewNode="True" />
-                    <LayoutItem Id="SubContentRU" ViewItem="SubContentRU" Index="2" RelativeSize="52.542372881355931" IsNewNode="True" />
+                    <LayoutItem Id="SubNameRU" ViewItem="SubNameRU" Index="0" RelativeSize="27.34375" IsNewNode="True" />
+                    <LayoutItem Id="SubTitleRU" ViewItem="SubTitleRU" Index="1" RelativeSize="20.3125" IsNewNode="True" />
+                    <LayoutItem Id="SubContentRU" ViewItem="SubContentRU" Index="2" RelativeSize="52.34375" IsNewNode="True" />
                   </LayoutGroup>
                 </TabbedGroup>
               </LayoutGroup>
             </TabbedGroup>
             <LayoutItem Id="ContentRU" RelativeSize="31.746031746031747" Index="1" Removed="True" />
-            <LayoutGroup Id="Pictures_Group" ShowCaption="True" Caption="Pictures" Index="1" RelativeSize="31.29032258064516" Direction="Vertical" IsNewNode="True">
+            <LayoutGroup Id="Pictures_Group" ShowCaption="True" Caption="Pictures" Index="1" RelativeSize="36.196319018404907" Direction="Vertical" IsNewNode="True">
               <LayoutItem Id="Pictures" ViewItem="Pictures" Index="0" RelativeSize="100" IsNewNode="True" />
             </LayoutGroup>
+            <LayoutItem Id="Item11" Index="2" RelativeSize="1.6871165644171779" IsNewNode="True" />
             <LayoutItem Id="SubContent" Index="2" RelativeSize="16.480446927374302" Removed="True" />
             <LayoutItem Id="SubContentRU" RelativeSize="38.920454545454547" Index="3" Removed="True" />
             <LayoutItem Id="SubContentVN" Index="3" RelativeSize="16.761363636363637" Removed="True" />
@@ -225,15 +282,20 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <ListView Id="HeathCare_Pictures_ListView">
+      <Columns>
+        <ColumnInfo Id="PresentationThumbnail" Width="65" />
+      </Columns>
+    </ListView>
     <DetailView Id="LibraryImage_DetailView">
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="30.05464480874317">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="36.314363143631439">
             <TabbedGroup Id="Item1" CaptionLocation="Top" Index="0" RelativeSize="100" IsNewNode="True">
               <LayoutGroup Id="LibraryImage" ShowCaption="True" Caption="English" Direction="Vertical" Index="0" RelativeSize="100" IsNewNode="True">
                 <LayoutGroup Id="LibraryImage_col1" ShowCaption="False" Index="0" RelativeSize="100" Caption="LibraryImage_col1" IsNewNode="True">
-                  <LayoutItem Id="Title" ViewItem="Title" Index="0" RelativeSize="50" IsNewNode="True" />
-                  <LayoutItem Id="Routing" ViewItem="Routing" Index="1" RelativeSize="50" IsNewNode="True" />
+                  <LayoutItem Id="Title" ViewItem="Title" Index="0" RelativeSize="36.363636363636367" IsNewNode="True" />
+                  <LayoutItem Id="Routing" ViewItem="Routing" Index="1" RelativeSize="63.636363636363633" IsNewNode="True" />
                 </LayoutGroup>
               </LayoutGroup>
               <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="1" Caption="Vietnamese" RelativeSize="100" IsNewNode="True">
@@ -243,6 +305,11 @@
               <LayoutGroup Id="Item3" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="2" Caption="Russian" RelativeSize="100" IsNewNode="True">
                 <LayoutItem Id="TitleRU" ViewItem="TitleRU" Index="0" RelativeSize="50" IsNewNode="True" />
                 <LayoutItem Id="RoutingRU" ViewItem="RoutingRU" Index="1" RelativeSize="50" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Item4" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="3" Caption="Presentation Image" RelativeSize="100" IsNewNode="True">
+                <LayoutItem Id="FileData" ViewItem="FileData" Index="0" RelativeSize="36.363636363636367" IsNewNode="True" />
+                <LayoutItem Id="PresentationThumbnail" ViewItem="PresentationThumbnail" Index="1" RelativeSize="27.272727272727273" IsNewNode="True" />
+                <LayoutItem Id="PresentationImageUrl" ViewItem="PresentationImageUrl" Index="2" RelativeSize="36.363636363636367" IsNewNode="True" />
               </LayoutGroup>
             </TabbedGroup>
             <LayoutGroup Id="LibraryImage" Caption="English" RelativeSize="100" Removed="True">
@@ -258,7 +325,10 @@
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
-          <LayoutGroup Id="Pictures_Group" Direction="Vertical" RelativeSize="69.945355191256837">
+          <LayoutGroup Id="SizeableEditors" RelativeSize="7.3170731707317076" Caption="Presentation Image Url" Direction="Horizontal">
+            <LayoutItem Id="PresentationImageUrl" RelativeSize="100" Removed="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="Pictures_Group" Direction="Vertical" RelativeSize="56.368563685636857">
             <LayoutItem Id="Pictures" RelativeSize="100" />
           </LayoutGroup>
         </LayoutGroup>
@@ -378,6 +448,21 @@
               <LayoutItem Id="TitleVN" RelativeSize="51.612903225806448" Index="0" Removed="True" />
               <LayoutItem Id="Title" RelativeSize="37.2093023255814" Removed="True" />
             </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Picture_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="16.939890710382514">
+            <LayoutGroup Id="Picture" RelativeSize="100">
+              <LayoutItem Id="FileData" Index="0" RelativeSize="51.612903225806448" />
+              <LayoutItem Id="PresentationThumbnail" Index="1" RelativeSize="48.387096774193552" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="83.060109289617486">
+            <LayoutItem Id="ImageUrl" RelativeSize="100" />
           </LayoutGroup>
         </LayoutGroup>
       </Layout>

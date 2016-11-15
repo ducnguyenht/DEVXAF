@@ -19,29 +19,32 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
-    public class MudBathAndSpa : BaseObject
+    public class ExploreNhaTrang : BaseObject
     {
-        public MudBathAndSpa(Session session)
+        public ExploreNhaTrang(Session session)
             : base(session)
         {
         }
         public override void AfterConstruction()
         {
             base.AfterConstruction();
+
         }
-        #region English
+
+        private string _ContentRU;
+        private string _ContentVN;
+        private string _Content;
+        private string _ShortDescriptionRU;
+        private string _ShortDescriptionVN;
+        private string _ShortDescription;
         private string _RoutingRU;
         private string _RoutingVN;
         private string _Routing;
-        private string _ContentRU;
         private string _TitleRU;
-
-        private string _ContentVN;
         private string _TitleVN;
-
-        private string _Content;
         private string _Title;
-        [ImmediatePostData]
+        #region English
+        [Size(SizeAttribute.DefaultStringMappingFieldSize), ImmediatePostData]
         public string Title
         {
             get
@@ -53,7 +56,6 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
                 SetPropertyValue("Title", ref _Title, value);
             }
         }
-
         [Size(SizeAttribute.DefaultStringMappingFieldSize), VisibleInListView(false)]
         public string Routing
         {
@@ -64,6 +66,18 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
             set
             {
                 SetPropertyValue("Routing", ref _Routing, value);
+            }
+        }
+        [Size(SizeAttribute.DefaultStringMappingFieldSize), VisibleInListView(false)]
+        public string ShortDescription
+        {
+            get
+            {
+                return _ShortDescription;
+            }
+            set
+            {
+                SetPropertyValue("ShortDescription", ref _ShortDescription, value);
             }
         }
         [Size(SizeAttribute.Unlimited), ModelDefault("PropertyEditorType", "DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor")]
@@ -79,8 +93,9 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
             }
         }
         #endregion English
-        #region Vietnamese
-        [ImmediatePostData]
+
+        #region VietNamese
+        [Size(SizeAttribute.DefaultStringMappingFieldSize), ImmediatePostData]
         public string TitleVN
         {
             get
@@ -104,6 +119,18 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
                 SetPropertyValue("RoutingVN", ref _RoutingVN, value);
             }
         }
+        [Size(SizeAttribute.DefaultStringMappingFieldSize), VisibleInListView(false)]
+        public string ShortDescriptionVN
+        {
+            get
+            {
+                return _ShortDescriptionVN;
+            }
+            set
+            {
+                SetPropertyValue("ShortDescriptionVN", ref _ShortDescriptionVN, value);
+            }
+        }
         [Size(SizeAttribute.Unlimited), ModelDefault("PropertyEditorType", "DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor")]
         public string ContentVN
         {
@@ -116,9 +143,11 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
                 SetPropertyValue("ContentVN", ref _ContentVN, value);
             }
         }
-        #endregion Vietnamese
+        #endregion VietNamese
+
+
         #region Russian
-        [ImmediatePostData]
+        [Size(SizeAttribute.DefaultStringMappingFieldSize), ImmediatePostData]
 
         public string TitleRU
         {
@@ -144,6 +173,18 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
                 SetPropertyValue("RoutingRU", ref _RoutingRU, value);
             }
         }
+        [Size(SizeAttribute.DefaultStringMappingFieldSize), VisibleInListView(false)]
+        public string ShortDescriptionRU
+        {
+            get
+            {
+                return _ShortDescriptionRU;
+            }
+            set
+            {
+                SetPropertyValue("ShortDescriptionRU", ref _ShortDescriptionRU, value);
+            }
+        }
         [Size(SizeAttribute.Unlimited), ModelDefault("PropertyEditorType", "DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor")]
         public string ContentRU
         {
@@ -157,30 +198,51 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
             }
         }
         #endregion Russian
-        [Association, DevExpress.Xpo.Aggregated]
-        public XPCollection<Picture> Pictures
+
+        [EditorAlias("ASPxReadOnlyImagePropertyEditor")]
+        [VisibleInLookupListView(false)]//VisibleInListView(false),
+        //[XafDisplayName("Image")]
+        public string PresentationThumbnail
         {
             get
             {
-                return GetCollection<Picture>("Pictures");
+                if (PresentationImageUrl != null)
+                {
+                    return PresentationImageUrl.Substring(0, PresentationImageUrl.LastIndexOf('.')) + "_thumb" + PresentationImageUrl.Substring(PresentationImageUrl.LastIndexOf('.'));
+                }
+                return "";
             }
         }
-        [Association, DevExpress.Xpo.Aggregated]
-        public XPCollection<MudBathAndSpaRegularService> MudBathAndSpaRegularServices
+
+        private string _PresentationImageUrl;
+        [Size(1028), ModelDefault("RowCount", "1"), VisibleInListView(false)]//, Browsable(false)]
+        public string PresentationImageUrl
         {
             get
             {
-                return GetCollection<MudBathAndSpaRegularService>("MudBathAndSpaRegularServices");
+                return _PresentationImageUrl;
+            }
+            set
+            {
+                SetPropertyValue("PresentationImageUrl", ref _PresentationImageUrl, value);
             }
         }
-        [Association, DevExpress.Xpo.Aggregated]
-        public XPCollection<MudBathAndSpaPremiumService> MudBathAndSpaPremiumServices
+
+        private FileData _FileData;
+        [NonPersistent, XafDisplayName("Choose Image"), VisibleInListView(false)]//, 
+        public FileData FileData
         {
             get
             {
-                return GetCollection<MudBathAndSpaPremiumService>("MudBathAndSpaPremiumServices");
+                return _FileData;
+            }
+            set
+            {
+                SetPropertyValue("FileData", ref _FileData, value);
             }
         }
+
+
         protected override void OnChanged(string propertyName, object oldValue, object newValue)
         {
             base.OnChanged(propertyName, oldValue, newValue);
@@ -197,6 +259,37 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
                     break;
             }
         }
+
+        protected override void OnSaving()
+        {
+            base.OnSaving();
+            if (FileData != null)
+            {
+                if (!FileData.IsEmpty)
+                {
+                    var request = System.Web.HttpContext.Current.Request;
+                    var requestUrl = request.Url;
+                    string filePath = request.MapPath("~/FileData/" + FileData.FileName);
+                    if (!System.IO.File.Exists(filePath))
+                    {
+                        System.IO.Stream stream = new System.IO.FileStream(filePath, System.IO.FileMode.Create, System.IO.FileAccess.Write);
+                        FileData.SaveToStream(stream);
+                        var currentPicture = System.Drawing.Image.FromStream(new System.IO.MemoryStream(FileData.Content));
+                        var thumbImage = ImageHelper.ScaleImage(currentPicture, 100);
+                        int fileExtPos = FileData.FileName.LastIndexOf(".");
+                        string thumbPath = "";
+                        if (fileExtPos >= 0)
+                            thumbPath = FileData.FileName.Substring(0, fileExtPos) + "_thumb" + System.IO.Path.GetExtension(FileData.FileName);
+                        thumbImage.Save(request.MapPath("~/FileData/" + thumbPath));
+                        stream.Close();
+
+                    }
+                    PresentationImageUrl = requestUrl.Scheme + "://" + requestUrl.Host + ":" + requestUrl.Port + "/FileData/" + FileData.FileName;
+                    FileData.Clear();
+                }
+            }
+        }
+
     }
 }
 
