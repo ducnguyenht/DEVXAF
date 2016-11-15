@@ -201,7 +201,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
         }
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        [XafDisplayName("NameVN")]
+        [XafDisplayName("Name VN")]
         public string SubNameVN
         {
             get
@@ -215,7 +215,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
         }
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        [XafDisplayName("TitleVN")]
+        [XafDisplayName("Title VN")]
         public string SubTitleVN
         {
             get
@@ -229,7 +229,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
         }
 
         [Size(SizeAttribute.Unlimited), ModelDefault("PropertyEditorType", "DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor")]
-        [XafDisplayName("ContentVN")]
+        [XafDisplayName("Content VN")]
         public string SubContentVN
         {
             get
@@ -296,7 +296,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
 
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        [XafDisplayName("NameRU")]
+        [XafDisplayName("Name RU")]
         public string SubNameRU
         {
             get
@@ -309,7 +309,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
             }
         }
 
-        [XafDisplayName("TitleRU")]
+        [XafDisplayName("Title RU")]
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string SubTitleRU
         {
@@ -325,7 +325,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
 
 
         [Size(SizeAttribute.Unlimited), ModelDefault("PropertyEditorType", "DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor")]
-        [XafDisplayName("ContentRU")]
+        [XafDisplayName("Content RU")]
         public string SubContentRU
         {
             get
