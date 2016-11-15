@@ -94,6 +94,7 @@
     <Compile Include="BusinessObjects\CMS\Galina\Dining.cs" />
     <Compile Include="BusinessObjects\CMS\Galina\HeathCare.cs" />
     <Compile Include="BusinessObjects\CMS\Galina\LibraryImage.cs" />
+    <Compile Include="BusinessObjects\CMS\Galina\LibraryVideo.cs" />
     <Compile Include="BusinessObjects\CMS\Galina\MudBathAndSpa.cs" />
     <Compile Include="BusinessObjects\CMS\Galina\MudBathAndSpaPremiumService.cs" />
     <Compile Include="BusinessObjects\CMS\Galina\MudBathAndSpaRegularService.cs" />
@@ -147,10 +148,6 @@
     <None Include="FunctionalTests\config.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="UnusableNodes.xml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Welcome.html" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

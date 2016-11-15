@@ -31,6 +31,16 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
         }
         #region English
 
+
+        private string _SubContentRU;
+        private string _SubTitleRU;
+        private string _SubNameRU;
+        private string _SubContentVN;
+        private string _SubNameVN;
+        private string _SubTitleVN;
+        private string _SubContent;
+        private string _SubTitle;
+        private string _SubName;
         private string _RoutingRU;
         private string _RoutingVN;
         private string _Routing;
@@ -97,6 +107,48 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
         }
 
 
+
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        [XafDisplayName("Name")]
+        public string SubName
+        {
+            get
+            {
+                return _SubName;
+            }
+            set
+            {
+                SetPropertyValue("SubName", ref _SubName, value);
+            }
+        }
+
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        [XafDisplayName("Title")]
+        public string SubTitle
+        {
+            get
+            {
+                return _SubTitle;
+            }
+            set
+            {
+                SetPropertyValue("SubTitle", ref _SubTitle, value);
+            }
+        }
+
+        [Size(SizeAttribute.Unlimited), ModelDefault("PropertyEditorType", "DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor")]
+        [XafDisplayName("Content")]
+        public string SubContent
+        {
+            get
+            {
+                return _SubContent;
+            }
+            set
+            {
+                SetPropertyValue("SubContent", ref _SubContent, value);
+            }
+        }
         #endregion English
         #region Vietnamese
         [Size(SizeAttribute.DefaultStringMappingFieldSize), ImmediatePostData]
@@ -147,8 +199,50 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
                 SetPropertyValue("ContentVN", ref _ContentVN, value);
             }
         }
+
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        [XafDisplayName("NameVN")]
+        public string SubNameVN
+        {
+            get
+            {
+                return _SubNameVN;
+            }
+            set
+            {
+                SetPropertyValue("SubNameVN", ref _SubNameVN, value);
+            }
+        }
+
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        [XafDisplayName("TitleVN")]
+        public string SubTitleVN
+        {
+            get
+            {
+                return _SubTitleVN;
+            }
+            set
+            {
+                SetPropertyValue("SubTitleVN", ref _SubTitleVN, value);
+            }
+        }
+
+        [Size(SizeAttribute.Unlimited), ModelDefault("PropertyEditorType", "DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor")]
+        [XafDisplayName("ContentVN")]
+        public string SubContentVN
+        {
+            get
+            {
+                return _SubContentVN;
+            }
+            set
+            {
+                SetPropertyValue("SubContentVN", ref _SubContentVN, value);
+            }
+        }
         #endregion Vietnamese
-        #region Russia
+        #region Russian
         [Size(SizeAttribute.DefaultStringMappingFieldSize), ImmediatePostData]
 
         public string TitleRU
@@ -199,7 +293,52 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
                 SetPropertyValue("ContentRU", ref _ContentRU, value);
             }
         }
-        #endregion Russia
+
+
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        [XafDisplayName("NameRU")]
+        public string SubNameRU
+        {
+            get
+            {
+                return _SubNameRU;
+            }
+            set
+            {
+                SetPropertyValue("SubNameRU", ref _SubNameRU, value);
+            }
+        }
+
+        [XafDisplayName("TitleRU")]
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string SubTitleRU
+        {
+            get
+            {
+                return _SubTitleRU;
+            }
+            set
+            {
+                SetPropertyValue("SubTitleRU", ref _SubTitleRU, value);
+            }
+        }
+
+
+        [Size(SizeAttribute.Unlimited), ModelDefault("PropertyEditorType", "DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor")]
+        [XafDisplayName("ContentRU")]
+        public string SubContentRU
+        {
+            get
+            {
+                return _SubContentRU;
+            }
+            set
+            {
+                SetPropertyValue("SubContentRU", ref _SubContentRU, value);
+            }
+        }
+
+        #endregion Russian
         [Association, DevExpress.Xpo.Aggregated]
         public XPCollection<Picture> Pictures
         {

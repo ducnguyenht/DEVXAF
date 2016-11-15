@@ -119,7 +119,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
             }
         }
         #endregion Vietnamese
-        #region Russia
+        #region Russian
         [ImmediatePostData]
 
         public string TitleRU
@@ -158,7 +158,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
                 SetPropertyValue("ContentRU", ref _ContentRU, value);
             }
         }
-        #endregion Russia
+        #endregion Russian
 
         protected override void OnChanged(string propertyName, object oldValue, object newValue)
         {

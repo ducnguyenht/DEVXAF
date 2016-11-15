@@ -123,7 +123,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
             }
         }
         #endregion Vietnamese
-        #region Russia
+        #region Russian
         [Size(SizeAttribute.DefaultStringMappingFieldSize), ImmediatePostData]
         public string TitleRU
         {
@@ -162,7 +162,7 @@ namespace CMSModule.Module.BusinessObjects.CMS.Galina
                 SetPropertyValue("ContentRU", ref _ContentRU, value);
             }
         }
-        #endregion Russia
+        #endregion Russian
         [Association, DevExpress.Xpo.Aggregated]
         public XPCollection<Picture> Pictures
         {
