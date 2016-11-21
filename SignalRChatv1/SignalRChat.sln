@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRChat", "SignalRChat\SignalRChat.csproj", "{DA378CD9-6FB4-4D0D-94FD-DC990BD9A0BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignFrontEnd", "SignFrontEnd\SignFrontEnd.csproj", "{762AE243-9FA5-4BEC-A42E-A647299812C2}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -19,6 +21,10 @@ Global
 		{DA378CD9-6FB4-4D0D-94FD-DC990BD9A0BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA378CD9-6FB4-4D0D-94FD-DC990BD9A0BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA378CD9-6FB4-4D0D-94FD-DC990BD9A0BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{762AE243-9FA5-4BEC-A42E-A647299812C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{762AE243-9FA5-4BEC-A42E-A647299812C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{762AE243-9FA5-4BEC-A42E-A647299812C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{762AE243-9FA5-4BEC-A42E-A647299812C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
