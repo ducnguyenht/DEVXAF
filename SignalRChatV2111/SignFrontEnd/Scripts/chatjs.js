@@ -1,6 +1,6 @@
 ﻿$(function () {
     setScreen(false);
-
+  
     //url host chat hub
     $.connection.hub.url = "http://localhost:6928/signalr/hubs"
 
@@ -65,7 +65,7 @@ function registerEvents(chatHub) {
         var msg = $("#txtMessage").val();
         if (msg.length > 0) {
 
-            var userName = $('#hdUserName').val();
+            var userName = $('#hdCurrentUserName').val();
             chatHub.server.sendMessageToAll(userName, msg);
             $("#txtMessage").val('');
         }
@@ -79,8 +79,8 @@ function registerClientMethods(chatHub) {
 
         setScreen(true);//an hien khung login va khung chat
 
-        $('#hdId').val(id);//id ket noi (textbox an)
-        $('#hdUserName').val(userName);//ten user(textbox an)
+        $('#hdCurrentConnectedId').val(id);//id ket noi (textbox an)
+        $('#hdCurrentUserName').val(userName);//ten user(textbox an)
         $('#spanUser').html(userName);//ten user
 
         // Add All Users
@@ -128,7 +128,7 @@ function registerClientMethods(chatHub) {
 
 
     chatHub.client.sendPrivateMessage = function (windowId, fromUserName, message) {
-
+        alert("aa");
         var ctrId = 'private_' + windowId;
 
 
@@ -148,32 +148,32 @@ function registerClientMethods(chatHub) {
 
 }
 
-function AddUser(chatHub, id, name) {
+function AddUser(chatHub, connectedId, name) {
 
-    var userId = $('#hdId').val();
+    var currentUserId = $('#hdCurrentConnectedId').val();
 
-    var code = "";
+    var divUser = "";
 
-    if (userId == id) {
-
-        code = $('<div class="loginUser">' + name + "</div>");
+    if (currentUserId == connectedId) {
+        //div disable current user
+        divUser = $('<div class="loginUser">' + name + "</div>");
 
     }
     else {
 
-        code = $('<a id="' + id + '" class="user" >' + name + '<a>');
+        divUser = $('<a id="' + connectedId + '" class="user" >' + name + '<a>');
+        //click dup len the user de hien popup private chat
+        $(divUser).dblclick(function () {
 
-        $(code).dblclick(function () {
+            var userId = $(divUser).attr('id');//$(this).attr('id');//$(this)=divUser
 
-            var id = $(this).attr('id');
-
-            if (userId != id)
-                OpenPrivateChatWindow(chatHub, id, name);
+            if (currentUserId != userId)
+                OpenPrivateChatWindow(chatHub, userId, name);
 
         });
     }
 
-    $("#divusers").append(code);
+    $("#divusers").append(divUser);
 
 }
 
@@ -194,7 +194,7 @@ function OpenPrivateChatWindow(chatHub, id, userName) {
 
 }
 
-function createPrivateChatWindow(chatHub, userId, ctrId, userName) {
+function createPrivateChatWindow(chatHub, currentUserId, ctrId, userName) {
 
     var div = '<div id="' + ctrId + '" class="ui-widget-content draggable" rel="0">' +
                '<div class="header">' +
@@ -227,7 +227,7 @@ function createPrivateChatWindow(chatHub, userId, ctrId, userName) {
         var msg = $textBox.val();
         if (msg.length > 0) {
 
-            chatHub.server.sendPrivateMessage(userId, msg);
+            chatHub.server.sendPrivateMessage(currentUserId, msg);
             $textBox.val('');
         }
     });

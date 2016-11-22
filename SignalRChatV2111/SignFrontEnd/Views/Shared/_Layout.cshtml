@@ -34,8 +34,7 @@
 
   <div id="divContainer">
     <div id="divLogin" class="login">
-      <div>
-        Your Name:<br />
+      <div>Your Name:<br />
         <input id="txtNickName" type="text" class="textBox" />
       </div>
       <div id="divButton">
@@ -46,7 +45,6 @@
     <div id="divChat" class="chatRoom">
       <div class="title">
         Welcome to Chat Room [<span id='spanUser'></span>]
-
       </div>
       <div class="content">
         <div id="divChatWindow" class="chatWindow">
@@ -60,8 +58,8 @@
       </div>
     </div>
 
-    <input id="hdId" type="hidden" />
-    <input id="hdUserName" type="hidden" />
+    <input id="hdCurrentConnectedId" type="hidden" />
+    <input id="hdCurrentUserName" type="hidden" />
   </div>
   @RenderBody()
 </body>
