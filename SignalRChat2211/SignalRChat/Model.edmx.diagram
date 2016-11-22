@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2a64f68886444512bda964b003ee8a6a" Name="Diagram1">
+        <EntityTypeShape EntityType="Surajit_TestModel.ChatPrivateMessageDetail" Width="1.5" PointX="2.3949996337271293" PointY="22.310752074378893" />
+        <EntityTypeShape EntityType="Surajit_TestModel.ChatPrivateMessageMaster" Width="1.5" PointX="9.0169412219044478" PointY="15.792860828243597" />
+        <EntityTypeShape EntityType="Surajit_TestModel.ChatUserDetail" Width="1.5" PointX="6.1150322976126485" PointY="16.27494537098098" />
+        <EntityTypeShape EntityType="Surajit_TestModel.ChatMessageDetail" Width="1.5" PointX="3.2688165098749176" PointY="28.237760080135317" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
