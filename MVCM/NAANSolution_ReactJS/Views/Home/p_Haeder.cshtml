@@ -1,0 +1,68 @@
+﻿<link href="~/Content/css/Home/p_Header.css" rel="stylesheet" />
+
+<div class="col-md-12 col-xs-12 nas-header">
+    <div style="overflow:hidden;">
+        <div class="col-md-1 button-menu">
+            <div>
+                <button id="nav_list" class="btn btn-default nas-btn-default"><span class="halflings halflings-menu-hamburger" style="font-size:17px;color: #6f6d6d;"></span></button>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-3 col-xs-3 nas-col display-logo">
+            <div class="nas-logo">
+                <a href="/"><img src="~/Content/Images/logo1.png" title="NAAN Solution - Giải pháp quản lý khách sạn, phần mềm quản lý doanh nghiệp" alt="NAAN Solution - Giải pháp quản lý khách sạn, phần mềm quản lý doanh nghiệp" /></a>
+            </div>
+        </div>
+        <div class="col-md-9 col-sm-8 col-xs-8 nas-header-social">
+            <div class="col-md-12 nas-col">
+                <div class="col-md-6 col-sm-4 display-search">
+                    <div class="nas-search" style="padding: 1px 10px;margin-top: 7px;">
+                        @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @id = "searchbox" }))
+                        {
+                            <input class="form-control" id="search" type="text" name="txtSearch" placeholder="Tìm kiếm" />
+
+        <button class="btn btn-default btn-search" type="submit"><span id="submit" class="halflings halflings-search" ></span></button>
+
+                        }
+                        @*<form id="searchbox" action="">
+                                <input id="search" type="text" placeholder="Tìm kiếm"><span id="submit" class="halflings halflings-search" style="float:right;"></span>
+                                <input id="submit" type="submit" value="Search">
+                            </form>*@
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-8 display-social nas-col" style="text-align:center;">
+                    <a href="tel:(+84)38344097" class="n-hotline">
+                        <span class="halflings halflings-phone-alt"></span>(+84 8) 383 440 97
+                    </a>
+                    <a href="mailto:info@naansolution.com" class="n-email">
+                        <span class="halflings halflings-envelope"></span>
+                        info@naansolution.com
+                    </a>
+                    <div class="display-social-son">
+                        <a href="https://www.facebook.com/naansolution">
+                            <span style="font-size:20px;" class="social social-facebook"></span>
+                        </a>
+                        <a href="https://twitter.com/NAANERP">
+                            <span style="font-size:20px;" class="social social-twitter"></span>
+                        </a>
+                        <a href="https://plus.google.com/b/116714816143273810398/116714816143273810398?hl=vi">
+                            <span style="font-size:20px;" class="social social-google-plus"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-12 header-display-address">
+        <div class=" col-sm-12 display-address nas-col">
+            <a href="tel:(+84)38344097" class="n-hotline">
+                <span class="halflings halflings-phone-alt"></span>&nbsp;(+84 8) 383 440 97
+            </a>
+            <a href="mailto:info@naansolution.com" class="n-email">
+                <span class="halflings halflings-envelope"></span>
+                info@naansolution.com
+            </a>
+        </div>
+    </div>
+</div>
+

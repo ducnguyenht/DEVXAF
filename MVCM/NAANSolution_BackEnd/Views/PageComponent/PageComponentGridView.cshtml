@@ -1,0 +1,103 @@
+﻿@model List<NAANSolution_BackEnd.Models.PageComponentViewModels>
+@{
+    ViewBag.Title = "PageComponentGridView";
+    Layout = "~/Views/Shared/MasterPages/_Layout.cshtml";
+}
+
+
+@section PageStyle {
+    @*You can add your custom style sheets for each page on this section.*@
+    <link rel="stylesheet" href="http://cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.css" />
+}
+@section PageJavaScript{
+    @*You can add your custom JavaScript for each page on this section. This section will be added to the bottom of the page.*@
+    <script type="text/javascript" src="../Content/Scripts/plugins/dataTables/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="http://cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dataTables-example').dataTable();
+        });
+    </script>
+}
+<section id="main-content">
+    <section class="wrapper site-min-height">
+        <div class="nas-content">
+            <div class="col-md-12 mt">
+                <div class="col-md-12 col-xs-12 nas-header">
+                    <div class="col-md-12">
+                        <h1 class="col-md-8 col-sm-7 col-xs-12 nas-col" style="font-size: 20px; margin: 5px 0 0 0;">Loại ô chứa</h1>
+                        <div class="col-md-4 col-sm-5 col-xs-12 nas-col nas-action-group">
+                            <a class="nas-action-create" href="/loai-o-chua/tao-moi-loai-o-chua">Tạo mới</a>
+                            <a class="nas-action-removeGroup" href="#">Xoá nhiều</a>
+                        </div>
+                        <hr class="col-md-12 nas-col" />
+                    </div>
+                    <div class="col-lg-12 nas-col">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <thead>
+                                            <tr>
+                                                <th width="3%">
+
+                                                </th>
+                                                <th width="15%">
+                                                    Mã
+                                                </th>
+                                                <th width="43%">
+                                                    Tên
+                                                </th>
+                                                <th width="15%">
+                                                    Loại tài liệu
+                                                </th>
+                                                <th width="15%">
+                                                   Có hiệu lực
+                                                </th>
+                                                <th width="9%">
+
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr class="odd gradeX">
+                                                    <td class="nas-title-grid">
+                                                        <input class="nas-checkbox-grid" type="checkbox" />
+                                                    </td>
+                                                    <td>@item.Code</td>
+                                                    <td>@item.Name</td>
+                                                    <td>@item.ContentType</td>
+                                                    <td>@item.IsActive</td>
+                                                    <td class="nas-action">
+                                                        <a href="loai-o-chua/cap-nhat-loai-o-chua/@item.Id"><span class="glyphicons glyphicons-pen nas-action-edit" title="Sửa"></span></a>
+                                                        @*<a href="PageComponent/PageComponentDelete/@item.Id" onclick="return DeleteConfirm()"><span class="glyphicons glyphicons-remove nas-action-remove" title="Xoá"></span></a>*@
+                                                        @Html.ActionLink(" ", "PageComponentDelete", new { IdPageComponent = @item.Id }, new { onclick = "return DeleteConfirm()", @class = "glyphicons glyphicons-remove nas-action-remove", title = "Xoá" })
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<script type="text/javascript">
+    function DeleteConfirm() {
+        if (confirm("Bạn có chắc chắn muốn xóa bản ghi này?"))
+            return true;
+        else
+            return false;
+    }
+   
+</script>
+
+
+
+

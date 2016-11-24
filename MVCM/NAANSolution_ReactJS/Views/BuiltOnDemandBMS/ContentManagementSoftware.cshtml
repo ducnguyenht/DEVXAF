@@ -1,0 +1,56 @@
+﻿@*@model NAANSolution_ReactJS.Models.ArticleViewModels*@
+@{
+    //ViewBag.Title = @Model.KeywordVN;
+    //ViewBag.MetaDescription = @Model.MetaDescriptionVN;
+    //ViewBag.MetaType = "article";
+    //ViewBag.MetaImage = @Model.ImageAvatarVN;
+    //ViewBag.MetaImageWidth = "450";
+    //ViewBag.MetaImageHeight = "450";
+    //ViewBag.MetaUrlPage = "https://naansolution.com/" + @Model.UrlVN;
+    //ViewBag.MetaTitle = @Model.KeywordVN;
+    //ViewBag.MetaKeyWord = @Model.MetaKeywordVN;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="content">
+    <div id="content-left" class="content-left-show">
+        <div class="col-md-12">
+            <div class="block-title block-title-corner">
+                @*<h1 title="@Html.Raw(HttpUtility.HtmlDecode(@Model.KeywordVN))">@Html.Raw(HttpUtility.HtmlDecode(@Model.TitleVN))</h1>*@
+                <h1>phần mềm tài liệu điện tử</h1>
+            </div>
+        </div>
+        <div class="col-md-12">
+            @*@Html.Raw(HttpUtility.HtmlDecode(@Model.ContentVN))*@
+            <p>Quản lý tài liệu điện tử giúp doanh nghiệp quản lý các tài liệu có hệ thống và tìm kiếm nhanh chóng hiệu quả. Với tính năng trình duyệt tài liệu linh động, người dùng hoặc quản lý không cần có mặt tại văn phòng nhưng công việc vẫn triển khai trôi chảy. Tài liệu được gửi tới đúng đối tượng cần nhận sau khi ban hành. Tài liệu được lưu trữ có hệ thống nên thuận tiện cho người dùng truy cập lại tài liệu hay tìm kiếm.
+
+
+Việc quản lý tài liệu điện tử còn giúp công ty tiết kiệm thời gian trình duyệt qua các bước, và giảm chi phí giấy và mực in.
+
+
+Phần hành dùng để quản lý nội dung trang web và tài liệu điện tử. Hệ thống cho phép cấu hình đa ngôn ngữ và cho phép tự động kết nối với kênh bán hàng trực tuyến. Hỗ trợ người sử dụng không cần biết lập trình cũng có thể thay đổi nội dung trang web.
+</p><br />
+            <p style="text-align:center;"><img src="~/Content/Images/Product/quan-ly-tai-lieu-dien-tu-1.png" style="width:40%;" /></p>
+
+        </div>
+    </div>
+    <div id="content-right" class="content-right-hide">
+        @{Html.RenderAction("p_Relation_Right", "Home");}
+    </div>
+</div>
+<div class="col-md-12 nas-around-address">
+    <div class="col-md-6 nas-previous">
+        <a href="/phan-mem-quan-ly-nhan-su">
+            <i class="halflings halflings-direction-left nas-icon-address nas-icon-address-left"></i>
+            <span class="title-address-1" title="Quay lại">Quay lại</span>
+            <div class="title-address-2" title="Phần mềm quản lý chuỗi Namoly">phần mềm quản lý nhân sự</div>
+
+        </a>
+    </div>
+    <div class="col-md-6 nas-next">
+        <a href="/phan-mem-quan-ly-he-thong-phan-phoi">
+            <i class="halflings halflings-direction-right nas-icon-address nas-icon-address-right"></i>
+            <span class="title-address-1" title="Tiếp theo">Tiếp theo</span>
+            <div class="title-address-2" title="Phần mềm quản lý chuỗi cung ứng">phần mềm quản lý hệ thống phân phối</div>
+        </a>
+    </div>
+</div>

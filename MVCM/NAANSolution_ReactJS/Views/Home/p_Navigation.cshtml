@@ -1,0 +1,82 @@
+﻿<script>
+    $(document).ready(function () {
+        $menuLeft = $('.pushmenu-left');
+        $nav_list = $('#nav_list');
+
+        $nav_list.click(function () {
+            $(this).toggleClass('active');
+            $('.pushmenu-push').toggleClass('pushmenu-push-toright');
+            $menuLeft.toggleClass('pushmenu-open');
+        });
+    });
+</script>
+<nav class="pushmenu pushmenu-left ">
+    <div class="sidebar-nav">
+        <div class="around-social">
+            <div class="nas-search" style="padding: 1px 10px;margin-top: 7px;">
+                @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @id = "searchbox" }))
+                {
+                    <input class="form-control" id="search" type="text" name="txtSearch" placeholder="Tìm kiếm" />
+                    <button class="btn btn-default btn-search" type="submit"><span id="submit" class="halflings halflings-search"></span></button>
+                }           
+            </div>
+
+            <div class="nas-social-left" id="display-social">
+                <ul>
+                    <li><a href="https://www.facebook.com/naan.erp"><span style="font-size:20px;" class="social social-facebook"></span></a></li>
+                    <li><a href="https://twitter.com/NAANERP"><span style="font-size:20px;" class="social social-twitter"></span></a></li>
+                    <li><a href="#"><span style="font-size:20px;" class="social social-google-plus"></span></a></li>
+                </ul>
+            </div>
+            <div class="clear-line"></div>
+        </div> 
+        <div class="list-group panel nas-panel" id="MainMenu">
+            <a href="/" class="list-group-item"><span class="halflings halflings-home nas-icon-nav"></span>Trang Chủ</a>
+            <div class="panel nas-panel-son">
+                <a id="menu-toggle" href="#giai-phap-quan-ly-khach-san" title="Quản Lý Du Lịch Khách Sạn" class="list-group-item list-group-item-success accordion-toggle" data-toggle="collapse" data-parent="#MainMenu"><span class="halflings halflings-building nas-icon-nav"></span>Quản Lý Du Lịch Khách Sạn</a>
+                <div class="collapse margin-a" id="giai-phap-quan-ly-khach-san">
+                    <a href="/thiet-ke-trang-web-khach-san" class="list-group-item" title="Thiết Kế Trang Web Khách Sạn">Thiết Kế Trang Web Khách Sạn</a>                   
+                    <a href="/phan-mem-dat-phong-truc-tuyen" class="list-group-item" title="Phần Mềm Đặt Phòng Trực Tuyến">Quản Lý Đặt Phòng Trực Tuyến</a>
+                    <a href="/phan-mem-quan-ly-khach-san-Namoly" class="list-group-item" title="Phần Mềm Quản Lý Khách Sạn Namoly">Quản Lý Khách Sạn Namoly</a>
+                    <a href="/phan-mem-quan-ly-nha-hang-Namoly" class="list-group-item" title="Phần Mềm Quản Lý Nhà Hàng Namoly">Quản Lý Nhà Hàng Namoly</a>
+                    <a href="/phan-mem-quan-ly-spa-Namoly" class="list-group-item" title="Phần mềm quản lý Spa Namoly">Quản Lý Spa Namoly</a>
+                    <a href="/phan-mem-quan-ly-nha-hang-khach-san-spa-Namoly" class="list-group-item" title="Phần mềm quản lý nhà hàng khách sạn spa Namoly">Quản Lý Chuỗi Namoly</a>
+                </div>
+            </div>
+            <div class="panel nas-panel-son">
+                <a id="menu-toggle" href="#phan-mem-quan-ly-doanh-nghiep" title="Phần Mềm Quản Lý Doanh Nghiệp" class="list-group-item list-group-item-success accordion-toggle" data-toggle="collapse" data-parent="#MainMenu"><span class="halflings halflings-briefcase nas-icon-nav"></span>Quản Lý Doanh Nghiệp</a>
+                <div class="collapse margin-a" id="phan-mem-quan-ly-doanh-nghiep">
+                    <a href="/phan-mem-quan-ly-ban-hang-truc-tuyen" title="Phần Mềm Quản Lý Bán Hàng Trực Tuyến" class="list-group-item">Bán Hàng Trực Tuyến</a>
+                    <a href="/phan-mem-quan-ly-quan-he-khach-hang" title="Phần Mềm Quản Lý Quan Hệ Khách Hàng" class="list-group-item">Quan Hệ Khách Hàng</a>
+                    <a href="/phan-mem-quan-ly-chuoi-cung-ung" title="Phần Mềm Quản Lý Chuỗi Cung Ứng" class="list-group-item">Chuỗi Cung Ứng</a>
+                    <a href="/phan-mem-quan-ly-tai-chinh-ke-toan" title="Phần Mềm Quản Lý Tài Chính Kế Toán" class="list-group-item">Tài Chính Kế Toán</a>
+                    <a href="/phan-mem-quan-ly-nhan-su" title="Phần Mềm Quản Lý Nhân Sự" class="list-group-item">Nhân Sự</a>
+                    <a href="/phan-mem-quan-ly-tai-lieu-dien-tu" title="Phần Mềm Quản Lý Tài Liệu Điện Tử" class="list-group-item">Tài liệu điện tử</a>
+                    <a href="/phan-mem-quan-ly-he-thong-phan-phoi" title="Phần Mềm Quản Lý Hệ Thống Phân Phối" class="list-group-item">Hệ Thống Phân Phối (DMS)</a>
+                    <a href="/phan-mem-quan-ly-trang-trai-Nafaly" title="Phần Mềm Quản Lý Trang Trại, Nông Trại Nafaly" class="list-group-item">Trang Trại Nafaly</a>
+                    <a href="/phan-mem-quan-ly-nghiep-vu-thuong-mai-thep-NAANSteel" title="Phần Mềm Quản Lý Nghiệp Vụ Thương Mại Thép NAANSteel" class="list-group-item">Nghiệp Vụ Thương Mại Thép NAANSteel</a>
+                    <a href="/phan-mem-quan-ly-to-chuc-hiep-hoi" title="Phần mềm quản lý nghiệp vụ tổ chức hiệp hội NAS AMS" class="list-group-item">Tổ Chức Hiệp Hội</a>
+                </div>
+            </div>
+            <div class="panel nas-panel-son">
+                <a href="#giai-phap-tiep-thi-so" class="list-group-item list-group-item-success accordion-toggle" data-toggle="collapse" data-parent="#MainMenu"><span class="halflings halflings-send nas-icon-nav"></span>Giải Pháp Tiếp Thị Số</a>
+                <div class="collapse margin-a" id="giai-phap-tiep-thi-so">
+                    <a href="/tu-van-thiet-ke-web-theo-nhu-cau" class="list-group-item" title="Tư Vấn Thiết Kế Web Theo Nhu Cầu">Tư Vấn Thiết Kế Web Theo Nhu Cầu</a>
+                    <a href="/dich-vu-cai-thien-thu-hang-web" title="Dịch Vụ Cải Thiện Thứ Hạng Web" class="list-group-item">Dịch Vụ Cải Thiện Thứ Hạng Web</a>
+                    <a href="/tro-choi-quang-cao" title="Trò Chơi Quảng Cáo" class="list-group-item">Trò Chơi Quảng Cáo </a>
+                </div>
+            </div>
+            <div class="panel nas-panel-son">
+                <a href="#gioi-thieu-cong-ty" class="list-group-item list-group-item-success accordion-toggle" data-toggle="collapse" data-parent="#MainMenu"><span class="halflings halflings-group nas-icon-nav"></span>Giới Thiệu Công Ty</a>
+                <div class="collapse margin-a" id="gioi-thieu-cong-ty">
+                    <a href="/tuyen-dung" title="Tuyển Dụng" class="list-group-item">Tuyển Dụng</a>
+                    <a href="/lien-he" title="Liên Hệ" class="list-group-item">Liên Hệ</a>
+                </div>
+            </div>
+            <a href="/khach-hang-tieu-bieu" title="Khách Hàng Tiêu Biểu" class="list-group-item"><span class="halflings halflings-user nas-icon-nav"></span>Khách Hàng Tiêu Biểu</a>
+            <a href="https://support.naansolution.com/" target="_blank" rel="nofollow" title="Hệ Thống Hỗ Trợ" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu"><span class="halflings halflings-wrench nas-icon-nav"></span>Hỗ Trợ</a>
+            <a href="http://support.naansolution.com/huong-dan-su-dung" target="_blank" rel="nofollow" title="Bài Viết, Hướng Dẫn Sử Dụng Sản Phẩm" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu"><span class="halflings halflings-time nas-icon-nav"></span>Hướng Dẫn Sử Dụng Sản Phẩm</a>
+            <a href="/blog" title="Bài Viết, Tin Tức Mới Nhất, Cập Nhật Thông Tin Sản Phẩm" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu"><span class="social social-blogger nas-icon-nav"></span>Blog</a>
+        </div>
+    </div>
+</nav>

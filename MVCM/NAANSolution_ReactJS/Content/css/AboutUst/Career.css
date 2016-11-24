@@ -1,0 +1,105 @@
+﻿.nas-title h2 {
+  margin-top: 0px;
+}
+.nas-career {
+  padding: 10px 0;
+}
+.nas-career .n-nas-box {
+  background: #fff;
+  padding-left: 0;
+  padding-right: 0;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+.nas-career .n-nas-box .nas-detail-career-title {
+  text-align: center;
+  font-size: 1.8em;
+  color: #268ecb;
+  margin: 20px 0;
+}
+.nas-career .n-nas-box .nas-detail-career-content {
+  line-height: 1.6;
+  font-size: 1.1em;
+  text-align: justify;
+  padding: 10px 14px;
+  color: rgba(58, 60, 60, 0.84);
+  margin: 20px;
+}
+.nas-career .nas-content-career .nas-description {
+  line-height: 1.6;
+  font-size: 1.1em;
+  text-align: justify;
+  padding: 10px 14px;
+  color: rgba(58, 60, 60, 0.84);
+}
+.nas-career .nas-content-career .nas-title {
+      padding: 20px 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #2270a7;
+}
+.nas-career .nas-content-career .nas-post-box {
+ border: 1px solid #cecece;
+  margin: 5px;
+}
+.nas-career .nas-content-career .nas-post-box .nas-box {
+  margin: 10px;
+}
+.nas-career .nas-content-career .nas-post-box .nas-box .title {
+      position: absolute;
+    top: 15px;
+    background-color: rgba(132, 129, 129, 0.73);
+    width: 92.6%;
+    padding: 10px;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+}
+.nas-career .nas-content-career .nas-post-box img {
+  width: 100%;
+}
+.nas-career .nas-content-career .nas-post-box .number {
+  position: absolute;
+  display: block;
+  width: 97.5%;
+  height: 97.5%;
+  background: rgba(0, 0, 0, 0.43);
+  top: 0;
+  left: 0;
+  line-height: 400px;
+  opacity: 0;
+  text-align: center;
+  margin: 5px;
+}
+.nas-career .nas-content-career .nas-post-box .number:hover {
+  opacity: 5;
+}
+.nas-career .nas-content-career .nas-post-box .number b {
+     color: #fff;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: normal;
+    padding: 10px 5px;
+    border: 1px solid #fff;
+}
+.nas-career .nas-content-career .nas-post-content {
+  line-height: 1.6;
+  font-size: 1.1em;
+  text-align: justify;
+  padding: 10px 14px;
+  color: rgba(58, 60, 60, 0.84);
+  padding: 0 20px;
+}
+.nas-career .nas-content-career .nas-box-career {
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-bottom: 20px;
+}
+.owl-dots {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+}
+/*# sourceMappingURL=Career.css.map */

@@ -1,0 +1,708 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3A24C7D2-3587-41A4-878A-F99B321A9F5C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NAANSolution_ReactJS</RootNamespace>
+    <AssemblyName>NAANSolution_ReactJS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="JavaScriptEngineSwitcher.Core">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Core.1.2.0\lib\net40\JavaScriptEngineSwitcher.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.Jint">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Jint.1.2.1\lib\net40\JavaScriptEngineSwitcher.Jint.dll</HintPath>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.Msie">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Msie.1.2.0\lib\net40\JavaScriptEngineSwitcher.Msie.dll</HintPath>
+    </Reference>
+    <Reference Include="Jint">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Jint.1.2.1\lib\net40\Jint.dll</HintPath>
+    </Reference>
+    <Reference Include="JSPool">
+      <HintPath>..\packages\JSPool.0.1.1\lib\net40-Client\JSPool.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MsieJavaScriptEngine">
+      <HintPath>..\packages\MsieJavaScriptEngine.1.5.0\lib\net40\MsieJavaScriptEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="React">
+      <HintPath>..\packages\React.Core.1.3.0\lib\net40\React.dll</HintPath>
+    </Reference>
+    <Reference Include="React.Web">
+      <HintPath>..\packages\React.Web.1.3.0\lib\net40\React.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="React.Web.Mvc4">
+      <HintPath>..\packages\React.Web.Mvc4.1.3.0\lib\net40\React.Web.Mvc4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=__MvcPagesVersion__, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\packages\WebActivatorEx.2.0.5\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\ReactConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\BuiltOnDemandBMSController.cs" />
+    <Compile Include="Controllers\DigitalMarketingSolutionController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HospitalityManagementSolutionController.cs" />
+    <Compile Include="Controllers\OurClientController.cs" />
+    <Compile Include="Controllers\ReactJSController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ArticleViewModels.cs" />
+    <Compile Include="Models\FeaturedSoftwareViewModels.cs" />
+    <Compile Include="Models\HomeViewModels.cs" />
+    <Compile Include="Models\LuceneViewModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NormalSoftwareViewModels.cs" />
+    <Compile Include="Models\SliderViewModels.cs" />
+    <Compile Include="Models\WebInterfaceViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\AboutUst\Career.css">
+      <DependentUpon>Career.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\AboutUst\Career.min.css">
+      <DependentUpon>Career.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\AboutUst\ContactUs.css">
+      <DependentUpon>ContactUs.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\AboutUst\ContactUs.min.css">
+      <DependentUpon>ContactUs.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\Home\p_Header.css" />
+    <Content Include="Content\css\OurClient\OurClient.css">
+      <DependentUpon>OurClient.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\OurClient\OurClient.min.css">
+      <DependentUpon>OurClient.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Images\BuiltOnDemandBMS\nafaly.png" />
+    <Content Include="Content\Images\client\1-1-abbot.png" />
+    <Content Include="Content\Images\client\1-1.png" />
+    <Content Include="Content\Images\client\1-2-leftbrain.png" />
+    <Content Include="Content\Images\client\1-2.png" />
+    <Content Include="Content\Images\client\1-3-yba.png" />
+    <Content Include="Content\Images\client\1-3.png" />
+    <Content Include="Content\Images\client\1-4-phucminh.png" />
+    <Content Include="Content\Images\client\1-4.png" />
+    <Content Include="Content\Images\client\1-6-philao.png" />
+    <Content Include="Content\Images\client\1-6.png" />
+    <Content Include="Content\Images\client\1-7-haidang.png" />
+    <Content Include="Content\Images\client\1-7.png" />
+    <Content Include="Content\Images\client\1-8-lotus.png" />
+    <Content Include="Content\Images\client\1-8.png" />
+    <Content Include="Content\Images\client\career-1.png" />
+    <Content Include="Content\Images\client\career-2.png" />
+    <Content Include="Content\Images\client\career-3.png" />
+    <Content Include="Content\Images\client\defaultthumb.png" />
+    <Content Include="Content\Images\client\DeNui_320x150.png" />
+    <Content Include="Content\Images\client\DeNui_65x30.png" />
+    <Content Include="Content\Images\client\galianPhuQuoc_320x150.png" />
+    <Content Include="Content\Images\client\galianPhuQuoc_65x30.png" />
+    <Content Include="Content\Images\client\galinadanang_320x150.png" />
+    <Content Include="Content\Images\client\galinadanang_65x30.png" />
+    <Content Include="Content\Images\client\GalinaHotel_320x150.png" />
+    <Content Include="Content\Images\client\GalinaHotel_65x30.png" />
+    <Content Include="Content\Images\client\logo bac hai van.png" />
+    <Content Include="Content\Images\client\logo-galina-hotel-spa.png" />
+    <Content Include="Content\Images\client\MaritimeHotel_350x150.png" />
+    <Content Include="Content\Images\client\MaritimeHotel_65x30.png" />
+    <Content Include="Content\Images\client\PhiLao_320x150.png" />
+    <Content Include="Content\Images\client\PhiLao_65x30.png" />
+    <Content Include="Content\Images\client\phucminhcoffee_320x150.png" />
+    <Content Include="Content\Images\client\PhucMinh_320x150.png" />
+    <Content Include="Content\Images\client\PhucMinh_65x30.png" />
+    <Content Include="Content\Images\client\phucsinhcoffee_320x150.png" />
+    <Content Include="Content\Images\client\PhucSinh_320x150.png" />
+    <Content Include="Content\Images\client\PhucSinh_65x30.png" />
+    <Content Include="Content\Images\client\travelcare_320x150.png" />
+    <Content Include="Content\Images\client\travelcare_65x30.png" />
+    <Content Include="Content\Images\client\VietSin_320x150.png" />
+    <Content Include="Content\Images\client\VietSin_65x30.png" />
+    <Content Include="Content\Images\client\VietSpice_320x150.png" />
+    <Content Include="Content\Images\client\VietSpice_65x30.png" />
+    <Content Include="Content\Images\Content-Right\avartar.png" />
+    <Content Include="Content\Images\Content-Right\business-management-software.png" />
+    <Content Include="Content\Images\Content-Right\digital-marketing-solution.png" />
+    <Content Include="Content\Images\Home\bgnavowl.png" />
+    <Content Include="Content\Images\Home\chatluong.png" />
+    <Content Include="Content\Images\Home\giaiphap.png" />
+    <Content Include="Content\Images\Home\h1.png" />
+    <Content Include="Content\Images\Home\h2.png" />
+    <Content Include="Content\Images\Content-Right\hotel.jpg" />
+    <Content Include="Content\Images\Content-Right\icon-solution.png" />
+    <Content Include="Content\Images\Content-Right\icon10.png" />
+    <Content Include="Content\Images\Content-Right\icon11.png" />
+    <Content Include="Content\Images\Content-Right\icon4.png" />
+    <Content Include="Content\Images\Content-Right\icon5.png" />
+    <Content Include="Content\Images\Content-Right\icon6.png" />
+    <Content Include="Content\Images\Content-Right\icon7.png" />
+    <Content Include="Content\Images\Content-Right\icon8.png" />
+    <Content Include="Content\Images\Content-Right\icon9.png" />
+    <Content Include="Content\Images\Content-Right\sky-online.png" />
+    <Content Include="Content\Images\Home\author-01.png" />
+    <Content Include="Content\Images\Home\author-02.png" />
+    <Content Include="Content\Images\Home\hotro.png" />
+    <Content Include="Content\Images\Home\kh-01.png" />
+    <Content Include="Content\Images\Home\kh-02.png" />
+    <Content Include="Content\Images\Home\kh-03.png" />
+    <Content Include="Content\Images\Home\kh-04.png" />
+    <Content Include="Content\Images\Home\phan-mem-dat-phong-truc-tuyen.png" />
+    <Content Include="Content\Images\Home\quan-ly-chuoi-cung-ung.png" />
+    <Content Include="Content\Images\Home\quan-ly-he-thong-phan-phoi.png" />
+    <Content Include="Content\Images\Home\quan-ly-khach-san.png" />
+    <Content Include="Content\Images\Home\quan-ly-nha-hang.png" />
+    <Content Include="Content\Images\Home\quan-ly-nhan-su.png" />
+    <Content Include="Content\Images\Home\quan-ly-noi-dung.png" />
+    <Content Include="Content\Images\Home\quan-ly-quan-he-khach-hang.png" />
+    <Content Include="Content\Images\Home\quan-ly-spa.png" />
+    <Content Include="Content\Images\Home\quan-ly-tai-chinh.png" />
+    <Content Include="Content\Images\Home\quan-ly-to-chuc-hiep-hoi.png" />
+    <Content Include="Content\Images\Home\quan-ly-ton-kho.png" />
+    <Content Include="Content\Images\Home\skype.png" />
+    <Content Include="Content\Images\Home\support.png" />
+    <Content Include="Content\Images\Home\thiet-ke-web.jpg" />
+    <Content Include="Content\Images\Home\web-ban-hang.jpg" />
+    <Content Include="Content\Images\Home\web-bat-dong-san.jpg" />
+    <Content Include="Content\Images\Home\web-chuan-seo.jpg" />
+    <Content Include="Content\Images\Home\web-du-lich.jpg" />
+    <Content Include="Content\Images\Home\web-nha-hang.jpg" />
+    <Content Include="Content\Images\Home\web-noi-that.jpg" />
+    <Content Include="Content\Images\logo1.png" />
+    <Content Include="Content\Images\Product\h12.png" />
+    <Content Include="Content\Images\Product\h15.png" />
+    <Content Include="Content\Images\Product\h1.png" />
+    <Content Include="Content\Images\Product\h10.png" />
+    <Content Include="Content\Images\Product\h11.png" />
+    <Content Include="Content\Images\Product\h13.png" />
+    <Content Include="Content\Images\Product\h5.png" />
+    <Content Include="Content\Images\Product\h2.png" />
+    <Content Include="Content\Images\Product\h3.png" />
+    <Content Include="Content\Images\Product\h4.png" />
+    <Content Include="Content\Images\Product\h6.png" />
+    <Content Include="Content\Images\Product\h7.png" />
+    <Content Include="Content\Images\Product\h8.png" />
+    <Content Include="Content\Images\Product\h9.png" />
+    <Content Include="Content\Images\Product\image12.png" />
+    <Content Include="Content\Images\Product\phan-mem-dat-phong-truc-tuyen.png" />
+    <Content Include="Content\Images\Product\quan-ly-tai-lieu-dien-tu-1.png" />
+    <Content Include="Content\Images\Product\quan-ly-tai-lieu-dien-tu.png" />
+    <Content Include="Content\Images\Product\restaurant 1.png" />
+    <Content Include="Content\Images\Product\sp3.png" />
+    <Content Include="Content\Images\Product\sp4.png" />
+    <Content Include="Content\Images\Product\sp1.png" />
+    <Content Include="Content\Images\Product\sp2.png" />
+    <Content Include="Content\Images\Product\sp5.png" />
+    <Content Include="Content\Images\Product\sp6.png" />
+    <Content Include="Content\Images\Slider\1111.png" />
+    <Content Include="Content\Images\Slider\11111.png" />
+    <Content Include="Content\Images\Slider\customized-packages.png" />
+    <Content Include="Content\Images\Slider\giai-phap-tiep-thi-so.png" />
+    <Content Include="Content\Images\Slider\iMac-MacBook-big-preview.jpg" />
+    <Content Include="Content\Images\Slider\macbook-mock-dribbble.jpg" />
+    <Content Include="Content\Images\Slider\quan-he-khach-hang.png" />
+    <Content Include="Content\Images\Slider\quan-ly-dat-phong-truc-tuyen.png" />
+    <Content Include="Content\Images\Slider\quan-ly-he-thong-phan-phoi.png" />
+    <Content Include="Content\Images\Slider\quan-ly-khach-san.png" />
+    <Content Include="Content\Images\Slider\quan-ly-nong-trai.png" />
+    <Content Include="Content\Images\Slider\SliderGame2.png" />
+    <Content Include="Content\Images\Slider\techandall_shadow_series_apple_iDevices-Farm.png" />
+    <Content Include="Content\Images\Slider\techandall_shadow_series_apple_iDevices-Recovered.png" />
+    <Content Include="Content\Images\Slider\techandall_shadow_series_apple_iDevices.png" />
+    <Content Include="Content\Images\Slider\thiet-ke-trang-web-khach-san.png" />
+    <Content Include="Content\Images\Slider\tu-van-thiet-ke-web.png" />
+    <Content Include="Content\owl.carousel.css" />
+    <Content Include="Content\owl.carousel.min.css" />
+    <Content Include="Content\owl.theme.default.min.css" />
+    <Content Include="Content\Site.min.css">
+      <DependentUpon>Site.css</DependentUpon>
+    </Content>
+    <Content Include="Css\ChatStyle.css" />
+    <Content Include="Css\JQueryUI\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Css\JQueryUI\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Css\JQueryUI\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Css\JQueryUI\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Css\JQueryUI\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Css\JQueryUI\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Css\JQueryUI\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Css\JQueryUI\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Css\JQueryUI\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\base\jquery-ui.css" />
+    <Content Include="Css\JQueryUI\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Css\JQueryUI\themes\base\jquery.ui.all.css" />
+    <Content Include="Css\JQueryUI\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Css\JQueryUI\themes\base\jquery.ui.base.css" />
+    <Content Include="Css\JQueryUI\themes\base\jquery.ui.button.css" />
+    <Content Include="Css\JQueryUI\themes\base\jquery.ui.core.css" />
+    <Content Include="Css\JQueryUI\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Css\JQueryUI\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Css\JQueryUI\themes\base\jquery.ui.menu.css" />
+    <Content Include="Css\JQueryUI\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Css\JQueryUI\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Css\JQueryUI\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Css\JQueryUI\themes\base\jquery.ui.slider.css" />
+    <Content Include="Css\JQueryUI\themes\base\jquery.ui.spinner.css" />
+    <Content Include="Css\JQueryUI\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Css\JQueryUI\themes\base\jquery.ui.theme.css" />
+    <Content Include="Css\JQueryUI\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Css\JQueryUI\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Css\JQueryUI\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Css\JQueryUI\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Css\JQueryUI\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Css\JQueryUI\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Css\JQueryUI\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Css\JQueryUI\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Css\JQueryUI\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Css\JQueryUI\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Css\JQueryUI\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Css\JQueryUI\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Css\JQueryUI\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Css\JQueryUI\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Css\JQueryUI\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Css\JQueryUI\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Css\JQueryUI\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Css\JQueryUI\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Css\JQueryUI\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Css\JQueryUI\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Css\JQueryUI\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Css\JQueryUI\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Css\JQueryUI\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Css\JQueryUI\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Css\JQueryUI\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\jquery-ui.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\jquery.ui.accordion.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\jquery.ui.all.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\jquery.ui.autocomplete.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\jquery.ui.base.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\jquery.ui.button.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\jquery.ui.core.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\jquery.ui.datepicker.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\jquery.ui.dialog.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\jquery.ui.menu.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\jquery.ui.progressbar.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\jquery.ui.resizable.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\jquery.ui.selectable.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\jquery.ui.slider.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\jquery.ui.spinner.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\jquery.ui.tabs.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\jquery.ui.theme.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\jquery.ui.tooltip.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\jquery-ui.min.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\jquery.ui.button.min.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\jquery.ui.core.min.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\jquery.ui.menu.min.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\jquery.ui.slider.min.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\jquery.ui.theme.min.css" />
+    <Content Include="Css\JQueryUI\themes\ui-lightness\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-filetypes-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-regular.svg" />
+    <Content Include="fonts\glyphicons-social-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-filetypes-regular.eot" />
+    <Content Include="fonts\glyphicons-filetypes-regular.ttf" />
+    <Content Include="fonts\glyphicons-filetypes-regular.woff" />
+    <Content Include="fonts\glyphicons-regular.eot" />
+    <Content Include="fonts\glyphicons-regular.ttf" />
+    <Content Include="fonts\glyphicons-regular.woff" />
+    <Content Include="fonts\glyphicons-social-regular.eot" />
+    <Content Include="fonts\glyphicons-social-regular.ttf" />
+    <Content Include="fonts\glyphicons-social-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\css\OurClient\OurClient.less" />
+    <Content Include="Content\css\OurClient\OurClient.css.map">
+      <DependentUpon>OurClient.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\AboutUst\Career.less" />
+    <Content Include="Content\css\AboutUst\Career.css.map">
+      <DependentUpon>Career.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\AboutUst\ContactUs.less" />
+    <Content Include="Content\css\AboutUst\ContactUs.css.map">
+      <DependentUpon>ContactUs.css</DependentUpon>
+    </Content>
+    <Content Include="fonts\MyriadPro-SemiboldIt.eot" />
+    <Content Include="fonts\MyriadPro-SemiboldIt.ttf" />
+    <Content Include="fonts\MyriadPro-SemiboldIt.woff" />
+    <Content Include="fonts\MyriadPro-SemiboldIt.woff2" />
+    <Content Include="fonts\MyriadPro-It.eot" />
+    <Content Include="fonts\MyriadPro-It.ttf" />
+    <Content Include="fonts\MyriadPro-It.woff" />
+    <Content Include="fonts\MyriadPro-It.woff2" />
+    <Content Include="fonts\MyriadPro-Semibold.eot" />
+    <Content Include="fonts\MyriadPro-Semibold.ttf" />
+    <Content Include="fonts\MyriadPro-Semibold.woff" />
+    <Content Include="fonts\MyriadPro-Semibold.woff2" />
+    <Content Include="fonts\MyriadPro-Light.eot" />
+    <Content Include="fonts\MyriadPro-Light.ttf" />
+    <Content Include="fonts\MyriadPro-Light.woff" />
+    <Content Include="fonts\MyriadPro-Light.woff2" />
+    <Content Include="fonts\MyriadPro-Regular.eot" />
+    <Content Include="fonts\MyriadPro-Regular.ttf" />
+    <Content Include="fonts\MyriadPro-Regular.woff" />
+    <Content Include="fonts\MyriadPro-Regular.woff2" />
+    <None Include="Properties\PublishProfiles\Duy.Do.pubxml" />
+    <None Include="Properties\PublishProfiles\Nhan.Nguyen-DC.pubxml" />
+    <None Include="Properties\PublishProfiles\Nhan.Nguyen.pubxml" />
+    <None Include="Properties\PublishProfiles\Son.Ho.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Images\delete.png" />
+    <Content Include="index.html" />
+    <Content Include="robots.txt" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.1.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\owl-carousel\1.3.2\AjaxLoader.gif" />
+    <Content Include="Scripts\owl-carousel\1.3.2\grabbing.png" />
+    <Content Include="Scripts\owl-carousel\1.3.2\owl.carousel.css" />
+    <Content Include="Scripts\owl-carousel\1.3.2\owl.carousel.js" />
+    <Content Include="Scripts\owl-carousel\1.3.2\owl.carousel.min.js" />
+    <Content Include="Scripts\owl-carousel\1.3.2\owl.theme.css" />
+    <Content Include="Scripts\owl-carousel\1.3.2\owl.transitions.css" />
+    <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Scripts\react\JSXTransformer-0.12.2.js" />
+    <Content Include="Scripts\react\react-0.12.2.js" />
+    <Content Include="Scripts\react\react-0.12.2.min.js" />
+    <Content Include="Scripts\react\react-with-addons-0.12.2.js" />
+    <Content Include="Scripts\react\react-with-addons-0.12.2.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\ui\jquery.ui.core.js" />
+    <Content Include="Scripts\ui\jquery.ui.dialog.js" />
+    <Content Include="Scripts\ui\jquery.ui.draggable.js" />
+    <Content Include="Scripts\ui\jquery.ui.mouse.js" />
+    <Content Include="Scripts\ui\jquery.ui.resizable.js" />
+    <Content Include="Scripts\ui\jquery.ui.widget.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="sitemap.xml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\ReactJS\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\ReactJS\HelloWorld.jsx" />
+    <Content Include="Views\Home\p_Navigation.cshtml" />
+    <Content Include="Views\Home\p_Haeder.cshtml" />
+    <Content Include="Views\Home\p_Footer.cshtml" />
+    <Content Include="Views\HospitalityManagementSolution\HotelWebsiteDesign.cshtml" />
+    <Content Include="Views\HospitalityManagementSolution\HotelBookingEngine.cshtml" />
+    <Content Include="Views\HospitalityManagementSolution\HospitalityPropertyManagementSoftwareNamoly.cshtml" />
+    <Content Include="Views\BuiltOnDemandBMS\BuiltOnDemandRMS.cshtml" />
+    <Content Include="Views\BuiltOnDemandBMS\BuiltOnDemandDMS.cshtml" />
+    <Content Include="Views\BuiltOnDemandBMS\BuiltOnDemandFinanceManagementSoftware.cshtml" />
+    <Content Include="Views\BuiltOnDemandBMS\BuiltOnDemandHumanResourceManagementSoftware.cshtml" />
+    <Content Include="Views\BuiltOnDemandBMS\BuiltOnDemandCrmSoftware.cshtml" />
+    <Content Include="Views\BuiltOnDemandBMS\BuiltOnDemandDmsSoftware.cshtml" />
+    <Content Include="Views\BuiltOnDemandBMS\FarmingManagementSofwareNafaly.cshtml" />
+    <Content Include="Views\BuiltOnDemandBMS\SteelTradingBusinessManagementSofwareNAANSteel.cshtml" />
+    <Content Include="Views\BuiltOnDemandBMS\BuiltOnDemandAccociationManagementSoftware.cshtml" />
+    <Content Include="Views\DigitalMarketingSolution\BuiltOnDemandWebsite.cshtml" />
+    <Content Include="Views\DigitalMarketingSolution\SeoConsultingServices.cshtml" />
+    <Content Include="Views\DigitalMarketingSolution\BuiltOnDemandMarketingGame.cshtml" />
+    <Content Include="Views\OurClient\OurClient.cshtml" />
+    <Content Include="Views\AboutUs\Career.cshtml" />
+    <Content Include="Views\AboutUs\ContactUs.cshtml" />
+    <Content Include="Views\Home\p_Content_Right.cshtml" />
+    <Content Include="Views\Home\p_Relation_Right.cshtml" />
+    <Content Include="Views\AboutUs\CareerQAQC.cshtml" />
+    <Content Include="Views\AboutUs\CareerProgrammerTrainee.cshtml" />
+    <Content Include="Views\AboutUs\CareerSale.cshtml" />
+    <Content Include="Views\HospitalityManagementSolution\NamolyRestaurantProfessional.cshtml" />
+    <Content Include="Views\HospitalityManagementSolution\NamolySpaProfessional.cshtml" />
+    <Content Include="Views\HospitalityManagementSolution\NamolyEnterprise.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\BuiltOnDemandBMS\ContentManagementSoftware.cshtml" />
+    <Content Include="Views\Home\ViewSearch.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CMS.BusinessObject\CMS.BusinessObjects.csproj">
+      <Project>{55a30729-afb2-496c-9d90-8c883e45e8bf}</Project>
+      <Name>CMS.BusinessObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CMS.OnDemandServices\CMS.OnDemandServices.csproj">
+      <Project>{8cdbe10a-5d2a-4499-a015-94d55de1e23e}</Project>
+      <Name>CMS.OnDemandServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51862</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51865/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

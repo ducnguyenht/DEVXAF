@@ -1,0 +1,41 @@
+﻿@model NAANSolution_ReactJS.Models.ArticleViewModels
+@{
+    ViewBag.Title = @Model.KeywordVN;
+    ViewBag.MetaDescription = @Model.MetaDescriptionVN;
+    ViewBag.MetaType = "article";
+    ViewBag.MetaImage = @Model.ImageAvatarVN;
+    ViewBag.MetaImageWidth = "450";
+    ViewBag.MetaImageHeight = "450";
+    ViewBag.MetaUrlPage = "https://naansolution.com/" + @Model.UrlVN;
+    ViewBag.MetaTitle = @Model.KeywordVN;
+    ViewBag.MetaKeyWord = @Model.MetaKeywordVN;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="content">
+    @Html.Hidden("Id", Model.Id)
+    @Html.Hidden("PageComponent", "TCQCTHSP")
+    <div id="content-left" class="content-left-show">
+        <div class="col-md-12">
+            <div class="block-title block-title-corner">
+                <h1 title="@Html.Raw(HttpUtility.HtmlDecode(@Model.KeywordVN))">@Html.Raw(HttpUtility.HtmlDecode(@Model.TitleVN))</h1>
+            </div>
+        </div>
+        <div class="col-md-12">
+            @Html.Raw(HttpUtility.HtmlDecode(@Model.ContentVN))
+        </div>
+    </div>
+    <div id="content-right" class="content-right-hide">
+        @{Html.RenderAction("p_Relation_Right", "Home");}
+    </div>
+</div>
+<div class="col-md-12 nas-around-previous" >
+    <div class="nas-previous">
+        <a href="/dich-vu-cai-thien-thu-hang-web">
+            <i class="halflings halflings-direction-left nas-icon-address nas-icon-address-left"></i>
+            <span class="title-address-1" title="Quay lại">Quay lại</span>
+            <div class="title-address-2" title="Dịch vụ cải thiện thứ hạng web">dịch vụ cải thiện thứ hạng web</div>
+        </a>
+    </div>
+</div>

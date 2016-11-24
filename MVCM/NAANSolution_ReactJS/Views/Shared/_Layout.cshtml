@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-language" content="vi" />
+    <title>@Html.Raw(HttpUtility.HtmlDecode(@ViewBag.Title)) - NAAN Solution</title>
+    <meta name="msvalidate.01" content="EC9417F35E68FC0FD10C1E0FB4C6E561" />
+    <meta name="author" content="NAAN Solution">
+    <meta name='revisit-after' content='1 days' />
+    <meta name="robots" content="noodp,index,follow" />
+    <meta name="description" content="Chúng tôi đã xây dựng các giải pháp quản lý cốt lõi từ các phân hệ khác nhau. Từ đây, các phân hệ này sẽ được lắp ghép thay đổi để điều chỉnh theo yêu cầu khách hàng một cách nhanh chóng nhất.">
+    <meta property="og:locale" content="vi_VN" />
+    @if (ViewBag.MetaDescription != null)
+    {
+        <meta name="og:description" content="@Html.Raw(HttpUtility.HtmlDecode(@ViewBag.MetaDescription))" />
+    }
+    else
+    {
+    <meta property="og:description" content="Phần mềm thích hợp với đặc thù kinh doanh của doanh nghiệp , sẵn sàng chỉnh sửa và thay đổi phù hợp nhu cầu khách hàng" />
+    }
+    @if (ViewBag.MetaKeyWord != null)
+    {
+    <meta name="keywords" content="@Html.Raw(HttpUtility.HtmlDecode(@ViewBag.MetaKeyWord))">
+    <meta property="og:type" content="@Html.Raw(HttpUtility.HtmlDecode(@ViewBag.MetaType))" />
+    <meta property="og:image" content="@Html.Raw(HttpUtility.HtmlDecode(@ViewBag.MetaImage))" />
+    <meta property="og:image:width" content="@Html.Raw(HttpUtility.HtmlDecode(@ViewBag.MetaImageWidth))" />
+    <meta property="og:image:height" content="@Html.Raw(HttpUtility.HtmlDecode(@ViewBag.MetaImageHeight))" />
+    <meta property="og:url" content="@Html.Raw(HttpUtility.HtmlDecode(@ViewBag.MetaUrlPage))" />
+    <meta property="og:title" content="@Html.Raw(HttpUtility.HtmlDecode(@ViewBag.MetaTitle))" />
+    }
+    else
+    {
+    <meta name="keywords" content="phần mềm quận 10 , Dms , Erp , Crm , Cms , Pos , thiết kế web , namoly booking , phan mem quan 10 , dat phong truc tuyen ">
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="~/Content/Images/logo1.png" />
+    <meta property="og:image:width" content="350" />
+    <meta property="og:image:height" content="350" />
+    <meta property="og:url" content="http://naansolution.com/" />
+    <meta property="og:title" content="NAAN Solution - Sẽ chia giải pháp - Kết nối thành công" />
+    }
+    <meta property="fb:admins" content="ID Fanpage" />
+    <meta property="og:site_name" content="https://naansolution.com" />
+    <meta property="article:publisher" content="https://www.facebook.com/naansolution" />
+    <meta name="geo.placename" content="Công ty TNHH Giải Pháp Công Nghệ NAAN" />
+    <meta name="geo.position" content="10.774927;106.680680" />
+    <meta name="geo.region" content="VN-TPHCM" />
+    <meta name="ICBM" content="21.0315050;21.0315050" />
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-87107225-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    @Styles.Render("~/bundles/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="pushmenu-push">
+    <div class="navbar navbar-fixed-top" style="height: 65px;">
+        @{Html.RenderAction("p_Haeder", "Home");}
+    </div>
+    <div class="col-md-12 nas-col" style="overflow:hidden;">
+        <div class="nas-col" id="wrapper">
+            <div class="nas-col">
+                @{Html.RenderAction("p_Navigation", "Home");}
+            </div>
+            <div id="page-content-wrapper" class="nas-col-padding">
+                @RenderBody()
+            </div>
+        </div>
+        <div class="col-md-12 nas-col" style="overflow:hidden;">
+            @{Html.RenderAction("p_Footer", "Home");}
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

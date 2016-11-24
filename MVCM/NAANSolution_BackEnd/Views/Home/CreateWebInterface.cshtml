@@ -1,0 +1,207 @@
+﻿@model NAANSolution_BackEnd.Models.WebInterfaceViewModels
+@{
+    ViewBag.Title = "Create Web Interface";
+    Layout = "~/Views/Shared/MasterPages/_Layout.cshtml";
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+}
+@using (@Html.BeginForm("CreateWebInterfaceAdd", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <div class="nas-content">
+                <div class="col-md-12 mt">
+                    <div class="col-md-12 col-xs-12 nas-header">
+                        <div class="col-md-12">
+                            <h1 style="font-size: 20px; margin-top: 5px;"><a href="~/trang-chu">Trang chủ</a> / Tạo mới giao diện web</h1>
+                            <hr />
+                        </div>
+                        <div class="panel-body">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#vn" data-toggle="tab">
+                                        Tiếng Việt
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#en" data-toggle="tab">
+                                        Tiếng Anh
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="vn">
+                                    @Html.Hidden("Id", Model.Id)
+                                    @Html.Hidden("PageComponent", "KGDW")
+                                    @Html.Hidden("Type", "Slider")
+                                    <div class="col-md-12 col-sm-12 col-xs-12 nas-col" style="margin:10px 0">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-col">
+                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                <div class="col-md-1 col-sm-3 col-xs-12 nas-col">
+                                                    Hình ảnh:
+                                                </div>
+                                                <div class="col-md-10 col-sm-7 col-xs-9 nas-col">
+                                                    @Html.TextBoxFor(model => model.ImageUrlVN, new { @class = "nas-input-hide" })
+                                                    <img id="my_image" src="/Content/images/Slider/960x300.gif" width="70%" title="" />
+                                                </div>
+                                                <div class="col-md-1 col-sm-2 col-xs-3 nas-col">
+                                                    <button style="float:right;" type="button" id="Browse" title="Chọn ảnh từ server">...</button>
+                                                </div>
+                                                <script>
+                                                    //Xử lý click nút Browse hiện popup CKFinder
+                                                    $('#Browse').click(function () {
+                                                        var finder = new CKFinder();
+                                                        finder.selectActionFunction = function (fileUrl) {
+                                                            //Chỉ lấy tên ảnh
+                                                            //fileUrl = fileUrl.substring(fileUrl.lastIndexOf('/') + 1);
+                                                            $("#ImageUrlVN").val(fileUrl);
+                                                            //Gán link vào hình
+                                                            $("#my_image").attr("src", fileUrl);
+                                                        };
+                                                        finder.popup();
+                                                    })
+                                                </script>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                    Vị trí:
+                                                </div>
+                                                <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                    @Html.TextBoxFor(model => model.IndexVN, new { @class = "nas-input", @type = "number", @style = "width: 70px;" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                    Tiêu đề:
+                                                </div>
+                                                <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                    @Html.TextBoxFor(model => model.TitleVN, new { @class = "nas-input", placeholder = "Nhập tiêu đề..." })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                    Mô tả:
+                                                </div>
+                                                <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                    @Html.TextBoxFor(model => model.DescriptionVN, new { @class = "nas-input", placeholder = "Nhập mô tả..." })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                    Định tuyến:
+                                                </div>
+                                                <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                    @Html.TextBoxFor(model => model.UrlVN, new { @class = "nas-input", placeholder = "Nhập định tuyến..." })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content-check">
+                                                    Kích hoạt:
+                                                </div>
+                                                <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                    @Html.CheckBoxFor(model => model.IsActive, new { @class = "nas-checkbox" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 nas-button">
+                                            <button type="submit" class="btn btn-primary">
+                                                Lưu
+                                            </button>
+                                            <button type="reset" class="btn btn-warning">
+                                                Huỷ bỏ
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="en">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 nas-col" style="margin:10px 0">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-col">
+                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                <div class="col-md-1 col-sm-3 col-xs-12 nas-col">
+                                                    Image:
+                                                </div>
+                                                <div class="col-md-10 col-sm-7 col-xs-9 nas-col">
+                                                    @Html.TextBoxFor(model => model.ImageUrlEN, new { @class = "nas-input-hide" })
+                                                    <img id="my_image" src="/Content/images/Slider/960x300.gif" width="70%" title="" />
+                                                </div>
+                                                <div class="col-md-1 col-sm-2 col-xs-3 nas-col">
+                                                    <button style="float:right;" type="button" id="BrowseEN" title="Browse server">...</button>
+                                                </div>
+                                                <script>
+                                                    //Xử lý click nút Browse hiện popup CKFinder
+                                                    $('#BrowseEN').click(function () {
+                                                        var finder = new CKFinder();
+                                                        finder.selectActionFunction = function (fileUrl) {
+                                                            //Chỉ lấy tên ảnh
+                                                            //fileUrl = fileUrl.substring(fileUrl.lastIndexOf('/') + 1);
+                                                            $("#ImageUrlEN").val(fileUrl);
+                                                            //Gán link vào hình
+                                                           $("#my_imageEN").attr("src", fileUrl);
+                                                        };
+                                                        finder.popup();
+                                                    })
+                                                </script>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                    Index:
+                                                </div>
+                                                <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                   @Html.TextBoxFor(model => model.IndexEN, new { @class = "nas-input", @type = "number", @style = "width: 70px;" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                    Title:
+                                                </div>
+                                                <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                    @Html.TextBoxFor(model => model.TitleVN, new { @class = "nas-input", placeholder = "Enter title..." })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                    Description:
+                                                </div>
+                                                <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                    @Html.TextBoxFor(model => model.DescriptionVN, new { @class = "nas-input", placeholder = "Enter description..." })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                    Routing:
+                                                </div>
+                                                <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                    @Html.TextBoxFor(model => model.UrlEN, new { @class = "nas-input", placeholder = "Enter routing..." })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content-check">
+                                                    Actived:
+                                                </div>
+                                                <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                    @Html.CheckBoxFor(model => model.IsActive, new { @class = "nas-checkbox" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 nas-button">
+                                            <button type="button" class="btn btn-primary">
+                                                Save
+                                            </button>
+                                            <button type="button" class="btn btn-warning">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+}
+
+

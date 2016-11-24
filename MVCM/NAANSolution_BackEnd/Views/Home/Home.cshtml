@@ -1,0 +1,584 @@
+﻿@model NAANSolution_BackEnd.Models.HomeViewModels
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/MasterPages/_Layout.cshtml";
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+}
+@section PageStyle {
+    @*You can add your custom style sheets for each page on this section.*@
+    <link rel="stylesheet" href="http://cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.css" />
+}
+@section PageJavaScript{
+    @*You can add your custom JavaScript for each page on this section. This section will be added to the bottom of the page.*@
+
+    <script type="text/javascript" src="../Content/Scripts/plugins/dataTables/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="http://cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+}
+<script>
+    $(document).ready(function () {
+       // $('#dataTables-example').dataTable();
+    });
+</script>
+<section id="main-content">
+    <section class="wrapper site-min-height">
+        <div class="nas-content">
+            <div class="col-md-12 mt">
+                <div class="col-md-12 col-xs-12 nas-header">
+                    <div class="col-md-12">
+                        <h1 class="col-md-12 col-sm-12 col-xs-12 nas-col" style="font-size: 20px; margin: 5px 0 0 0;">Trang chủ</h1>
+                        <hr class="col-md-12 nas-col" />
+                    </div>
+                    @*Phần nhập liệu Slider*@
+                    @using (@Html.BeginForm("DeleteMultipleSlider", "Home", FormMethod.Post))
+                    {
+                        <div class="col-lg-12">
+                            <div class="panel panel-default" style="border: 1px solid #ddd; border-radius: 0;">
+                                <div class="panel-heading">
+                                    <div class="col-md-12 nas-col">
+                                        <h4 class="col-md-8 col-sm-7 col-xs-12 nas-col title">
+                                            Slider
+                                        </h4>
+                                        <div class="col-md-4 col-sm-5 col-xs-12 nas-col nas-action-group">
+                                            <a class="nas-action-create" href="~/trang-chu/tao-moi-slider">Tạo mới</a>
+                                            @*<a class="nas-action-removeGroup" href="#">Xoá nhiều</a>*@
+                                            <button type="submit" onclick="return DeleteConfirm()" class="nas-action-removeGroup">
+                                                Xoá nhiều
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                            <thead>
+                                                <tr>
+                                                    <th width="3%">
+
+                                                    </th>
+                                                    <th width="21%">
+                                                        Hình ảnh
+                                                    </th>
+                                                    <th width="31%">
+                                                        Mô tả
+                                                    </th>
+                                                    <th width="5%">
+                                                        Vị trí
+                                                    </th>
+                                                    <th width="30%">
+                                                        Định tuyến
+                                                    </th>
+                                                    <th width="10%">
+
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var slider in Model.imageViewModels)
+                                                {
+                                                    @Html.Hidden("Id", slider.Id)
+                                                    @Html.Hidden("PageComponent", "SLTC")
+                                                    @Html.Hidden("Type", "Slider")
+                                                    <tr class="odd gradeX">
+                                                        <td class="nas-title-grid">
+                                                            <input class="nas-checkbox-grid" type="checkbox" name="sliderId" id="sliderId" value="@slider.Id" />
+                                                        </td>
+                                                        <td>
+                                                            <img src="@slider.ImageUrlVN" width="100%" />
+                                                        </td>
+                                                        <td>@slider.TitleVN</td>
+                                                        <td>@slider.IndexVN</td>
+                                                        <td class="center">@slider.UrlVN</td>
+                                                        <td class="nas-action">
+                                                            <a href="~/trang-chu/cap-nhat-slider/@slider.Id"><span class="glyphicons glyphicons-pen nas-action-edit" title="Sửa"></span></a>
+                                                            @Html.ActionLink(" ", "DeleteSlider", new { sliderId = @slider.Id }, new { onclick = "return DeleteConfirm()", @class = "glyphicons glyphicons-remove nas-action-remove", title = "Xoá" })
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    @*Phần nhập liệu nội dung trang chủ*@
+                    <div class="col-lg-12">
+                        <div class="col-md-12 col-sm-12 col-xs-12 nas-col">
+                            @*Phần nhập liệu hỗ trợ trực tuyến*@
+                            @*<div class="col-md-12 nas-col">
+                                    <div class="panel panel-default" style="border: 1px solid #ddd; border-radius: 0;">
+                                        <div class="panel-heading">
+                                            <div class="col-md-12 nas-col">
+                                                <h4 class="col-md-6 col-sm-6 col-xs-12 nas-col title">
+                                                    Hỗ trợ trực tuyến
+                                                </h4>
+                                                <div class="col-md-6 col-sm-6 col-xs-12 nas-col nas-action-group">
+                                                    <a class="nas-action-create" href="trang-chu/tao-moi-ho-tro-truc-tuyen">Tạo mới</a>
+                                                    <button type="submit" onclick="return DeleteConfirm()" class="nas-action-removeGroup">
+                                                        Xoá nhiều
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="3%">
+
+                                                            </th>
+                                                            <th width="20%">
+                                                                Hình ảnh
+                                                            </th>
+                                                            <th width="31%">
+                                                                Thông tin
+                                                            </th>
+                                                            <th width="30%">
+                                                                Loại thông tin
+                                                            </th>
+                                                            <th width="16%">
+
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="odd gradeX">
+                                                            <td class="nas-title-grid">
+                                                                <input class="nas-checkbox-grid" type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                                <img src="~/Content/Images/OurClient/1-7-haidang.png" />
+                                                            </td>
+                                                            <td>nguyenvana</td>
+                                                            <td class="center">sky</td>
+                                                            <td class="nas-action">
+                                                                <span class="glyphicons glyphicons-pen nas-action-edit" title="Sửa"></span>
+                                                                <span class="glyphicons glyphicons-remove nas-action-remove" title="Xoá"></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="even gradeC">
+                                                            <td class="nas-title-grid">
+                                                                <input class="nas-checkbox-grid" type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                                <img src="~/Content/Images/OurClient/PhucSinh_65x30.png" />
+                                                            </td>
+                                                            <td>nguyenvanb</td>
+                                                            <td class="center">sky</td>
+                                                            <td class="nas-action">
+                                                                <span class="glyphicons glyphicons-pen nas-action-edit" title="Sửa"></span>
+                                                                <span class="glyphicons glyphicons-remove nas-action-remove" title="Xoá"></span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>*@
+                            @*Phần nhập liệu phần mềm nổi bật *@
+                            @using (@Html.BeginForm("DeleteListApp", "Home", FormMethod.Post))
+                            {
+                                <div class="col-md-12 nas-col">
+                                    <div class="panel panel-default" style="border: 1px solid #ddd; border-radius: 0;">
+                                        <div class="panel-heading">
+                                            <div class="col-md-12 nas-col">
+                                                <h4 class="col-md-8 col-sm-7 col-xs-12 nas-col title">
+                                                    Phần mềm nổi bật
+                                                </h4>
+                                                <div class="col-md-4 col-sm-5 col-xs-12 nas-col nas-action-group">
+                                                    <a class="nas-action-create" href="~/trang-chu/danh-sach-phan-mem">Chọn</a>
+                                                    <button type="submit" onclick="return DeleteConfirm()" class="nas-action-removeGroup">
+                                                        Xoá nhiều
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="3%">
+
+                                                            </th>
+                                                            <th width="20%">
+                                                                Hình ảnh
+                                                            </th>
+                                                            <th width="31%">
+                                                                Mô tả
+                                                            </th>
+                                                            <th width="30%">
+                                                                Định tuyến
+                                                            </th>
+                                                            <th width="16%">
+
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var featured in Model.FeaturedSoftwareViewModels)
+                                                        {
+                                                            @Html.Hidden("Id", featured.Id)
+                                                            @Html.Hidden("Type", "PMNB")
+                                                            <tr class="odd gradeX">
+                                                                <td class="nas-title-grid">
+                                                                    <input class="nas-checkbox-grid" type="checkbox" id="idItem" name="idItem" value="@featured.Id" />
+                                                                </td>
+                                                                <td>
+                                                                    <img src="@featured.ImageAvatarVN" width="100%" />
+                                                                </td>
+                                                                <td>@featured.TitleVN</td>
+                                                                <td class="center">@featured.UrlVN</td>
+                                                                <td class="nas-action">
+                                                                    <a href="@featured.UrlVN"><span class="glyphicons glyphicons-pen nas-action-edit" title="Sửa"></span></a>
+                                                                    @Html.ActionLink(" ", "DeleteApp", new { id = @featured.Id }, new { onclick = "return DeleteConfirm()", @class = "glyphicons glyphicons-remove nas-action-remove", title = "Xoá" })
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            @*Phần nhập liệu kho phần mềm*@
+                            @using (@Html.BeginForm("DeleteListApp", "Home", FormMethod.Post))
+                            {
+                                <div class="col-md-12 nas-col">
+                                    <div class="panel panel-default" style="border: 1px solid #ddd; border-radius: 0;">
+                                        <div class="panel-heading">
+                                            <div class="col-md-12 nas-col">
+                                                <h4 class="col-md-8 col-sm-7 col-xs-12 nas-col title">
+                                                    Kho phần mềm
+                                                </h4>
+                                                <div class="col-md-4 col-sm-5 col-xs-12 nas-col nas-action-group">
+                                                    <a class="nas-action-create" href="~/trang-chu/kho-phan-mem">Chọn</a>
+                                                    <button type="submit" onclick="return DeleteConfirm()" class="nas-action-removeGroup">
+                                                        Xoá nhiều
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="3%">
+
+                                                            </th>
+                                                            <th width="20%">
+                                                                Hình ảnh
+                                                            </th>
+                                                            <th width="31%">
+                                                                Mô tả
+                                                            </th>
+                                                            <th width="30%">
+                                                                Định tuyến
+                                                            </th>
+                                                            <th width="16%">
+
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var normal in Model.NormalSoftwareViewModels)
+                                                        {
+                                                        @Html.Hidden("Id", normal.Id)
+                                                        @Html.Hidden("Type", "PMBT")
+                                                        <tr class="odd gradeX">
+                                                            <td class="nas-title-grid">
+                                                                <input class="nas-checkbox-grid" type="checkbox" id="idItem" name="idItem" value="@normal.Id" />
+                                                            </td>
+                                                            <td>
+                                                                <img src="@normal.ImageAvatarVN" width="100%" />
+                                                            </td>
+                                                            <td>@normal.TitleVN</td>
+                                                            <td class="center">@normal.UrlVN</td>
+                                                            <td class="nas-action">
+                                                                <a href="@normal.UrlVN"><span class="glyphicons glyphicons-pen nas-action-edit" title="Sửa"></span></a>
+                                                                @Html.ActionLink(" ", "DeleteApp", new { id = @normal.Id }, new { onclick = "return DeleteConfirm()", @class = "glyphicons glyphicons-remove nas-action-remove", title = "Xoá" })
+                                                            </td>
+                                                        </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            @*Phần nhập liệu kho giao diện web*@
+                            @using (@Html.BeginForm("DeleteMultipleWebInterface", "Home", FormMethod.Post))
+                            {
+                                <div class="col-md-12 nas-col">
+                                    <div class="panel panel-default" style="border: 1px solid #ddd; border-radius: 0;">
+                                        <div class="panel-heading">
+                                            <div class="col-md-12 nas-col">
+                                                <h4 class="col-md-8 col-sm-7 col-xs-12 nas-col title">
+                                                    Kho Giao diện Web
+                                                </h4>
+                                                <div class="col-md-4 col-sm-5 col-xs-12 nas-col nas-action-group">
+                                                    <a class="nas-action-create" href="~/trang-chu/tao-moi-giao-dien-web">Tạo mới</a>
+                                                    <button type="submit" onclick="return DeleteConfirm()" class="nas-action-removeGroup">
+                                                        Xoá nhiều
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="3%">
+
+                                                            </th>
+                                                            <th width="21%">
+                                                                Hình ảnh
+                                                            </th>
+                                                            <th width="31%">
+                                                                Mô tả
+                                                            </th>
+                                                            <th width="5%">
+                                                                Vị trí
+                                                            </th>
+                                                            <th width="30%">
+                                                                Định tuyến
+                                                            </th>
+                                                            <th width="10%">
+
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var webInterface in Model.WebInterfaceViewModels)
+                                                        {
+                                                            @Html.Hidden("Id", webInterface.Id)
+                                                            @Html.Hidden("PageComponent", "KGDW")
+                                                            @Html.Hidden("Type", "Slider")
+                                                            <tr class="odd gradeX">
+                                                                <td class="nas-title-grid">
+                                                                    <input class="nas-checkbox-grid" type="checkbox" name="webInterfaceId" id="webInterfaceId" value="@webInterface.Id" />
+                                                                </td>
+                                                                <td>
+                                                                    <img src="@webInterface.ImageUrlVN" width="100%" />
+                                                                </td>
+                                                                <td>@webInterface.TitleVN</td>
+                                                                <td>@webInterface.IndexVN</td>
+                                                                <td class="center">@webInterface.UrlVN</td>
+                                                                <td class="nas-action">
+                                                                    <a href="~/trang-chu/cap-nhat-kho-giao-dien-web/@webInterface.Id"><span class="glyphicons glyphicons-pen nas-action-edit" title="Sửa"></span></a>
+                                                                    @Html.ActionLink(" ", "DeleteWebInterface", new { webInterfaceId = @webInterface.Id }, new { onclick = "return DeleteConfirm()", @class = "glyphicons glyphicons-remove nas-action-remove", title = "Xoá" })
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            
+                            @*Phần dữ liệu khách hàng nói về NAAN*@
+                            @*<div class="col-md-12 nas-col">
+                                    <div class="panel panel-default" style="border: 1px solid #ddd; border-radius: 0;">
+                                        <div class="panel-heading">
+                                            <div class="col-md-12 nas-col">
+                                                <h4 class="col-md-8 col-sm-7 col-xs-12 nas-col title">
+                                                    Khách hàng nói về NAAN Solution
+                                                </h4>
+                                                <div class="col-md-4 col-sm-5 col-xs-12 nas-col nas-action-group">
+                                                    <a class="nas-action-create" href="trang-chu/tao-moi-nhan-xet">Tạo mới</a>
+                                                    <button type="submit" onclick="return DeleteConfirm()" class="nas-action-removeGroup">
+                                                        Xoá nhiều
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="3%">
+
+                                                            </th>
+                                                            <th width="20%">
+                                                                Ảnh đại diện
+                                                            </th>
+                                                            <th width="63%">
+                                                                Nhận xét
+                                                            </th>
+                                                            <th width="14%">
+
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="odd gradeX">
+                                                            <td class="nas-title-grid">
+                                                                <input class="nas-checkbox-grid" type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                                <img src="~/Content/Images/OurClient/1-7-haidang.png" />
+                                                            </td>
+                                                            <td class="center">
+                                                                Tôi thực sự ấn tượng về dịch vụ của NAAN Solution. Mặc dù không có chuyên môn về CNTT, nhờ có NAAN Solution tôi đã có một website khá bắt mắt, chuyên nghiệp và tôi cũng có thể quản lý web một cách dễ dàng.
+                                                            </td>
+                                                            <td class="nas-action">
+                                                                <span class="glyphicons glyphicons-pen nas-action-edit" title="Sửa"></span>
+                                                                <span class="glyphicons glyphicons-remove nas-action-remove" title="Xoá"></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="even gradeC">
+                                                            <td class="nas-title-grid">
+                                                                <input class="nas-checkbox-grid" type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                                <img src="~/Content/Images/OurClient/PhucSinh_65x30.png" />
+                                                            </td>
+                                                            <td class="center">
+                                                                Chỉ có kinh doanh trực tuyến mới giúp tôi làm được nhiều điều mà tôi chưa làm được. Ngay khi dùng thử NAAN Solution, tôi đã hoàn toàn tin tưởng và yên tâm để chọn. Tôi rất hài lòng với NAAN Solution.
+                                                            </td>
+                                                            <td class="nas-action">
+                                                                <span class="glyphicons glyphicons-pen nas-action-edit" title="Sửa"></span>
+                                                                <span class="glyphicons glyphicons-remove nas-action-remove" title="Xoá"></span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>*@
+                            @*Phần nhập liệu lý do chọn NAAN*@
+                            @*<div class="col-md-12 nas-col">
+                                    <div class="panel panel-default" style="border: 1px solid #ddd; border-radius: 0;">
+                                        <div class="panel-heading">
+                                            <div class="col-md-12 nas-col">
+                                                <h4 class="col-md-8 col-sm-7 col-xs-12 nas-col title">
+                                                    Lý do chọn NAAN Solution
+                                                </h4>
+                                                <div class="col-md-4 col-sm-5 col-xs-12 nas-col nas-action-group">
+                                                    <a class="nas-action-create" href="#">Lưu</a>
+                                                    <a class="nas-action-removeGroup" href="#">Cancel</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <ul class="nav nav-tabs">
+                                                <li class="active">
+                                                    <a href="#vn" data-toggle="tab">
+                                                        Tiếng Việt
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#en" data-toggle="tab">
+                                                        Tiếng Anh
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div class="tab-pane fade in active" id="vn">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 nas-col" style="margin:10px 0">
+                                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-col">
+                                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-col">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                                    <div class="col-md-2 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                                        Tiêu đề:
+                                                                    </div>
+                                                                    <div class="col-md-10 col-sm-9 col-xs-8 nas-col">
+                                                                        <input style="width:100%" placeholder="Nhập tiêu đề..." />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                                    <div class="col-md-2 col-sm-3 col-xs-4 nas-col nas-title-content-check">
+                                                                        Kích hoạt:
+                                                                    </div>
+                                                                    <div class="col-md-10 col-sm-9 col-xs-8 nas-col">
+                                                                        <input class="nas-checkbox" type="checkbox" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-col nas-title">
+                                                                Nội dung:
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-col nas-ckeditor">
+                                                                <textarea id="txtContentVN"></textarea>
+                                                                <script type="text/javascript">
+                                                                    CKEDITOR.replace("txtContentVN");
+                                                                </script>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="en">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 nas-col" style="margin:10px 0">
+                                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-col">
+                                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-col">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                                    <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                                        Title:
+                                                                    </div>
+                                                                    <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                                        <input style="width:100%" placeholder="Enter title..." />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                                    <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content-check">
+                                                                        Actived:
+                                                                    </div>
+                                                                    <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                                        <input class="nas-checkbox" type="checkbox" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-col nas-title">
+                                                                Content:
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-col nas-ckeditor">
+                                                                <textarea id="txtContentEN"></textarea>
+                                                                <script type="text/javascript">
+                                                                    CKEDITOR.replace("txtContentEN");
+                                                                </script>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+
+<script type="text/javascript">
+    function DeleteConfirm() {
+        if (confirm("Bạn có chắc chắn muốn xóa bản ghi này?"))
+            return true;
+        else
+            return false;
+    }
+
+</script>
+

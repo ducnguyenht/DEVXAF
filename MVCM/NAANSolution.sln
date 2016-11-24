@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAANSolution_ReactJS", "NAANSolution_ReactJS\NAANSolution_ReactJS.csproj", "{3A24C7D2-3587-41A4-878A-F99B321A9F5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAANSolution_BackEnd", "NAANSolution_BackEnd\NAANSolution_BackEnd.csproj", "{68C6755A-CF11-406B-A6FE-77A8B2A5E37E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Domain", "CMS.Domain\CMS.Domain.csproj", "{0A8FDF15-B122-47C8-BF43-95E782FA1BCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.OnDemandServices", "CMS.OnDemandServices\CMS.OnDemandServices.csproj", "{8CDBE10A-5D2A-4499-A015-94D55DE1E23E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.BusinessObjects", "CMS.BusinessObject\CMS.BusinessObjects.csproj", "{55A30729-AFB2-496C-9D90-8C883E45E8BF}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A24C7D2-3587-41A4-878A-F99B321A9F5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A24C7D2-3587-41A4-878A-F99B321A9F5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A24C7D2-3587-41A4-878A-F99B321A9F5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A24C7D2-3587-41A4-878A-F99B321A9F5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68C6755A-CF11-406B-A6FE-77A8B2A5E37E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68C6755A-CF11-406B-A6FE-77A8B2A5E37E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68C6755A-CF11-406B-A6FE-77A8B2A5E37E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68C6755A-CF11-406B-A6FE-77A8B2A5E37E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A8FDF15-B122-47C8-BF43-95E782FA1BCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A8FDF15-B122-47C8-BF43-95E782FA1BCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A8FDF15-B122-47C8-BF43-95E782FA1BCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A8FDF15-B122-47C8-BF43-95E782FA1BCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CDBE10A-5D2A-4499-A015-94D55DE1E23E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CDBE10A-5D2A-4499-A015-94D55DE1E23E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CDBE10A-5D2A-4499-A015-94D55DE1E23E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CDBE10A-5D2A-4499-A015-94D55DE1E23E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55A30729-AFB2-496C-9D90-8C883E45E8BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55A30729-AFB2-496C-9D90-8C883E45E8BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55A30729-AFB2-496C-9D90-8C883E45E8BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55A30729-AFB2-496C-9D90-8C883E45E8BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

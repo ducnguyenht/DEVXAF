@@ -1,0 +1,103 @@
+﻿@model NAANSolution_BackEnd.Models.PageComponentViewModels
+@{
+    ViewBag.Title = "PageComponentAddNew";
+    Layout = "~/Views/Shared/MasterPages/_Layout.cshtml";
+}
+@using (Html.BeginForm("PageComponentAdd", "PageComponent", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <div class="nas-content">
+                <div class="col-md-12 mt">
+                    <div class="col-md-12 col-xs-12 nas-header">
+                        <div class="col-md-12">
+                            <h1 style="font-size: 20px; margin-top: 5px;"><a href="/loai-o-chua">Loại ô chứa</a> / Tạo mới loại ô chứa</h1>
+                            <hr />
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 nas-col" style="margin:10px 0">
+                            @Html.Hidden("Id", Model.Id)
+                            <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                <div class="col-md-1 col-sm-2 col-xs-4 nas-col nas-title-content">
+                                    Mã:
+                                </div>
+                                <div class="col-md-11 col-sm-10 col-xs-8 nas-col">
+                                    @Html.TextBoxFor(model => model.Code, new { @class = "nas-input" })
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                <div class="col-md-1 col-sm-2 col-xs-4 nas-col nas-title-content">
+                                    Tên:
+                                </div>
+                                <div class="col-md-11 col-sm-10 col-xs-8 nas-col">
+                                    @Html.TextBoxFor(model => model.Name, new { @class = "nas-input" })
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                <div class="col-md-1 col-sm-2 col-xs-4 nas-col nas-title-content">
+                                    Loại tài liệu:
+                                </div>
+                                <div class="col-md-11 col-sm-10 col-xs-8 nas-col">
+                                    @{
+                                        List<SelectListItem> listItems = new List<SelectListItem>();
+                                        listItems.Add(new SelectListItem
+                                             {
+                                                 Text = "Article",
+                                                 Value = "1"
+                                             });
+                                        listItems.Add(new SelectListItem
+                                             {
+                                                 Text = "Image",
+                                                 Value = "2",
+                                                 Selected = true
+                                             });
+                                        listItems.Add(new SelectListItem
+                                             {
+                                                 Text = "Event",
+                                                 Value = "3"
+                                             });
+                                        listItems.Add(new SelectListItem
+                                        {
+                                            Text = "Advertisement",
+                                            Value = "4"
+                                        });
+                                    }
+                                    @Html.DropDownListFor(model => model.ContentType, listItems, "-- Chọn loại dữ liệu --", new { @class = "" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                <div class="col-md-1 col-sm-2 col-xs-4 nas-col nas-title-content">
+                                    Mô tả:
+                                </div>
+                                <div class="col-md-11 col-sm-10 col-xs-8 nas-col">
+                                    @Html.TextBoxFor(model => model.Description, new { @class = "nas-input" })
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                <div class="col-md-1 col-sm-2 col-xs-4 nas-col nas-title-content">
+                                    Có hiệu lực:
+                                </div>
+                                <div class="col-md-11 col-sm-10 col-xs-8 nas-col">
+                                    @Html.CheckBoxFor(model => model.IsActive, new { @class = "nas-checkbox" })
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-12 nas-button">
+                                <button type="submit" class="btn btn-primary">
+                                    Lưu
+                                </button>
+                                <button type="submit" class="btn btn-warning">
+                                    Huỷ bỏ
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    @Html.ValidationSummary()
+}
+
+
+

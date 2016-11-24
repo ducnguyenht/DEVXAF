@@ -1,0 +1,177 @@
+﻿@model NAANSolution_ReactJS.Models.HomeViewModels
+
+@{
+    ViewBag.Title = "Giải pháp quản lý khách sạn, phần mềm quản lý doanh nghiệp";
+    <link href="~/Scripts/owl-carousel/1.3.2/owl.carousel.css" rel="stylesheet" />
+    <link href="~/Scripts/owl-carousel/1.3.2/owl.theme.css" rel="stylesheet" />
+    <link href="~/Scripts/owl-carousel/1.3.2/owl.transitions.css" rel="stylesheet" />
+}
+<div class="col-md-12 nas-col" style="background:rgb(248, 248, 248);">
+    <div class="owl-carousel owl-theme " id="nw-slider-home">
+        @if (Model != null)
+        {
+            foreach (var slider in Model.SliderViewModels)
+            {
+                <div class="item"><a href="@slider.UrlVN"><img src="@slider.ImageUrlVN" title="@slider.TitleVN" alt="@slider.TitleVN" /></a></div>
+            }
+        }
+    </div>
+</div>
+<div class="col-md-12 nas-col nas-box-product">
+    <div id="content">
+        <div id="content-left" class="content-left-show">
+            <div class="col-md-12">
+                <div class="block-title block-title-corner">
+                    <h1>PHẦN MỀM NỔI BẬT</h1>
+                </div>
+            </div>
+            <div class="col-md-12 nas-col" style="margin-bottom:5px; overflow:hidden;">
+                @if (Model != null)
+                {
+                    foreach (var featured in Model.FeaturedSoftwareViewModels)
+                    {
+                        <div class="col-md-6">
+                            <a href="@featured.UrlVN">
+                                <img src="@featured.ImageAvatarVN" width="100%" title="@featured.TitleVN" alt="@featured.TitleVN" style="padding-top:50px" />
+                                <div class="title-pm">
+                                    <h4>
+                                        @featured.TitleVN
+                                    </h4>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                }
+            </div>
+            <div class="col-md-12">
+                <div class="block-title block-title-corner">
+                    <h1>KHO GIAO DIỆN WEB</h1>
+                </div>
+            </div>
+            <div class="nw-group-img-carousel">
+                @if (Model != null)
+                {
+                    foreach (var webInterface in Model.WebInterfaceViewModels)
+                    {
+                        <div class="nw-item">
+                            <img src="@webInterface.ImageUrlVN" />                         
+                        </div>
+                    }
+                }
+            </div>
+
+            <div class="col-md-12">
+                <div class="block-title block-title-corner">
+                    <h1>KHO PHẦN MỀM</h1>
+                </div>
+            </div>
+            <div class="col-md-12 nas-col nas-box-desginweb">
+                <div style="margin:30px 0; overflow:hidden;">
+                    @if (Model != null)
+                    {
+                        foreach (var normal in Model.NormalSoftwareViewModels)
+                        {
+                            <div class="col-md-4 col-sm-6 col-xs-12 nas-item">
+                                <div class="nas-box-desginbold"><a href="/@normal.UrlVN"><img src="@normal.ImageAvatarVN" title="@normal.TitleVN" alt="@normal.TitleVN" /></a></div>
+                                <h4><a href="/@normal.UrlVN">@normal.TitleVN</a></h4>
+                                <p>@normal.MetaDescriptionVN</p>
+                            </div>
+                        }
+                    }
+                    <div class="clearfix hidden-lg hidden-md"></div>
+                </div>
+            </div>
+            @*<div class="col-md-12 col-sm-12 col-xs-12" style="max-width:800px;margin:0 auto;">
+                    <div class="block-title block-title-corner" style="text-align:center;">
+
+                        <h1>Ý KIẾN KHÁCH HÀNG </h1>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="nas-product-slider-cmt">
+                            <div class="item">
+                                <p><img src="~/Content/Images/Home/author-01.png" style="width:12%; margin:0 auto" /></p>
+                                <span class="pull-right">
+                                    Rất tuyệt vời, nhanh và chi phí cực thấp. Cám ơn các bạn đã giới thiệu mình đến với dịch vụ của NAAN Solution.
+                                </span>
+                            </div>
+                            <div class="item">
+                                <p><img src="~/Content/Images/Home/author-02.png" style="width:12%; margin:0 auto" /></p>
+                                <span class="pull-right">
+                                    Tôi thực sự ấn tượng về dịch vụ của NAAN Solution. Mặc dù không có chuyên môn về CNTT, nhờ có NAAN Solution tôi đã có một website khá bắt mắt, chuyên nghiệp và tôi cũng có thể quản lý web một cách dễ dàng.
+                                </span>
+                            </div>
+                            <div class="item">
+                                <p><img src="~/Content/Images/Home/author-01.png" style="width:12%; margin:0 auto" /></p>
+                                <span class="pull-right">
+                                    Chỉ có kinh doanh trực tuyến mới giúp tôi làm được nhiều điều mà tôi chưa làm được. Ngay khi dùng thử NAAN Solution, tôi đã hoàn toàn tin tưởng và yên tâm để chọn. Tôi rất hài lòng với NAAN Solution.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+
+
+            <div class="col-md-12 nas-col" style="overflow:hidden;">
+                <div class="col-md-12 col-sm-12 col-xs-12 nas-col nas-introduct">
+                    <h1>Tại sao chọn chúng tôi</h1>
+                    @*<p class="nas-line-img"><span class="glyphicons glyphicons-embed-close nas-line-icon"></span></p>*@
+                    <div style="overflow:hidden;margin-top:35px;">
+                        <div class="col-md-4 col-sm-4 col-xs-12 nas-block-introduct">
+                            <img src="~/Content/Images/Home/hotro.png" alt="hình ảnh hỗ trợ" />
+                            <h3>Hỗ trợ 24/7</h3>
+                            <p>Chúng tôi sẵn sàng hỗ trợ tư vấn sản phẩm cũng như dịch vụ tốt nhất dành cho bạn</p>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12 nas-block-introduct">
+                            <img src="~/Content/Images/Home/giaiphap.png" alt="hình ảnh giải pháp" />
+                            <h3>Cung cấp giải pháp</h3>
+                            <p>Phần mềm thích hợp với đặc thù kinh doanh của doanh nghiệp , sẵn sàng chỉnh sửa và thay đổi phù hợp nhu cầu khách hàng</p>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12 nas-block-introduct">
+                            <img src="~/Content/Images/Home/chatluong.png" alt="hình ảnh chất lượng" />
+                            <h3>Sản phẩm chất lượng cao</h3>
+                            <p>Sử dụng công nghệ mới, hiện đại nhất , giao diện thân thiện và dễ sử dụng</p>
+                        </div>
+                        @*<p><span class="glyphicons glyphicons-check"></span> LU&Ocirc;N HỖ TRỢ 24/7</p> <p><span class="glyphicons glyphicons-check"></span> CUNG CẤP GIẢI PH&Aacute;P PHẦN MỀM PH&Ugrave; HỢP NHẤT CHO DOANH NGHIỆP</p> <p> Phần mềm th&iacute;ch hợp với đặc th&ugrave; kinh doanh của doanh nghiệp</p> <p>Sẵn s&agrave;ng chỉnh sửa v&agrave; thay đổi ph&ugrave; hợp nhu cầu kh&aacute;ch h&agrave;ng</p> <p> Chi ph&iacute; hợp l&yacute;<br /> &nbsp;</p> <p><span class="glyphicons glyphicons-check"></span> SẢN PHẨM CỦA CH&Uacute;NG T&Ocirc;I C&Oacute; CHẤT LƯỢNG CAO</p> <p> Được đ&uacute;c kết kinh nghiệm từ nh&agrave; cung cấp lớn tr&ecirc;n thế giới</p> <p>Sử dụng c&ocirc;ng nghệ mới, hiện đại nhất</p> <p> Giao diện th&acirc;n thiện, dễ sử dụng</p><br /><br />*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div id="content-right" class="content-right-hide">
+                @{Html.RenderAction("p_Content_Right", "Home");}
+            </div>*@
+    </div>
+</div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/owl-carousel/1.3.2/owl.carousel.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var homeSlider = $("#nw-slider-home");
+
+        homeSlider.owlCarousel({
+            navigation: true,
+            singleItem: true,
+            slideSpeed:300,
+            rewindSpeed:0,
+            //  transitionStyle: "fade",
+            autoPlay: 3000,
+            navigationText: ['<span class="halflings halflings-menu-left"></span>', '<span class="halflings halflings-menu-right"></span>']
+        });
+
+        var owl = $(".nw-group-img-carousel");
+
+        owl.owlCarousel({
+            items: 4,   
+            dots: false,
+            slideSpeed: 300,
+            rewindSpeed: 0,
+            itemsDesktop: [1000, 4],
+            itemsDesktopSmall: [900, 3],
+            itemsTablet: [600, 2],
+            itemsMobile: false,
+            autoPlay: 3000,
+            navigationText: ['<span class="halflings halflings-menu-left"></span>', '<span class="halflings halflings-menu-right"></span>']
+        });
+    });
+
+
+</script>

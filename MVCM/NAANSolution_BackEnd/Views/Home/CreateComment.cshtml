@@ -1,0 +1,155 @@
+﻿
+@{
+    ViewBag.Title = "Create Comment";
+    Layout = "~/Views/Shared/MasterPages/_Layout.cshtml";
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+}
+<section id="main-content">
+    <section class="wrapper site-min-height">
+        <div class="nas-content">
+            <div class="col-md-12 mt">
+                <div class="col-md-12 col-xs-12 nas-header">
+                    <div class="col-md-12">
+                        <h1 style="font-size: 20px; margin-top: 5px;"><a href="~/trang-chu">Trang chủ</a> / Tạo mới nhận xét</h1>
+                        <hr />
+                    </div>
+                    <div class="panel-body">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#vn" data-toggle="tab">
+                                    Tiếng Việt
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#en" data-toggle="tab">
+                                    Tiếng Anh
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="vn">
+                                <div class="col-md-12 col-sm-12 col-xs-12 nas-col" style="margin:10px 0">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 nas-col">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-6 col-sm-8 col-xs-9 nas-col">
+                                                <span>Hình ảnh:</span><a style="margin-left:15px;" href="/"><img id="my_image" src="/Content/images/Slider/960x300.gif" width="70%" title="" /></a>
+                                            </div>
+                                            <div class="col-md-1 col-sm-2 col-xs-3 nas-col">
+                                                <button type="button" id="Browse" title="Chọn ảnh từ server">...</button>
+                                            </div>
+                                            <script>
+                                                //Xử lý click nút Browse hiện popup CKFinder
+                                                $('#Browse').click(function () {
+                                                    var finder = new CKFinder();
+                                                    finder.selectActionFunction = function (fileUrl) {
+                                                        //Chỉ lấy tên ảnh
+                                                        //fileUrl = fileUrl.substring(fileUrl.lastIndexOf('/') + 1);
+                                                        $("#my_image").attr("src", fileUrl);
+                                                    };
+                                                    finder.popup();
+                                                })
+                                            </script>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Vị trí:
+                                            </div>
+                                            <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                <input type="number" style="width: 70px;" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Nhận xét:
+                                            </div>
+                                            <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                <textarea style="width:100%;" placeholder="Nhập nhận xét..." rows="3"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content-check">
+                                                Kích hoạt:
+                                            </div>
+                                            <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                <input class="nas-checkbox" type="checkbox" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 nas-button">
+                                        <button type="button" class="btn btn-primary">
+                                            Lưu
+                                        </button>
+                                        <button type="button" class="btn btn-warning">
+                                            Huỷ bỏ
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="en">
+                                <div class="col-md-12 col-sm-12 col-xs-12 nas-col" style="margin:10px 0">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 nas-col">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-6 col-sm-8 col-xs-9 nas-col">
+                                                <span>Image:</span><a style="margin-left:25px;" href="/"><img id="my_image" src="/Content/images/Slider/960x300.gif" width="70%" title="" /></a>
+                                            </div>
+                                            <div class="col-md-1 col-sm-2 col-xs-3 nas-col">
+                                                <button type="button" id="BrowseEN" title="Browse server">...</button>
+                                            </div>
+                                            <script>
+                                                //Xử lý click nút Browse hiện popup CKFinder
+                                                $('#BrowseEN').click(function () {
+                                                    var finder = new CKFinder();
+                                                    finder.selectActionFunction = function (fileUrl) {
+                                                        //Chỉ lấy tên ảnh
+                                                        //fileUrl = fileUrl.substring(fileUrl.lastIndexOf('/') + 1);
+                                                        $("#my_imageEN").attr("src", fileUrl);
+                                                    };
+                                                    finder.popup();
+                                                })
+                                            </script>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Index:
+                                            </div>
+                                            <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                <input type="number" style="width: 70px;" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Comment:
+                                            </div>
+                                            <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                <textarea style="width:100%;" placeholder="Enter comment..." rows="3"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content-check">
+                                                Actived:
+                                            </div>
+                                            <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                <input class="nas-checkbox" type="checkbox" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 nas-button">
+                                        <button type="button" class="btn btn-primary">
+                                            Save
+                                        </button>
+                                        <button type="button" class="btn btn-warning">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

@@ -1,0 +1,129 @@
+﻿.nas-title h2 {
+  margin-top: 0px;
+}
+.nas-client {
+  background: #F4F4F4;
+}
+.nas-client .col-md-4 {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.nas-client .nas-box-client {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+  background: white;
+  margin: 10px 10px;
+}
+.nas-client .nas-box-client .nas-top-client,
+.nas-client .nas-box-client .nas-mid-client,
+.nas-client .nas-box-client .nas-bottom-client {
+  overflow: hidden;
+}
+.nas-client .nas-box-client .nas-top-client {
+  padding: 5px;
+}
+.nas-client .nas-box-client .nas-mid-client {
+  border: 1px solid rgba(128, 128, 128, 0.22);
+  border-left: 0;
+  border-right: 0;
+  /*-----------------*/
+  /***** Apollo *****/
+  /*-----------------*/
+}
+.nas-client .nas-box-client .nas-mid-client figure.effect-apollo {
+  background: white;
+}
+.nas-client .nas-box-client .nas-mid-client figure.effect-apollo img {
+  opacity: 0.95;
+}
+.nas-client .nas-box-client .nas-mid-client figure.effect-apollo figcaption::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+}
+.nas-client .nas-box-client .nas-mid-client figure.effect-apollo p {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 3em;
+  padding: 0 1em;
+  max-width: 150px;
+  border-right: 4px solid #3498db;
+  text-align: right;
+  opacity: 0;
+}
+.nas-client .nas-box-client .nas-mid-client figure.effect-apollo h2 {
+  text-align: left;
+}
+.nas-client .nas-box-client .nas-mid-client figure.effect-apollo:hover img {
+  opacity: 0.6;
+}
+.nas-client .nas-box-client .nas-mid-client figure.effect-apollo:hover p {
+  opacity: 1;
+}
+.nas-client .nas-box-client .nas-logo-client img {
+  width: 100%;
+}
+.nas-client .nas-box-client .nas-logo-client .nas-logo-client-material.md-button.md-primary.md-fab {
+  background: white;
+  cursor: default;
+  line-height: 2.2;
+  width: 50px;
+  height: 50px;
+}
+.nas-client .nas-box-client .nas-box-img img {
+  width: 100%;
+  padding: 20px;
+}
+.nas-client .nas-box-client .nas-title-client {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.nas-client .nas-box-client .nas-title-client p {
+  padding: 13px;
+  font-size: 0.95em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin: 0 0 -4px;
+  color: rgba(119, 115, 115, 0.76);
+}
+.nas-client .nas-box-client .nas-title-client span {
+  font-size: 0.85em;
+  font-weight: 400;
+  color: rgba(119, 115, 115, 0.76);
+}
+.nas-client .nas-box-client .nas-box-infor {
+  padding: 3px;
+}
+.nas-client .nas-box-client .nas-box-infor p {
+  font-size: 0.9em;
+  line-height: 1.8;
+  font-weight: 400;
+  color: rgba(119, 115, 115, 0.76);
+  margin: 10px 6px;
+}
+.nas-client .nas-descriptionas-client-tab1 {
+  height: 150px;
+  padding: 10px 10px;
+  overflow-y: auto;
+}
+.nas-client .nas-box-client-tab-2 {
+  overflow-y: scroll;
+}
+.nas-client .md-padding::-webkit-scrollbar,
+.nas-client .nas-descriptionas-client-tab1::-webkit-scrollbar,
+.nas-client .nas-box-client-tab-2::-webkit-scrollbar {
+  width: 5px;
+  background: #fff;
+}
+.nas-client .md-padding::-webkit-scrollbar-thumb,
+.nas-client .nas-descriptionas-client-tab1::-webkit-scrollbar-thumb,
+.nas-client .nas-box-client-tab-2::-webkit-scrollbar-thumb {
+  height: 5px;
+  background: rgba(138, 134, 134, 0.61);
+}
+/*# sourceMappingURL=OurClient.css.map */
