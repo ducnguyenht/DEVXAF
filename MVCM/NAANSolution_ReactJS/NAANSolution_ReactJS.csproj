@@ -567,6 +567,7 @@
     <None Include="Properties\PublishProfiles\Son.Ho.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\delete.png" />
+    <Content Include="index - Copy.html" />
     <Content Include="index.html" />
     <Content Include="robots.txt" />
     <Content Include="Scripts\bootstrap.js" />
@@ -693,7 +694,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51862</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51865/</IISUrl>
+          <IISUrl>http://localhost:51866/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
