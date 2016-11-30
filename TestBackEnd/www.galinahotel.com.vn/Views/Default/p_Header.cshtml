@@ -1,0 +1,278 @@
+﻿<header id="main-header" class="sticky">
+    <div class="inner-container container">
+        <div class="l-sec col-md-2 col-sm-6 col-xs-8 ">
+            <a href="./" id="t-logo">
+                <img src="~/Content/images/logo/logo-galina-hotel-spa.png" width="100%" />
+            </a>
+        </div>
+        <div class="r-sec col-md-10 col-sm-6 col-xs-4 ">
+            <nav id="main-menu">
+                <ul class="list-inline">
+                    @foreach (var Navigation in @ViewBag.Navigations)
+                    {
+                        <li class="active">
+                            <a href="@Navigation.Routing">@Navigation.Title</a>
+                            @if (@Navigation.Child != null)
+                            {
+                                <ul>
+                                    @foreach (var NavigationChild in @Navigation.Child)
+                                    {
+                                        <li>
+                                            <a href="@NavigationChild.Routing">@NavigationChild.Title</a>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                        </li>
+                    }
+                    @*<li class="active">
+                            <a href="/about-us">About</a>
+                        </li>
+                        <li>
+                            <a >Accomodation</a>
+                            <ul>
+                                <li>
+                                    <a href="/superior-room">Superior Room</a>
+                                </li>
+                                <li>
+                                    <a href="/deluxe-room">Deluxe Room</a>
+                                </li>
+                                <li>
+                                    <a href="/city-view-suite">City View Suite</a>
+                                </li>
+                                <li>
+                                    <a href="/sea-view-suite">Sea View Suite</a>
+                                </li>
+                            </ul>
+                        </li>*@
+                    <li>
+                        <a >Wedding & Dinning</a>
+                        <ul>
+                            <li><a href="/wedding">Galina Wedding</a></li>
+                            <li><a href="/convention">Convention</a></li>
+                            <li><a href="/galina-restaurant">Galina Restaurant</a></li>
+                            <li><a href="/galina-lobby-bar-and-lounge">Galina Lobby Bar & Lounge</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a >Mud Bath & Spa</a>
+                        <ul>
+                            <li><a href="/spa">Spa</a></li>
+                            <li><a href="/mud-bath">Mud Bath</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>
+                            Health Care
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/tranditional-medicince">
+                                    Traditional Medicince
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/orthodontic-center">
+                                    Orthodontic Center
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/coming-soon">
+                                    Aesthetic Surgery
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/coming-soon">
+                                    About Cosmetic Procedures
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/about-yoga-class">
+                                    About Yoga Class
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a >
+                            Images
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/images">
+                                    Images
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/videos">
+                                    Video
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>Explore Nha Trang</a>
+                        <ul>
+                            <li>
+                                <a href="/explore-nha-trang">
+                                    News
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/promotion">
+                                    Promotion
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/contact-us">Contact Us</a>
+                    </li>
+                    <li class="hideItemMenu">
+                        <a href="http://nhatrangdream.com.vn/">Nha Trang Dream</a>
+                    </li>
+                    <li>
+                        <a>Tiếng Việt</a>
+                        <ul>
+                            <li>
+                                <a href="">
+                                    Tiếng Việt
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    English
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    Русский язык
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div id="main-menu-handle" class="ravis-btn btn-type-2">
+                <i class="fa fa-bars"></i>
+                <i class="fa fa-close"></i>
+            </div><!-- Mobile Menu handle -->
+            @*<a href="" id="header-book-bow" class="ravis-btn btn-type-2">
+                <span>Book</span>
+                <i class="fa fa-calendar"></i>
+            </a>*@
+        </div>
+    </div>
+    <div id="mobile-menu-container">
+        <nav id="main-menu" class="sticky">
+            <ul class="list-inline">
+                <li class="active">
+                    <a href="/about-us">About</a>
+                </li>
+                <li>
+                    <a>Accomodation</a>
+                    <ul>
+                        <li>
+                            <a href="/superior-room">Superior Room</a>
+                        </li>
+                        <li>
+                            <a href="/deluxe-room">Deluxe Room</a>
+                        </li>
+                        <li>
+                            <a href="/city-view-suite">City View Suite</a>
+                        </li>
+                        <li>
+                            <a href="/sea-view-suite">Sea View Suite</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a>Wedding</a>
+                    <ul>
+                        <li><a href="/wedding">Galina Wedding</a></li>
+                        <li><a href="/convention">Convention</a></li>
+                        <li><a href="/galina-restaurant">Galina Restaurant</a></li>
+                        <li><a href="/galina-lobby-bar-and-lounge">Galina Lobby Bar & Lounge</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a>Mud Bath & spa</a>
+                    <ul>
+                        <li><a href="/spa">Spa</a></li>
+                        <li><a href="/mud-bath">Mud Bath</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a>
+                        Health Care
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="/traditional-medicince">
+                                Traditional Medicince
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/orthodontic-center">
+                                Orthodontic Center
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/coming-soon">
+                                Aesthetic Surgery
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/coming-soon">
+                                About Cosmetic Procedures
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/about-yoga-class">
+                                About Yoga Class
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a>
+                        Images
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="/images">
+                                Images
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/videos">
+                                Video
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a >Explore Nha Trang</a>
+                    <ul>
+                        <li>
+                            <a href="/explore-nha-trang">
+                                News
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/promotion">
+                                Promotion
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/contact-us">Contact Us</a>
+                </li>
+                <li>
+                    <a href="http://nhatrangdream.com.vn/">Nha Trang Dream</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "Information";
+}
+<section class="container">
+    @Html.Partial("_BreadcrumbPartial")
+    @Html.Partial("_InformationFormPartial")
+    @Html.Partial("_BookingDetailPartial")
+    <button type="button" onclick="location.href='@Url.Action("", "booking")'">Trờ về</button><button type="button" onclick="location.href='@Url.Action("payment", "booking")'">Tiếp tục</button>
+</section>

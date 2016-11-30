@@ -1,0 +1,310 @@
+﻿<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    @for (var i = 0; i < 5; i++)
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="heading@(i)">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse@(i)" aria-expanded="true" aria-controls="collapse@(i)">
+                        Superior @i
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse@(i)" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading@(i)">
+                <section class="panel-body">
+                    <div class="col-md-3">
+                        <div>
+                            <img src="~/imgs/1.jpg" />
+                        </div>
+                        <div>
+                            <p>Thông tin phòng:</p>
+                            <p>Số giuờng: 2</p>
+                            <p>Số người tối đa: 5</p>
+                            <p>Cản quan: Nhìn biển</p>
+                            <p>Diện tích 25m2</p>
+                            <p>Phòng tắm: 2</p>
+                            <p>Tổng số phòng: 10</p>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        @for (var j = 0; j < 5; j++)
+                        {
+                            string[] option = { "<p>Bữa sáng, Nước uống chào đón, Trà chiều</p><p>Giá rẻ (Không hoàn tiền)</p>", "<p>Bữa sáng, Nước uống chào đón, Trà chiều</p><p>MIỄN PHÍ hủy phòng trước 20 Tháng Mười Một 2016</p><p>Khuyến mãi trong thời gian có hạn Giá phòng đã giảm 33%</p>", "<p>Bữa sáng</p><p>Thanh toán sau: 23 Tháng Mười Một 2016</p><p>MIỄN PHÍ hủy phòng trước 25 Tháng Mười Một 2016</p><p>Khuyến mãi trong thời gian có hạn Giá phòng đã giảm 20%!</p>", "<p>Bữa sáng, Nước uống chào đón, Trà chiều</p><p>Giá rẻ (Không hoàn tiền)</p>", "<p>MIỄN PHÍ hủy phòng trước 20 Tháng Mười Một 2016</p>" };
+                            <div class="col-md-12">
+                                @{
+                                    <div class="col-md-7">
+                                        @Html.Raw(HttpUtility.HtmlDecode(option[j]))
+                                    </div>
+                                }
+                                <div class="col-md-5">
+                                    <div>
+                                        <div class="nwt-booking-group">
+                                            <div class="col-md-6">&nbsp;</div>
+                                            <div class="col-md-6 nwt-booking-group-action">
+                                                <button id="CheckRate@(i)@(j)" type="button" class="nwt-check-rate"><i class="glyphicon glyphicon-calendar"></i>Check Rate</button>
+                                            </div>
+                                        </div>
+                                        <script type="text/javascript">
+                                            $(function () {
+                                                var ValueTemp = $('#RoomValue').val();
+                                                $('#RoomValue00').val(ValueTemp);
+                                                function customDate(date) {
+                                                    var price = Math.round(Math.random() * 999999);
+                                                    if (price % 2 == 0 && price > 500000) {
+                                                        return '<div style="padding:0 5px;color:#555">\
+						                <span style="font-weight:bold">'+ date + '</span>\
+						                <div style="opacity:1;font-size:0.8em;font-weight:bold;color:#555">' + format2(Math.round(price)) + '</div>\
+					                    </div>';
+                                                    }
+                                                    else if (price % 2 == 0 && price < 500000) {
+                                                        return '<div style="padding:0 5px;">\
+						                <span style="font-weight:bold">'+ date + '</span>\
+						                <div style="opacity:1;font-size:0.8em;font-weight:bold;">' + format2(Math.round(Math.random() * 999999)) + '</div>\
+					                    </div>';
+                                                    }
+                                                    else {
+                                                        return '<div style="padding:0 5px;color:#555">\
+						                <span style="font-weight:bold">'+ date + '</span>\
+						                <div style="opacity:1;font-size:0.8em;font-weight:bold;color:#F57F17">' + format2(Math.round(Math.random() * 999999)) + '</div>\
+					                    </div>';
+                                                    }
+                                                }
+                                                function format2(n) {
+                                                    return n.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+                                                }
+                                                $('#CheckRate@(i)@(j)').dateRangePicker({
+                                                    showDateFilter: function (time, date) {
+                                                        return customDate(date);
+                                                    },
+                                                    showTopbar: false,
+                                                    beforeShowDay: function (t) {
+                                                        var valid = false;
+                                                        var _class = '';
+                                                        var _tooltip = '';
+                                                        return [valid, _class, _tooltip];
+                                                    },
+                                                    customArrowPrevSymbol: '<i class="glyphicon glyphicon-chevron-left"></i>',
+                                                    customArrowNextSymbol: '<i class="glyphicon glyphicon-chevron-right"></i>'
+                                                });
+                                            });
+                                        </script>
+                                        <div class="nwt-booking-group">
+                                            <div class="col-md-6">Số lượng:</div>
+                                            <div class="col-md-6 nwt-booking-group-action">
+                                                <button disabled class="nwt-booking-group-acction-left" onclick="RoomClick(@(i)+@(j),'Minus')">-</button>
+                                                <input type="number" disabled value="0" id="RoomValue@(i)@(j)" class="RoomValue" />
+                                                <button onclick="RoomClick(@(i)+''+@(j),'Plus')">+</button>
+                                            </div>
+                                        </div>
+                                        <div class="nwt-booking-group">
+                                            <div class="col-md-6">Giường thêm:</div>
+                                            <div class="col-md-6 nwt-booking-group-action">
+                                                <button disabled class="nwt-booking-group-acction-left" onclick="ExtrabedClick('ExtrabedValue'+@(i)+@(j),'Minus')">-</button>
+                                                <input type="number" disabled value="0" id="ExtrabedValue@(i)@(j)" class="ExtrabedValue" />
+                                                <button onclick="ExtrabedClick('ExtrabedValue'+@(i)+@(j),'Plus')">+</button>
+                                            </div>
+                                        </div>
+                                        <div class="nwt-booking-group">
+                                            <div class="col-md-6">Thêm người:</div>
+                                            <div class="col-md-6 nwt-booking-group-action">
+                                                <button disabled class="nwt-booking-group-acction-left" onclick="ExtraPersonClick('ExtraPersonValue'+@(i)+@(j),'Minus')">-</button>
+                                                <input type="number" disabled value="0" id="ExtraPersonValue@(i)@(j)" class="ExtraPersonValue" />
+                                                <button onclick="ExtraPersonClick('ExtraPersonValue'+@(i)+@(j),'Plus')">+</button>
+                                            </div>
+                                        </div>
+                                        <div class="nwt-booking-group">
+                                            <div class="col-md-6">&nbsp;</div>
+                                            <div class="col-md-6 nwt-booking-group-action">&nbsp;
+                                                <button id="InclusionAction@(i)@(j)" style="display:none" type="button" class="nwt-inclusion" onclick="InclusionClick(@(i),@(j))"><i class="glyphicon glyphicon-gift"></i>Dịch vụ thêm</button>
+                                            </div>
+                                        </div>
+                                        <div class="nwt-booking-group">
+                                            <div class="col-md-6">Tổng tiền:</div>
+                                            <div class="col-md-6">&nbsp;</div>
+                                        </div>
+                                        <script type="text/javascript">
+                                            function RoomClick(Id, Type)
+                                            {
+                                                var RoomValue = parseInt($('#RoomValue' + Id).val());
+                                                switch (Type) {
+                                                    case 'Plus': {
+                                                        RoomValue = RoomValue + 1;
+                                                        $('.RoomValue').attr("value", 0);
+                                                        $('#RoomValue' + Id).attr("value", RoomValue);
+                                                        $('#RoomValue').attr("value", RoomValue);
+                                                        $('#Guest').text(RoomValue + ' phòng, ' + $('#AdultValue').val() + ' người lớn, ' + $('#ChildValue').val() + ' trẻ em');
+                                                        $('#RoomMinus').removeAttr('disabled');
+                                                        $('.nwt-inclusion').css({'display':'none'});
+                                                        $(".InclusionCollapseItem").remove();
+                                                        $('#InclusionAction' + Id).css({'display':'block'});
+                                                        break;
+                                                    }
+                                                    case 'Minus': {
+                                                        if (RoomValue <= 1) {
+                                                            $('#RoomMinus').prop("disabled", true);
+                                                            $('#RoomValue' + Id).attr("value", 0);
+                                                            $('#RoomValue').attr("value", 0);
+                                                            $('.RoomValue').attr("value", 0);
+                                                            $('#Guest').text(0 + ' phòng, ' + $('#AdultValue').val() + ' người lớn, ' + $('#ChildValue').val() + ' trẻ em');
+                                                        } else {
+                                                            RoomValue = RoomValue - 1;
+                                                            $('.RoomValue').attr("value", 0);
+                                                            $('#RoomValue' + Id).attr("value", RoomValue);
+                                                            $('#RoomValue').attr("value", RoomValue);
+                                                            $('#Guest').text(RoomValue + ' phòng, ' + $('#AdultValue').val() + ' người lớn, ' + $('#ChildValue').val() + ' trẻ em');
+                                                        }
+                                                        break;
+                                                    }
+                                                }
+                                            }
+                                            function ExtrabedClick(Id, Type) {
+                                                var ExtrabedValue = parseInt($('#' + Id).val());
+                                                switch (Type) {
+                                                    case 'Plus': {
+                                                        ExtrabedValue = ExtrabedValue + 1;
+                                                        $('.ExtrabedValue').attr("value", 0);
+                                                        $('#' + Id).attr("value", ExtrabedValue);
+                                                        $('#ExtrabedValue').attr("value", ExtrabedValue);
+                                                        $('#ExtrabedMinus').removeAttr('disabled');
+                                                        break;
+                                                    }
+                                                    case 'Minus': {
+                                                        if (RoomValue <= 1) {
+                                                            $('#ExtrabedMinus').prop("disabled", true);
+                                                            $('#' + Id).attr("value", 0);
+                                                            $('#ExtrabedValue').attr("value", 0);
+                                                            $('.ExtrabedValue').attr("value", 0);
+                                                        } else {
+                                                            ExtrabedValue = ExtrabedValue - 1;
+                                                            $('.ExtrabedValue').attr("value", 0);
+                                                            $('#' + Id).attr("value", ExtrabedValue);
+                                                            $('#ExtrabedValue').attr("value", ExtrabedValue);
+                                                        }
+                                                        break;
+                                                    }
+                                                }
+                                            }
+                                            function ExtraPersonClick(Id, Type) {
+                                                var ExtraPersonValue = parseInt($('#' + Id).val());
+                                                switch (Type) {
+                                                    case 'Plus': {
+                                                        ExtraPersonValue = ExtraPersonValue + 1;
+                                                        $('.ExtraPersonValue').attr("value", 0);
+                                                        $('#' + Id).attr("value", ExtraPersonValue);
+                                                        $('#ExtraPersonValue').attr("value", ExtraPersonValue);
+                                                        $('#ExtraPersonMinus').removeAttr('disabled');
+                                                        break;
+                                                    }
+                                                    case 'Minus': {
+                                                        if (ExtraPersonValue <= 1) {
+                                                            $('#ExtraPersonValueMinus').prop("disabled", true);
+                                                            $('#' + Id).attr("value", 0);
+                                                            $('#ExtraPersonValue').attr("value", 0);
+                                                            $('.ExtraPersonValue').attr("value", 0);
+                                                        } else {
+                                                            ExtraPersonValue = ExtraPersonValue - 1;
+                                                            $('.ExtraPersonValue').attr("value", 0);
+                                                            $('#' + Id).attr("value", ExtraPersonValue);
+                                                            $('#ExtraPersonValue').attr("value", ExtraPersonValue);
+                                                        }
+                                                        break;
+                                                    }
+                                                }
+                                            }
+                                        </script>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                    var html = '<div class="InclusionCollapseItem">'
+                                    + '<div class="col-md-6">Loại:'
+                                     + '<select>'
+                                        + '<option value="volvo">Đưa đón sân bay</option>'
+                                          + '<option value="saab">Ăn sáng</option>'
+                                         + '<option value="mercedes">Massage</option>'
+                                       + '<option value="audi">Tắm bùn</option>'
+                                     + '</select>'
+                                    + '</div>'
+                                    + '<div class="col-md-6 nwt-booking-group">'
+                                        + '<div class="col-md-3">Số lượng</div>'
+                                        + '<div class="col-md-9 nwt-booking-group-action">'
+                                        + '<button disabled class="nwt-booking-group-acction-left" onclick="ExtraPersonClick()">-</button>'
+                                        + '<input type="number" disabled value="1" id="ExtraPersonValue" class="ExtraPersonValue" />'
+                                        + '<button onclick="ExtraPersonClick()">+</button>'
+                                    + '</div>'
+                                  + '</div>'
+                                + '</div><div class="clearfix"></div>';
+                                    var oldid = null;
+                                    function InclusionClick(Id, Id2) {
+                                        if (oldid == null) {
+                                            oldid = Id + "" + Id2;
+                                            $("#InclusionCollapse" + Id + "" + Id2).append(html);
+                                        }
+                                        else if (oldid != null && oldid != (Id + "" + Id2)) {
+                                            oldid = Id + "" + Id2;
+                                            $(".InclusionCollapseItem").remove();
+                                            $("#InclusionCollapse" + Id + "" + Id2).append(html);
+                                        } else {
+                                            oldid = Id + "" + Id2;
+                                            $("#InclusionCollapse" + Id + "" + Id2).append(html);
+                                        }
+                                    }
+                                </script>
+                                <div class="col-md-12" id="InclusionCollapse@(i)@(j)" style="text-align:left;">
+                                </div>
+                                <div class="nwt-booking-group">
+                                    <div class="col-md-7">&nbsp;</div>
+                                    <div class="col-md-5">
+                                        <div class="col-md-6">&nbsp;</div>
+                                        <div class="col-md-6 nwt-booking-group-action">
+                                            <button type="button" class="nwt-book" onclick="location.href='@Url.Action("information", "booking", new {Id=0})'">Đặt phòng</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                                <div style="border:1px solid #EAEAEA"></div>
+                            </div>
+                                    }
+                    </div>
+                </section>
+            </div>
+        </div>
+                                    }
+</div>
+<style type="text/css">
+    .nwt-booking-group-action {
+        text-align: right;
+    }
+
+        .nwt-booking-group-action button {
+            color: #fff;
+            border: 1px solid #E1E1E1;
+            background: #f99e34;
+            height: 30px;
+            width: 30px;
+            outline: none;
+            display: inline-block;
+        }
+        .nwt-booking-group-action button.nwt-check-rate{
+            width:auto;
+        }
+        .nwt-booking-group-action button.nwt-inclusion{
+            width:auto;
+        }
+        .nwt-booking-group-action button.nwt-book{
+            width:auto;
+        }
+            .nwt-booking-group-action button:disabled {
+                background: #ebebe4;
+                color: #555;
+                cursor: not-allowed;
+            }
+
+        .nwt-booking-group-action input {
+            display: inline-block;
+            width: 50px;
+            padding-left: 10px;
+            height: 30px;
+            text-align: center;
+            border: 1px solid #E1E1E1;
+        }
+</style>

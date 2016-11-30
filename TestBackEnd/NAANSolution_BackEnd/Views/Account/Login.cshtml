@@ -1,0 +1,73 @@
+﻿@using NAANSolution_BackEnd.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/MasterPages/_LayoutLogin.cshtml";
+}
+<div id="login-page">
+    <div class="container">
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = "~/dashboard" }, FormMethod.Post, new { @class = "form-login", role = "form" }))
+        {
+            <h2 class="form-login-heading">
+                @ViewBag.Title
+            </h2>
+            @Html.AntiForgeryToken()
+            <div class="login-wrap">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "User Name" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                <br />
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                <label class="checkbox">
+                    <span class="pull-right">
+                        <a data-toggle="modal" href="login.html#recoverPasswordModalWindow">
+                            Forgot Password?
+                        </a>
+                    </span>
+                </label>
+                <button class="btn btn-theme btn-block" type="submit">
+                    LOGIN
+                </button>
+                <hr />
+                <div class="checkbox" style="margin-left: 20px;">
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    @Html.LabelFor(m => m.RememberMe, new { @style = "padding-left: 5px;" })
+                </div>
+                @*<div class="registration">
+                    Don't have an account yet?
+                    <br />
+                    @Html.ActionLink("Register as a new user", "Register")
+                </div>*@
+            </div>
+            <div aria-hidden="true" aria-labelledby="recoverPasswordModalWindow" role="dialog" tabindex="-1" id="recoverPasswordModalWindow" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">
+                                Forgot Password?
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" name="email" placeholder="Enter your e-mail address to recover your password" autocomplete="off" class="form-control placeholder-no-fix" />
+                        </div>
+                        <div class="modal-footer">
+                            <button data-dismiss="modal" class="btn btn-default" type="button">
+                                Cancel
+                            </button>
+                            <button data-dismiss="modal" class="btn btn-theme" type="button">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

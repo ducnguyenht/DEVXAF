@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Layout";
+    Layout = "~/Views/Shared/MasterPages/_Layout.cshtml";
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+}
+<section id="main-content">
+    <section class="wrapper site-min-height">
+        <div class="nas-content">
+            <div class="col-md-12 mt">
+                <div class="col-md-12 col-xs-12 nas-header">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <h4>Header</h4>
+                        <hr />
+                        <div class="col-md-4 col-sm-4 col-xs-12 nas-col">
+                            <div class="nas-logo col-md-8">
+                                <a href="/"><img id="my_image" src="Content/Images/logo.png" width="100%" title="NAAN Solution - Giải pháp quản lý khách sạn, phần mềm quản lý doanh nghiệp" alt="NAAN Solution - Giải pháp quản lý khách sạn, phần mềm quản lý doanh nghiệp" /></a>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" id="Browse" title="Chọn ảnh từ server" >...</button>
+                            </div>
+                            <script>
+                                //Xử lý click nút Browse hiện popup CKFinder
+                                $('#Browse').click(function () {
+                                    var finder = new CKFinder();
+                                    finder.selectActionFunction = function (fileUrl) {
+                                        //Chỉ lấy tên ảnh
+                                        //fileUrl = fileUrl.substring(fileUrl.lastIndexOf('/') + 1);
+                                        $("#my_image").attr("src", fileUrl);
+                                    };
+                                    finder.popup();
+                                })
+                            </script>
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-12 nas-header-social">
+                            <span class="halflings halflings-phone-alt"></span>
+                            <input value="(+84 8) 383 440 97" />
+                            <span class="halflings halflings-envelope"></span>
+                            <input value="info@naansolution.com" /> 
+                        </div>
+                        <div class="col-md-12 nas-button">
+                            <button type="button" class="btn btn-primary">
+                                Lưu
+                            </button>
+                            <button type="button" class="btn btn-warning">
+                                Huỷ bỏ
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <h4>Footer</h4>
+                        <hr />
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-md-6 nas-col">
+                                <input style="width:100%;" value="©NAANSolution 2011-2016. All Rights Reserved" />
+                            </div>
+                            <div class="col-md-6 nas-col" style="text-align:right;">
+                                <input style="width:95%" value="Privacy & Terms" />
+                            </div>
+                        </div>
+                        <div class="col-md-12 nas-button">
+                            <button type="button" class="btn btn-primary">
+                                Lưu
+                            </button>
+                            <button type="button" class="btn btn-warning">
+                                Huỷ bỏ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+

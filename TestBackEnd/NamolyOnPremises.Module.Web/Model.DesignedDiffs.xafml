@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <SchemaModules>
+    <SchemaModule Name="SystemAspNetModule" Version="13.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="13.2.7.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <DetailView Id="EmailTemplate_DetailView">
+      <Items>
+        <PropertyEditor Id="Content" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </Items>
+    </DetailView>
+    <DetailView Id="HotelInfomation_DetailView">
+      <Items>
+        <PropertyEditor Id="BookingPolicy" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+        <PropertyEditor Id="CancelPolicy" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+        <PropertyEditor Id="CheckInPolicy" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+        <PropertyEditor Id="CheckOutPolicy" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+        <PropertyEditor Id="ChildAndExtraBedPolicy" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+        <PropertyEditor Id="Userful" PropertyEditorType="DevExpress.ExpressApp.HtmlPropertyEditor.Web.ASPxHtmlPropertyEditor" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="35.06666666666667">
+            <LayoutGroup Id="HotelInfomation_col1" RelativeSize="50">
+              <LayoutGroup Id="Item4">
+                <LayoutGroup Id="Autobaf70327-f310-430b-8a39-4dadf86aec22">
+                  <LayoutGroup Id="Autoe3390e98-303d-4ba3-b6d2-fde1bedb5c12" RelativeSize="50" />
+                  <LayoutGroup Id="Auto16c53023-b0b0-4800-9ed8-0e8259b0afc9" RelativeSize="50" />
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="HotelInfomation_col2" RelativeSize="50">
+              <LayoutGroup Id="Item3">
+                <LayoutItem Id="BookingPhone" RelativeSize="48.072562358276642" />
+                <LayoutItem Id="BookingEmail" RelativeSize="49.206349206349209" />
+              </LayoutGroup>
+              <LayoutGroup Id="Item2">
+                <LayoutGroup Id="Auto8f588662-483f-4b6e-835f-3572afa7124d" RelativeSize="48.072562358276642" />
+                <LayoutGroup Id="Auto2cd7cf64-b658-487b-a574-d7f793bff42c" RelativeSize="49.206349206349209" />
+              </LayoutGroup>
+              <LayoutGroup Id="Item1">
+                <LayoutGroup Id="Auto74a3ae26-ce0f-4292-ac0f-4250793bbf14">
+                  <LayoutItem Id="CompanyName" RelativeSize="49.650349650349654" />
+                  <LayoutItem Id="TaxCode" RelativeSize="50.349650349650346" />
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="Item5" RelativeSize="31.066666666666666">
+            <LayoutGroup Id="Auto0b8f99a2-bd97-4d24-b9b2-01302f43c210" RelativeSize="26.530612244897959" />
+            <LayoutGroup Id="Autocd885561-2c27-4917-a108-810496dc8753" RelativeSize="70.975056689342409">
+              <LayoutGroup Id="Autoe83a4d56-fbc2-4b5d-99cb-800384fcd663" RelativeSize="33.067092651757186" />
+              <LayoutGroup Id="Auto9efa2ce3-ab35-46b5-9a63-8f9ff129cf93" RelativeSize="66.932907348242807">
+                <LayoutGroup Id="Autobf263e05-710d-41ee-9fac-c2902aa4d545">
+                  <LayoutGroup Id="Auto3571e2db-c400-4743-9c92-57826495ed06" Caption="Auto3571e2db-c400-4743-9c92-57826495ed06(54)" RelativeSize="49.403341288782819" />
+                  <LayoutGroup Id="Auto6dee4cac-7600-49fa-931b-1c5736656189" Caption="Auto6dee4cac-7600-49fa-931b-1c5736656189(63)" RelativeSize="50.596658711217181" />
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="23.2">
+            <LayoutGroup Id="Item6" RelativeSize="40.804597701149426">
+              <LayoutItem Id="Userful" RelativeSize="56.338028169014088" />
+            </LayoutGroup>
+            <LayoutGroup Id="Item17" ShowCaption="True" CaptionLocation="Top" Index="1" RelativeSize="59.195402298850574" Caption="POLICIES" IsNewNode="True">
+              <TabbedGroup Id="Item8" CaptionLocation="Top" Index="0" RelativeSize="69.902912621359221" IsNewNode="True">
+                <LayoutGroup Id="Item7" ShowCaption="True" Caption="Booking Policy" CaptionLocation="Top" Index="0" RelativeSize="100" IsNewNode="True">
+                  <LayoutItem Id="BookingPolicy" ShowCaption="False" ViewItem="BookingPolicy" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Item9" ShowCaption="True" Caption="Check In Policy" CaptionLocation="Top" Index="1" RelativeSize="100" IsNewNode="True">
+                  <LayoutItem Id="CheckInPolicy" ShowCaption="False" ViewItem="CheckInPolicy" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Item11" ShowCaption="True" Caption="Check Out Policy" CaptionLocation="Top" Index="2" RelativeSize="100" IsNewNode="True">
+                  <LayoutItem Id="CheckOutPolicy" ShowCaption="False" ViewItem="CheckOutPolicy" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Item13" ShowCaption="True" Caption="Cancel Policy" CaptionLocation="Top" Index="3" RelativeSize="100" IsNewNode="True">
+                  <LayoutItem Id="CancelPolicy" ShowCaption="False" ViewItem="CancelPolicy" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Item15" ShowCaption="True" Caption="Child &amp; Extra Bed Policy" CaptionLocation="Top" Index="4" RelativeSize="100" IsNewNode="True">
+                  <LayoutItem Id="ChildAndExtraBedPolicy" ShowCaption="False" ViewItem="ChildAndExtraBedPolicy" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                </LayoutGroup>
+              </TabbedGroup>
+            </LayoutGroup>
+            <LayoutItem Id="BookingPolicy" Removed="True" />
+            <LayoutItem Id="CancelPolicy" SizeConstraintsType="Default" RelativeSize="8.19112627986348" Removed="True" />
+            <LayoutItem Id="CheckInPolicy" SizeConstraintsType="Default" RelativeSize="10.480349344978166" Removed="True" />
+            <LayoutItem Id="CheckOutPolicy" SizeConstraintsType="Default" RelativeSize="9.1954022988505741" Removed="True" />
+            <LayoutItem Id="ChildAndExtraBedPolicy" SizeConstraintsType="Default" RelativeSize="9.23076923076923" Removed="True" />
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs" RelativeSize="10.666666666666666" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

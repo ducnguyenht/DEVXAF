@@ -1,0 +1,1171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="NamolyOnPremises" Logo="ExpressAppLogo">
+  <NavigationItems StartupNavigationItem="">
+    <Items>
+      <Item Id="CMS">
+        <Items>
+          <Item Id="Galina Hotel">
+            <Items>
+              <Item Id="Contact" Index="8" />
+              <Item Id="Promotion" Index="9" />
+              <Item Id="@00966ece-10ed-4146-9f8e-1392d81d13ee" ViewId="Picture_ListView" Index="10" IsNewNode="True" />
+            </Items>
+          </Item>
+        </Items>
+      </Item>
+      <Item Id="CRM" Caption="CRM" ViewId="Customers_ListView" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="@f9398c3a-b936-417f-b646-0a1c38e50301" ViewId="ExternalOrganization_ListView" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Default" Visible="False" />
+      <Item Id="Hotel" Caption="Hotel" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="@19e4fd4f-737b-4395-b923-e472ba4daaf4" ViewId="HotelBooking_ListView" IsNewNode="True" />
+          <Item Id="Configuration" Caption="Configuration" ImageName="Action_OrganizeDashboard" IsNewNode="True">
+            <Items IsNewNode="True">
+              <Item Id="@5431c06a-0bf1-4a1d-ab01-43be7bd5ca4f" ViewId="InternalOrganization_ListView" Index="0" IsNewNode="True" />
+              <Item Id="Extra Charge" Caption="Extra Charge" ViewId="" Index="1" IsNewNode="True" />
+              <Item Id="Extra Charge Category" ViewId="HotelExtraChargeCategory_ListView" Index="2" IsNewNode="True" />
+              <Item Id="@3ca61214-4e9e-48d4-beae-784ad6cb55bf" ViewId="HotelInfomation_DetailView" Index="3" IsNewNode="True" />
+              <Item Id="Hotel Package" ViewId="HotelPackage_ListView" Index="4" IsNewNode="True" />
+              <Item Id="Rate Type" Caption="Rate Type" ViewId="HotelRateType_ListView" Index="5" IsNewNode="True" />
+              <Item Id="Room" Caption="Room" ViewId="RoomOwner_ListView" Index="6" IsNewNode="True" />
+              <Item Id="Special Request" ViewId="HotelSpecialRequest_ListView" Index="7" IsNewNode="True" />
+              <Item Id="Sales" Caption="Sales" Index="8" IsNewNode="True">
+                <Items IsNewNode="True">
+                  <Item Id="Business Source" ViewId="BusinessSource_ListView" IsNewNode="True" />
+                  <Item Id="Email Template" ViewId="EmailTemplate_ListView" IsNewNode="True" />
+                  <Item Id="Market Segment" ViewId="MarketSegment_ListView" IsNewNode="True" />
+                  <Item Id="Room Owner" ViewId="RoomOwner_ListView" IsNewNode="True" />
+                </Items>
+              </Item>
+            </Items>
+          </Item>
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <SchemaModules>
+    <SchemaModule Name="SystemAspNetModule" Version="13.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="13.2.7.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <DetailView Id="BusinessSource_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="17.466666666666665">
+            <LayoutGroup Id="BusinessSource_col1" ShowCaption="False" Index="0" RelativeSize="100" IsNewNode="True">
+              <LayoutGroup Id="Autoe6a13f2a-30ee-46a2-9c72-1449ff9eded2" ShowCaption="False" Caption="Autoe6a13f2a-30ee-46a2-9c72-1449ff9eded2(5)" Direction="Horizontal" Index="0" RelativeSize="26.717557251908396" IsNewNode="True">
+                <LayoutItem Id="Name" ViewItem="Name" SizeConstraintsType="Default" Index="0" RelativeSize="34.4" IsNewNode="True" />
+                <LayoutItem Id="Address" ViewItem="Address" SizeConstraintsType="Default" Index="1" RelativeSize="65.6" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Autoc7df0606-bb9d-4c08-9d8f-5d5a836de6e6" ShowCaption="False" Caption="Autoc7df0606-bb9d-4c08-9d8f-5d5a836de6e6(8)" Index="1" RelativeSize="50.381679389312978" IsNewNode="True">
+                <LayoutGroup Id="Autof0c83a39-b27e-4750-a08c-49b2570f4977" ShowCaption="False" Caption="Autof0c83a39-b27e-4750-a08c-49b2570f4977(9)" Direction="Horizontal" Index="0" RelativeSize="50" IsNewNode="True">
+                  <LayoutItem Id="Country" ViewItem="Country" SizeConstraintsType="Default" Index="0" RelativeSize="34.4" IsNewNode="True" />
+                  <LayoutItem Id="City" ViewItem="City" SizeConstraintsType="Default" Index="1" RelativeSize="29.333333333333332" IsNewNode="True" />
+                  <LayoutItem Id="ZipCode" ViewItem="ZipCode" SizeConstraintsType="Default" Index="2" RelativeSize="36.266666666666666" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Autoc5a25804-6ec0-47b1-ad7d-59a5664ebf8d" ShowCaption="False" Caption="Autoc5a25804-6ec0-47b1-ad7d-59a5664ebf8d(13)" Direction="Horizontal" Index="1" RelativeSize="50" IsNewNode="True">
+                  <LayoutItem Id="Website" ViewItem="Website" SizeConstraintsType="Default" Index="0" RelativeSize="34.4" IsNewNode="True" />
+                  <LayoutItem Id="MarketSegment" ViewItem="MarketSegment" SizeConstraintsType="Default" Index="1" RelativeSize="65.6" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutItem Id="Description" ViewItem="Description" SizeConstraintsType="Default" Index="2" RelativeSize="22.900763358778626" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="BusinessSource" RelativeSize="100" Direction="Vertical" Removed="True">
+              <LayoutGroup Id="BusinessSource_col1" RelativeSize="74.172185430463571">
+                <LayoutGroup Id="Autoe6a13f2a-30ee-46a2-9c72-1449ff9eded2" ShowCaption="False" Caption="" Direction="Horizontal" Index="0" RelativeSize="28.571428571428573" IsNewNode="True">
+                  <LayoutItem Id="Name" ViewItem="Name" SizeConstraintsType="Default" Index="0" RelativeSize="34.323432343234323" IsNewNode="True" />
+                  <LayoutItem Id="Address" ViewItem="Address" SizeConstraintsType="Default" Index="1" RelativeSize="65.67656765676567" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Autoc7df0606-bb9d-4c08-9d8f-5d5a836de6e6" ShowCaption="False" Caption="" Index="1" RelativeSize="42.857142857142854" IsNewNode="True">
+                  <LayoutGroup Id="Autof0c83a39-b27e-4750-a08c-49b2570f4977" ShowCaption="False" Caption="" Direction="Horizontal" Index="0" RelativeSize="50" IsNewNode="True">
+                    <LayoutItem Id="Country" ViewItem="Country" SizeConstraintsType="Default" Index="0" RelativeSize="34.323432343234323" IsNewNode="True" />
+                    <LayoutItem Id="City" ViewItem="City" SizeConstraintsType="Default" Index="1" RelativeSize="29.537953795379536" IsNewNode="True" />
+                    <LayoutItem Id="ZipCode" ViewItem="ZipCode" SizeConstraintsType="Default" Index="2" RelativeSize="36.138613861386141" IsNewNode="True" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Autoc5a25804-6ec0-47b1-ad7d-59a5664ebf8d" ShowCaption="False" Caption="" Direction="Horizontal" Index="1" RelativeSize="50" IsNewNode="True">
+                    <LayoutItem Id="Website" ViewItem="Website" SizeConstraintsType="Default" Index="0" RelativeSize="34.323432343234323" IsNewNode="True" />
+                    <LayoutItem Id="MarketSegment" ViewItem="MarketSegment" SizeConstraintsType="Default" Index="1" RelativeSize="65.67656765676567" IsNewNode="True" />
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutItem Id="Description" ViewItem="Description" SizeConstraintsType="Default" Index="2" RelativeSize="28.571428571428573" IsNewNode="True" />
+                <LayoutItem Id="Address" ViewItem="Address" SizeConstraintsType="Default" Index="3" RelativeSize="13.043478260869565" Removed="True" />
+                <LayoutItem Id="City" Removed="True" />
+                <LayoutItem Id="Country" Removed="True" />
+                <LayoutItem Id="Name" SizeConstraintsType="Default" RelativeSize="17.391304347826086" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="BusinessSource_col2" RelativeSize="49.203821656050955" Caption="BusinessSource_col2" Direction="Horizontal" Removed="True">
+                <LayoutItem Id="Description" Removed="True" />
+                <LayoutItem Id="MarketSegment" Removed="True" />
+                <LayoutItem Id="Website" Removed="True" />
+                <LayoutItem Id="ZipCode" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="Contacts_Group" Direction="Vertical" RelativeSize="82.533333333333331">
+            <LayoutItem Id="Contacts" SizeConstraintsType="Default" RelativeSize="93.699515347334412" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="City_LookupListView" AllowNew="False" />
+    <ListView Id="Country_LookupListView" AllowNew="False" />
+    <DetailView Id="EmailTemplate_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" Direction="Vertical" RelativeSize="21.739130434782609">
+            <LayoutGroup Id="EmailTemplate_col1" ShowCaption="False" Index="0" RelativeSize="100" IsNewNode="True">
+              <LayoutGroup Id="Auto1bb89b1b-0a63-4b8a-8347-3e0c8c2fe32c" ShowCaption="False" Caption="" Direction="Horizontal" Index="0" RelativeSize="72.727272727272734" IsNewNode="True">
+                <LayoutGroup Id="Auto8785885c-cfcb-492f-a42f-c80106d10940" ShowCaption="False" Caption="" Index="0" RelativeSize="50" IsNewNode="True">
+                  <LayoutItem Id="Name" ViewItem="Name" SizeConstraintsType="Default" Index="0" RelativeSize="40" IsNewNode="True" />
+                  <LayoutItem Id="SentBy" ViewItem="SentBy" SizeConstraintsType="Default" Index="1" RelativeSize="30" IsNewNode="True" />
+                  <LayoutItem Id="Type" ViewItem="Type" SizeConstraintsType="Default" Index="2" RelativeSize="30" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Auto2c9eff4f-da7e-4e55-9375-872700b68943" ShowCaption="False" Caption="" Index="1" RelativeSize="50" IsNewNode="True">
+                  <LayoutItem Id="EmailSender" ViewItem="EmailSender" SizeConstraintsType="Default" Index="0" RelativeSize="40" IsNewNode="True" />
+                  <LayoutItem Id="Language" ViewItem="Language" SizeConstraintsType="Default" Index="1" RelativeSize="30" IsNewNode="True" />
+                  <LayoutItem Id="Subject" ViewItem="Subject" SizeConstraintsType="Default" Index="2" RelativeSize="30" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutItem Id="Description" ViewItem="Description" SizeConstraintsType="Default" Index="1" RelativeSize="27.272727272727273" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="EmailTemplate" Removed="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="78.260869565217391">
+            <LayoutItem Id="Content" SizeConstraintsType="Default" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="HotelBooking_DetailView">
+      <Items>
+        <ActionContainerViewItem Id="@FolioCancel" ActionContainer="HotelBooking_HotelFolio_Cancel" Caption="Cancel" IsNewNode="True" />
+        <ActionContainerViewItem Id="@FolioPost" ActionContainer="HotelBooking_HotelFolio_Post" Caption="Post" IsNewNode="True" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <TabbedGroup Id="Item25" CaptionLocation="Top" Index="0" RelativeSize="99.895397489539747" IsNewNode="True">
+              <LayoutGroup Id="Item1" ShowCaption="True" Caption="GUEST INFORMATION" CaptionLocation="Top" Index="0" RelativeSize="100" IsNewNode="True">
+                <LayoutGroup Id="Auto50a16863-a590-48b8-a51f-87e35ce4dc99" ShowCaption="False" Caption="Auto50a16863-a590-48b8-a51f-87e35ce4dc99(5)" Direction="Horizontal" Index="0" RelativeSize="5.9536934950385891" IsNewNode="True">
+                  <LayoutItem Id="FullName" ViewItem="FullName" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="31.900452488687783" IsNewNode="True" />
+                  <LayoutItem Id="Phone" ViewItem="Phone" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="31.900452488687783" IsNewNode="True" />
+                  <LayoutItem Id="Email" ViewItem="Email" CaptionLocation="Top" SizeConstraintsType="Default" Index="2" RelativeSize="36.199095022624434" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="Item2" ShowCaption="False" SizeConstraintsType="Default" Index="1" RelativeSize="1.1025358324145536" ViewItem="" IsNewNode="True" />
+                <LayoutGroup Id="Item3" ShowCaption="True" Caption="STAY INFORMATION" CaptionLocation="Top" Index="2" RelativeSize="28.665931642778389" IsNewNode="True">
+                  <LayoutGroup Id="Auto114f8fc0-199e-49af-b941-7fe0c41fde62" ShowCaption="False" Caption="Auto114f8fc0-199e-49af-b941-7fe0c41fde62(12)" Direction="Horizontal" Index="0" RelativeSize="53.846153846153847" IsNewNode="True">
+                    <LayoutGroup Id="Auto7246d33f-beea-46b6-bd22-4e343e05e714" ShowCaption="False" Caption="Auto7246d33f-beea-46b6-bd22-4e343e05e714(13)" Index="0" RelativeSize="17.053364269141532" IsNewNode="True">
+                      <LayoutItem Id="ArrivalDate" ViewItem="ArrivalDate" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="34.285714285714285" IsNewNode="True" />
+                      <LayoutItem Id="DepartureDate" ViewItem="DepartureDate" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="65.714285714285708" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Autoa9e83ab5-264e-40fd-9c45-a73d6b47152f" ShowCaption="False" Caption="Autoa9e83ab5-264e-40fd-9c45-a73d6b47152f(16)" Direction="Horizontal" Index="1" RelativeSize="82.946635730858475" IsNewNode="True">
+                      <LayoutGroup Id="Autob6640abb-6444-4aac-8432-eb7523f2bed8" ShowCaption="False" Caption="Autob6640abb-6444-4aac-8432-eb7523f2bed8(17)" Index="0" RelativeSize="19.86013986013986" IsNewNode="True">
+                        <LayoutItem Id="ArrivalTime" ShowCaption="True" ViewItem="ArrivalTime" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="34.285714285714285" IsNewNode="True" />
+                        <LayoutItem Id="DepartureTime" ShowCaption="True" ViewItem="DepartureTime" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="65.714285714285708" IsNewNode="True" />
+                      </LayoutGroup>
+                      <LayoutGroup Id="Autocda9a624-6939-414e-b0b7-960d7b54f3d3" ShowCaption="False" Caption="Autocda9a624-6939-414e-b0b7-960d7b54f3d3(20)" Direction="Horizontal" Index="1" RelativeSize="80.139860139860133" IsNewNode="True">
+                        <LayoutGroup Id="Autoa3b643fd-79f7-4d9b-99ff-3a8285e0592f" ShowCaption="False" Caption="Autoa3b643fd-79f7-4d9b-99ff-3a8285e0592f(21)" Index="0" RelativeSize="49.563699825479929" IsNewNode="True">
+                          <LayoutItem Id="Hour" ViewItem="Hour" SizeConstraintsType="Default" Index="0" RelativeSize="34.285714285714285" CaptionLocation="Top" IsNewNode="True" />
+                          <LayoutItem Id="Night" ViewItem="Night" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="28.571428571428573" IsNewNode="True" />
+                          <LayoutGroup Id="Autocbd17ee3-82f6-4b93-9bb5-36d6db2954ab" ShowCaption="False" Caption="Autocbd17ee3-82f6-4b93-9bb5-36d6db2954ab(23)" Direction="Horizontal" Index="2" RelativeSize="37.142857142857146" IsNewNode="True">
+                            <LayoutItem Id="Adults" ViewItem="Adults" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="50" IsNewNode="True" />
+                            <LayoutItem Id="Children" ViewItem="Children" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="50" IsNewNode="True" />
+                          </LayoutGroup>
+                        </LayoutGroup>
+                        <LayoutGroup Id="Auto8ed3830a-57df-4dc2-8023-a63c4113f28a" ShowCaption="False" Caption="Auto8ed3830a-57df-4dc2-8023-a63c4113f28a(25)" Direction="Horizontal" Index="1" RelativeSize="50.436300174520071" IsNewNode="True">
+                          <LayoutGroup Id="Auto8360a8df-781f-461e-a5b0-79a0a0eac2a5" ShowCaption="False" Caption="Auto8360a8df-781f-461e-a5b0-79a0a0eac2a5(26)" Index="0" RelativeSize="49.134948096885815" IsNewNode="True">
+                            <LayoutItem Id="RoomType" ViewItem="RoomType" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="34.285714285714285" IsNewNode="True" />
+                            <LayoutItem Id="RateType" ViewItem="RateType" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="65.714285714285708" IsNewNode="True" />
+                          </LayoutGroup>
+                          <LayoutGroup Id="Autoba87b090-539b-4fa0-bdf3-bec5a172c5a4" ShowCaption="False" Caption="Autoba87b090-539b-4fa0-bdf3-bec5a172c5a4(29)" Index="1" RelativeSize="50.865051903114185" IsNewNode="True">
+                            <LayoutItem Id="RoomText" ShowCaption="True" ViewItem="RoomText" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="34.285714285714285" IsNewNode="True" />
+                            <LayoutItem Id="RateText" ShowCaption="True" ViewItem="RateText" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="65.714285714285708" IsNewNode="True" />
+                          </LayoutGroup>
+                        </LayoutGroup>
+                      </LayoutGroup>
+                    </LayoutGroup>
+                  </LayoutGroup>
+                  <LayoutItem Id="ExtraCharge" ViewItem="ExtraCharge" SizeConstraintsType="Default" Index="1" RelativeSize="9.23076923076923" IsNewNode="True" />
+                  <LayoutGroup Id="Item4" ShowCaption="True" Caption="Extra Charge" CaptionLocation="Top" Index="2" RelativeSize="27.307692307692307" Direction="Vertical" IsNewNode="True">
+                    <LayoutItem Id="HotelStayInformation" ShowCaption="False" ViewItem="HotelStayInformation" SizeConstraintsType="Default" Index="0" RelativeSize="53.521126760563384" IsNewNode="True" />
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutGroup Id="Item6" ShowCaption="True" Caption="GUARANTEE INFORMATION" CaptionLocation="Top" Index="3" RelativeSize="43.770672546857774" IsNewNode="True">
+                  <LayoutGroup Id="Autodc15ed69-aaee-47cf-a737-8a96449c1963" ShowCaption="False" Caption="Autodc15ed69-aaee-47cf-a737-8a96449c1963(35)" Direction="Horizontal" Index="0" RelativeSize="12.846347607052897" IsNewNode="True">
+                    <LayoutItem Id="Cash" ViewItem="Cash" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="17.053364269141532" IsNewNode="True" />
+                    <LayoutItem Id="FOC" ViewItem="FOC" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="16.473317865429234" IsNewNode="True" />
+                    <LayoutItem Id="BillTo" ViewItem="BillTo" CaptionLocation="Top" SizeConstraintsType="Default" Index="2" RelativeSize="16.473317865429234" IsNewNode="True" />
+                    <LayoutItem Id="Item5" ShowCaption="False" SizeConstraintsType="Default" Index="3" RelativeSize="50" ViewItem="" IsNewNode="True" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Auto39358904-6d4f-45b3-81a1-2a34fb9d9ecf" ShowCaption="False" Caption="Auto39358904-6d4f-45b3-81a1-2a34fb9d9ecf(40)" Direction="Horizontal" Index="1" RelativeSize="80.85642317380352" IsNewNode="True">
+                    <LayoutGroup Id="Auto08e2745f-8a4c-4921-9b23-ee02efc975af" ShowCaption="False" Caption="Auto08e2745f-8a4c-4921-9b23-ee02efc975af(41)" Index="0" RelativeSize="66.473317865429237" IsNewNode="True">
+                      <LayoutGroup Id="Auto40769601-5d15-427f-9eb8-2c86ea850be3" ShowCaption="False" Caption="Auto40769601-5d15-427f-9eb8-2c86ea850be3(42)" Direction="Horizontal" Index="0" RelativeSize="15.264797507788162" IsNewNode="True">
+                        <LayoutItem Id="Type" ViewItem="Type" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="25.654450261780106" IsNewNode="True" />
+                        <LayoutItem Id="CardType" ViewItem="CardType" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="24.781849912739965" IsNewNode="True" />
+                        <LayoutItem Id="CardNo" ViewItem="CardNo" CaptionLocation="Top" SizeConstraintsType="Default" Index="2" RelativeSize="24.781849912739965" IsNewNode="True" />
+                        <LayoutItem Id="ExpiryDate" ViewItem="ExpiryDate" CaptionLocation="Top" SizeConstraintsType="Default" Index="3" RelativeSize="24.781849912739965" IsNewNode="True" />
+                      </LayoutGroup>
+                      <LayoutGroup Id="Auto3c51228c-778c-494c-a823-cea8c46de1fb" ShowCaption="False" Caption="Auto3c51228c-778c-494c-a823-cea8c46de1fb(46)" Index="1" RelativeSize="69.781931464174448" IsNewNode="True">
+                        <LayoutGroup Id="Auto8911591e-4afa-4b0b-bc6f-dee76fafa3a1" ShowCaption="False" Caption="Auto8911591e-4afa-4b0b-bc6f-dee76fafa3a1(49)" Direction="Horizontal" Index="0" RelativeSize="58.928571428571431" IsNewNode="True">
+                          <LayoutGroup Id="Auto9de1381c-8519-4f8d-a823-9dbf5aa65baa" ShowCaption="False" Caption="Auto9de1381c-8519-4f8d-a823-9dbf5aa65baa(50)" Index="0" RelativeSize="49.214659685863872" IsNewNode="True">
+                            <LayoutItem Id="BankName" ViewItem="BankName" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="34.848484848484851" IsNewNode="True" />
+                            <LayoutItem Id="SwiftCode" ViewItem="SwiftCode" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="30.303030303030305" IsNewNode="True" />
+                            <LayoutItem Id="CashAmount" ViewItem="CashAmount" SizeConstraintsType="Default" Index="2" RelativeSize="34.848484848484851" CaptionLocation="Top" IsNewNode="True" />
+                          </LayoutGroup>
+                          <LayoutGroup Id="Auto462b464a-4b78-4025-a732-5c0233e8fd21" ShowCaption="False" Caption="Auto462b464a-4b78-4025-a732-5c0233e8fd21(54)" Index="1" RelativeSize="50.785340314136128" IsNewNode="True">
+                            <LayoutItem Id="BankNumber" ViewItem="BankNumber" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="34.848484848484851" IsNewNode="True" />
+                            <LayoutItem Id="IBan" ViewItem="IBan" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="30.303030303030305" IsNewNode="True" />
+                            <LayoutItem Id="VoucherNo" ViewItem="VoucherNo" CaptionLocation="Top" SizeConstraintsType="Default" Index="2" RelativeSize="34.848484848484851" IsNewNode="True" />
+                          </LayoutGroup>
+                        </LayoutGroup>
+                        <LayoutItem Id="CashNotes" ViewItem="CashNotes" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="17.857142857142858" IsNewNode="True" />
+                        <LayoutGroup Id="Auto1b0b4f88-bf82-4de4-8484-d8f1c6fe896d" ShowCaption="False" Caption="Auto1b0b4f88-bf82-4de4-8484-d8f1c6fe896d(48)" Direction="Horizontal" Index="2" RelativeSize="23.214285714285715" IsNewNode="True">
+                          <LayoutItem Id="Company" ViewItem="Company" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="25.654450261780106" IsNewNode="True" />
+                          <LayoutItem Id="BillToNotes" ViewItem="BillToNotes" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="74.3455497382199" IsNewNode="True" />
+                        </LayoutGroup>
+                      </LayoutGroup>
+                      <LayoutItem Id="FOCNotes" ViewItem="FOCNotes" CaptionLocation="Top" SizeConstraintsType="Default" Index="2" RelativeSize="14.953271028037383" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Autoa90fd57a-31c6-40ba-ac6a-fc7f8c315206" ShowCaption="False" Caption="Autoa90fd57a-31c6-40ba-ac6a-fc7f8c315206(52)" Index="1" RelativeSize="33.526682134570763" IsNewNode="True">
+                      <LayoutItem Id="ReleaseDate" ViewItem="ReleaseDate" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="14.330218068535826" IsNewNode="True" />
+                      <LayoutGroup Id="Autoc937e641-bede-4d4a-a29e-71e84559e51f" ShowCaption="False" Caption="Autoc937e641-bede-4d4a-a29e-71e84559e51f(54)" Direction="Horizontal" Index="1" RelativeSize="85.669781931464172" IsNewNode="True">
+                        <LayoutItem Id="Required" ViewItem="Required" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="49.134948096885815" IsNewNode="True" />
+                        <LayoutItem Id="RequiredText" ViewItem="RequiredText" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="50.865051903114185" IsNewNode="True" />
+                      </LayoutGroup>
+                    </LayoutGroup>
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutGroup Id="Item7" ShowCaption="True" Caption="NOTES" CaptionLocation="Top" Index="4" RelativeSize="10.694597574421168" IsNewNode="True">
+                  <TabbedGroup Id="Item14" CaptionLocation="Top" Index="0" RelativeSize="74.226804123711347" IsNewNode="True">
+                    <LayoutGroup Id="Item9" ShowCaption="True" Caption="Guest" CaptionLocation="Top" Index="0" RelativeSize="100" Direction="Vertical" IsNewNode="True">
+                      <LayoutItem Id="NotesGuest" ViewItem="NotesGuest" SizeConstraintsType="Default" Index="0" RelativeSize="100" ShowCaption="False" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Item8" ShowCaption="True" Caption="Special Request" CaptionLocation="Top" Index="1" RelativeSize="100" IsNewNode="True">
+                      <LayoutItem Id="SpecialRequest" ShowCaption="False" ViewItem="SpecialRequest" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Item10" ShowCaption="True" Caption="Check In" CaptionLocation="Top" Index="2" RelativeSize="100" IsNewNode="True">
+                      <LayoutItem Id="CheckIn" ShowCaption="False" ViewItem="CheckIn" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Item11" ShowCaption="True" Caption="Check Out" CaptionLocation="Top" Index="3" RelativeSize="100" IsNewNode="True">
+                      <LayoutItem Id="CheckOut" ShowCaption="False" ViewItem="CheckOut" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Item12" ShowCaption="True" Caption="Cancellation" CaptionLocation="Top" Index="4" RelativeSize="100" IsNewNode="True">
+                      <LayoutItem Id="Cancellation" ShowCaption="False" ViewItem="Cancellation" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Item13" ShowCaption="True" Caption="House Keeping" CaptionLocation="Top" Index="5" RelativeSize="100" IsNewNode="True">
+                      <LayoutItem Id="HouseKeeping" ShowCaption="False" ViewItem="HouseKeeping" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                    </LayoutGroup>
+                  </TabbedGroup>
+                </LayoutGroup>
+                <LayoutGroup Id="Item20" ShowCaption="True" Caption="BUSINESS SOURCE" CaptionLocation="Top" Direction="Horizontal" Index="5" RelativeSize="9.812568908489526" IsNewNode="True">
+                  <LayoutItem Id="MarketSegment" ViewItem="MarketSegment" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="23.642533936651585" IsNewNode="True" />
+                  <LayoutItem Id="Source" ViewItem="Source" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="22.511312217194572" IsNewNode="True" />
+                  <LayoutItem Id="Commission" ViewItem="Commission" CaptionLocation="Top" SizeConstraintsType="Default" Index="2" RelativeSize="23.529411764705884" IsNewNode="True" />
+                  <LayoutItem Id="Notes" ViewItem="Notes" CaptionLocation="Top" SizeConstraintsType="Default" Index="3" RelativeSize="27.828054298642535" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="Item17" ShowCaption="True" Caption="GUEST SHARING" CaptionLocation="Top" Index="1" RelativeSize="100" IsNewNode="True">
+                <LayoutItem Id="HotelGuestSharing" ShowCaption="False" ViewItem="HotelGuestSharing" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Item15" ShowCaption="True" Caption="RATE INFORMATION" CaptionLocation="Top" Index="2" RelativeSize="100" IsNewNode="True">
+                <LayoutItem Id="HotelRateInformation" ShowCaption="False" ViewItem="HotelRateInformation" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Item16" ShowCaption="True" Caption="FOLIOS" CaptionLocation="Top" Index="3" RelativeSize="100" IsNewNode="True">
+                <LayoutGroup Id="Auto4f278a3f-b1d3-43cd-85b5-272074de0854" ShowCaption="False" Caption="Auto4f278a3f-b1d3-43cd-85b5-272074de0854(83)" Direction="Vertical" Index="0" RelativeSize="32.85556780595369" IsNewNode="True">
+                  <LayoutGroup Id="Auto79a333de-b621-4875-a3c1-95c924962313" ShowCaption="False" Caption="Auto79a333de-b621-4875-a3c1-95c924962313(94)" Index="0" RelativeSize="100" Direction="Vertical" IsNewNode="True">
+                    <LayoutGroup Id="Item21" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" Caption="General" IsNewNode="True">
+                      <LayoutItem Id="FolioList" ViewItem="FolioList" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="16.107382550335572" IsNewNode="True" />
+                      <LayoutGroup Id="Auto80318eae-29ca-420f-a599-c7f82b9040a6" ShowCaption="False" Caption="Auto80318eae-29ca-420f-a599-c7f82b9040a6(97)" Direction="Horizontal" Index="1" RelativeSize="17.449664429530202" IsNewNode="True">
+                        <LayoutItem Id="MethodType" ViewItem="MethodType" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="50" IsNewNode="True" />
+                        <LayoutItem Id="FolioAmount" ViewItem="FolioAmount" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="50" IsNewNode="True" />
+                      </LayoutGroup>
+                      <LayoutGroup Id="Item22" ShowCaption="True" CaptionLocation="Top" Index="2" RelativeSize="53.355704697986575" Caption="Folio-Detail" IsNewNode="True">
+                        <LayoutGroup Id="Auto84622138-472e-44ad-9d57-8a6fe95d6ffd" ShowCaption="False" Caption="Auto84622138-472e-44ad-9d57-8a6fe95d6ffd(98)" Direction="Horizontal" Index="0" RelativeSize="33.9622641509434" IsNewNode="True">
+                          <LayoutItem Id="BillingInstruction" ViewItem="BillingInstruction" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="49.88095238095238" IsNewNode="True" />
+                          <LayoutItem Id="GuestName" ShowCaption="True" ViewItem="GuestName" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="50.11904761904762" IsNewNode="True" />
+                        </LayoutGroup>
+                        <LayoutItem Id="ChargeRules" ViewItem="ChargeRules" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="45.283018867924525" IsNewNode="True" />
+                      </LayoutGroup>
+                    </LayoutGroup>
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutGroup Id="Autoe23af77c-bf0a-4b02-8d22-d490205074d3" ShowCaption="False" Caption="Autoe23af77c-bf0a-4b02-8d22-d490205074d3(96)" Index="1" RelativeSize="67.1444321940463" IsNewNode="True">
+                  <LayoutGroup Id="HotelBooking_BalanceTransfer" ShowCaption="True" Caption="Balance Transfer" CaptionLocation="Top" Index="0" RelativeSize="82.758620689655174" IsNewNode="True">
+                    <LayoutGroup Id="Auto1747f1bd-0a8e-4d0a-b482-19cf63222084" ShowCaption="False" Caption="Auto1747f1bd-0a8e-4d0a-b482-19cf63222084(111)" Direction="Horizontal" Index="0" RelativeSize="7.5396825396825395" IsNewNode="True">
+                      <LayoutGroup Id="Autod8f4b9d6-3dec-4b13-8a79-2fe7cc9c15b4" ShowCaption="False" Caption="Autod8f4b9d6-3dec-4b13-8a79-2fe7cc9c15b4(112)" Index="0" RelativeSize="49.071925754060324" IsNewNode="True">
+                        <LayoutItem Id="Folio" ViewItem="Folio" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                      </LayoutGroup>
+                      <LayoutGroup Id="Autoec6636a0-18a9-4d3d-b5d9-b8884d99b587" ShowCaption="False" Caption="Autoec6636a0-18a9-4d3d-b5d9-b8884d99b587(115)" Index="1" RelativeSize="50.928074245939676" IsNewNode="True">
+                        <LayoutItem Id="Guest" ViewItem="Guest" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                      </LayoutGroup>
+                    </LayoutGroup>
+                    <LayoutItem Id="Room" ViewItem="Room" SizeConstraintsType="Default" Index="1" RelativeSize="4.7619047619047619" IsNewNode="True" />
+                    <LayoutGroup Id="Auto23250b3a-f346-40ad-9412-fd0a720e7303" ShowCaption="False" Caption="Auto23250b3a-f346-40ad-9412-fd0a720e7303(115)" Direction="Horizontal" Index="2" RelativeSize="7.1428571428571432" IsNewNode="True">
+                      <LayoutItem Id="Inhouse" ViewItem="Inhouse" SizeConstraintsType="Default" Index="0" RelativeSize="32.946635730858468" IsNewNode="True" />
+                      <LayoutItem Id="Reserved" ViewItem="Reserved" SizeConstraintsType="Default" Index="1" RelativeSize="29.466357308584687" IsNewNode="True" />
+                      <LayoutItem Id="BalanceTransferCheckOut" ViewItem="BalanceTransferCheckOut" SizeConstraintsType="Default" Index="2" RelativeSize="22.737819025522043" IsNewNode="True" />
+                      <LayoutItem Id="BankTransferCheckOut" ShowCaption="False" SizeConstraintsType="Default" Index="3" RelativeSize="14.849187935034802" ViewItem="" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutItem Id="HotelBalanceTransferList" ViewItem="HotelBalanceTransferList" SizeConstraintsType="Default" Index="3" RelativeSize="75" IsNewNode="True" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Item18" ShowCaption="True" Caption="Posting" CaptionLocation="Top" Index="1" RelativeSize="17.241379310344829" IsNewNode="True">
+                    <LayoutGroup Id="Auto449dc57f-0e83-4cb2-bdc8-ebad3f462f58" ShowCaption="False" Caption="" Direction="Horizontal" Index="0" RelativeSize="32.38095238095238" IsNewNode="True">
+                      <LayoutItem Id="Item19" ShowCaption="False" ViewItem="" SizeConstraintsType="Default" Index="0" RelativeSize="78.306264501160086" IsNewNode="True" />
+                      <LayoutItem Id="@FolioPost" ViewItem="@FolioPost" SizeConstraintsType="Default" Index="1" RelativeSize="10.556844547563806" IsNewNode="True" />
+                      <LayoutItem Id="@FolioCancel" ViewItem="@FolioCancel" SizeConstraintsType="Default" Index="2" RelativeSize="11.136890951276103" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutItem Id="Posting" ShowCaption="False" ViewItem="Posting" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="36.19047619047619" IsNewNode="True" />
+                  </LayoutGroup>
+                </LayoutGroup>
+              </LayoutGroup>
+            </TabbedGroup>
+            <LayoutGroup Id="Auto1f8711da-088a-4faa-997b-4edf5a40b031" ShowCaption="False" Caption="Auto1f8711da-088a-4faa-997b-4edf5a40b031(8)" Index="1" RelativeSize="0.10460251046025104" Direction="Horizontal" IsNewNode="True" />
+            <LayoutGroup Id="HotelBooking" Caption="GENERAL INFORMATION" RelativeSize="100" Direction="Vertical" Removed="True">
+              <LayoutGroup Id="Item1" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="0" RelativeSize="10.049627791563275" Caption="GUEST INFORMATION" IsNewNode="True">
+                <LayoutGroup Id="Auto50a16863-a590-48b8-a51f-87e35ce4dc99" ShowCaption="False" Caption="Auto50a16863-a590-48b8-a51f-87e35ce4dc99(5)" Direction="Horizontal" Index="0" RelativeSize="46.913580246913583" IsNewNode="True">
+                  <LayoutItem Id="FullName" ViewItem="FullName" SizeConstraintsType="Default" Index="0" RelativeSize="32.446264073694984" IsNewNode="True" />
+                  <LayoutItem Id="Phone" ViewItem="Phone" SizeConstraintsType="Default" Index="1" RelativeSize="33.469805527123846" IsNewNode="True" />
+                  <LayoutItem Id="Email" ViewItem="Email" SizeConstraintsType="Default" Index="2" RelativeSize="34.083930399181163" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="Item2" ShowCaption="False" SizeConstraintsType="Default" Index="1" RelativeSize="12.345679012345679" ViewItem="" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Auto1f8711da-088a-4faa-997b-4edf5a40b031" ShowCaption="False" Caption="Auto1f8711da-088a-4faa-997b-4edf5a40b031(8)" Direction="Vertical" Index="1" RelativeSize="84.863523573201" IsNewNode="True">
+                <LayoutGroup Id="Item3" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="0" RelativeSize="18.859649122807017" Caption="STAY INFORMATION" IsNewNode="True">
+                  <LayoutGroup Id="Auto114f8fc0-199e-49af-b941-7fe0c41fde62" ShowCaption="False" Caption="Auto114f8fc0-199e-49af-b941-7fe0c41fde62(12)" Direction="Horizontal" Index="0" RelativeSize="52.713178294573645" IsNewNode="True">
+                    <LayoutGroup Id="Auto7246d33f-beea-46b6-bd22-4e343e05e714" ShowCaption="False" Caption="Auto7246d33f-beea-46b6-bd22-4e343e05e714(13)" Index="0" RelativeSize="19.959058341862846" IsNewNode="True">
+                      <LayoutItem Id="ArrivalDate" ViewItem="ArrivalDate" SizeConstraintsType="Default" Index="0" RelativeSize="47.058823529411768" IsNewNode="True" />
+                      <LayoutItem Id="DepartureDate" ViewItem="DepartureDate" SizeConstraintsType="Default" Index="1" RelativeSize="52.941176470588232" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Autoa9e83ab5-264e-40fd-9c45-a73d6b47152f" ShowCaption="False" Caption="Autoa9e83ab5-264e-40fd-9c45-a73d6b47152f(16)" Direction="Horizontal" Index="1" RelativeSize="80.040941658137157" IsNewNode="True">
+                      <LayoutGroup Id="Autob6640abb-6444-4aac-8432-eb7523f2bed8" ShowCaption="False" Caption="Autob6640abb-6444-4aac-8432-eb7523f2bed8(17)" Index="0" RelativeSize="24.040920716112531" IsNewNode="True">
+                        <LayoutItem Id="ArrivalTime" ViewItem="ArrivalTime" SizeConstraintsType="Default" Index="0" RelativeSize="47.058823529411768" IsNewNode="True" />
+                        <LayoutItem Id="DepartureTime" ViewItem="DepartureTime" SizeConstraintsType="Default" Index="1" RelativeSize="52.941176470588232" IsNewNode="True" />
+                      </LayoutGroup>
+                      <LayoutGroup Id="Autocda9a624-6939-414e-b0b7-960d7b54f3d3" ShowCaption="False" Caption="Autocda9a624-6939-414e-b0b7-960d7b54f3d3(20)" Direction="Horizontal" Index="1" RelativeSize="75.959079283887462" IsNewNode="True">
+                        <LayoutGroup Id="Autoa3b643fd-79f7-4d9b-99ff-3a8285e0592f" ShowCaption="False" Caption="Autoa3b643fd-79f7-4d9b-99ff-3a8285e0592f(21)" Index="0" RelativeSize="47.474747474747474" IsNewNode="True">
+                          <LayoutItem Id="Night" ViewItem="Night" SizeConstraintsType="Default" Index="0" RelativeSize="47.058823529411768" IsNewNode="True" />
+                          <LayoutGroup Id="Autocbd17ee3-82f6-4b93-9bb5-36d6db2954ab" ShowCaption="False" Caption="Autocbd17ee3-82f6-4b93-9bb5-36d6db2954ab(23)" Direction="Horizontal" Index="1" RelativeSize="52.941176470588232" IsNewNode="True">
+                            <LayoutItem Id="Adults" ViewItem="Adults" SizeConstraintsType="Default" Index="0" RelativeSize="49.645390070921984" IsNewNode="True" />
+                            <LayoutItem Id="Children" ViewItem="Children" SizeConstraintsType="Default" Index="1" RelativeSize="50.354609929078016" IsNewNode="True" />
+                          </LayoutGroup>
+                        </LayoutGroup>
+                        <LayoutGroup Id="Auto8ed3830a-57df-4dc2-8023-a63c4113f28a" ShowCaption="False" Caption="Auto8ed3830a-57df-4dc2-8023-a63c4113f28a(25)" Direction="Horizontal" Index="1" RelativeSize="52.525252525252526" IsNewNode="True">
+                          <LayoutGroup Id="Auto8360a8df-781f-461e-a5b0-79a0a0eac2a5" ShowCaption="False" Caption="Auto8360a8df-781f-461e-a5b0-79a0a0eac2a5(26)" Index="0" RelativeSize="47.115384615384613" IsNewNode="True">
+                            <LayoutItem Id="Room" ViewItem="Room" SizeConstraintsType="Default" Index="0" RelativeSize="47.058823529411768" IsNewNode="True" />
+                            <LayoutItem Id="Rate" ViewItem="Rate" SizeConstraintsType="Default" Index="1" RelativeSize="52.941176470588232" IsNewNode="True" />
+                          </LayoutGroup>
+                          <LayoutGroup Id="Autoba87b090-539b-4fa0-bdf3-bec5a172c5a4" ShowCaption="False" Caption="Autoba87b090-539b-4fa0-bdf3-bec5a172c5a4(29)" Index="1" RelativeSize="52.884615384615387" IsNewNode="True">
+                            <LayoutItem Id="RoomText" ViewItem="RoomText" SizeConstraintsType="Default" Index="0" RelativeSize="47.058823529411768" IsNewNode="True" />
+                            <LayoutItem Id="RateText" ViewItem="RateText" SizeConstraintsType="Default" Index="1" RelativeSize="52.941176470588232" IsNewNode="True" />
+                          </LayoutGroup>
+                        </LayoutGroup>
+                      </LayoutGroup>
+                    </LayoutGroup>
+                  </LayoutGroup>
+                  <LayoutItem Id="HotelStayInformation" ShowCaption="False" ViewItem="HotelStayInformation" SizeConstraintsType="Default" Index="1" RelativeSize="23.255813953488371" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Item6" ShowCaption="True" CaptionLocation="Top" Index="1" RelativeSize="27.485380116959064" Caption="GUARANTEE INFORMATION" IsNewNode="True">
+                  <LayoutGroup Id="Autodc15ed69-aaee-47cf-a737-8a96449c1963" ShowCaption="False" Caption="Autodc15ed69-aaee-47cf-a737-8a96449c1963(35)" Direction="Horizontal" Index="0" RelativeSize="18.617021276595743" IsNewNode="True">
+                    <LayoutItem Id="Cash" ViewItem="Cash" SizeConstraintsType="Default" Index="0" RelativeSize="20.368474923234391" IsNewNode="True" />
+                    <LayoutItem Id="FOC" ViewItem="FOC" SizeConstraintsType="Default" Index="1" RelativeSize="19.754350051177074" IsNewNode="True" />
+                    <LayoutItem Id="BillTo" ViewItem="BillTo" SizeConstraintsType="Default" Index="2" RelativeSize="19.754350051177074" IsNewNode="True" />
+                    <LayoutItem Id="Item5" ShowCaption="False" SizeConstraintsType="Default" Index="3" RelativeSize="40.122824974411465" ViewItem="" IsNewNode="True" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Auto39358904-6d4f-45b3-81a1-2a34fb9d9ecf" ShowCaption="False" Caption="Auto39358904-6d4f-45b3-81a1-2a34fb9d9ecf(40)" Direction="Horizontal" Index="1" RelativeSize="68.085106382978722" IsNewNode="True">
+                    <LayoutGroup Id="Auto08e2745f-8a4c-4921-9b23-ee02efc975af" ShowCaption="False" Caption="Auto08e2745f-8a4c-4921-9b23-ee02efc975af(41)" Index="0" RelativeSize="59.877175025588535" IsNewNode="True">
+                      <LayoutGroup Id="Auto40769601-5d15-427f-9eb8-2c86ea850be3" ShowCaption="False" Caption="Auto40769601-5d15-427f-9eb8-2c86ea850be3(42)" Direction="Horizontal" Index="0" RelativeSize="25.78125" IsNewNode="True">
+                        <LayoutItem Id="Type" ViewItem="Type" SizeConstraintsType="Default" Index="0" RelativeSize="34.017094017094017" IsNewNode="True" />
+                        <LayoutItem Id="Amount" ViewItem="Amount" SizeConstraintsType="Default" Index="1" RelativeSize="32.820512820512818" IsNewNode="True" />
+                        <LayoutItem Id="VoucherNo" ViewItem="VoucherNo" SizeConstraintsType="Default" Index="2" RelativeSize="33.162393162393165" IsNewNode="True" />
+                      </LayoutGroup>
+                      <LayoutGroup Id="Auto3c51228c-778c-494c-a823-cea8c46de1fb" ShowCaption="False" Caption="Auto3c51228c-778c-494c-a823-cea8c46de1fb(46)" Index="1" RelativeSize="49.21875" IsNewNode="True">
+                        <LayoutItem Id="CashNotes" ViewItem="CashNotes" SizeConstraintsType="Default" Index="0" RelativeSize="42.857142857142854" IsNewNode="True" />
+                        <LayoutGroup Id="Auto1b0b4f88-bf82-4de4-8484-d8f1c6fe896d" ShowCaption="False" Caption="Auto1b0b4f88-bf82-4de4-8484-d8f1c6fe896d(48)" Direction="Horizontal" Index="1" RelativeSize="57.142857142857146" IsNewNode="True">
+                          <LayoutItem Id="Company" ViewItem="Company" SizeConstraintsType="Default" Index="0" RelativeSize="49.572649572649574" IsNewNode="True" />
+                          <LayoutItem Id="BillToNotes" ViewItem="BillToNotes" SizeConstraintsType="Default" Index="1" RelativeSize="50.427350427350426" IsNewNode="True" />
+                        </LayoutGroup>
+                      </LayoutGroup>
+                      <LayoutItem Id="FOCNotes" ViewItem="FOCNotes" SizeConstraintsType="Default" Index="2" RelativeSize="25" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Autoa90fd57a-31c6-40ba-ac6a-fc7f8c315206" ShowCaption="False" Caption="Autoa90fd57a-31c6-40ba-ac6a-fc7f8c315206(52)" Index="1" RelativeSize="40.122824974411465" IsNewNode="True">
+                      <LayoutItem Id="ReleaseDate" ViewItem="ReleaseDate" SizeConstraintsType="Default" Index="0" RelativeSize="23.4375" IsNewNode="True" />
+                      <LayoutGroup Id="Autoc937e641-bede-4d4a-a29e-71e84559e51f" ShowCaption="False" Caption="Autoc937e641-bede-4d4a-a29e-71e84559e51f(54)" Direction="Horizontal" Index="1" RelativeSize="76.5625" IsNewNode="True">
+                        <LayoutItem Id="Required" ViewItem="Required" SizeConstraintsType="Default" Index="0" RelativeSize="49.234693877551024" IsNewNode="True" />
+                        <LayoutItem Id="RequiredText" ViewItem="RequiredText" SizeConstraintsType="Default" Index="1" RelativeSize="50.765306122448976" IsNewNode="True" />
+                      </LayoutGroup>
+                    </LayoutGroup>
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutGroup Id="Item7" ShowCaption="True" Caption="Notes" CaptionLocation="Top" Index="2" RelativeSize="14.181286549707602" IsNewNode="True">
+                  <TabbedGroup Id="Item14" CaptionLocation="Top" Index="0" RelativeSize="74.226804123711347" IsNewNode="True">
+                    <LayoutGroup Id="Item9" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" Caption="Guest" IsNewNode="True">
+                      <LayoutItem Id="Guest" ViewItem="Guest" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Item8" ShowCaption="True" CaptionLocation="Top" Index="1" RelativeSize="100" Caption="Reservation" IsNewNode="True">
+                      <LayoutItem Id="Reservation" ViewItem="Reservation" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Item10" ShowCaption="True" CaptionLocation="Top" Index="2" RelativeSize="100" Caption="Check In" IsNewNode="True">
+                      <LayoutItem Id="CheckIn" ViewItem="CheckIn" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Item11" ShowCaption="True" CaptionLocation="Top" Index="3" RelativeSize="100" Caption="Check Out" IsNewNode="True">
+                      <LayoutItem Id="CheckOut" ViewItem="CheckOut" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Item12" ShowCaption="True" CaptionLocation="Top" Index="4" RelativeSize="100" Caption="Cancellation" IsNewNode="True">
+                      <LayoutItem Id="Cancellation" ViewItem="Cancellation" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Item13" ShowCaption="True" CaptionLocation="Top" Index="5" RelativeSize="100" Caption="House Keeping" IsNewNode="True">
+                      <LayoutItem Id="HouseKeeping" ViewItem="HouseKeeping" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                    </LayoutGroup>
+                  </TabbedGroup>
+                </LayoutGroup>
+                <LayoutGroup Id="Item20" ShowCaption="True" CaptionLocation="Top" Direction="Horizontal" Index="3" RelativeSize="9.5029239766081872" Caption="BUSINESS SOURCE" IsNewNode="True">
+                  <LayoutItem Id="MarketSegment" ViewItem="MarketSegment" SizeConstraintsType="Default" Index="0" RelativeSize="24.124124124124123" IsNewNode="True" />
+                  <LayoutItem Id="Source" ViewItem="Source" SizeConstraintsType="Default" Index="1" RelativeSize="24.324324324324323" IsNewNode="True" />
+                  <LayoutItem Id="Commission" ViewItem="Commission" SizeConstraintsType="Default" Index="2" RelativeSize="24.124124124124123" IsNewNode="True" />
+                  <LayoutItem Id="Notes" ViewItem="Notes" SizeConstraintsType="Default" Index="3" RelativeSize="25.225225225225227" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Item17" ShowCaption="True" Caption="Guest Shairng" CaptionLocation="Top" Index="4" RelativeSize="9.2105263157894743" IsNewNode="True">
+                  <LayoutItem Id="HotelGuestSharing" ShowCaption="False" ViewItem="HotelGuestSharing" SizeConstraintsType="Default" Index="0" RelativeSize="60.317460317460316" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Item15" ShowCaption="True" Caption="Hotel Rate Information" CaptionLocation="Top" Index="5" RelativeSize="10.380116959064328" IsNewNode="True">
+                  <LayoutItem Id="HotelRateInformation" ShowCaption="False" ViewItem="HotelRateInformation" SizeConstraintsType="Default" Index="0" RelativeSize="64.788732394366193" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Item16" ShowCaption="True" Caption="Folios" CaptionLocation="Top" Index="6" RelativeSize="10.380116959064328" IsNewNode="True">
+                  <LayoutItem Id="Folios" ShowCaption="False" ViewItem="Folios" SizeConstraintsType="Default" Index="0" RelativeSize="53.521126760563384" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="HotelBooking_col1" RelativeSize="48.543689320388353" Removed="True">
+                <LayoutItem Id="ArrivalDate" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" Index="1" />
+                <LayoutItem Id="Email" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" Index="1" Removed="True" />
+                <LayoutItem Id="DepartureDate" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" Index="2" />
+                <LayoutItem Id="Night" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" Index="3" />
+                <LayoutItem Id="Adults" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" Index="4" />
+                <LayoutItem Id="Children" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" Index="5" />
+                <LayoutItem Id="Room" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" Index="6" />
+                <LayoutItem Id="RoomText" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" Index="7" />
+                <LayoutItem Id="Rate" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" Index="8" />
+                <LayoutItem Id="RateText" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" Index="9" />
+                <LayoutItem Id="ReleaseDate" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" Index="10" />
+                <LayoutItem Id="Required" SizeConstraintsType="Default" RelativeSize="22.727272727272727" Index="11" />
+                <LayoutItem Id="FullName" SizeConstraintsType="Default" RelativeSize="9.0909090909090917" />
+                <LayoutItem Id="Phone" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="HotelBooking_col2" RelativeSize="48.404993065187242" Removed="True">
+                <LayoutGroup Id="Auto972e612f-3fb0-485f-bbf4-b96c1baacf43" ShowCaption="False" Caption="" Direction="Horizontal" Index="0" RelativeSize="9.0909090909090917" IsNewNode="True">
+                  <LayoutItem Id="Phone" ViewItem="Phone" SizeConstraintsType="Default" Index="0" RelativeSize="49.8567335243553" IsNewNode="True" />
+                  <LayoutItem Id="Email" ViewItem="Email" SizeConstraintsType="Default" Index="1" RelativeSize="50.1432664756447" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="BillTo" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" />
+                <LayoutItem Id="Cancellation" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" />
+                <LayoutItem Id="Cash" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" />
+                <LayoutItem Id="CheckIn" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" />
+                <LayoutItem Id="CheckOut" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" />
+                <LayoutItem Id="Commission" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" />
+                <LayoutItem Id="FOC" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" />
+                <LayoutItem Id="Guest" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" />
+                <LayoutItem Id="HouseKeeping" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" />
+                <LayoutItem Id="MarketSegment" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" />
+                <LayoutItem Id="Notes" SizeConstraintsType="Default" RelativeSize="9.0909090909090917" />
+                <LayoutItem Id="RequiredText" SizeConstraintsType="Default" RelativeSize="9.0909090909090917" Removed="True" />
+                <LayoutItem Id="Reservation" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" />
+                <LayoutItem Id="Source" SizeConstraintsType="Default" RelativeSize="6.8181818181818183" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs" RelativeSize="63.427800269905532" Removed="True">
+            <LayoutGroup Id="HotelRateInformation" RelativeSize="100" Removed="True">
+              <LayoutItem Id="HotelRateInformation" SizeConstraintsType="Default" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="HotelStayInformation" RelativeSize="0" Direction="Horizontal" Caption="Hotel Stay Information">
+              <LayoutItem Id="HotelStayInformation" Removed="True" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="HotelBooking_HotelGuestSharing_ListView">
+      <Columns>
+        <ColumnInfo Id="Address" Index="-1" />
+        <ColumnInfo Id="ArrivalTrans" Index="-1" />
+        <ColumnInfo Id="BackAccount" Index="-1" />
+        <ColumnInfo Id="BankName" Index="-1" />
+        <ColumnInfo Id="Company" Index="-1" />
+        <ColumnInfo Id="DepartureTrans" Index="-1" />
+        <ColumnInfo Id="DoB" Index="-1" />
+        <ColumnInfo Id="Duration" Index="-1" />
+        <ColumnInfo Id="Email" Index="-1" />
+        <ColumnInfo Id="FromDate" Index="-1" />
+        <ColumnInfo Id="Iban" Index="-1" />
+        <ColumnInfo Id="ID" Index="-1" />
+        <ColumnInfo Id="IDType" Index="-1" />
+        <ColumnInfo Id="IsEmployedInCountry" Index="-1" />
+        <ColumnInfo Id="IssueBy" Index="-1" />
+        <ColumnInfo Id="IssueDate" Index="-1" />
+        <ColumnInfo Id="JobTitle" Index="-1" />
+        <ColumnInfo Id="Language" Index="-1" />
+        <ColumnInfo Id="Nationnality" Index="-1" />
+        <ColumnInfo Id="Purpose" Index="-1" />
+        <ColumnInfo Id="RoomFloor" Index="-1" />
+        <ColumnInfo Id="RoomNo" Index="-1" />
+        <ColumnInfo Id="RoomType" Index="-1" />
+        <ColumnInfo Id="SerialNo" Index="-1" />
+        <ColumnInfo Id="SpecialRequest" Index="-1" />
+        <ColumnInfo Id="SwiftCode" Index="-1" />
+        <ColumnInfo Id="TaxCode" Index="-1" />
+        <ColumnInfo Id="ToDate" Index="-1" />
+        <ColumnInfo Id="ValidFrom" Index="-1" />
+        <ColumnInfo Id="ValidUntil" Index="-1" />
+        <ColumnInfo Id="VisaNo" Index="-1" />
+        <ColumnInfo Id="VisaType" Index="-1" />
+        <ColumnInfo Id="Website" Index="-1" />
+        <ColumnInfo Id="Salutation" Index="0" />
+        <ColumnInfo Id="FullName" Index="1" />
+        <ColumnInfo Id="Phone" Index="2" />
+        <ColumnInfo Id="ArrivalDate" Index="3" />
+        <ColumnInfo Id="DepartureDate" Index="4" />
+        <ColumnInfo Id="IsMainGuest" Index="5" />
+      </Columns>
+    </ListView>
+    <ListView Id="HotelBooking_HotelRateInformation_ListView">
+      <Columns>
+        <ColumnInfo Id="AmountAfterDiscount">
+          <Summary>
+            <ColumnSummaryItem Id="@aee5c08b-0881-4744-af89-6c93e75661a4" SummaryType="Sum" IsNewNode="True" />
+          </Summary>
+        </ColumnInfo>
+      </Columns>
+    </ListView>
+    <ListView Id="HotelBooking_HotelStayInformation_ListView">
+      <Columns>
+        <ColumnInfo Id="Amount">
+          <Summary>
+            <ColumnSummaryItem Id="@c1994a87-7c1a-46a9-a20d-d939bc66e5c3" SummaryType="Sum" IsNewNode="True" />
+          </Summary>
+        </ColumnInfo>
+      </Columns>
+    </ListView>
+    <ListView Id="HotelBooking_ListView" ImageName="BO_Appearance">
+      <Columns>
+        <ColumnInfo Id="Adults" Index="-1" />
+        <ColumnInfo Id="ArrivalTime" Index="-1" />
+        <ColumnInfo Id="BankName" Index="-1" />
+        <ColumnInfo Id="BankNumber" Index="-1" />
+        <ColumnInfo Id="BillTo" Index="-1" />
+        <ColumnInfo Id="BillToNotes" Index="-1" />
+        <ColumnInfo Id="Cancellation" Index="-1" />
+        <ColumnInfo Id="CardNo" Index="-1" />
+        <ColumnInfo Id="CardType" Index="-1" />
+        <ColumnInfo Id="Cash" Index="-1" />
+        <ColumnInfo Id="CashAmount" Index="-1" />
+        <ColumnInfo Id="CashNotes" Index="-1" />
+        <ColumnInfo Id="CheckIn" Index="-1" />
+        <ColumnInfo Id="CheckOut" Index="-1" />
+        <ColumnInfo Id="Children" Index="-1" />
+        <ColumnInfo Id="Commission" Index="-1" />
+        <ColumnInfo Id="Company" Index="-1" />
+        <ColumnInfo Id="DepartureTime" Index="-1" />
+        <ColumnInfo Id="Email" Index="-1" />
+        <ColumnInfo Id="ExpiryDate" Index="-1" />
+        <ColumnInfo Id="ExtraCharge" Index="-1" />
+        <ColumnInfo Id="FOC" Index="-1" />
+        <ColumnInfo Id="FOCNotes" Index="-1" />
+        <ColumnInfo Id="FolioAmount" Index="-1" />
+        <ColumnInfo Id="FolioList" Index="-1" />
+        <ColumnInfo Id="FolioNotes" Index="-1" />
+        <ColumnInfo Id="Hour" Index="-1" />
+        <ColumnInfo Id="HouseKeeping" Index="-1" />
+        <ColumnInfo Id="IBan" Index="-1" />
+        <ColumnInfo Id="MarketSegment" Index="-1" />
+        <ColumnInfo Id="Night" Index="-1" />
+        <ColumnInfo Id="Notes" Index="-1" />
+        <ColumnInfo Id="NotesGuest" Index="-1" />
+        <ColumnInfo Id="Phone" Index="-1" />
+        <ColumnInfo Id="RateText" Index="-1" />
+        <ColumnInfo Id="RateType" Index="-1" />
+        <ColumnInfo Id="ReleaseDate" Index="-1" />
+        <ColumnInfo Id="Required" Index="-1" />
+        <ColumnInfo Id="RequiredText" Index="-1" />
+        <ColumnInfo Id="RoomText" Index="-1" />
+        <ColumnInfo Id="RoomType" Index="-1" />
+        <ColumnInfo Id="SpecialRequest" Index="-1" />
+        <ColumnInfo Id="SwiftCode" Index="-1" />
+        <ColumnInfo Id="Type" Index="-1" />
+        <ColumnInfo Id="VoucherNo" Index="-1" />
+        <ColumnInfo Id="FullName" Index="0" />
+        <ColumnInfo Id="ArrivalDate" Index="2" />
+        <ColumnInfo Id="DepartureDate" Index="3" />
+        <ColumnInfo Id="Source" Index="4" />
+      </Columns>
+    </ListView>
+    <ListView Id="HotelBooking_Posting_ListView">
+      <Columns>
+        <ColumnInfo Id="Type" Index="0" />
+        <ColumnInfo Id="Date" Index="1" />
+        <ColumnInfo Id="VoucherCode" Index="2" />
+      </Columns>
+    </ListView>
+    <ListView Id="HotelBooking_RoomCharges_ListView" AllowEdit="True" />
+    <ListView Id="HotelFolio_LookupListView" AllowNew="False" />
+    <DetailView Id="HotelGuestSharing_DetailView">
+      <Items>
+        <PropertyEditor Id="DoB" Caption="DoB" />
+        <PropertyEditor Id="HotelBussinessInformationContact" Caption="Hotel Contact" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="Auto8f733ed5-0597-4a68-9296-16dfd7db7a8e" ShowCaption="False" Caption="Auto8f733ed5-0597-4a68-9296-16dfd7db7a8e(39)" Direction="Vertical" Index="0" RelativeSize="100" IsNewNode="True">
+            <TabbedGroup Id="Item10" CaptionLocation="Top" Index="0" RelativeSize="100" IsNewNode="True">
+              <LayoutGroup Id="HotelGuestSharing" ShowCaption="True" Caption="GUEST INFORMATION" Index="0" RelativeSize="100" IsNewNode="True">
+                <LayoutGroup Id="Auto29dcee8e-c394-4e69-884b-b059d66ca6d3" ShowCaption="False" Caption="Auto29dcee8e-c394-4e69-884b-b059d66ca6d3(4)" Direction="Horizontal" Index="0" RelativeSize="4.9857549857549861" IsNewNode="True">
+                  <LayoutItem Id="Salutation" ViewItem="Salutation" SizeConstraintsType="Default" Index="0" RelativeSize="48.066298342541437" IsNewNode="True" />
+                  <LayoutItem Id="IsMainGuest" ViewItem="IsMainGuest" SizeConstraintsType="Default" Index="1" RelativeSize="51.933701657458563" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Autod55887b1-2b91-4a1d-9170-f13da1907c89" ShowCaption="False" Caption="Autod55887b1-2b91-4a1d-9170-f13da1907c89(7)" Direction="Horizontal" Index="1" RelativeSize="16.239316239316238" IsNewNode="True">
+                  <LayoutGroup Id="Auto9e0932ca-e858-4d3b-a3db-36092d55778e" ShowCaption="False" Caption="Auto9e0932ca-e858-4d3b-a3db-36092d55778e(8)" Index="0" RelativeSize="33.563535911602209" IsNewNode="True">
+                    <LayoutItem Id="FullName" ViewItem="FullName" SizeConstraintsType="Default" Index="0" RelativeSize="26.315789473684209" IsNewNode="True" />
+                    <LayoutItem Id="DoB" ViewItem="DoB" SizeConstraintsType="Default" Index="1" RelativeSize="21.05263157894737" IsNewNode="True" />
+                    <LayoutItem Id="ArrivalDate" ViewItem="ArrivalDate" SizeConstraintsType="Default" Index="2" RelativeSize="52.631578947368418" IsNewNode="True" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Autoa0b22ada-861a-4ebf-8ad8-f35ffd18abdb" ShowCaption="False" Caption="Autoa0b22ada-861a-4ebf-8ad8-f35ffd18abdb(12)" Direction="Horizontal" Index="1" RelativeSize="66.436464088397784" IsNewNode="True">
+                    <LayoutGroup Id="Auto697f1b82-580d-4625-a8d2-63578bafb12f" ShowCaption="False" Caption="Auto697f1b82-580d-4625-a8d2-63578bafb12f(13)" Index="0" RelativeSize="49.064449064449065" IsNewNode="True">
+                      <LayoutItem Id="Phone" ViewItem="Phone" SizeConstraintsType="Default" Index="0" RelativeSize="26.315789473684209" IsNewNode="True" />
+                      <LayoutItem Id="Language" ViewItem="Language" SizeConstraintsType="Default" Index="1" RelativeSize="21.05263157894737" IsNewNode="True" />
+                      <LayoutItem Id="DepartureDate" ViewItem="DepartureDate" SizeConstraintsType="Default" Index="2" RelativeSize="52.631578947368418" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Autoc49ea73e-fd42-4f4a-86af-904a8df48ceb" ShowCaption="False" Caption="Autoc49ea73e-fd42-4f4a-86af-904a8df48ceb(17)" Index="1" RelativeSize="50.935550935550935" IsNewNode="True">
+                      <LayoutItem Id="Email" ViewItem="Email" SizeConstraintsType="Default" Index="0" RelativeSize="26.315789473684209" IsNewNode="True" />
+                      <LayoutItem Id="Nationnality" ViewItem="Nationnality" SizeConstraintsType="Default" Index="1" RelativeSize="21.05263157894737" IsNewNode="True" />
+                      <LayoutGroup Id="Auto2f0bddc4-a013-43af-ba95-2c2539bde116" ShowCaption="False" Caption="Auto2f0bddc4-a013-43af-ba95-2c2539bde116(20)" Index="2" RelativeSize="52.631578947368418" IsNewNode="True">
+                        <LayoutItem Id="IDType" ViewItem="IDType" SizeConstraintsType="Default" Index="0" RelativeSize="50" IsNewNode="True" />
+                        <LayoutItem Id="ID" ViewItem="ID" SizeConstraintsType="Default" Index="1" RelativeSize="50" IsNewNode="True" />
+                      </LayoutGroup>
+                    </LayoutGroup>
+                  </LayoutGroup>
+                </LayoutGroup>
+                <TabbedGroup Id="Item5" CaptionLocation="Top" Index="2" RelativeSize="78.774928774928782" IsNewNode="True">
+                  <LayoutGroup Id="HotelContact" ShowCaption="True" Caption="Guest Contact" Index="0" RelativeSize="100" IsNewNode="True">
+                    <LayoutItem Id="HotelContact" ShowCaption="False" ViewItem="HotelContact" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Item4" ShowCaption="True" Caption="History Transaction" CaptionLocation="Top" Index="1" RelativeSize="100" Direction="Vertical" IsNewNode="True">
+                    <LayoutItem Id="HotelHistoryTransaction" ShowCaption="False" ViewItem="HotelHistoryTransaction" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                  </LayoutGroup>
+                </TabbedGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="Item2" ShowCaption="True" Caption="BUSINESS INFORMATION" CaptionLocation="Top" Direction="Vertical" Index="1" RelativeSize="100" IsNewNode="True">
+                <LayoutGroup Id="Autoc68520e7-97ec-42af-a7e3-614bc61c38a0" ShowCaption="False" Caption="Autoc68520e7-97ec-42af-a7e3-614bc61c38a0(29)" Direction="Horizontal" Index="0" RelativeSize="12.250712250712251" IsNewNode="True">
+                  <LayoutGroup Id="Auto03a54d21-89c1-438d-9a59-800560436017" ShowCaption="False" Caption="Auto03a54d21-89c1-438d-9a59-800560436017(30)" Index="0" RelativeSize="33.563535911602209" IsNewNode="True">
+                    <LayoutItem Id="JobTitle" ViewItem="JobTitle" SizeConstraintsType="Default" Index="0" RelativeSize="37.2093023255814" IsNewNode="True" />
+                    <LayoutItem Id="TaxCode" ViewItem="TaxCode" SizeConstraintsType="Default" Index="1" RelativeSize="27.906976744186046" IsNewNode="True" />
+                    <LayoutItem Id="Website" ViewItem="Website" SizeConstraintsType="Default" Index="2" RelativeSize="34.883720930232556" IsNewNode="True" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Autobcc4554c-87ae-4ca9-83a8-3b39e013aef0" ShowCaption="False" Caption="Autobcc4554c-87ae-4ca9-83a8-3b39e013aef0(34)" Direction="Horizontal" Index="1" RelativeSize="66.436464088397784" IsNewNode="True">
+                    <LayoutGroup Id="Auto1c276dd6-12a0-4045-9e34-0ef62df749f3" ShowCaption="False" Caption="Auto1c276dd6-12a0-4045-9e34-0ef62df749f3(35)" Index="0" RelativeSize="49.064449064449065" IsNewNode="True">
+                      <LayoutItem Id="Company" ViewItem="Company" SizeConstraintsType="Default" Index="0" RelativeSize="37.2093023255814" IsNewNode="True" />
+                      <LayoutItem Id="BankName" ViewItem="BankName" SizeConstraintsType="Default" Index="1" RelativeSize="27.906976744186046" IsNewNode="True" />
+                      <LayoutItem Id="SwiftCode" ViewItem="SwiftCode" SizeConstraintsType="Default" Index="2" RelativeSize="34.883720930232556" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Auto86bf1314-1d9a-4e92-9f29-f9493c94316c" ShowCaption="False" Caption="Auto86bf1314-1d9a-4e92-9f29-f9493c94316c(39)" Index="1" RelativeSize="50.935550935550935" IsNewNode="True">
+                      <LayoutItem Id="Address" ViewItem="Address" SizeConstraintsType="Default" Index="0" RelativeSize="37.2093023255814" IsNewNode="True" />
+                      <LayoutItem Id="BackAccount" ViewItem="BackAccount" SizeConstraintsType="Default" Index="1" RelativeSize="27.906976744186046" IsNewNode="True" />
+                      <LayoutItem Id="Iban" ViewItem="Iban" SizeConstraintsType="Default" Index="2" RelativeSize="34.883720930232556" IsNewNode="True" />
+                    </LayoutGroup>
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutGroup Id="Item1" ShowCaption="True" CaptionLocation="Top" Index="1" RelativeSize="87.749287749287745" Caption="CONTACT INFORMATION" IsNewNode="True">
+                  <LayoutItem Id="HotelBussinessInformationContact" ViewItem="HotelBussinessInformationContact" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="94.642857142857139" ShowCaption="False" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="Item3" ShowCaption="True" Caption="VISA INFORMATION" CaptionLocation="Top" Direction="Horizontal" Index="2" RelativeSize="100" IsNewNode="True">
+                <LayoutGroup Id="Autod0548e47-3bef-4ee4-bdb1-b93be72fa7d8" ShowCaption="False" Caption="Autod0548e47-3bef-4ee4-bdb1-b93be72fa7d8(41)" Index="0" RelativeSize="33.287292817679557" IsNewNode="True">
+                  <LayoutItem Id="SerialNo" ViewItem="SerialNo" SizeConstraintsType="Default" Index="0" RelativeSize="4.5584045584045585" IsNewNode="True" />
+                  <LayoutItem Id="IssueDate" ViewItem="IssueDate" SizeConstraintsType="Default" Index="1" RelativeSize="3.4188034188034186" IsNewNode="True" />
+                  <LayoutItem Id="ValidUntil" ViewItem="ValidUntil" SizeConstraintsType="Default" Index="2" RelativeSize="3.4188034188034186" IsNewNode="True" />
+                  <LayoutItem Id="FromDate" ViewItem="FromDate" SizeConstraintsType="Default" Index="3" RelativeSize="3.4188034188034186" IsNewNode="True" />
+                  <LayoutItem Id="ToDate" ViewItem="ToDate" SizeConstraintsType="Default" Index="4" RelativeSize="3.4188034188034186" IsNewNode="True" />
+                  <LayoutItem Id="IsEmployedInCountry" ViewItem="IsEmployedInCountry" SizeConstraintsType="Default" Index="5" RelativeSize="81.76638176638177" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Auto9e0b246c-d37d-4823-9f94-3396b3ba33e4" ShowCaption="False" Caption="Auto9e0b246c-d37d-4823-9f94-3396b3ba33e4(48)" Index="1" RelativeSize="66.712707182320443" IsNewNode="True">
+                  <LayoutGroup Id="Auto5b2b9666-1148-485b-b026-a2bce259800b" ShowCaption="False" Caption="Auto5b2b9666-1148-485b-b026-a2bce259800b(49)" Direction="Horizontal" Index="0" RelativeSize="12.250712250712251" IsNewNode="True">
+                    <LayoutGroup Id="Auto3df7441c-e55f-435b-8091-76dfd768b764" ShowCaption="False" Caption="Auto3df7441c-e55f-435b-8091-76dfd768b764(50)" Index="0" RelativeSize="46.3768115942029" IsNewNode="True">
+                      <LayoutItem Id="VisaNo" ViewItem="VisaNo" SizeConstraintsType="Default" Index="0" RelativeSize="37.2093023255814" IsNewNode="True" />
+                      <LayoutItem Id="IssueBy" ViewItem="IssueBy" SizeConstraintsType="Default" Index="1" RelativeSize="27.906976744186046" IsNewNode="True" />
+                      <LayoutItem Id="Duration" ViewItem="Duration" SizeConstraintsType="Default" Index="2" RelativeSize="34.883720930232556" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Auto46984882-bde2-4118-bf1c-f9d96e1f3b35" ShowCaption="False" Caption="Auto46984882-bde2-4118-bf1c-f9d96e1f3b35(54)" Index="1" RelativeSize="53.6231884057971" IsNewNode="True">
+                      <LayoutItem Id="VisaType" ViewItem="VisaType" SizeConstraintsType="Default" Index="0" RelativeSize="37.2093023255814" IsNewNode="True" />
+                      <LayoutItem Id="ValidFrom" ViewItem="ValidFrom" SizeConstraintsType="Default" Index="1" RelativeSize="27.906976744186046" IsNewNode="True" />
+                      <LayoutItem Id="Purpose" ViewItem="Purpose" SizeConstraintsType="Default" Index="2" RelativeSize="34.883720930232556" IsNewNode="True" />
+                    </LayoutGroup>
+                  </LayoutGroup>
+                  <LayoutItem Id="ArrivalTrans" ViewItem="ArrivalTrans" SizeConstraintsType="Default" Index="1" RelativeSize="3.4188034188034186" IsNewNode="True" />
+                  <LayoutItem Id="DepartureTrans" ViewItem="DepartureTrans" SizeConstraintsType="Default" Index="2" RelativeSize="84.330484330484325" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="Item9" ShowCaption="True" Caption="ROOM PREFERENCES" CaptionLocation="Top" Direction="Horizontal" Index="3" RelativeSize="100" IsNewNode="True">
+                <LayoutGroup Id="Auto1fb7056c-6e79-4c4a-8545-f8cf65d594a0" ShowCaption="False" Caption="Auto1fb7056c-6e79-4c4a-8545-f8cf65d594a0(63)" Index="0" RelativeSize="49.447513812154696" IsNewNode="True">
+                  <LayoutItem Id="RoomFloor" ViewItem="RoomFloor" SizeConstraintsType="Default" Index="0" RelativeSize="4.5584045584045585" IsNewNode="True" />
+                  <LayoutItem Id="RoomNo" ViewItem="RoomNo" SizeConstraintsType="Default" Index="1" RelativeSize="3.4188034188034186" IsNewNode="True" />
+                  <LayoutItem Id="RoomType" ViewItem="RoomType" SizeConstraintsType="Default" Index="2" RelativeSize="92.022792022792018" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Auto9e5791d4-11ab-4682-afc3-6dda67af5121" ShowCaption="False" Caption="Auto9e5791d4-11ab-4682-afc3-6dda67af5121(66)" Index="1" RelativeSize="50.552486187845304" IsNewNode="True">
+                  <LayoutItem Id="SpecialRequest" ViewItem="SpecialRequest" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+            </TabbedGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SimpleEditors" RelativeSize="40.250696378830085" Direction="Horizontal" Removed="True">
+            <LayoutGroup Id="HotelGuestSharing" Removed="True" />
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs" RelativeSize="10.256410256410257" Removed="True">
+            <LayoutGroup Id="HotelContact" RelativeSize="100" Caption="Hotel Contact">
+              <LayoutItem Id="HotelContact" SizeConstraintsType="Default" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="HotelHistoryTransaction" RelativeSize="100" Removed="True">
+              <LayoutItem Id="HotelHistoryTransaction" SizeConstraintsType="Default" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="HotelGuestSharing_HotelHistoryTransaction_ListView" ImageName="BO_Audit_ChangeHistory" />
+    <ListView Id="HotelGuestSharing_ListView">
+      <Columns>
+        <ColumnInfo Id="Address" Index="-1" />
+        <ColumnInfo Id="ArrivalTrans" Index="-1" />
+        <ColumnInfo Id="BackAccount" Index="-1" />
+        <ColumnInfo Id="BankName" Index="-1" />
+        <ColumnInfo Id="Company" Index="-1" />
+        <ColumnInfo Id="DoB" Index="-1" />
+        <ColumnInfo Id="Duration" Index="-1" />
+        <ColumnInfo Id="Email" Index="-1" />
+        <ColumnInfo Id="FromDate" Index="-1" />
+        <ColumnInfo Id="Iban" Index="-1" />
+        <ColumnInfo Id="ID" Index="-1" />
+        <ColumnInfo Id="IDType" Index="-1" />
+        <ColumnInfo Id="IsEmployedInCountry" Index="-1" />
+        <ColumnInfo Id="IssueBy" Index="-1" />
+        <ColumnInfo Id="IssueDate" Index="-1" />
+        <ColumnInfo Id="JobTitle" Index="-1" />
+        <ColumnInfo Id="Language" Index="-1" />
+        <ColumnInfo Id="Nationnality" Index="-1" />
+        <ColumnInfo Id="Phone" Index="-1" />
+        <ColumnInfo Id="Purpose" Index="-1" />
+        <ColumnInfo Id="RoomFloor" Index="-1" />
+        <ColumnInfo Id="RoomNo" Index="-1" />
+        <ColumnInfo Id="RoomType" Index="-1" />
+        <ColumnInfo Id="SerialNo" Index="-1" />
+        <ColumnInfo Id="SwiftCode" Index="-1" />
+        <ColumnInfo Id="TaxCode" Index="-1" />
+        <ColumnInfo Id="ToDate" Index="-1" />
+        <ColumnInfo Id="ValidFrom" Index="-1" />
+        <ColumnInfo Id="ValidUntil" Index="-1" />
+        <ColumnInfo Id="VisaType" Index="-1" />
+        <ColumnInfo Id="Website" Index="-1" />
+        <ColumnInfo Id="Salutation" Index="0" />
+        <ColumnInfo Id="FullName" Index="1" />
+        <ColumnInfo Id="ArrivalDate" Index="2" />
+        <ColumnInfo Id="DepartureDate" Index="3" />
+        <ColumnInfo Id="IsMainGuest" Index="4" />
+      </Columns>
+    </ListView>
+    <DetailView Id="HotelHistoryTransaction_DetailView" ImageName="BO_Audit_ChangeHistory" />
+    <DetailView Id="HotelInfomation_DetailView" ObjectCaptionFormat="{0:Code}">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="41.222570532915363" Direction="Horizontal">
+            <LayoutGroup Id="HotelInfomation_col1" ShowCaption="False" Index="0" RelativeSize="50" IsNewNode="True">
+              <LayoutGroup Id="Item4" ShowCaption="True" Caption="GENERAL" CaptionLocation="Top" Index="0" RelativeSize="100" IsNewNode="True">
+                <LayoutItem Id="Code" ViewItem="Code" SizeConstraintsType="Default" Index="0" RelativeSize="12.167300380228136" IsNewNode="True" />
+                <LayoutItem Id="Name" ViewItem="Name" SizeConstraintsType="Default" Index="1" RelativeSize="9.1254752851711025" IsNewNode="True" />
+                <LayoutItem Id="Address" ViewItem="Address" SizeConstraintsType="Default" Index="2" RelativeSize="9.1254752851711025" IsNewNode="True" />
+                <LayoutGroup Id="Autobaf70327-f310-430b-8a39-4dadf86aec22" ShowCaption="False" Caption="Autobaf70327-f310-430b-8a39-4dadf86aec22(8)" Direction="Horizontal" Index="3" RelativeSize="22.813688212927758" IsNewNode="True">
+                  <LayoutGroup Id="Autoe3390e98-303d-4ba3-b6d2-fde1bedb5c12" ShowCaption="False" Caption="Autoe3390e98-303d-4ba3-b6d2-fde1bedb5c12(9)" Index="0" RelativeSize="49.695740365111561" IsNewNode="True">
+                    <LayoutItem Id="Country" ViewItem="Country" SizeConstraintsType="Default" Index="0" RelativeSize="50" IsNewNode="True" />
+                    <LayoutItem Id="ZipCode" ViewItem="ZipCode" SizeConstraintsType="Default" Index="1" RelativeSize="50" IsNewNode="True" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Auto16c53023-b0b0-4800-9ed8-0e8259b0afc9" ShowCaption="False" Caption="Auto16c53023-b0b0-4800-9ed8-0e8259b0afc9(12)" Index="1" RelativeSize="50.304259634888439" IsNewNode="True">
+                    <LayoutItem Id="City" ViewItem="City" SizeConstraintsType="Default" Index="0" RelativeSize="50" IsNewNode="True" />
+                    <LayoutItem Id="Website" ViewItem="Website" SizeConstraintsType="Default" Index="1" RelativeSize="50" IsNewNode="True" />
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutItem Id="LogoUrl" ViewItem="LogoUrl" SizeConstraintsType="Default" Index="4" RelativeSize="31.939163498098861" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="HotelInfomation_col2" ShowCaption="False" Index="1" RelativeSize="50" IsNewNode="True">
+              <LayoutGroup Id="Item3" ShowCaption="True" Caption="CONTACT" CaptionLocation="Top" Direction="Horizontal" Index="0" RelativeSize="27.756653992395439" IsNewNode="True">
+                <LayoutItem Id="BookingPhone" ViewItem="BookingPhone" SizeConstraintsType="Default" Index="0" RelativeSize="47.843137254901961" IsNewNode="True" />
+                <LayoutItem Id="BookingEmail" ViewItem="BookingEmail" SizeConstraintsType="Default" Index="1" RelativeSize="48.8235294117647" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Item2" ShowCaption="True" Caption="BANKING TRANSACTION WITH NAMOLY" CaptionLocation="Top" Direction="Horizontal" Index="1" RelativeSize="33.840304182509506" IsNewNode="True">
+                <LayoutGroup Id="Auto8f588662-483f-4b6e-835f-3572afa7124d" ShowCaption="False" Caption="Auto8f588662-483f-4b6e-835f-3572afa7124d(21)" Index="0" RelativeSize="47.843137254901961" IsNewNode="True">
+                  <LayoutItem Id="BankName" ViewItem="BankName" SizeConstraintsType="Default" Index="0" RelativeSize="50" IsNewNode="True" />
+                  <LayoutItem Id="SwiftCode" ViewItem="SwiftCode" SizeConstraintsType="Default" Index="1" RelativeSize="50" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Auto2cd7cf64-b658-487b-a574-d7f793bff42c" ShowCaption="False" Caption="Auto2cd7cf64-b658-487b-a574-d7f793bff42c(24)" Index="1" RelativeSize="48.8235294117647" IsNewNode="True">
+                  <LayoutItem Id="BankAccount" ViewItem="BankAccount" SizeConstraintsType="Default" Index="0" RelativeSize="50" IsNewNode="True" />
+                  <LayoutItem Id="Iban" ViewItem="Iban" SizeConstraintsType="Default" Index="1" RelativeSize="50" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="Item1" ShowCaption="True" Caption="FOR VAT INVOICE" CaptionLocation="Top" Index="2" RelativeSize="38.403041825095059" IsNewNode="True">
+                <LayoutGroup Id="Auto74a3ae26-ce0f-4292-ac0f-4250793bbf14" ShowCaption="False" Caption="Auto74a3ae26-ce0f-4292-ac0f-4250793bbf14(28)" Direction="Horizontal" Index="0" RelativeSize="37.623762376237622" IsNewNode="True">
+                  <LayoutItem Id="CompanyName" ViewItem="CompanyName" SizeConstraintsType="Default" Index="0" RelativeSize="49.695740365111561" IsNewNode="True" />
+                  <LayoutItem Id="TaxCode" ViewItem="TaxCode" SizeConstraintsType="Default" Index="1" RelativeSize="50.304259634888439" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="AddressInInvoice" ViewItem="AddressInInvoice" SizeConstraintsType="Default" Index="1" RelativeSize="31.683168316831683" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="HotelInfomation" RelativeSize="100" Removed="True">
+              <LayoutGroup Id="HotelInfomation_col1" RelativeSize="48.822269807280513">
+                <LayoutGroup Id="Item4" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" Caption="GENERAL" IsNewNode="True">
+                  <LayoutItem Id="Code" ViewItem="Code" SizeConstraintsType="Default" Index="0" RelativeSize="12.355212355212355" IsNewNode="True" />
+                  <LayoutItem Id="Name" ViewItem="Name" SizeConstraintsType="Default" Index="1" RelativeSize="9.2664092664092657" IsNewNode="True" />
+                  <LayoutItem Id="Address" ViewItem="Address" SizeConstraintsType="Default" Index="2" RelativeSize="9.2664092664092657" IsNewNode="True" />
+                  <LayoutGroup Id="Auto86ccf3d7-ee2f-4855-85f7-803642f669c5" ShowCaption="False" Caption="" Direction="Horizontal" Index="3" RelativeSize="18.532818532818531" IsNewNode="True">
+                    <LayoutGroup Id="Autobf777533-b718-40a1-8885-290c69f2d904" ShowCaption="False" Caption="" Index="0" RelativeSize="50.797266514806381" IsNewNode="True">
+                      <LayoutItem Id="Country" ViewItem="Country" SizeConstraintsType="Default" Index="0" RelativeSize="50" IsNewNode="True" />
+                      <LayoutItem Id="ZipCode" ViewItem="ZipCode" SizeConstraintsType="Default" Index="1" RelativeSize="50" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Auto9d413f39-6568-4201-a096-a6ebd972b764" ShowCaption="False" Caption="" Index="1" RelativeSize="49.202733485193619" IsNewNode="True">
+                      <LayoutItem Id="City" ViewItem="City" SizeConstraintsType="Default" Index="0" RelativeSize="50" IsNewNode="True" />
+                      <LayoutItem Id="Website" ViewItem="Website" SizeConstraintsType="Default" Index="1" RelativeSize="50" IsNewNode="True" />
+                    </LayoutGroup>
+                  </LayoutGroup>
+                  <LayoutItem Id="LogoUrl" ViewItem="LogoUrl" SizeConstraintsType="Default" Index="4" RelativeSize="34.749034749034749" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="LogoUrl" SizeConstraintsType="Default" Index="4" RelativeSize="50.579150579150578" Removed="True" />
+                <LayoutItem Id="ZipCode" SizeConstraintsType="Default" Index="4" RelativeSize="11.538461538461538" Removed="True" />
+                <LayoutItem Id="Website" SizeConstraintsType="Default" Index="5" RelativeSize="11.538461538461538" Removed="True" />
+                <LayoutItem Id="BookingPhone" SizeConstraintsType="Default" Index="6" RelativeSize="26.923076923076923" Removed="True" />
+                <LayoutItem Id="Address" SizeConstraintsType="Default" RelativeSize="9.2664092664092657" Removed="True" />
+                <LayoutItem Id="City" Removed="True" />
+                <LayoutItem Id="Code" SizeConstraintsType="Default" RelativeSize="12.355212355212355" Removed="True" />
+                <LayoutItem Id="Country" Removed="True" />
+                <LayoutItem Id="Name" SizeConstraintsType="Default" RelativeSize="9.2664092664092657" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="HotelInfomation_col2" RelativeSize="48.822269807280513">
+                <LayoutGroup Id="Item3" ShowCaption="True" CaptionLocation="Top" Direction="Horizontal" Index="0" RelativeSize="28.185328185328185" Caption="CONTACT" IsNewNode="True">
+                  <LayoutItem Id="BookingPhone" ViewItem="BookingPhone" SizeConstraintsType="Default" Index="0" RelativeSize="47.368421052631582" IsNewNode="True" />
+                  <LayoutItem Id="BookingEmail" ViewItem="BookingEmail" SizeConstraintsType="Default" Index="1" RelativeSize="48.903508771929822" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Direction="Horizontal" Index="1" RelativeSize="34.362934362934361" Caption="BANKING TRANSACTION WITH NAMOLY" IsNewNode="True">
+                  <LayoutGroup Id="Autof85fba12-839d-4d5b-a18c-1e9b9482456a" ShowCaption="False" Caption="" Index="0" RelativeSize="47.368421052631582" IsNewNode="True">
+                    <LayoutItem Id="BankName" ViewItem="BankName" SizeConstraintsType="Default" Index="0" RelativeSize="50" IsNewNode="True" />
+                    <LayoutItem Id="SwiftCode" ViewItem="SwiftCode" SizeConstraintsType="Default" Index="1" RelativeSize="50" IsNewNode="True" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Auto3483de2e-6b78-4aa9-bae4-7e0c7ac04a2d" ShowCaption="False" Caption="" Index="1" RelativeSize="48.903508771929822" IsNewNode="True">
+                    <LayoutItem Id="BankAccount" ViewItem="BankAccount" SizeConstraintsType="Default" Index="0" RelativeSize="50" IsNewNode="True" />
+                    <LayoutItem Id="Iban" ViewItem="Iban" SizeConstraintsType="Default" Index="1" RelativeSize="50" IsNewNode="True" />
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutItem Id="AddressInInvoice" SizeConstraintsType="Default" RelativeSize="35" Index="2" Removed="True" />
+                <LayoutItem Id="CompanyName" SizeConstraintsType="Default" RelativeSize="15" Index="2" Removed="True" />
+                <LayoutGroup Id="Item1" ShowCaption="True" CaptionLocation="Top" Index="2" RelativeSize="37.451737451737451" Caption="FOR VAT INVOICE" IsNewNode="True">
+                  <LayoutGroup Id="Autoaa23e1e8-e3b8-45c8-8942-ed2348c9983b" ShowCaption="False" Caption="" Direction="Horizontal" Index="0" RelativeSize="32.989690721649481" IsNewNode="True">
+                    <LayoutItem Id="CompanyName" ViewItem="CompanyName" SizeConstraintsType="Default" Index="0" RelativeSize="49.202733485193619" IsNewNode="True" />
+                    <LayoutItem Id="TaxCode" ViewItem="TaxCode" SizeConstraintsType="Default" Index="1" RelativeSize="50.797266514806381" IsNewNode="True" />
+                  </LayoutGroup>
+                  <LayoutItem Id="AddressInInvoice" ViewItem="AddressInInvoice" SizeConstraintsType="Default" Index="1" RelativeSize="32.989690721649481" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="SwiftCode" SizeConstraintsType="Default" RelativeSize="13.043478260869565" Index="2" Removed="True" />
+                <LayoutItem Id="Iban" SizeConstraintsType="Default" RelativeSize="13.043478260869565" Index="3" Removed="True" />
+                <LayoutItem Id="TaxCode" SizeConstraintsType="Default" RelativeSize="15" Index="3" Removed="True" />
+                <LayoutItem Id="BankAccount" SizeConstraintsType="Default" RelativeSize="11.538461538461538" Removed="True" />
+                <LayoutItem Id="BankName" SizeConstraintsType="Default" RelativeSize="11.538461538461538" Removed="True" />
+                <LayoutItem Id="BookingEmail" SizeConstraintsType="Default" RelativeSize="15.384615384615385" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="Item5" ShowCaption="True" CaptionLocation="Top" Direction="Horizontal" Index="1" RelativeSize="36.520376175548591" Caption="FEATURE" IsNewNode="True">
+            <LayoutGroup Id="Auto0b8f99a2-bd97-4d24-b9b2-01302f43c210" ShowCaption="False" Caption="Auto0b8f99a2-bd97-4d24-b9b2-01302f43c210(33)" Index="0" RelativeSize="30.882352941176471" IsNewNode="True">
+              <LayoutItem Id="h24HourSecurity" ViewItem="h24HourSecurity" SizeConstraintsType="Default" Index="0" RelativeSize="15.384615384615385" CaptionLocation="Right" IsNewNode="True" />
+              <LayoutItem Id="Breakfast" ViewItem="Breakfast" SizeConstraintsType="Default" Index="1" RelativeSize="11.538461538461538" CaptionLocation="Right" IsNewNode="True" />
+              <LayoutItem Id="DisabledFacilities" ViewItem="DisabledFacilities" SizeConstraintsType="Default" Index="2" RelativeSize="11.538461538461538" CaptionLocation="Right" IsNewNode="True" />
+              <LayoutItem Id="Lifts" ViewItem="Lifts" SizeConstraintsType="Default" Index="3" RelativeSize="11.538461538461538" CaptionLocation="Right" IsNewNode="True" />
+              <LayoutItem Id="Pool" ViewItem="Pool" SizeConstraintsType="Default" Index="4" RelativeSize="11.538461538461538" CaptionLocation="Right" IsNewNode="True" />
+              <LayoutItem Id="TennisCourt" ViewItem="TennisCourt" SizeConstraintsType="Default" Index="5" RelativeSize="11.538461538461538" CaptionLocation="Right" IsNewNode="True" />
+              <LayoutItem Id="AirConditioning" ViewItem="AirConditioning" SizeConstraintsType="Default" Index="6" RelativeSize="11.538461538461538" CaptionLocation="Right" IsNewNode="True" />
+              <LayoutItem Id="CarParking" ViewItem="CarParking" SizeConstraintsType="Default" Index="7" RelativeSize="15.384615384615385" CaptionLocation="Right" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Autocd885561-2c27-4917-a108-810496dc8753" ShowCaption="False" Caption="Autocd885561-2c27-4917-a108-810496dc8753(42)" Direction="Horizontal" Index="1" RelativeSize="66.960784313725483" IsNewNode="True">
+              <LayoutGroup Id="Autoe83a4d56-fbc2-4b5d-99cb-800384fcd663" ShowCaption="False" Caption="Autoe83a4d56-fbc2-4b5d-99cb-800384fcd663(43)" Index="0" RelativeSize="37.920937042459734" IsNewNode="True">
+                <LayoutItem Id="FreeParking" ViewItem="FreeParking" CaptionLocation="Right" SizeConstraintsType="Default" Index="0" RelativeSize="15.384615384615385" IsNewNode="True" />
+                <LayoutItem Id="NonSmokingRoomFloors" ViewItem="NonSmokingRoomFloors" CaptionLocation="Right" SizeConstraintsType="Default" Index="1" RelativeSize="11.538461538461538" IsNewNode="True" />
+                <LayoutItem Id="Restaurant" ViewItem="Restaurant" CaptionLocation="Right" SizeConstraintsType="Default" Index="2" RelativeSize="11.538461538461538" IsNewNode="True" />
+                <LayoutItem Id="TourDesk" ViewItem="TourDesk" SizeConstraintsType="Default" Index="3" RelativeSize="11.538461538461538" CaptionLocation="Right" IsNewNode="True" />
+                <LayoutItem Id="Babysitting" ViewItem="Babysitting" SizeConstraintsType="Default" Index="4" RelativeSize="11.538461538461538" CaptionLocation="Right" IsNewNode="True" />
+                <LayoutItem Id="ConferenceFacilities" ViewItem="ConferenceFacilities" SizeConstraintsType="Default" Index="5" RelativeSize="11.538461538461538" CaptionLocation="Right" IsNewNode="True" />
+                <LayoutItem Id="GymFitnessCentre" ViewItem="GymFitnessCentre" SizeConstraintsType="Default" Index="6" RelativeSize="11.538461538461538" CaptionLocation="Right" IsNewNode="True" />
+                <LayoutItem Id="PetsAllowed" ViewItem="PetsAllowed" SizeConstraintsType="Default" Index="7" RelativeSize="15.384615384615385" CaptionLocation="Right" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Auto9efa2ce3-ab35-46b5-9a63-8f9ff129cf93" ShowCaption="False" Caption="Auto9efa2ce3-ab35-46b5-9a63-8f9ff129cf93(52)" Direction="Vertical" Index="1" RelativeSize="62.079062957540266" IsNewNode="True">
+                <LayoutGroup Id="Autobf263e05-710d-41ee-9fac-c2902aa4d545" ShowCaption="False" Caption="Autobf263e05-710d-41ee-9fac-c2902aa4d545(53)" Index="0" RelativeSize="100" Direction="Horizontal" IsNewNode="True">
+                  <LayoutGroup Id="Auto3571e2db-c400-4743-9c92-57826495ed06" ShowCaption="False" Caption="" Index="0" RelativeSize="50" IsNewNode="True">
+                    <LayoutItem Id="Sauna" ViewItem="Sauna" CaptionLocation="Right" SizeConstraintsType="Default" Index="0" RelativeSize="15.384615384615385" IsNewNode="True" />
+                    <LayoutItem Id="h24HrFrontDesk" ViewItem="h24HrFrontDesk" CaptionLocation="Right" SizeConstraintsType="Default" Index="1" RelativeSize="11.538461538461538" IsNewNode="True" />
+                    <LayoutItem Id="BusinessCentre" ViewItem="BusinessCentre" CaptionLocation="Right" SizeConstraintsType="Default" Index="2" RelativeSize="11.538461538461538" IsNewNode="True" />
+                    <LayoutItem Id="DryCleaningFacilities" ViewItem="DryCleaningFacilities" CaptionLocation="Right" SizeConstraintsType="Default" Index="3" RelativeSize="11.538461538461538" IsNewNode="True" />
+                    <LayoutItem Id="LuggageStorage" ViewItem="LuggageStorage" CaptionLocation="Right" SizeConstraintsType="Default" Index="4" RelativeSize="11.538461538461538" IsNewNode="True" />
+                    <LayoutItem Id="Porterage" ViewItem="Porterage" CaptionLocation="Right" SizeConstraintsType="Default" Index="5" RelativeSize="11.538461538461538" IsNewNode="True" />
+                    <LayoutItem Id="BBQFacilities" ViewItem="BBQFacilities" CaptionLocation="Right" SizeConstraintsType="Default" Index="6" RelativeSize="11.538461538461538" IsNewNode="True" />
+                    <LayoutItem Id="ChildrenFacilities" ViewItem="ChildrenFacilities" CaptionLocation="Right" SizeConstraintsType="Default" Index="7" RelativeSize="15.384615384615385" IsNewNode="True" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Auto6dee4cac-7600-49fa-931b-1c5736656189" ShowCaption="False" Caption="" Index="1" RelativeSize="50" IsNewNode="True">
+                    <LayoutItem Id="GuestLaundry" ViewItem="GuestLaundry" CaptionLocation="Right" SizeConstraintsType="Default" Index="0" RelativeSize="15.384615384615385" IsNewNode="True" />
+                    <LayoutItem Id="Parking" ViewItem="Parking" CaptionLocation="Right" SizeConstraintsType="Default" Index="1" RelativeSize="11.538461538461538" IsNewNode="True" />
+                    <LayoutItem Id="RoomService" ViewItem="RoomService" CaptionLocation="Right" SizeConstraintsType="Default" Index="2" RelativeSize="11.538461538461538" IsNewNode="True" />
+                    <LayoutItem Id="BarLounge" ViewItem="BarLounge" CaptionLocation="Right" SizeConstraintsType="Default" Index="3" RelativeSize="11.538461538461538" IsNewNode="True" />
+                    <LayoutItem Id="CurrencyExchangeService" ViewItem="CurrencyExchangeService" CaptionLocation="Right" SizeConstraintsType="Default" Index="4" RelativeSize="11.538461538461538" IsNewNode="True" />
+                    <LayoutItem Id="InternetAccess" ViewItem="InternetAccess" CaptionLocation="Right" SizeConstraintsType="Default" Index="5" RelativeSize="11.538461538461538" IsNewNode="True" />
+                    <LayoutItem Id="PhotocopyService" ViewItem="PhotocopyService" CaptionLocation="Right" SizeConstraintsType="Default" Index="6" RelativeSize="11.538461538461538" IsNewNode="True" />
+                    <LayoutItem Id="Spa" ViewItem="Spa" CaptionLocation="Right" SizeConstraintsType="Default" Index="7" RelativeSize="15.384615384615385" IsNewNode="True" />
+                  </LayoutGroup>
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" Index="2" RelativeSize="12.068965517241379" Caption="Userful">
+            <LayoutGroup Id="Item6" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" Caption="USERFUL" IsNewNode="True">
+              <LayoutItem Id="Userful" ShowCaption="False" ViewItem="Userful" SizeConstraintsType="Default" Index="0" RelativeSize="51.948051948051948" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutItem Id="Userful" ShowCaption="False" SizeConstraintsType="Default" RelativeSize="100" Removed="True" />
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs" RelativeSize="10.188087774294671" Index="3">
+            <LayoutGroup Id="Contacts" ShowCaption="True" Caption="Other Contact" Index="0" RelativeSize="100" IsNewNode="True" Removed="True">
+              <LayoutItem Id="Contacts" ShowCaption="False" ViewItem="Contacts" SizeConstraintsType="Default" Index="0" RelativeSize="100" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Floors" RelativeSize="100" Index="1">
+              <LayoutItem Id="Floors" SizeConstraintsType="Default" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="Views" RelativeSize="100" Index="2">
+              <LayoutItem Id="Views" SizeConstraintsType="Default" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="Beds" RelativeSize="100" Index="3">
+              <LayoutItem Id="Beds" SizeConstraintsType="Default" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="Images" RelativeSize="100" Index="4">
+              <LayoutItem Id="Images" SizeConstraintsType="Default" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="Policies" RelativeSize="100" Index="5">
+              <LayoutItem Id="Policies" SizeConstraintsType="Default" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="RoomTypes" RelativeSize="100" Index="6">
+              <LayoutItem Id="RoomTypes" SizeConstraintsType="Default" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="HotelRateType_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="Item1" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="36.166007905138343" Caption="General Information" Direction="Vertical" IsNewNode="True">
+            <LayoutGroup Id="Auto5c66c851-007a-4a04-b4a7-3dd9933899bb" ShowCaption="False" Caption="" Direction="Horizontal" Index="0" RelativeSize="17.486338797814209" IsNewNode="True">
+              <LayoutItem Id="Code" ViewItem="Code" CaptionLocation="Left" SizeConstraintsType="Default" Index="0" RelativeSize="28.646934460887948" IsNewNode="True" />
+              <LayoutItem Id="Name" ViewItem="Name" CaptionLocation="Left" SizeConstraintsType="Default" Index="1" RelativeSize="27.906976744186046" IsNewNode="True" />
+              <LayoutItem Id="Item6" ShowCaption="False" ViewItem="" SizeConstraintsType="Default" Index="2" RelativeSize="43.446088794926006" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="Auto6809c318-1a98-42f4-bd84-3b2f05cbbeca" ShowCaption="False" Caption="" Index="1" RelativeSize="64.480874316939889" IsNewNode="True">
+              <LayoutGroup Id="Auto8edd3953-10c8-4143-9793-d302d7c869ba" ShowCaption="False" Caption="" Direction="Horizontal" Index="0" RelativeSize="32.203389830508478" IsNewNode="True">
+                <LayoutItem Id="IsNight" ViewItem="IsNight" CaptionLocation="Right" SizeConstraintsType="Custom" MinSize="179, 38" MaxSize="0, 0" Index="0" RelativeSize="18.921775898520085" IsNewNode="True" />
+                <LayoutItem Id="IsHour" ViewItem="IsHour" CaptionLocation="Right" SizeConstraintsType="Default" Index="1" RelativeSize="18.816067653276956" IsNewNode="True" />
+                <LayoutItem Id="IsStandardRate" ViewItem="IsStandardRate" CaptionLocation="Right" SizeConstraintsType="Default" Index="2" RelativeSize="18.816067653276956" IsNewNode="True" />
+                <LayoutItem Id="Item7" ShowCaption="False" ViewItem="" SizeConstraintsType="Default" Index="3" RelativeSize="43.446088794926006" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Auto97ea09ab-e4b8-4ff8-bddf-0865650ca574" ShowCaption="False" Caption="" Index="1" RelativeSize="67.79661016949153" IsNewNode="True">
+                <LayoutGroup Id="Autoabb6b482-437b-4e84-aee5-1b274a882f7f" ShowCaption="False" Caption="" Direction="Horizontal" Index="0" RelativeSize="30" IsNewNode="True">
+                  <LayoutItem Id="UpchargeExtraPerson" ViewItem="UpchargeExtraPerson" CaptionLocation="Left" SizeConstraintsType="Default" Index="0" RelativeSize="30.021141649048626" IsNewNode="True" />
+                  <LayoutItem Id="UpchargeExtraBed" ViewItem="UpchargeExtraBed" CaptionLocation="Left" SizeConstraintsType="Default" Index="1" RelativeSize="26.532769556025372" IsNewNode="True" />
+                  <LayoutItem Id="Item8" ShowCaption="False" ViewItem="" SizeConstraintsType="Default" Index="2" RelativeSize="43.446088794926006" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Autod3a9927e-e358-43ff-b2f9-39db4ce17ce9" ShowCaption="False" Caption="" Direction="Horizontal" Index="1" RelativeSize="70" IsNewNode="True">
+                  <LayoutItem Id="Description" ViewItem="Description" CaptionLocation="Left" SizeConstraintsType="Custom" MinSize="130, 48" MaxSize="0, 0" Index="0" RelativeSize="56.553911205073994" IsNewNode="True" />
+                  <LayoutItem Id="Item9" ShowCaption="False" ViewItem="" SizeConstraintsType="Default" Index="1" RelativeSize="43.446088794926006" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="Auto8469f3dc-af89-4d66-bf58-62d20beb2ae3" ShowCaption="False" Caption="Auto8469f3dc-af89-4d66-bf58-62d20beb2ae3(16)" Direction="Vertical" Index="1" RelativeSize="43.675889328063242" IsNewNode="True">
+            <LayoutGroup Id="Item3" ShowCaption="True" CaptionLocation="Top" Direction="Horizontal" Index="0" RelativeSize="100" Caption="Year Round Default" IsNewNode="True">
+              <LayoutGroup Id="Auto2b099b5e-d01b-44b6-9581-33bafe256ee5" ShowCaption="False" Caption="Auto2b099b5e-d01b-44b6-9581-33bafe256ee5(18)" Index="0" RelativeSize="19.731404958677686" IsNewNode="True">
+                <LayoutGroup Id="Auto00718720-e15c-4d5b-b86a-3cbdbcdc55a4" ShowCaption="False" Caption="" Direction="Horizontal" Index="0" RelativeSize="26.086956521739129" IsNewNode="True">
+                  <LayoutItem Id="Item4" ShowCaption="False" ViewItem="" SizeConstraintsType="Default" Index="0" RelativeSize="10.471204188481675" IsNewNode="True" />
+                  <LayoutItem Id="CheckMon" ViewItem="CheckMon" CaptionLocation="Top" SizeConstraintsType="Default" Index="1" RelativeSize="89.528795811518322" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="RateMon" ShowCaption="True" ViewItem="RateMon" SizeConstraintsType="Default" Index="1" RelativeSize="13.043478260869565" IsNewNode="True" />
+                <LayoutItem Id="MinNightMon" ShowCaption="True" ViewItem="MinNightMon" SizeConstraintsType="Default" Index="2" RelativeSize="13.043478260869565" IsNewNode="True" />
+                <LayoutItem Id="RateFirstHour" ViewItem="RateFirstHour" CaptionLocation="Top" SizeConstraintsType="Default" Index="3" RelativeSize="21.739130434782609" IsNewNode="True" />
+                <LayoutItem Id="EffectiveFrom" ViewItem="EffectiveFrom" SizeConstraintsType="Default" Index="4" RelativeSize="26.086956521739129" CaptionLocation="Top" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Auto4e2ec848-0dee-46e5-b011-e7057f9fab8b" ShowCaption="False" Caption="Auto4e2ec848-0dee-46e5-b011-e7057f9fab8b(25)" Direction="Horizontal" Index="1" RelativeSize="77.995867768595048" IsNewNode="True">
+                <LayoutGroup Id="Auto1cc9fcb3-1f69-4b5d-8ae5-909d1d2ada54" ShowCaption="False" Caption="Auto1cc9fcb3-1f69-4b5d-8ae5-909d1d2ada54(26)" Index="0" RelativeSize="33.11258278145695" IsNewNode="True">
+                  <LayoutGroup Id="Auto9fc9c3e7-1eef-4364-bec8-5df40a67a3ec" ShowCaption="False" Caption="Auto9fc9c3e7-1eef-4364-bec8-5df40a67a3ec(27)" Direction="Horizontal" Index="0" RelativeSize="100" IsNewNode="True">
+                    <LayoutGroup Id="Autof5d6096f-e25f-4fea-93d6-33e51bab1bb8" ShowCaption="False" Caption="Autof5d6096f-e25f-4fea-93d6-33e51bab1bb8(28)" Index="0" RelativeSize="50" IsNewNode="True">
+                      <LayoutItem Id="CheckTue" ViewItem="CheckTue" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="26.086956521739129" IsNewNode="True" />
+                      <LayoutItem Id="RateTue" ShowCaption="False" ViewItem="RateTue" SizeConstraintsType="Custom" Index="1" RelativeSize="13.043478260869565" MinSize="125, 24" MaxSize="125, 24" IsNewNode="True" />
+                      <LayoutItem Id="MinNightTue" ShowCaption="False" ViewItem="MinNightTue" SizeConstraintsType="Custom" Index="2" RelativeSize="13.043478260869565" MinSize="125, 24" MaxSize="125, 24" IsNewNode="True" />
+                      <LayoutItem Id="RateSecondHour" ViewItem="RateSecondHour" CaptionLocation="Top" SizeConstraintsType="Default" Index="3" RelativeSize="21.739130434782609" IsNewNode="True" />
+                      <LayoutItem Id="EffectiveTo" ViewItem="EffectiveTo" SizeConstraintsType="Default" Index="4" RelativeSize="26.086956521739129" CaptionLocation="Top" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Auto5ae72994-4077-4af4-9edd-f5648e9386a7" ShowCaption="False" Caption="Auto5ae72994-4077-4af4-9edd-f5648e9386a7(32)" Index="1" RelativeSize="50" IsNewNode="True">
+                      <LayoutItem Id="CheckWed" ViewItem="CheckWed" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="26.086956521739129" IsNewNode="True" />
+                      <LayoutItem Id="RateWed" ShowCaption="False" ViewItem="RateWed" SizeConstraintsType="Custom" Index="1" RelativeSize="13.043478260869565" MinSize="125, 24" MaxSize="125, 24" IsNewNode="True" />
+                      <LayoutItem Id="MinNightWed" ShowCaption="False" ViewItem="MinNightWed" SizeConstraintsType="Custom" Index="2" RelativeSize="13.043478260869565" MinSize="125, 24" MaxSize="125, 24" IsNewNode="True" />
+                      <LayoutItem Id="RateThirdHour" ViewItem="RateThirdHour" CaptionLocation="Top" SizeConstraintsType="Default" Index="3" RelativeSize="47.826086956521742" IsNewNode="True" />
+                    </LayoutGroup>
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutGroup Id="Auto3c93b4bc-8e1a-4a59-8185-6aa6870d656d" ShowCaption="False" Caption="Auto3c93b4bc-8e1a-4a59-8185-6aa6870d656d(37)" Index="1" RelativeSize="66.88741721854305" IsNewNode="True">
+                  <LayoutGroup Id="Auto5f08279f-f633-4b4b-994c-308c34f40a3a" ShowCaption="False" Caption="Auto5f08279f-f633-4b4b-994c-308c34f40a3a(38)" Direction="Horizontal" Index="0" RelativeSize="100" IsNewNode="True">
+                    <LayoutGroup Id="Auto0c95cab6-c9e5-45d1-99ef-c2e12661afec" ShowCaption="False" Caption="Auto0c95cab6-c9e5-45d1-99ef-c2e12661afec(39)" Index="0" RelativeSize="24.752475247524753" IsNewNode="True">
+                      <LayoutItem Id="CheckThu" ViewItem="CheckThu" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="26.086956521739129" IsNewNode="True" />
+                      <LayoutItem Id="RateThu" ShowCaption="False" ViewItem="RateThu" SizeConstraintsType="Custom" Index="1" RelativeSize="13.043478260869565" MinSize="125, 24" MaxSize="125, 24" IsNewNode="True" />
+                      <LayoutItem Id="MinNightThu" ShowCaption="False" ViewItem="MinNightThu" SizeConstraintsType="Custom" Index="2" RelativeSize="13.043478260869565" MinSize="125, 24" MaxSize="125, 24" IsNewNode="True" />
+                      <LayoutItem Id="RateFourthHour" ViewItem="RateFourthHour" CaptionLocation="Top" SizeConstraintsType="Default" Index="3" RelativeSize="47.826086956521742" IsNewNode="True" />
+                    </LayoutGroup>
+                    <LayoutGroup Id="Autoca53fdfd-1040-4684-a4f4-b15c528e51df" ShowCaption="False" Caption="Autoca53fdfd-1040-4684-a4f4-b15c528e51df(43)" Direction="Horizontal" Index="1" RelativeSize="75.247524752475243" IsNewNode="True">
+                      <LayoutGroup Id="Autobd69d386-bdc2-43ff-8159-4cc1c1c4f4b9" ShowCaption="False" Caption="Autobd69d386-bdc2-43ff-8159-4cc1c1c4f4b9(44)" Index="0" RelativeSize="32.89473684210526" IsNewNode="True">
+                        <LayoutItem Id="CheckFri" ViewItem="CheckFri" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="26.086956521739129" IsNewNode="True" />
+                        <LayoutItem Id="RateFri" ShowCaption="False" ViewItem="RateFri" SizeConstraintsType="Custom" Index="1" RelativeSize="13.043478260869565" MinSize="125, 24" MaxSize="125, 24" IsNewNode="True" />
+                        <LayoutItem Id="MinNightFri" ShowCaption="False" ViewItem="MinNightFri" SizeConstraintsType="Custom" Index="2" RelativeSize="13.043478260869565" MinSize="125, 24" MaxSize="125, 24" IsNewNode="True" />
+                        <LayoutItem Id="RateFifthHour" ViewItem="RateFifthHour" CaptionLocation="Top" SizeConstraintsType="Default" Index="3" RelativeSize="47.826086956521742" IsNewNode="True" />
+                      </LayoutGroup>
+                      <LayoutGroup Id="Auto14348ea2-37b0-4a13-9c17-27be0dc280d3" ShowCaption="False" Caption="Auto14348ea2-37b0-4a13-9c17-27be0dc280d3(48)" Direction="Horizontal" Index="1" RelativeSize="67.10526315789474" IsNewNode="True">
+                        <LayoutGroup Id="Autoa15ea352-930d-4029-a4e3-7ffa4f0d4096" ShowCaption="False" Caption="Autoa15ea352-930d-4029-a4e3-7ffa4f0d4096(49)" Index="0" RelativeSize="49.019607843137258" IsNewNode="True">
+                          <LayoutItem Id="CheckSat" ViewItem="CheckSat" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="26.086956521739129" IsNewNode="True" />
+                          <LayoutItem Id="RateSat" ShowCaption="False" ViewItem="RateSat" SizeConstraintsType="Custom" Index="1" RelativeSize="13.043478260869565" MinSize="125, 24" MaxSize="125, 24" IsNewNode="True" />
+                          <LayoutItem Id="MinNightSat" ShowCaption="False" ViewItem="MinNightSat" SizeConstraintsType="Custom" Index="2" RelativeSize="13.043478260869565" MinSize="125, 24" MaxSize="125, 24" IsNewNode="True" />
+                          <LayoutItem Id="RateSixthHour" ViewItem="RateSixthHour" CaptionLocation="Top" SizeConstraintsType="Default" Index="3" RelativeSize="47.826086956521742" IsNewNode="True" />
+                        </LayoutGroup>
+                        <LayoutGroup Id="Auto2eaab946-2180-4e65-9e73-1471811a4262" ShowCaption="False" Caption="Auto2eaab946-2180-4e65-9e73-1471811a4262(53)" Index="1" RelativeSize="50.980392156862742" IsNewNode="True">
+                          <LayoutItem Id="CheckSun" ViewItem="CheckSun" CaptionLocation="Top" SizeConstraintsType="Default" Index="0" RelativeSize="26.086956521739129" IsNewNode="True" />
+                          <LayoutItem Id="RateSun" ShowCaption="False" ViewItem="RateSun" SizeConstraintsType="Custom" Index="1" RelativeSize="13.043478260869565" MinSize="130, 24" MaxSize="130, 24" IsNewNode="True" />
+                          <LayoutItem Id="MinNightSun" ShowCaption="False" ViewItem="MinNightSun" SizeConstraintsType="Custom" Index="2" RelativeSize="13.043478260869565" MinSize="130, 24" MaxSize="130, 24" IsNewNode="True" />
+                          <LayoutItem Id="Item2" ShowCaption="False" SizeConstraintsType="Default" Index="3" RelativeSize="47.826086956521742" ViewItem="" IsNewNode="True" />
+                        </LayoutGroup>
+                      </LayoutGroup>
+                    </LayoutGroup>
+                  </LayoutGroup>
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="Autoee1a3b24-0ac9-4729-a93f-48d8f073d999" ShowCaption="False" Caption="Autoee1a3b24-0ac9-4729-a93f-48d8f073d999(25)" Direction="Horizontal" Index="2" RelativeSize="0.19762845849802371" IsNewNode="True" />
+          <TabbedGroup Id="Tabs" RelativeSize="12.450592885375494" Index="3">
+            <LayoutGroup Id="Inclusions" RelativeSize="100">
+              <LayoutItem Id="Inclusions" SizeConstraintsType="Default" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="ExtraCharges" RelativeSize="100">
+              <LayoutItem Id="ExtraCharges" SizeConstraintsType="Default" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
+          <LayoutGroup Id="Auto83ec66be-81db-46df-be3f-417ff66d76f1" ShowCaption="False" Caption="Auto83ec66be-81db-46df-be3f-417ff66d76f1(70)" Direction="Horizontal" Index="4" RelativeSize="7.5098814229249014" IsNewNode="True">
+            <LayoutItem Id="Include10PercentageTaxVAT" ViewItem="Include10PercentageTaxVAT" CaptionLocation="Right" SizeConstraintsType="Default" Index="0" RelativeSize="19.008264462809919" IsNewNode="True" />
+            <LayoutItem Id="IncludeServiceCharge" ViewItem="IncludeServiceCharge" CaptionLocation="Right" SizeConstraintsType="Default" Index="1" RelativeSize="18.491735537190081" IsNewNode="True" />
+            <LayoutItem Id="MoneyValue" ViewItem="MoneyValue" SizeConstraintsType="Default" Index="2" RelativeSize="21.384297520661157" ShowCaption="False" IsNewNode="True" />
+            <LayoutItem Id="Item5" ShowCaption="False" SizeConstraintsType="Default" Index="3" RelativeSize="41.115702479338843" ViewItem="" IsNewNode="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="SimpleEditors" RelativeSize="50" Direction="Horizontal" Removed="True">
+            <LayoutGroup Id="HotelRateType" Removed="True" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="HotelRoomType_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" Direction="Vertical" RelativeSize="26.48221343873518">
+            <LayoutGroup Id="HotelRoomType_col1" ShowCaption="False" Index="0" RelativeSize="100" IsNewNode="True">
+              <LayoutGroup Id="Auto76dbc0bc-9bba-467b-afa0-19a1f25a38eb" ShowCaption="False" Caption="" Direction="Horizontal" Index="0" RelativeSize="77.611940298507463" IsNewNode="True">
+                <LayoutGroup Id="Auto3354870e-9cd5-4bee-a32b-ce67d3532c3d" ShowCaption="False" Caption="" Index="0" RelativeSize="50" IsNewNode="True">
+                  <LayoutItem Id="Code" ViewItem="Code" SizeConstraintsType="Default" Index="0" RelativeSize="30.76923076923077" IsNewNode="True" />
+                  <LayoutItem Id="BaseOccupancy" ViewItem="BaseOccupancy" SizeConstraintsType="Default" Index="1" RelativeSize="23.076923076923077" IsNewNode="True" />
+                  <LayoutItem Id="ExtraBedAllowed" ViewItem="ExtraBedAllowed" SizeConstraintsType="Default" Index="2" RelativeSize="23.076923076923077" IsNewNode="True" />
+                  <LayoutItem Id="OverbookNumber" ViewItem="OverbookNumber" SizeConstraintsType="Default" Index="3" RelativeSize="23.076923076923077" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Auto03b8251a-8db7-4557-9fd3-b4110d7f4133" ShowCaption="False" Caption="" Index="1" RelativeSize="50" IsNewNode="True">
+                  <LayoutItem Id="Name" ViewItem="Name" SizeConstraintsType="Default" Index="0" RelativeSize="30.76923076923077" IsNewNode="True" />
+                  <LayoutItem Id="MaxOccupancy" ViewItem="MaxOccupancy" SizeConstraintsType="Default" Index="1" RelativeSize="23.076923076923077" IsNewNode="True" />
+                  <LayoutItem Id="BabyCotAllowed" ViewItem="BabyCotAllowed" SizeConstraintsType="Default" Index="2" RelativeSize="23.076923076923077" IsNewNode="True" />
+                  <LayoutItem Id="Item1" ShowCaption="False" ViewItem="" SizeConstraintsType="Default" Index="3" RelativeSize="23.076923076923077" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutItem Id="Description" ViewItem="Description" SizeConstraintsType="Default" Index="1" RelativeSize="22.388059701492537" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="HotelRoomType" Removed="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="Rates_Group" Direction="Vertical" RelativeSize="73.517786561264828">
+            <LayoutItem Id="Rates" SizeConstraintsType="Default" RelativeSize="89.516129032258064" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="InternalOrganization_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="16.996047430830039">
+            <LayoutGroup Id="InternalOrganization" RelativeSize="100" Direction="Horizontal">
+              <LayoutGroup Id="Autoacfcf76b-a439-43a0-a936-478b1bfee9d1" ShowCaption="False" Caption="" Index="0" RelativeSize="80.2547770700637" IsNewNode="True">
+                <LayoutItem Id="Name" ViewItem="Name" SizeConstraintsType="Default" Index="0" RelativeSize="37.2093023255814" IsNewNode="True" />
+                <LayoutGroup Id="Auto82bb7362-a6ab-4b99-af37-8ed9385021e5" ShowCaption="False" Caption="" Direction="Horizontal" Index="1" RelativeSize="27.906976744186046" IsNewNode="True">
+                  <LayoutItem Id="Phone" ViewItem="Phone" SizeConstraintsType="Default" Index="0" RelativeSize="50" IsNewNode="True" />
+                  <LayoutItem Id="TaxCode" ViewItem="TaxCode" SizeConstraintsType="Default" Index="1" RelativeSize="50" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="Address" ViewItem="Address" SizeConstraintsType="Default" Index="2" RelativeSize="34.883720930232556" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutItem Id="Logo" SizeConstraintsType="Default" Index="1" RelativeSize="19.745222929936304" />
+              <LayoutItem Id="Phone" SizeConstraintsType="Default" Index="1" RelativeSize="21.818181818181817" Removed="True" />
+              <LayoutItem Id="TaxCode" SizeConstraintsType="Default" Index="2" RelativeSize="21.818181818181817" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="6.5217391304347823" Caption="SizeableEditors" Direction="Horizontal">
+            <LayoutItem Id="Address" Removed="True" />
+            <LayoutItem Id="Name" Removed="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="Employees_Group" Direction="Vertical" RelativeSize="76.482213438735172">
+            <LayoutItem Id="Employees" SizeConstraintsType="Default" RelativeSize="91.47286821705427" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Posting_ListView">
+      <Columns>
+        <ColumnInfo Id="Type" Index="0" />
+        <ColumnInfo Id="Date" Index="1" />
+        <ColumnInfo Id="VoucherCode" Index="2" />
+      </Columns>
+    </ListView>
+    <DetailView Id="RoomOwner_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" Direction="Vertical" RelativeSize="21.739130434782609">
+            <LayoutGroup Id="RoomOwner_col1" ShowCaption="False" Index="0" RelativeSize="100" IsNewNode="True">
+              <LayoutGroup Id="Autoe155b489-b330-40dd-85df-ed57c99a7e67" ShowCaption="False" Caption="" Direction="Horizontal" Index="0" RelativeSize="29.09090909090909" IsNewNode="True">
+                <LayoutItem Id="Name" ViewItem="Name" SizeConstraintsType="Default" Index="0" RelativeSize="33.439490445859875" IsNewNode="True" />
+                <LayoutItem Id="Address" ViewItem="Address" SizeConstraintsType="Default" Index="1" RelativeSize="66.560509554140125" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Auto80539fac-ba51-467e-91a8-3e59cbadd90c" ShowCaption="False" Caption="" Index="1" RelativeSize="43.636363636363633" IsNewNode="True">
+                <LayoutGroup Id="Auto1c966306-26dd-445c-a15f-1a94643fe8e4" ShowCaption="False" Caption="" Direction="Horizontal" Index="0" RelativeSize="50" IsNewNode="True">
+                  <LayoutItem Id="Country" ViewItem="Country" SizeConstraintsType="Default" Index="0" RelativeSize="33.439490445859875" IsNewNode="True" />
+                  <LayoutItem Id="City" ViewItem="City" SizeConstraintsType="Default" Index="1" RelativeSize="41.560509554140125" IsNewNode="True" />
+                  <LayoutItem Id="ZipCode" ViewItem="ZipCode" SizeConstraintsType="Default" Index="2" RelativeSize="25" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Autof81cafd5-50eb-4af8-90f7-3b44f5db7a5a" ShowCaption="False" Caption="" Direction="Horizontal" Index="1" RelativeSize="50" IsNewNode="True">
+                  <LayoutItem Id="Website" ViewItem="Website" SizeConstraintsType="Default" Index="0" RelativeSize="33.439490445859875" IsNewNode="True" />
+                  <LayoutItem Id="MarketSegment" ViewItem="MarketSegment" SizeConstraintsType="Default" Index="1" RelativeSize="66.560509554140125" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutItem Id="Description" ViewItem="Description" SizeConstraintsType="Default" Index="2" RelativeSize="27.272727272727273" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="RoomOwner" Removed="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="Contacts_Group" Direction="Vertical" RelativeSize="78.260869565217391">
+            <LayoutItem Id="Contacts" SizeConstraintsType="Default" RelativeSize="90.151515151515156" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

@@ -1,0 +1,201 @@
+﻿<section class="nwt-search-form">
+    <div class="col-md-4">
+        <h4>Ngày nhận phòng/trả phòng:</h4>
+        <input id="ArrivalDeparture" value="17/11/2016 - 18/11/2016" />
+    </div>
+    <div class="col-md-2">
+        <h4>Số đêm:</h4>
+        <input id="Nights" value="0" type="number">
+    </div>
+    <div class="col-md-3">
+        <h4>Số khách:</h4>
+        <button data-placement="bottom" data-toggle="popover" data-container="body" data-placement="left" type="button" data-html="true" id="Guest"></button>
+        <div id="popover-content" class="hide">
+            <div>
+                Số phòng:
+                <button class="nw-btn-popover-left1" id="RoomMinus">-</button>
+                <input type="number" disabled value="2" id="RoomValue" />
+                <button id="RoomPlus">+</button>
+            </div>
+            <div>
+                Người lớn:
+                <button class="nw-btn-popover-left2" id="AdultMinus">-</button>
+                <input type="number" disabled value="0" id="AdultValue" />
+                <button id="AdultPlus">+</button>
+            </div>
+            <div>
+                Trẻ em:
+                <button id="ChildMinus">-</button>
+                <input type="number" disabled value="0" id="ChildValue" />
+                <button id="ChildPlus">+</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <h4>&nbsp;</h4>
+        <button type="button"><i class="glyphicon glyphicon-search"></i> Tìm kiếm</button>
+    </div>
+</section>
+<style type="text/css">
+        .nwt-search-form{
+            width: 100%;
+            overflow:hidden;
+        }
+        .nwt-search-form div input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #E1E1E1;
+        }
+
+            .nwt-search-form div input:hover,
+            .nwt-search-form div input:focus {
+                outline: none;
+            }
+
+        .nwt-search-form div button {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #E1E1E1;
+            background: #fff;
+            text-align: center;
+            font-size: 0.9em;
+            outline: none;
+        }
+
+            .nwt-search-form div button:hover {
+                background-color: chocolate;
+                color: #fff;
+            }
+
+    .popover-content div {
+        overflow: hidden;
+        margin-bottom: 5px;
+    }
+
+        .popover-content div:last-child {
+            margin-bottom: 0;
+        }
+
+        .popover-content div input {
+            width: 50px;
+            padding-left: 10px;
+            height: 30px;
+            text-align: center;
+            border: 1px solid #E1E1E1;
+        }
+
+        .popover-content div button {
+            color: #fff;
+            border: 1px solid #E1E1E1;
+            background: #f99e34;
+            height: 30px;
+            width: 30px;
+            z-index: 9999;
+            outline: none;
+        }
+
+            .popover-content div button:disabled {
+                background: #ebebe4;
+                color: #555;
+                cursor: not-allowed;
+            }
+
+            .popover-content div button.nw-btn-popover-left1 {
+                margin-left: 53px;
+            }
+
+            .popover-content div button.nw-btn-popover-left2 {
+                margin-left: 52px;
+            }
+</style>
+<script type="text/javascript">
+    $(function () {
+        function Init() {
+            $('#Guest').text('1 phòng, 1 người lớn, 0 trẻ em');
+            $('[data-toggle="popover"]').popover({
+                html: true,
+                content: function () {
+                    return $('#popover-content').html();
+                }
+            });
+            var date1 = new Date();
+            var date2 = new Date();
+            $('#ArrivalDeparture').dateRangePicker({
+                format: 'DD/MM/YYYY',
+                showTopbar: false,
+                autoClose: false,
+                separator: ' - ',
+                customArrowPrevSymbol: '<i class="glyphicon glyphicon-chevron-left"></i>',
+                customArrowNextSymbol: '<i class="glyphicon glyphicon-chevron-right"></i>'
+            }).bind('datepicker-change', function (event, obj) {
+                date1 = obj.date1;
+                date2 = obj.date2;
+            });
+            $("#MessageChoosePrice").text('Thanh toán đa hình thức, đảm bảo hoàn phí');
+            ShowHideButton();
+        }
+        Init();
+        function ShowHideButton(Id, Value) {
+            var RoomValue = $('#RoomValue').val();
+            if (RoomValue <= 0) {
+                $('#RoomMinus').prop("disabled", true);
+            } else {
+                $('#RoomMinus').removeAttr('disabled');
+            }
+            var AdultValue = $('#AdultValue').val();
+            if (AdultValue <= 0) {
+                $('#AdultMinus').prop("disabled", true);
+            } else {
+                $('#AdultMinus').removeAttr('disabled');
+            }
+            var ChildValue = $('#ChildValue').val();
+            if (ChildValue <= 0) {
+                $('#ChildMinus').prop("disabled", true);
+            } else {
+                $('#ChildMinus').removeAttr('disabled');
+            }
+            $('#Guest').text(RoomValue + ' phòng, ' + AdultValue + ' người lớn, ' + ChildValue + ' trẻ em');
+        }
+        function PlusMinus(Id, Type) {
+            switch (Type) {
+                case "Plus": {
+                    $(Id).attr("value", parseInt($(Id).val()) + 1);
+                    ShowHideButton();
+                    $('#Guest').popover('show');
+                    break;
+                }
+                case "Minus": {
+                    $(Id).attr("value", parseInt($(Id).val()) - 1);
+                    ShowHideButton();
+                    $('#Guest').popover('show');
+                    break;
+                }
+            }
+        }
+        $('body').on('click', '#RoomPlus', function () {
+            PlusMinus('#RoomValue', 'Plus');
+        });
+        $('body').on('click', '#RoomMinus', function () {
+            PlusMinus('#RoomValue', 'Minus');
+        });
+        $('body').on('click', '#AdultPlus', function () {
+            PlusMinus('#AdultValue', 'Plus');
+        });
+        $('body').on('click', '#AdultMinus', function () {
+            PlusMinus('#AdultValue', 'Minus');
+        });
+        $('body').on('click', '#ChildPlus', function () {
+            PlusMinus('#ChildValue', 'Plus');
+        });
+        $('body').on('click', '#ChildMinus', function () {
+            PlusMinus('#ChildValue', 'Minus');
+        });
+        $('#InputChoosePrice').click(function () {
+            if ($(this).is(":checked") == false) {
+                $("#MessageChoosePrice").text('Thanh toán đa hình thức, đảm bảo hoàn phí');
+            } else {
+                $("#MessageChoosePrice").text('Giá tốt nhất, thanh toán ngay, không hoàn phí');
+            }
+        });
+    });
+</script>

@@ -1,0 +1,252 @@
+﻿@{
+    ViewBag.Title = "Spa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        $.fn.responsiveTabs = function () {
+            this.addClass('responsive-tabs');
+            this.append($('<span class="fa fa-angle-down"></span>'));
+            this.append($('<span class="fa fa-angle-up"></span>'));
+
+            this.on('click', 'li.active > a, span.fa', function () {
+                this.toggleClass('open');
+            }.bind(this));
+
+            this.on('click', 'li:not(.active) > a', function () {
+                this.removeClass('open');
+            }.bind(this));
+        };
+        $('.nav.nav-tabs').responsiveTabs();
+    });
+</script>
+
+
+
+<section id="breadcrumb-section"
+         data-bg-img="Content/images/mudbathspa/spa-17.jpg"
+         style="background-image: url('Content/images/mudbathspa/spa-17.jpg');">
+    <div class="inner-container container">
+        <div class="ravis-title">
+            <div class="inner-box">
+                <div class="title">Spa</div>
+                <div class="sub-title">  Tincidunt integer eu augue augue nunc</div>
+
+            </div>
+        </div>
+        <div class="breadcrumb">
+            <ul class="list-inline">
+                <li>
+                    <a href="./">
+                        Home
+                    </a>
+                </li>
+                <li class="current">
+                    <a href="/spa">
+                        Spa
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="history-section">
+    <div class="inner-container container">
+        <div class="ravis-title-t-2">
+            <div class="title"><span>Introduction</span></div>
+            <div class="sub-title"> Tincidunt integer eu augue augue nunc elit dolor</div>
+        </div>
+        <div class="col-md-12 nas-content">
+            <p>Located on the third floor of standard 4-star Galina Hotel, Galina Spa is the most luxurious spa in Nha Trang. It is like a peace oasis - where escapes the hustle, bustle of daily life.</p>
+
+            <p>Spa area is a completely different world, flooding with melodious tune and faint aroma. Both your body and mind will be completely relaxed through rhythmic and skilled massage movements of a team of skilled technicians.</p>
+
+            <p>The spa area includes 28 rooms that are designed luxuriously and elegantly, in which has 9 spa rooms VIP according to Vietnam, Arabia, Japan or Europe style. At VIP spa rooms, you will be experienced by all services such as massage, sauna, steam, Onsen bath, mineral mud bath... in a separated space.</p>
+
+            <div><b>Location</b>: 3rd floor– Galina Hotel</div>
+            <div><b>Opening hours</b>: 8.00am – 9.00pm</div>
+            <div><b>Capacity</b>: 28 rooms, including 9 VIP spa rooms and 19 spa rooms.</div>
+            <div><b>Comprehenve service</b>: Body therapy, Slimming massage package, Facial Care, Body Wellness, Foot care, Hair care, Nail Spa, Mud Bath, Soda Spa with Onsen - Japanese hot spring bath.</div>
+            <div>
+                <b>Contact information</b>:
+
+                Floor 3 and 4, Galina Hotel – 05 Hung Vuong street, Loc Tho ward, Nha Trang
+
+                <b>Tel</b>: 058.3529998
+                <b>Hotline</b>: 091 888 9077
+                <b>Facebook</b>: www.facebook.com/GalinaMudBathSpa
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="gallery" style="padding-top:0;">
+    <div class="inner-container container">
+        <!-- Gallery Container -->
+        <div class="gallery-container">
+   
+            <ul class="image-main-box clearfix" style="position: relative; height: 855px;">
+
+                <li class="item col-xs-6 col-md-4 pool" style="position: absolute; left: 379px; top: 0px;">
+                    <figure>
+                        <img src="~/Content/images/mudbathspa/spa-1.jpg" alt="Spa" title="Spa" />
+                        <a href="~/Content/images/mudbathspa/spa-1.jpg" class="more-details" data-title="Spa">Enlarge</a>
+                        <figcaption>
+                            <h4>Spa View 1</h4>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="item col-xs-6 col-md-4 pool" style="position: absolute; left: 379px; top: 0px;">
+                    <figure>
+                        <img src="~/Content/images/mudbathspa/spa-2.jpg" alt="Spa" title="Spa" />
+                        <a href="~/Content/images/mudbathspa/spa-2.jpg" class="more-details" data-title="Spa">Enlarge</a>
+                        <figcaption>
+                            <h4>Spa View 2</h4>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="item col-xs-6 col-md-4 pool" style="position: absolute; left: 379px; top: 0px;">
+                    <figure>
+                        <img src="~/Content/images/mudbathspa/spa-3.jpg" alt="Spa" title="Spa" />
+                        <a href="~/Content/images/mudbathspa/spa-3.jpg" class="more-details" data-title="Spa">Enlarge</a>
+                        <figcaption>
+                            <h4>Spa View 3</h4>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="item col-xs-6 col-md-4 pool" style="position: absolute; left: 379px; top: 0px;">
+                    <figure>
+                        <img src="~/Content/images/mudbathspa/spa-4.jpg" alt="Spa" title="Spa" />
+                        <a href="~/Content/images/mudbathspa/spa-4.jpg" class="more-details" data-title="Spa">Enlarge</a>
+                        <figcaption>
+                            <h4>Spa View 4</h4>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="item col-xs-6 col-md-4 pool" style="position: absolute; left: 379px; top: 0px;">
+                    <figure>
+                        <img src="~/Content/images/mudbathspa/spa-5.jpg" alt="Spa" title="Spa" />
+                        <a href="~/Content/images/mudbathspa/spa-5.jpg" class="more-details" data-title="Spa">Enlarge</a>
+                        <figcaption>
+                            <h4>Spa View 5</h4>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="item col-xs-6 col-md-4 pool" style="position: absolute; left: 379px; top: 0px;">
+                    <figure>
+                        <img src="~/Content/images/mudbathspa/spa-6.jpg" alt="Spa" title="Spa" />
+                        <a href="~/Content/images/mudbathspa/spa-6.jpg" class="more-details" data-title="Spa">Enlarge</a>
+                        <figcaption>
+                            <h4>Spa View 6</h4>
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+</section>
+
+<section id="history-section">
+    <div class="ravis-title-t-2">
+        <div class="title"><span>Spa Service</span></div>
+        <div class="sub-title"> Tincidunt integer eu augue augue nunc elit dolor</div>
+    </div>
+
+
+
+    <script>
+    
+            $(document).ready(function () {
+                $('.service-quantity  a').click(function () {
+                    $('.service-quantity a.active').removeClass('active');
+                    $(this).parent().addClass('active');
+                });
+            });
+       
+    </script>
+    <div class="tabbable">
+        <div class="col-md-12 service-quantity ">
+            <div class="col-md-6 col-xs-6 active"><a href="#regularservice" data-toggle="tab" class="active">Regular Service</a></div>
+            <div class="col-md-6 col-xs-6"><a href="#premiumservice" data-toggle="tab" >Premium Service</a></div>
+        </div>
+   
+        
+
+        <!--top level tab content-->
+        <div class="tab-content" id="mytabs">
+            <!--all tab menu-->
+            <div id="regularservice" class="tab-pane active">
+                <div class="gln-service tab-content fade in active " id="regularservice">
+                    <ul class="nav nav-tabs ">
+                        <li class="active"><a data-toggle="tab" href="#bodyrelaxation">Body Relaxation Therapies</a></li>
+                        <li><a data-toggle="tab" href="#hairspa">Hair Spa</a></li>
+                        <li><a data-toggle="tab" href="#nailcare">Nail Care</a></li>
+                        <li><a data-toggle="tab" href="#waxing">Waxing</a></li>
+                        <li><a data-toggle="tab" href="#footmassage">Foot Massage & Foot Care</a></li>
+                        <li><a data-toggle="tab" href="#spapackages">Spa Packages</a></li>
+                        <li><a data-toggle="tab" href="#facialtreatments">Facial Treatments</a></li>
+                        <li><a data-toggle="tab" href="#bodywellness">Body Wellness</a></li>
+                    </ul>
+
+                    <div class="tab-content" style="margin:20px 0 0 0;">
+                        <div id="bodyrelaxation" class="tab-pane fade in active">
+                            <p><strong>1. Galina’s Signature</strong></p><p>Our signature blend of oils, combined with purpose-designed movements, stimulates circulation and promotes deep relaxation. Restores the flow of energy. Emerge feeling relaxed, soothed, calm and with a complete sense of inner peace.</p><p>Time taken: 90 minutes </p><p>Price: 900,000 VND</p><br><p><strong>2. Aromatherapy</strong></p><p>100% pure, natural essential oils are blended to create a treatment tailor-made for your individual needs. The essential oils extracted from plants help soothe body, mind and emotions. </p><p>Time taken: 60 minutes</p><p>Price: 680,000 VND</p><p>Time taken: 90 minutes</p><p>Price: 900,000 VND</p><br><p><strong>3. Swedish massage</strong></p><p>Swedish massage helps to warm up and work the muscle tissue, releasing tension and breaking up muscle “knots” or adhered tissues, called adhesions. Treatment promotes relaxation, eases muscle tension and creates other health benefits.</p><p>Time taken: 60 minutes</p><p>Price: 640,000 VND</p><p>Time taken: 90 minutes</p><p>Price: 860,000 VND</p><br><p><strong>4. Vietnamese Massage </strong></p><p>This treatment helps to stimulate blood circulation and reduce muscle aches.  It is ideal for a tired body, using tropical base oil massage and cuping sliding techniques with invigorating movements to warm and relax muscle tissue. This massage is distinctly Vietnamese and thoroughly relaxing.</p><p>Time taken: 60 minutes</p><p>Price: 640,000 VND</p><p>Time taken: 90 minutes</p><p>Price: 860,000 VND</p><br><p><strong>5. Thai Massage</strong></p><p>An ancient traditional art in Thailand, this method administers pressure to specific points along the body’s meridian lines in order to release muscle tension and clear energy blockages. With the focus on pressure points, muscles and ligaments, stretching and bending, the spine is elongated and relieved of tension and the joints stretched. The sense of well-being, energy and flexibility brought back into the body is extraordinary.</p><p>Time taken: 60 minutes</p><p>Price: 640,000 VND</p><p>Time taken: 90 minutes</p><p>Price: 860,000 VND</p><br><p><strong>6. Four-Hand Therapy</strong></p><p>Penetrate deep into the body’s muscles to unlock areas of tension. With two therapists working in harmony, this treatment combines four different styles: Thai, Swedish, Aroma, and Reflexology. Our therapists’ skillful hand movements and pressure will ensure a sense of total relaxation.</p><p>Time taken: 60 minutes</p><p>Price: 1.100,000 VND</p><p>Time taken: 90 minutes</p><p>Price: 1.400,000 VND</p><br><p><strong>7. Shiatsu Therapy </strong></p><p>This treatment focuses on the deeper layers of muscle and connective tissue to release the chronic patterns of tension in the body through slow strokes and deep finger pressure on the contracted areas, following or going across the fibers of the muscles. It helps to “unstick” the fibers of a muscle while releasing deeply-held patterns of tension, removing toxins, relaxing and soothing the muscle.</p><p>Time taken: 60 minutes</p><p>Price: 640,000 VND</p><p>Time taken: 90 minutes</p><p>Price: 860,000 VND</p><br><p><strong>8. Hotstone Therapy</strong></p><p>This healing treatment involves the application of water-heated Mediterranean basalt stones to key points on the body for greater relaxation of stress-tightened muscles. Herbal base oil from the Mediterranean region aids the glide of the hot stones ensuring total relaxation. Among the many ailments and symptoms that can be ameliorated by hot stone therapy are arthritis and insomnia.</p><p>Time taken: 90 minutes</p><p>Price: 900,000 VND</p><br><p><strong>9. Herbal Compress Therapy </strong></p><p>This therapy begins with the application of a compress herbal poultice on your body pressing points. Herbal leaves inside the compress will create therapeutic benefits, bringing a tropical relaxation feeling.</p><p>Time taken: 90 minutes</p><p>Price: 1.000,000 VND</p><br><p><strong>10. Head-Neck-Shoulder </strong></p><p>This soothing energizing treatment combines pressure point techniques to relieve tension in the head and neck, while also restoring, vital tranquility. This therapy can help relieve insomnia, chronic headaches, migraines and sinusitis.</p><p>Time taken: 30 minutes</p><p>Price: 400,000 VND</p><br><p><strong>11. Head-Shoulder-Back</strong></p><p>Deep strokes work the muscles while stretching and releasing the tension in the neck, back and shoulders. This treatment can improve flexibility, help prevent injury and speed the healing process of sore or pulled muscles.</p><p>Time taken: 45 minutes</p><p>Price: 490,000 VND</p><p>Time taken: 60 minutes</p><p>Price: 640,000 VND</p><br><p><strong>12. Slimming Therapy</strong></p><p>The process of slimming therapy with high efficiency to help get in shape slimming is a combination of 03 special slimming treatments, including: Slimming Cream in combination with plastic film wrapped around to remove abundant water and fat, Second fat removal with Electric sticking pieces and X-ray therapy via Magic Machine.</p><p>Package: 6 times/6 days</p><p>Time taken: 90 minutes</p><p>Price: 500,000VND</p>
+                        </div>
+                        <div id="hairspa" class="tab-pane fade">
+                            <table class="table table-striped" style="background-color: rgba(150, 88, 5, 0);">  <tbody>   <tr>    <td>•	Hair Shampoo &amp; Dry</td>    <td>120,000 VND</td>   </tr>   <tr>    <td>•	Hair Detox with SODA SPA </td>    <td>170,000 VND</td>   </tr>   <tr>    <td>•	SODA SPA for Oily Hair</td>    <td>200,000 VND</td>   </tr> <tr>    <td>•	SODA SPA for Dry, Damaged Hair</td>    <td>250,000 VND</td>   </tr>   <tr>    <td>•	SODA SPA for Dandruff Hair</td>    <td>250,000 VND</td>   </tr>  </tbody> </table>
+                        </div>
+                        <div id="nailcare" class="tab-pane fade">
+                            <table class="table table-striped" style="background-color: rgba(150, 88, 5, 0);">  <tbody>   <tr>    <td>•	Manicure </td>    <td>120,000 VND</td>   </tr>   <tr>    <td>•	Manicure &amp; Polish </td>    <td>140,000 VND</td>   </tr> <tr><td>•	Manicure &amp; Color</td>    <td>230,000 VND</td>   </tr>  <tr>    <td>•	Deluxe Hand Care (Cuticle, Scrub, Massage, Polish, Color</td>    <td>350,000 VND</td>   </tr>   <tr>    <td>•	Pedicure</td>    <td>120,000 VND</td>   </tr>   <tr>    <td>•	Pedicure &amp; Polish </td>    <td>140,000 VND</td>   </tr>   <tr>    <td>•	Pedicure &amp; Color </td>    <td>230,000 VND</td>   </tr>   <tr>    <td>•	Deluxe Foot Care (Scrub,Massage, Cuticle, Polish, Color</td>    <td>350,000 VND </td>   </tr>   <tr>    <td>•	Coloring</td>    <td>120,000 VND </td>   </tr>  </tbody> </table>
+                        </div>
+                        <div id="waxing" class="tab-pane fade">
+                            <table class="table table-striped" style="background-color: rgba(150, 88, 5, 0);"> <tbody> <tr> <td>•	Under-arm </td> <td>180,000 VND</td> </tr> <tr> <td>•	Half-arm </td> <td>320,000 VND</td> </tr> <tr> <td>•	Full-arm</td> <td>490,000 VND</td> </tr> <tr> <td>•	Half-leg</td> <td>490,000 VND</td> </tr> <tr> <td>•	Bikini</td> <td>490,000 VND</td> </tr> <tr> <td>•	Brazilian</td> <td>750,000 VND</td> </tr> </tbody> </table>
+                        </div>
+                        <div id="footmassage" class="tab-pane fade">
+                            <p><strong>1. Heel Care</strong></p> <p>This treatment will remove the thick dead cell under your heels, which helps oxygenate and stimulate the blood circulation through your healthy feet.</p> <p>Time taken: 20 minutes</p> <p>Price: 170,000 VND</p><br> <p><strong>2. Foot Massage</strong></p> <p>Touch-based “zone therapy“ operates on the principle that reflex areas on the feet are linked to the health and function of various areas in your body. Pressure on specific areas of the feet restores health to corresponding regions of the body combined with the use of floral oil, this treatment will assist total wellbeing.</p> <p>Time taken: 60 minutes</p> <p>Price: 490,000 VND</p> <p>Time taken: 90 minutes</p> <p>Price: 800,000 VND</p><br> <p><strong>3. Hotstone Foot Massage </strong></p> <p>This healing treatment involves the application of water-heated Mediterranean basalt stones to key points on the foot for greater relaxation of stress-tightened muscles.</p> <p>Time taken: 90 minutes </p> <p>Price: 800,000 VND</p><br> <p><strong>4. Heavy Leg Soothing </strong></p> <p>This treatment begins with a SODA SPA foot soak for relaxing then followed by a lymphatic drainage. Horse chestnut extract in the product and foot reflexology will help reduce odema on the leg after a long walk or jet lag.</p> <p>Time taken: 60 minutes</p> <p>Price: 680,000 VND</p>
+                        </div>
+                        <div id="spapackages" class="tab-pane fade">
+                            <p><strong>1. Turn Back Time:</strong></p> <p>Sea Salt/Sesame Body Scrub 30’<br>Body Aroma Therapy 60’<br>Fruit Smoothies and Ginger Jam</p> <p>• Time taken: 90’</p> <p>• Price: 1,100,000 VND</p><br> <p><strong>2. Get Away: </strong></p> <p>Swedish Massage 60’<br>Foot Reflexology 30’<br>Fruit Smoothies and Ginger Jam </p> <p>• Time taken: 90’</p> <p>• Price: 1,100,000 VND</p><br> <p><strong>3. Relaxation Journey: </strong></p> <p>Body Aroma Therapy 60’/90’<br>Anti-stress Facial 60’/30’<br>Fruit Smoothies and Ginger Jam </p> <p>• Time taken: 120’</p> <p>• Price: 1,270,000 VND</p><br> <p><strong>4. Indulge Yourself: </strong></p> <p>Body Hotstone Therapy 90’<br>Natural Fruit Facial 60’<br>Fruit Smoothies and Ginger Jam </p> <p>• Time taken: 150’</p> <p>• Price: 1,500,000 VND</p><br> <p><strong>5. Blissful Couple Delight </strong></p> <p>Soothing Rose Bath 30’<br>Swedish Massage 60’/90’<br>Anti-aging Facial 90’/60’<br>Fruit Smoothies and Ginger Jam </p> <p>• Time taken: 180’</p> <p>• Price: 4,100,000 VND/2pax</p><br>
+                        </div>
+                        <div id="facialtreatments" class="tab-pane fade">
+                            <p><strong>1. Facial Saver for Men </strong></p> <p>This facial is specifically designed to adapt to men’s skin. A quick clean of the facial then followed by a deep relaxing facial massage and finished with a cool mask to give you a glowing skin after treatment.</p> <p>• Time taken: 45 minutes</p> <p>• Price: 640,000 VND</p><br> <p><strong>2. Natural Fruit Facial </strong></p> <p>This unique facial offers nature’s beauty secrets with a blend of nourishing locally-harvested fruits and ancient oriental recipes to clean, gently exfoliate the skin. It leaves skin perfectly refreshed, hydrated and radiant.</p> <p>• Time taken: 60 minutes </p> <p>• Price: 680,000 VND</p><br> <p><strong>3. Anti-Stress Facial </strong></p> <p>Anti-stress facial incorporates basic skin cleansing, gentle exfoliation, massage and mask application using pure botanical ingredients and essential oils extract product. It helps balance and maintain skin’s natural moisture levels, leaving the skin clean and fresh. Recommended for a tired and dull-looking skin.</p> <p>• Time taken: 75 minutes </p> <p>• Price: 760,000 VND</p><br> <p><strong>4. Purifying Facial </strong></p> <p>A deep cleansing facial designed to balance the sebum secretion. Juniper essential oil extract in the product deeply penenatrates and purifies the pore, softening and rebalancing the skin. Skin will feel toned, purified and refreshed. Recommended for oily or combination skin and depleted impure skin</p> <p>• Time taken: 75 minutes</p> <p>• Price: 880,000 VND</p><br> <p><strong>5. Combination Skin Facial </strong></p> <p>This facial is for a normal to combination skin. A deep cleansing will be on the T-zone part while moisture is particularly on the remaining. A balancing m mask will be followed, leaving a purified and glowing skin after treatment.</p> <p>• Time taken: 75’</p> <p>• Price: 880,000 VND/2pax</p><br> <p><strong>6. After-sun Calming Facial </strong></p> <p>Specifically designed to calm and sooth skin after sun bathing. A compress of botanical extract and pH stabilizing lotion will help calm down the skin, give it a soothing effect. Recommended for sensitive and damaged skin after whole day sun bathing on the beach.</p> <p>• Time taken: 80 minutes </p> <p>• Price: 980,000 VND</p><br> <p><strong>7. Dehydrated Facial </strong></p> <p>This facial provides essential moisture to the skin. Gentle exfoliation with bamboo extract draws out the toxin and gives moisture to the skin surface. This facial revitalizes and tones skin, reducing wrinkles and fine lines, leaving it perfectly clarified and healthy looking. Recommended for pre-matured skin due to sun exposure.</p> <p>• Time taken: 80 minutes</p> <p>• Price: 980,000 VND</p><br> <p><strong>8. Anti-Aging Facial </strong></p> <p>Using a high concentration of pure essential oils with balancing and revitalizing properties to stimulate cellular activity. A compress will be an extra step that helps stabilize the skin’s pH and stimulate the production of collagen and elastin. This is then followed by a European massage. Recommended for dry, premature aging skin.</p> <p>• Time taken: 90 minutes </p> <p>• Price: 1.210,000 VND</p><br> <p><strong>9. Galina Signature M.L.D (Manual Lymphatic Drainage) Facial </strong></p> <p>A deep cleansing, enzyme exfoliation and followed by a lymphatic drainage treatment is Galina’s signature special facial treatment that not only reduces stress and nurtures your skin, but also is perfect detoxification through the lymphatic system. Recommended for any problematic skin that needs a boost for an instant radiance and healthy look.</p> <p>• Time taken: 90 minutes </p> <p>• Price: 1.500,000 VND</p>
+                        </div>
+                        <div id="bodywellness" class="tab-pane fade">
+                            <p><strong>1. Glowing Body Scrub (Sea Salt Body Scrub) </strong></p> <p>With plants harvested from the Dead Sea together with olive oil and essential oils, this deep cleansing body treatment will detoxify, decongest and stimulate the body to generate new skin cells, leaving the skin refreshed and silky smooth.</p> <p>• Time taken: 30 minutes</p> <p>• Price: 640,000 VND</p><br> <p><strong>2. Indochine Body Scrub (Black Sesame &amp; Honey Scrub)</strong></p> <p>This Indochinese recipe of black sesame and honey provides a nourishing antioxidant treat, especially for skin that has been overexposed to harsh. It gently exfoliates, revitalizes and refreshes the skin.</p> <p>• Time taken: 30 minutes </p> <p>• Price: 640,000 VND</p><br> <p><strong>3. Body Bio-gommage Scrub </strong></p> <p>Extracted from wheat germ, Bio-gommage is a bio exfoliation that not only smoothes your body skin but also nurtures and moisturizes it. Skin will feel fresh, smooth and velvety like satin.</p> <p>• Time taken: 30 minutes </p> <p>• Price: 870,000 VND</p><br> <p><strong>4. Mineral Mud Wrap </strong></p> <p>Starting with Dead Sea Salt scrub, a nourishing and moisturizing wrap of natural mineral mud will be followed to help replenish moisture and soothe the skin, resulting in skin that is softened and hydrated.</p> <p>• Time taken: 60 minutes</p> <p>• Price: 870,000 VND</p><br> <p><strong>5. After-sun Cooling Wrap</strong></p> <p>Aloe Vera has long been recognized as a’ healing plant’ for its natural healing qualities, especially in the treatment of burns and wounds. This wrap combines a soothing application of natural Aloe Vera, reducing redness and irritation and leaving the skin feeling fresh and relaxed. Body scrub with sesame and honey is included.</p> <p>• Time taken: 60 minutes</p> <p>• Price: 970,000 VND</p><br> <p><strong>6. Seaweed Wrap </strong></p> <p>A mixture of seaweed and water-soluble bitter orange oil designed specifically for a tired and sagging skin. Seaweed is known for its mineral rich firming effects while bitter orange will promote the lymphatic drainage and flush away toxins. Bio-gommage Body Scrub is included.</p> <p>• Time taken: 60 minutes </p> <p>• Price: 1.100,000 VND</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--brands tab menu-->
+            <div id="premiumservice" class="tab-pane">
+                <div class="gln-service tab-content fade in active " id="premiumservice">
+                    <ul class="nav nav-tabs ">
+                        <li class="active"><a data-toggle="tab" href="#bamboo">Bamboo - Vietnamese style</a></li>
+                        <li><a data-toggle="tab" href="#ruby">Ruby - Arabian style</a></li>
+                        <li><a data-toggle="tab" href="#sakura">Sakura - Japanese style</a></li>
+                        <li><a data-toggle="tab" href="#lavender">Lavender - European style</a></li>
+                    </ul>
+
+                    <div class="tab-content" style="margin:20px 0 0 0;">
+                        <div id="bamboo" class="tab-pane fade in active">
+                            <p><strong>Price for 1 person: 1,400,000 / 3h </strong></p> <p><strong>Price for 2 persons: 2,500,000 / 3h</strong></p> <p>- Luxury VIP room in the Vietnamese style. </p> <p>- Herbal sauna and steam room. </p> <p>- Individual mud bath tub with hot mineral water. </p> <p>- Herbal. </p> <p>- Vietnamese body massage 60 minutes (or fruit face mask for 60 minutes).</p> <p>- Fruit and light lunches.</p> <p>You can choose another massage and pay the difference, if any (in the case of selecting a cheaper massage, the difference will not be refunded).</p> <p><img src="//c2.staticflickr.com/6/5686/20783856678_401be66f95_b.jpg" width="100%"></p>
+                        </div>
+                        <div id="ruby" class="tab-pane fade">
+                            <p><strong>01 Guest / room: 1,600,000 VND / 3h </strong></p> <p><strong>02 Guests / room: 2,900,000 VND / 3h</strong></p> <p>- VIP Room with Arabian style Decoration </p> <p>- Steam</p> <p>- Private hot Mineral mud bath </p> <p>- Soothing Rose Bath</p> <p>- Hotstone Therapy (90’)</p> <p>- Fruit smoothies &amp; Snack </p> <p>Customers can choose other massage services and pay the difference (non-refundable in case the selected service is at lower price)</p> <p><img src="//c2.staticflickr.com/6/5798/20785010099_c37527fe81_c.jpg" width="100%"></p>
+                        </div>
+                        <div id="sakura" class="tab-pane fade">
+                            <p><strong>01 Guest / room: 1,700,000 VND / 3h </strong></p> <p><strong>02 Guests / Room: 3,000,000 VND / 3H </strong></p> <p><strong>Extra hour: 400,000 VND / 1h</strong></p> <p>- Luxury VIP Room with Japanese style Decoration </p> <p>- Sauna, steam </p> <p>- Private hot Mineral mud bath </p> <p>- Relax in Japanese Onsen bath (SODA SPA) &amp; Jacuzzi </p> <p>- Shiatsu Therapy (60 minute) </p> <p>- Fruit Smoothies &amp; Set menu </p> <p>- King-Size Bed</p> <p>Customers can choose other massage services and pay the difference (non-refundable in case the selected service is at lower price)</p> <p><img src="//c2.staticflickr.com/6/5807/20961971432_cd625835f0_h.jpg" width="100%"></p>
+                        </div>
+                        <div id="lavender" class="tab-pane fade">
+                            <p><strong>01- 02 Guests / Room: 4,000,000 VND / 3H </strong></p> <p><strong>From 03 Guests / Room: 1,500,000 VND / 3H / PAX </strong></p> <p><strong>Extra hour: 800,000 VND / 1h</strong></p> <p>- VIP Room with European style Decoration </p> <p>- Sauna, Steam </p> <p>- Private hot Mineral mud bath </p> <p>- Relax in Japanese Onsen bath (SODA SPA) &amp; Jacuzzi </p> <p>- Swedish Body Massage (60 minute) or Anti-stress Facial (60 minute) </p> <p>- Meeting table for maximum 10 Guests </p> <p>- Projector (fee Applicable) </p> <p>- Set menu in Room</p> <p>- King-Size Bed in Private Room</p> <p>Customers can choose other massage services and pay the difference (non-refundable in case the selected service is at lower price)</p> <p><img src="//c2.staticflickr.com/6/5731/20961971312_d01ad22eec_h.jpg" width="100%"></p> <p><img src="//c2.staticflickr.com/6/5733/20350736033_adcf3e4026_h.jpg" width="100%"></p> <p><img src="//c1.staticflickr.com/1/686/20350736053_8c55e6c381_h.jpg" width="100%"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

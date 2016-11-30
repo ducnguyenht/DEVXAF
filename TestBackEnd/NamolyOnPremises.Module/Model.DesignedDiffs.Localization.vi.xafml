@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <ActionDesign>
+    <Actions>
+      <Action Id="ChooseTheme" Caption="Chọn giao diện" />
+      <Action Id="FullTextSearch" ShortCaption="Tìm kiếm" NullValuePrompt="Tìm kiếm văn bản ..." ToolTip="Lọc theo văn bản" />
+    </Actions>
+  </ActionDesign>
+  <BOModel>
+    <Class Name="NamolyOnPremises.Module.BusinessObjects.Operational.Hotel.Nomeclature.Configuration.HotelRoomType">
+      <OwnMembers>
+        <Member Name="Code" Caption="Mã" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+</Application>

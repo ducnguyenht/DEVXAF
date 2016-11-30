@@ -1,0 +1,76 @@
+﻿@model List<NAANSolution_BackEnd.Models.ArticleViewModels>
+@{
+    ViewBag.Title = "ListNormalApp";
+    Layout = "~/Views/Shared/MasterPages/_Layout.cshtml";
+}
+@using (@Html.BeginForm("UpDateNormalListApp", "Home", FormMethod.Post))
+{
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <div class="nas-content">
+                <div class="col-md-12 mt">
+                    <div class="col-md-12 nas-col">
+                        <div class="panel panel-default" style="border: 1px solid #ddd; border-radius: 0;">
+                            <div class="panel-heading">
+                                <div class="col-md-12 nas-col">
+                                    <h4 class="col-md-8 col-sm-7 col-xs-12 nas-col title">
+                                        Danh sách phần mềm
+                                    </h4>
+                                    <div class="col-md-4 col-sm-5 col-xs-12 nas-col nas-action-group">
+                                        <a class="nas-action-create" href="~/trang-chu">Quay lại</a>
+                                        <button type="submit" onclick="return DeleteConfirm()" class="nas-action-removeGroup">
+                                            Chọn nhiều
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <thead>
+                                            <tr>
+                                                <th width="3%">
+
+                                                </th>
+                                                <th width="20%">
+                                                    Hình ảnh
+                                                </th>
+                                                <th width="31%">
+                                                    Mô tả
+                                                </th>
+                                                <th width="30%">
+                                                    Định tuyến
+                                                </th>
+                                                <th width="16%">
+
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr class="odd gradeX">
+                                                    <td class="nas-title-grid">
+                                                        <input class="nas-checkbox-grid" id="id" name="id" type="checkbox" value="@item.Id" />
+                                                    </td>
+                                                    <td>
+                                                        <img src="@item.ImageAvatarVN" width=100% />
+                                                    </td>
+                                                    <td>@item.TitleVN</td>
+                                                    <td class="center">@item.UrlVN</td>
+                                                    <td class="nas-action">
+                                                        @Html.ActionLink("Chọn", "UpNormalApp", new { id = @item.Id, title = "Chọn" })
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+}

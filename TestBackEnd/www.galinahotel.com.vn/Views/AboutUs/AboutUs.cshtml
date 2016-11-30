@@ -1,0 +1,175 @@
+﻿@model www.galinahotel.com.vn.Models.AboutUs.AboutUsModel
+@*@using DevExpress.Xpo
+@using DevExpress.Data.Filtering
+@using CMSModule.Module.BusinessObjects.CMS.Galina
+
+
+@{
+
+    var result = new XPCollection<About>(new XpoDAO().ProvideUnitOfWork(),
+        new BinaryOperator("Code", "About")).FirstOrDefault();
+
+}*@
+
+
+@{
+    ViewBag.Title = "About Us";
+}
+
+<!--Breadcrumb Section-->
+<section id="breadcrumb-section"
+         data-bg-img="https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/1526520_663513520358046_1407985920_n.jpg?oh=8b2073ada8486482a8b1c18331c18e18&oe=58D09357"
+         style="background-image: url('https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/1526520_663513520358046_1407985920_n.jpg?oh=8b2073ada8486482a8b1c18331c18e18&oe=58D09357');">
+    <div class="inner-container container">
+        <div class="ravis-title">
+            <div class="inner-box">
+                <div class="title">About Us @Model.BannerTitle</div>
+                <div class="sub-title">Some description about your hotel</div>
+            </div>
+        </div>
+     
+    </div>
+</section>
+<!--End of Breadcrumb Section-->
+
+<!--Welcome Section-->
+<section id="welcome-section" class="has-user">
+    <div class="inner-container container">
+        <div class="l-sec col-md-7">
+            <div class="ravis-title-t-1">
+                <div class="title"><span>  Galina Hotel</span></div>
+                <div class="sub-title">We provide the most luxurious services</div>
+            </div>
+            <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. At blanditiis consectetur culpa
+                deserunt expedita impedit labore nam. At aut ducimus earum error esse exercitationem expedita
+                hic, inventore nemo officiis repellat rerum similique, sunt totam ut voluptatem, voluptatum?
+                Architecto assumenda autem earum, eius est exercitationem, in pariatur perspiciatis placeat
+                tenetur, ut!
+            </div>
+            <cite>Chris Coleman - General Manager</cite>
+        </div>
+        <div class="r-sec col-md-5">
+            <div class="user-img-box">
+                <div class="inner-box">
+                    <img src="https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/1604967_798855550157175_7718338068478662657_n.jpg?oh=d83ae9aa0a4ce4bd20d06c86c2963030&oe=58BDB129" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End of Welcome Section-->
+
+<!-- Video Tour -->
+<section id="video-tour"
+         data-bg-img="https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/1521832_663513567024708_1842931784_n.jpg?oh=a05e5b3025e02d61779e8b9dc5842e04&oe=58C1AF5F"
+         style="background-image: url('https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/1521832_663513567024708_1842931784_n.jpg?oh=a05e5b3025e02d61779e8b9dc5842e04&oe=58C1AF5F');">
+    <div class="inner-container container">
+        <div class="row">
+            <div class="l-sec col-md-6">
+                <div class="ravis-title">
+                    <div class="inner-box">
+                        <div class="title">Video Tour</div>
+                        <div class="sub-title">Watch the video to find out more about our services</div>
+                    </div>
+                </div>
+            </div>
+            <div class="r-sec col-md-6">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores facilis nulla repellat
+                rerum veniam vitae, voluptatem? Ex harum incidunt magni minima natus, quaerat quis. Eum modi
+                neque quae sequi temporibus!
+            </div>
+        </div>
+        <div class="row btn-box">
+            <a href="https://www.youtube.com/watch?v=pU_c0jU_Was" class="play-btn video-url">
+                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- End of Video Tour -->
+
+<!-- Our History -->
+<section id="history-section">
+    <div class="inner-container container">
+        <div class="ravis-title-t-2">
+            <div class="title"><span>Our History</span></div>
+            <div class="sub-title">History develops, art stands still</div>
+        </div>
+        <div class="desc">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque eligendi iusto minus perferendis
+            perspiciatis porro provident quae quasi, qui quis sit ullam vero? Aliquam amet aspernatur consectetur
+            consequuntur culpa dolore, eius eos fugiat illum impedit iste iure magnam minima neque officiis optio
+            perferendis possimus quae quia quisquam rem sunt voluptas!
+        </div>
+        <!-- History Main Container -->
+        <div class="history-timeline clearfix">
+            <!-- History Box ( You can create History boxes as much as you want! But Do Not change the classes and attributes ) -->
+            <div class="history-boxes col-md-6 col-xs-6 animated-box" data-animation="fadeInLeft">
+                <div class="history-boxes-inner">
+                    <i>2016</i><!-- History's date (Do Not remove it) -->
+                    <h5>Galina Hotel Lorem ipsum dolor sit amet</h5>
+                    <!-- History's description -->
+                    <div class="history-content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, delectus, atque,
+                        molestias sapiente
+                    </div>
+                    <!-- end of History's description -->
+                </div>
+            </div>
+            <!-- End of History box -->
+            <div class="history-boxes col-md-6 col-xs-6 animated-box" data-animation="fadeInRight">
+                <div class="history-boxes-inner">
+                    <i>2015</i>
+                    <h5>Galina Hotel Lorem ipsum dolor sit amet</h5>
+                    <div class="history-content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, delectus, atque,
+                        molestias sapiente
+                    </div>
+                </div>
+            </div>
+            <div class="history-boxes col-md-6 col-xs-6 animated-box" data-animation="fadeInLeft">
+                <div class="history-boxes-inner">
+                    <i>2014</i>
+                    <h5>Galina Hotel Lorem ipsum dolor sit amet</h5>
+                    <div class="history-content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, delectus, atque,
+                        molestias sapiente
+                    </div>
+                </div>
+            </div>
+            <div class="history-boxes col-md-6 col-xs-6 animated-box" data-animation="fadeInRight">
+                <div class="history-boxes-inner">
+                    <i>2013</i>
+                    <h5>Galina Hotel Lorem ipsum dolor sit amet</h5>
+                    <div class="history-content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, delectus, atque,
+                        molestias sapiente
+                    </div>
+                </div>
+            </div>
+            <div class="history-boxes col-md-6 col-xs-6 animated-box" data-animation="fadeInLeft">
+                <div class="history-boxes-inner">
+                    <i>2012</i>
+                    <h5>Galina Hotel Lorem ipsum dolor sit amet</h5>
+                    <div class="history-content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, delectus, atque,
+                        molestias sapiente
+                    </div>
+                </div>
+            </div>
+            <div class="history-boxes col-md-6 col-xs-6 animated-box" data-animation="fadeInRight">
+                <div class="history-boxes-inner">
+                    <i>2011</i>
+                    <h5>Galina Hotel Lorem ipsum dolor sit amet</h5>
+                    <div class="history-content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, delectus, atque,
+                        molestias sapiente
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Services Main Container -->
+    </div>
+</section>
+<!-- End of Our History -->

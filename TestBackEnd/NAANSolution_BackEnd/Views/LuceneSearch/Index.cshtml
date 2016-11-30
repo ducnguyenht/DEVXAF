@@ -1,0 +1,41 @@
+﻿@model NAANSolution_BackEnd.Models.LuceneViewModels
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MasterPages/_Layout.cshtml";
+}
+
+<section id="main-content">
+    <section class="wrapper site-min-height">
+        <div class="nas-content">
+            <div class="col-md-12 mt">
+                <div class="col-md-12 nas-search">
+
+                    @if (Model.SearchIndexData.Any())
+                    {
+                        <div class="col-md-12 nas-search-result"><span class="halflings halflings-search nas-lable-search"></span><span style="font-style: italic;">Kết quả tìm kiếm</span> : <span style="color: #344780;">Có <b>@Model.SearchIndexData.Count()</b> kết quả được tìm thấy</span></div>
+                        foreach (var item in Model.SearchIndexData)
+                        {
+                            <div class="col-md-12 nas-search-title">
+                                <h1><a href="/@item.Url.Replace(" ", "-").Trim()">@item.Title</a></h1>
+                            </div>
+                            <div class="col-md-12" style="overflow:hidden;">
+                                <div class="col-md-2">
+                                    <a href="/@item.Url"><img src="@item.AvatarUrl" width="100%" title="@item.Title" alt="@item.Title" /></a>
+                                </div>
+                                <div class="col-md-10">
+                                    @item.Description
+                                </div>
+                            </div>
+                            <hr />
+                        }
+                    }
+                    else
+                    {
+                        <text><br />Không có kết quả nào được tìm thấy...<br /></text>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+

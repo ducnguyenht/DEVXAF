@@ -1,0 +1,304 @@
+﻿
+@{
+    ViewBag.Title = "Career";
+    Layout = "~/Views/Shared/MasterPages/_Layout.cshtml";
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+}
+@section PageStyle {
+    @*You can add your custom style sheets for each page on this section.*@
+    <link rel="stylesheet" href="http://cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.css" />
+}
+@section PageJavaScript{
+    @*You can add your custom JavaScript for each page on this section. This section will be added to the bottom of the page.*@
+
+    <script type="text/javascript" src="../Content/Scripts/plugins/dataTables/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="http://cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+}
+<script>
+    $(document).ready(function () {
+        // $('#dataTables-example').dataTable();
+    });
+</script>
+<section id="main-content">
+    <section class="wrapper site-min-height">
+        <div class="nas-content">
+            <div class="col-md-12 mt">
+                <div class="col-md-12 col-xs-12 nas-header">
+                    <div class="col-md-12">
+                        <h1 class="col-md-12 col-sm-12 col-xs-12 nas-col" style="font-size: 20px; margin: 5px 0 0 0;">Tuyển dụng</h1>
+                        <hr class="col-md-12 nas-col" />
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="col-md-12 nas-col">
+                            <div class="panel panel-default" style="border: 1px solid #ddd; border-radius: 0;">
+                                <div class="panel-heading">
+                                    <div class="col-md-12 nas-col">
+                                        <h4 class="col-md-8 col-sm-7 col-xs-12 nas-col title">
+                                            Nội dung tuyển dụng
+                                        </h4>
+                                        <div class="col-md-4 col-sm-5 col-xs-12 nas-col nas-action-group">
+                                            <a class="nas-action-create" href="#">Lưu</a>
+                                            <a class="nas-action-removeGroup" href="#">Cancel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active">
+                                            <a href="#vn" data-toggle="tab">
+                                                Tiếng Việt
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#en" data-toggle="tab">
+                                                Tiếng Anh
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active" id="vn">
+                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-col" style="margin:10px 0">
+                                                <div class="col-md-12 col-sm-12 col-xs-12 nas-col">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 nas-col">
+                                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                            <div class="col-md-2 col-sm-3 col-xs-4 nas-col nas-title-content-check">
+                                                                Kích hoạt:
+                                                            </div>
+                                                            <div class="col-md-10 col-sm-9 col-xs-8 nas-col">
+                                                                <input class="nas-checkbox" type="checkbox" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 nas-col nas-title">
+                                                        Nội dung:
+                                                    </div>
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 nas-col nas-ckeditor">
+                                                        <textarea id="txtContentCareerVN"></textarea>
+                                                        <script type="text/javascript">
+                                                            CKEDITOR.replace("txtContentCareerVN");
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="en">
+                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-col" style="margin:10px 0">
+                                                <div class="col-md-12 col-sm-12 col-xs-12 nas-col">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 nas-col">
+                                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                            <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content-check">
+                                                                Actived:
+                                                            </div>
+                                                            <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                                <input class="nas-checkbox" type="checkbox" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 nas-col nas-title">
+                                                        Content:
+                                                    </div>
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 nas-col nas-ckeditor">
+                                                        <textarea id="txtContentCareerEN"></textarea>
+                                                        <script type="text/javascript">
+                                                            CKEDITOR.replace("txtContentCareerEN");
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 nas-col">
+                            <div class="panel panel-default" style="border: 1px solid #ddd; border-radius: 0;">
+                                <div class="panel-heading">
+                                    <div class="col-md-12 nas-col">
+                                        <h4 class="col-md-8 col-sm-7 col-xs-12 nas-col title">
+                                            Vị trí tuyển dụng
+                                        </h4>
+                                        <div class="col-md-4 col-sm-5 col-xs-12 nas-col nas-action-group">
+                                            <a class="nas-action-create" href="tuyen-dung/tao-moi-vi-tri-tuyen-dung">Tạo mới</a>
+                                            <a class="nas-action-removeGroup" href="#">Xoá nhiều</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                            <thead>
+                                                <tr>
+                                                    <th width="3%">
+
+                                                    </th>
+                                                    <th width="20%">
+                                                        Ảnh đại diện
+                                                    </th>
+                                                    <th width="10%">
+                                                        Số lượng
+                                                    </th>
+                                                    <th width="53%">
+                                                        Mô tả
+                                                    </th>
+                                                    <th width="14%">
+
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="odd gradeX">
+                                                    <td class="nas-title-grid">
+                                                        <input class="nas-checkbox-grid" type="checkbox" />
+                                                    </td>
+                                                    <td>
+                                                        <img src="~/Content/Images/OurClient/1-7-haidang.png" />
+                                                    </td>
+                                                    <td>5</td>
+                                                    <td class="center">
+                                                        Tôi thực sự ấn tượng về dịch vụ của NAAN Solution. Mặc dù không có chuyên môn về CNTT, nhờ có NAAN Solution tôi đã có một website khá bắt mắt, chuyên nghiệp và tôi cũng có thể quản lý web một cách dễ dàng.
+                                                    </td>
+                                                    <td class="nas-action">
+                                                        <span class="glyphicons glyphicons-pen nas-action-edit" title="Sửa"></span>
+                                                        <span class="glyphicons glyphicons-remove nas-action-remove" title="Xoá"></span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="even gradeC">
+                                                    <td class="nas-title-grid">
+                                                        <input class="nas-checkbox-grid" type="checkbox" />
+                                                    </td>
+                                                    <td>
+                                                        <img src="~/Content/Images/OurClient/PhucSinh_65x30.png" />
+                                                    </td>
+                                                    <td>5</td>
+                                                    <td class="center">
+                                                        Chỉ có kinh doanh trực tuyến mới giúp tôi làm được nhiều điều mà tôi chưa làm được. Ngay khi dùng thử NAAN Solution, tôi đã hoàn toàn tin tưởng và yên tâm để chọn. Tôi rất hài lòng với NAAN Solution.
+                                                    </td>
+                                                    <td class="nas-action">
+                                                        <span class="glyphicons glyphicons-pen nas-action-edit" title="Sửa"></span>
+                                                        <span class="glyphicons glyphicons-remove nas-action-remove" title="Xoá"></span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 nas-col">
+                            <div class="panel panel-default" style="border: 1px solid #ddd; border-radius: 0;">
+                                <div class="panel-heading">
+                                    <div class="col-md-12 nas-col">
+                                        <h4 class="col-md-8 col-sm-7 col-xs-12 nas-col title">
+                                            Hồ sơ phỏng vấn
+                                        </h4>
+                                        <div class="col-md-4 col-sm-5 col-xs-12 nas-col nas-action-group">
+                                            <a class="nas-action-create" href="#">Lưu</a>
+                                            <a class="nas-action-removeGroup" href="#">Cancel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active">
+                                            <a href="#vn" data-toggle="tab">
+                                                Tiếng Việt
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#en" data-toggle="tab">
+                                                Tiếng Anh
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active" id="vn">
+                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-col" style="margin:10px 0">
+                                                <div class="col-md-12 col-sm-12 col-xs-12 nas-col">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 nas-col">
+                                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                            <div class="col-md-2 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                                Tiêu đề:
+                                                            </div>
+                                                            <div class="col-md-10 col-sm-9 col-xs-8 nas-col">
+                                                                <input style="width:100%" placeholder="Nhập tiêu đề..." />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                            <div class="col-md-2 col-sm-3 col-xs-4 nas-col nas-title-content-check">
+                                                                Kích hoạt:
+                                                            </div>
+                                                            <div class="col-md-10 col-sm-9 col-xs-8 nas-col">
+                                                                <input class="nas-checkbox" type="checkbox" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 nas-col nas-title">
+                                                        Nội dung:
+                                                    </div>
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 nas-col nas-ckeditor">
+                                                        <textarea id="txtContentVN"></textarea>
+                                                        <script type="text/javascript">
+                                                            CKEDITOR.replace("txtContentVN");
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="en">
+                                            <div class="col-md-12 col-sm-12 col-xs-12 nas-col" style="margin:10px 0">
+                                                <div class="col-md-12 col-sm-12 col-xs-12 nas-col">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 nas-col">
+                                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                            <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                                Title:
+                                                            </div>
+                                                            <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                                <input style="width:100%" placeholder="Enter title..." />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                                            <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content-check">
+                                                                Actived:
+                                                            </div>
+                                                            <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                                <input class="nas-checkbox" type="checkbox" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 nas-col nas-title">
+                                                        Content:
+                                                    </div>
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 nas-col nas-ckeditor">
+                                                        <textarea id="txtContentEN"></textarea>
+                                                        <script type="text/javascript">
+                                                            CKEDITOR.replace("txtContentEN");
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+

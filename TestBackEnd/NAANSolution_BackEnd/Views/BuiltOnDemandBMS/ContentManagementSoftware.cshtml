@@ -1,0 +1,289 @@
+﻿@model NAANSolution_BackEnd.Models.ArticleViewModels
+@{
+    ViewBag.Title = "Content Management Software";
+    Layout = "~/Views/Shared/MasterPages/_Layout.cshtml";
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+}
+@using (Html.BeginForm("ContentManagementSoftwareAdd", "BuiltOnDemandBMS", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <div class="nas-content">
+                <div class="col-md-12 mt">
+                    <div class="col-md-12 col-xs-12 nas-header">
+                        <div class="col-md-12">
+                            <h1 style="font-size: 20px; margin-top: 5px;">Quản lý nhân sự</h1>
+                            <hr />
+                        </div>
+                        <div class="panel-body">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#vn" data-toggle="tab">
+                                        Tiếng Việt
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#en" data-toggle="tab">
+                                        Tiếng Anh
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="vn">
+                                    <div class="col-md-10 col-sm-7 col-xs-12 nas-col" style="margin:10px 0">
+                                        @Html.Hidden("Id", Model.Id)
+                                        @Html.Hidden("PageComponent", "PMQLTLDT")
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-2 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Tiêu đề trang:
+                                            </div>
+                                            <script>
+                                                //validate ký tự nhập cho tiêu đề trang (title tag)
+                                                function validateCharacterTitleTag(number) {
+                                                    var max_length = 65;
+                                                    if (number.value.length > max_length) {
+                                                        number.value = number.value.substr(0, max_length);
+                                                        $('.chars_right').css({ 'color': 'red' })
+                                                    } else {
+                                                        $('.chars_right').css({ 'color': 'black' })
+                                                    }
+                                                    $('.chars_left').html(number.value.length);
+                                                    $('.chars_right').html(max_length - number.value.length);
+                                                    return true;
+                                                }
+                                            </script>
+                                            <div class="display-character pull-right">
+                                                <span class="chars_left"> 0 </span>/<span class="chars_right"> 65 </span> ( Ký tự đã nhập / Ký tự cho phép )
+                                            </div>
+                                            <div class="col-md-10 col-sm-9 col-xs-8 nas-col">
+                                                @Html.TextBoxFor(model => model.KeywordVN, new { @class = "nas-input", placeholder = "Nhập tiêu đề...", onkeyup = "validateCharacterTitleTag(this)" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-2 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Tiêu đề:
+                                            </div>
+                                            <div class="col-md-10 col-sm-9 col-xs-8 nas-col">
+                                                @Html.TextBoxFor(model => model.TitleVN, new { @class = "nas-input", placeholder = "Nhập tiêu đề...", @id = "titleVN" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-2 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Định tuyến:
+                                            </div>
+                                            <div class="col-md-9 col-sm-7 col-xs-5 nas-col">
+                                                @Html.TextBoxFor(model => model.UrlVN, new { @class = "nas-input", @id = "urlVN" })
+
+                                            </div>
+                                            <div class="col-md-1 col-sm-2 col-xs-3 nas-col">
+                                                <input type="button" onclick="GeneratorToUrl('urlVN', 'titleVN')" value="Tạo Url" style="width: 100%; cursor: pointer;text-align:center" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-2 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Từ khoá:
+                                            </div>
+                                            <div class="col-md-10 col-sm-9 col-xs-8 nas-col">
+                                                @Html.TextBoxFor(model => model.MetaKeywordVN, new { @class = "nas-input", placeholder = "Nhập từ khoá (Tối đa 10 từ)..." })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-2 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Thẻ mô tả:
+                                            </div>
+                                            <script>
+                                                //validate ký tự nhập description (title tag)
+                                                function validateCharacterDes(number) {
+                                                    var max_length = 155;
+                                                    if (number.value.length > max_length) {
+                                                        number.value = number.value.substr(0, max_length);
+                                                        $('.chars_right1').css({ 'color': 'red' })
+                                                    } else {
+                                                        $('.chars_right1').css({ 'color': 'black' })
+                                                    }
+                                                    $('.chars_left1').html(number.value.length);
+                                                    $('.chars_right1').html(max_length - number.value.length);
+                                                    return true;
+                                                }
+                                            </script>
+                                            <div class="display-character pull-right">
+                                                <span class="chars_left1"> 0 </span>/<span class="chars_right1"> 155 </span> ( Ký tự đã nhập / Ký tự cho phép )
+                                            </div>
+                                            <div class="col-md-10 col-sm-9 col-xs-8 nas-col">
+                                                @Html.TextBoxFor(model => model.MetaDescriptionVN, new { @class = "nas-input", placeholder = "Nhập mô tả (Tối đa 160 ký tự)...", onkeyup = "validateCharacterDes(this)" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-2 col-sm-3 col-xs-4 nas-col">Vị trí: </div>
+                                            <div class="col-md-4 col-sm-3 col-xs-8 nas-col">
+                                                @Html.TextBoxFor(model => model.IndexVN, new { @class = "nas-input", @type = "number", @style = "width: 70px;" })
+                                            </div>
+                                            <div class="col-md-2 col-sm-3 col-xs-4 nas-col nas-title-content-check">
+                                                Kích hoạt:
+                                            </div>
+                                            <div class="col-md-4 col-sm-3 col-xs-8 nas-col">
+                                                @Html.CheckBoxFor(model => model.IsActive, new { @class = "nas-checkbox" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-5 col-xs-12 nas-col" style="margin:10px 0">
+                                        <div class="nas-logo col-md-12 nas-col">
+                                            @Html.TextBoxFor(model => model.ImageAvatarVN, new { @class = "nas-input-hide" })
+                                            <img id="my_image" src="@Model.ImageAvatarVN" width="100%" title="@Model.TitleVN" alt="@Model.TitleVN" />
+                                        </div>
+                                        <div class="col-md-12 nas-col" style="text-align: right; margin: 10px 10px 0 0;">
+                                            <button type="button" id="Browse" title="Chọn ảnh từ server">...</button>
+                                        </div>
+                                        <script>
+                                            //Xử lý click nút Browse hiện popup CKFinder
+                                            $('#Browse').click(function () {
+                                                var finder = new CKFinder();
+                                                finder.selectActionFunction = function (fileUrl) {
+                                                    //Chỉ lấy tên ảnh
+                                                    //fileUrl = fileUrl.substring(fileUrl.lastIndexOf('/') + 1);
+                                                    $("#ImageAvatarVN").val(fileUrl);
+                                                    //Gán link vào hình
+                                                    $("#my_image").attr("src", fileUrl);
+                                                };
+                                                finder.popup();
+                                            })
+                                        </script>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-col nas-title">
+                                            Nội dung:
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-col nas-ckeditor">
+                                            @Html.TextAreaFor(model => model.ContentVN, new { @id = "ContentVN" })
+                                        </div>
+                                        <script type="text/javascript">
+                                            CKEDITOR.replace("ContentVN");
+                                        </script>
+                                    </div>
+                                    <div class="col-md-12 nas-button">
+                                        <button type="submit" class="btn btn-primary">
+                                            Lưu
+                                        </button>
+                                        <button type="reset" class="btn btn-warning">
+                                            Huỷ bỏ
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="en">
+                                    <div class="col-md-10 col-sm-7 col-xs-12 nas-col" style="margin:10px 0">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-2 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Title:
+                                            </div>
+                                            <div class="col-md-10 col-sm-9 col-xs-8 nas-col">
+                                                @Html.TextBoxFor(model => model.TitleEN, new { @class = "nas-input", placeholder = "Enter title...", @id = "titleEN" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-2 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Url:
+                                            </div>
+                                            <div class="col-md-9 col-sm-7 col-xs-5 nas-col">
+                                                @Html.TextBoxFor(model => model.UrlEN, new { @class = "nas-input", @id = "urlEN" })
+
+                                            </div>
+                                            <div class="col-md-1 col-sm-2 col-xs-3 nas-col">
+                                                <input type="button" onclick="GeneratorToUrl('urlEN', 'titleEN')" value="Create Url" style="width: 100%; cursor: pointer;text-align:center" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-2 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Page title:
+                                            </div>
+                                            <div class="col-md-10 col-sm-9 col-xs-8 nas-col">
+                                                @Html.TextBoxFor(model => model.KeywordEN, new { @class = "nas-input", placeholder = "Enter title..." })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-2 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Keyword:
+                                            </div>
+                                            <div class="col-md-10 col-sm-9 col-xs-8 nas-col">
+                                                @Html.TextBoxFor(model => model.MetaKeywordEN, new { @class = "nas-input", placeholder = "Enter keyword (Maximum 10 words)..." })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-2 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Meta description:
+                                            </div>
+                                            <div class="col-md-10 col-sm-9 col-xs-8 nas-col">
+                                                @Html.TextBoxFor(model => model.MetaDescriptionEN, new { @class = "nas-input", placeholder = "Enter description (Maximum 160 characters)..." })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-2 col-sm-3 col-xs-4 nas-col">Index: </div>
+                                            <div class="col-md-4 col-sm-3 col-xs-8 nas-col">
+                                                @Html.TextBoxFor(model => model.IndexVN, new { @class = "nas-input", @type = "number", @style = "width: 70px;" })
+                                            </div>
+                                            <div class="col-md-2 col-sm-3 col-xs-4 nas-col nas-title-content-check">
+                                                Active:
+                                            </div>
+                                            <div class="col-md-4 col-sm-3 col-xs-8 nas-col">
+                                                @Html.CheckBoxFor(model => model.IsActive, new { @class = "nas-checkbox" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-5 col-xs-12 nas-col" style="margin:10px 0">
+                                        <div class="nas-logo col-md-12 nas-col">
+                                            @Html.TextBoxFor(model => model.ImageAvatarEN, new { @class = "nas-input-hide" })
+                                            <img id="my_imageEN" src="@Model.ImageAvatarEN" width="100%" title="@Model.TitleEN" alt="@Model.TitleEN" />
+                                        </div>
+                                        <div class="col-md-12 nas-col" style="text-align: right; margin: 10px 10px 0 0;">
+                                            <button type="button" id="BrowseEN" title="Browse from server">...</button>
+                                        </div>
+                                        <script>
+                                            //Xử lý click nút Browse hiện popup CKFinder
+                                            $('#BrowseEN').click(function () {
+                                                var finder = new CKFinder();
+                                                finder.selectActionFunction = function (fileUrl) {
+                                                    //Chỉ lấy tên ảnh
+                                                    //fileUrl = fileUrl.substring(fileUrl.lastIndexOf('/') + 1);
+                                                    $("#ImageAvatarEN").val(fileUrl);
+                                                    //Gán link vào hình
+                                                    $("#my_imageEN").attr("src", fileUrl);
+                                                };
+                                                finder.popup();
+                                            })
+                                        </script>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-col nas-title">
+                                            Content:
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-col nas-ckeditor">
+                                            @Html.TextAreaFor(model => model.ContentEN, new { @id = "ContentEN" })
+                                        </div>
+                                        <script type="text/javascript">
+                                            CKEDITOR.replace("ContentEN");
+                                        </script>
+
+                                    </div>
+                                    <div class="col-md-12 nas-button">
+                                        <button type="submit" class="btn btn-primary">
+                                            Save
+                                        </button>
+                                        <button type="reset" class="btn btn-warning">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <script type="text/javascript">
+        function GeneratorToUrl(url, title) {
+            $('#' + url).val(string_to_slug($('#' + title).val()));
+            return false;
+        };
+    </script>
+}

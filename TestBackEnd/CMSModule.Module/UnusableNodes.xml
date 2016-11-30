@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="Home_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Home_col1">
+              <LayoutGroup Id="Autodf618caf-cd1e-49df-869d-bc5e2c452e3d">
+                <LayoutGroup Id="Item5">
+                  <LayoutItem Id="PresentationThumbnailP04" ViewItem="PresentationThumbnailP04" />
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="LibraryImage_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <TabbedGroup Id="Item1">
+              <LayoutGroup Id="Item4">
+                <LayoutItem Id="PresentationImageUrl" ViewItem="PresentationImageUrl" />
+                <LayoutItem Id="PresentationThumbnail" ViewItem="PresentationThumbnail" />
+                <LayoutItem Id="FileData" ViewItem="FileData" />
+              </LayoutGroup>
+            </TabbedGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

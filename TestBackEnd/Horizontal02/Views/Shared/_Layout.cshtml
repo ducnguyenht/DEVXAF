@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Galina </title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <meta name="title" content="Galina Hotel & Spa" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1" />
+    <meta name="author" content="http://galinahotel.com.vn/" />
+    <meta name="copyright" content="(c) 2016" />
+    <meta name="description" content="Tọa lạc ngay trung tâm thành phố Nha Trang và chỉ mất 5 phút đi bộ đến bãi biển, Galina Hotel & Spa là sự lựa chọn mới mẻ và thực sự hoàn hảo" />
+    <meta name="keywords" content="Galina Hotel & Spa , tắm bùn nha trang, spa nha trang, nhà hàng tiệc cứơi nha trang , galina , nha hang tiec cuoi nha trang , tam bun nha trang , galina nha trang" />
+    <meta name="owner" content="Galina Hotel & Spa" />
+    <meta name='revisit-after' content='1 days' />
+    <meta name="robots" content="noodp,index,follow" />
+    <meta property="og:url" content="http://galinahotel.com.vn/" />
+    <meta property="og:type" content="http://galinahotel.com.vn/" />
+    <meta property="og:title" content="Galina Hotel & Spa" />
+    <meta property="og:description" content="Tắm bùn nha trang, spa nha trang, nhà hàng tiệc cứơi nha trang, galina" />
+    <meta property="og:image" content="./imgs/logo-galina-hotel-spa.png" />
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Playfair+Display" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--css-->
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+
+    <div class="">
+        @{Html.RenderAction("p_Header", "Default");}
+    </div>
+    <div class="">
+        @RenderBody()
+    </div>
+    <footer>
+        @{Html.RenderAction("p_Footer", "Default");}
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
