@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = "~/Views/Shared/MasterPages/_Layout.cshtml";
+}
+<link href="~/Scripts/jquery-ui/1.12.1/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/StyleSheets/documentation-detail.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-ui/1.12.1/jquery-ui.min.js"></script>
+<section id="main-content">
+    <section class="wrapper site-min-height">
+        <div class="nas-content" id="nwt-content">
+            <section class="ui-widget ui-widget-content" id="nwt-left">
+                @{Html.RenderAction("Navigation", "Documentation");}
+            </section>
+            <section class="ui-widget ui-widget-content" id="nwt-right">
+                @RenderBody()
+            </section>
+        </div>
+    </section>
+</section>
+<script type="text/javascript">
+    var total = $("#nwt-content").width()-50;
+
+    $("#nwt-left").resizable({
+        grid: [1, 10000]
+    }).bind("resize", resize_other);
+
+
+    function resize_other(event, ui) {
+        var width = $("#nwt-left").width();
+        if (width > total) {
+            width = total;
+            $('#nwt-left').css('width', width);
+        }
+        $('#nwt-right').css('width', (total - width));
+    }
+</script>

@@ -1,0 +1,110 @@
+﻿
+ input,select{
+    height: 35px; padding:5px;}
+    hr{margin: 5px 0 5px 0;}
+    .nas-col{padding:0}
+    .nas-logo{padding:0 5px;}
+    .nas-header-social{text-align:right;}
+    .nas-header-social span{font-size: 17px;
+    color: #03558b;
+    margin-right: 5px;}
+    .nas-button{text-align:right; margin:5px 0;}
+    /*Header*/
+       #searchbox {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #c4d9df #a4c3ca #83afb7;
+  width: 100%;
+  height: 35px;
+  padding: 5px;
+  margin: 5px auto;
+  overflow: hidden;
+}
+.nas-input{height: 35px; padding:5px;width:100%}
+.nas-input-hide {display:none;}
+#search,
+#submit {
+  float: left;
+}
+#search {
+  padding: 1px 6px;
+  height: 24px;
+  /*width: 95%;*/
+  border: none;
+  outline: 0;
+}
+/* ----------------------- */
+#submit {
+  float: left;
+  font-size: 20px;
+  color: #428bca;
+}
+#submit:hover {
+  color: #3382C7;
+  cursor: pointer;
+}
+#submit:active {
+  color: #3382C7;
+}
+    /*End Header*/
+    /*Content*/
+.nas-title{margin-bottom:10px;}
+.nas-title .nas-title-content{line-height:35px;}
+.nas-title .nas-title-content-check{line-height: 25px;}
+.nas-title .nas-checkbox{width: 20px;height: 20px;}
+.nas-title-grid{text-align:center;}
+.nas-title-grid .nas-checkbox-grid{width: 15px;height: 15px;}
+.nas-ckeditor span.cke_skin_kama {
+    border-radius:0;
+    border: 1px solid #a9a9a9;
+    padding: 5px;
+}
+.nas-action{text-align:center;}
+.nas-action .nas-action-edit{color:#03558b}
+.nas-action .nas-action-remove{color:#f30303}
+.nas-action .nas-action-remove:hover, .nas-action .nas-action-edit:hover{cursor:pointer; border:1px solid;}
+.nas-action-group{text-align:right;}
+.nas-action-group .nas-action-create{text-align:center; padding:7px; border:1px solid #ddd; margin-left:3px;}
+.nas-action-create-sup {text-align:center; padding:7px; margin-left:3px;position: absolute; right: 25px; background: #006da4; color: #fff !important; border:none!important;}
+.nas-action-create-sup:hover {box-shadow: 1px 1px 1px #a9a9a9}
+.nas-action-group .nas-action-removeGroup{text-align:center;border:1px solid #ddd; margin-left:3px;padding: 0 7px; background: #f5f5f5; color: #4298d6; height: 31px; line-height: 29px;}
+.nas-action-group .nas-action-create:hover, .nas-action-group .nas-action-removeGroup:hover{box-shadow: 1px 1px 1px}
+.panel-default {
+    border-color: #ddd;
+}
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+fieldset.scheduler-border {
+    border: 1px groove #f56e21 !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    -webkit-box-shadow: 0 0 0 0 #000;
+    box-shadow: 0 0 0 0 #000;
+    color: #a94442;
+}
+legend.scheduler-border {
+    color: #a94442;
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    width: auto;
+    padding: 14px 10px;
+    border-bottom: none;
+}
+.panel-default > .panel-heading {
+    overflow: hidden;
+    line-height: 39px;
+}
+.nas-box-group{margin:10px 0}
+.nas-box-group fieldset{margin:0 5px;padding: 0 10px 10px;border: 1px solid #ccc;}
+.nas-box-group fieldset legend {padding: 0 7px; background: #fff;width: auto;border: 0;margin: 0;font-size: 18px;}
+    /*End Content*/
+    /*Phần tìm kiếm*/
+.nas-search{margin: 15px;}
+.nas-search .nas-search-result{font-size: 16px;}
+.nas-lable-search{font-size: 13px; margin-right: 6px;}
+.nas-search .nas-search-title h1{font-size:16px;}

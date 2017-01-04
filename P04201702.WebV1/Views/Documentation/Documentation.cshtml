@@ -1,0 +1,268 @@
+﻿@model P04201702.WebV1.Models.DocumentViewModels
+@{
+    ViewBag.Title = "Documentation";
+    Layout = "~/Views/Shared/MasterPages/_Layout.cshtml";
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+}
+<link href="~/Content/StyleSheets/documentation.css" rel="stylesheet" />
+<section id="main-content">
+    <section class="wrapper site-min-height">
+        <div class="nas-content">
+            @using (Html.BeginForm("DocumentationSeoAdd", "Documentation", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="col-md-12">
+                    <div class="panel-body">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#vn" data-toggle="tab">
+                                    Tiếng Việt
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#en" data-toggle="tab">
+                                    Tiếng Anh
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="vn">
+                                <div class="col-md-12 nas-col nas-box-group">
+                                    <fieldset>
+                                        <legend>Quản lý nội dung SEO</legend>
+                                        @Html.Hidden("Id", Model.DocumentSeoViewModels.Id)
+                                        @Html.Hidden("PageComponent", Constants.DOCSEO)
+                                        @Html.Hidden("Level", 0)
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Tiêu đề trang:
+                                            </div>
+                                            <script>
+                                                //validate ký tự nhập cho tiêu đề trang (title tag)
+                                                function validateCharacterTitleTag(number) {
+                                                    var max_length = 65;
+                                                    if (number.value.length > max_length) {
+                                                        number.value = number.value.substr(0, max_length);
+                                                        $('.chars_right').css({ 'color': 'red' })
+                                                    } else {
+                                                        $('.chars_right').css({ 'color': 'black' })
+                                                    }
+                                                    $('.chars_left').html(number.value.length);
+                                                    $('.chars_right').html(max_length - number.value.length);
+                                                    return true;
+                                                }
+                                            </script>
+                                            <div class="display-character pull-right">
+                                                <span class="chars_left"> 0 </span>/<span class="chars_right"> 65 </span> ( Ký tự đã nhập / Ký tự cho phép )
+                                            </div>
+                                            <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                @Html.TextBox("TitlePageVN", Model.DocumentSeoViewModels.TitlePageVN, new { @class = "nas-input", placeholder = "Nhập tiêu đề...", onkeyup = "validateCharacterTitleTag(this)" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Thẻ mô tả:
+                                            </div>
+                                            <script>
+                                                //validate ký tự nhập description (title tag)
+                                                function validateCharacterDes(number) {
+                                                    var max_length = 155;
+                                                    if (number.value.length > max_length) {
+                                                        number.value = number.value.substr(0, max_length);
+                                                        $('.chars_right1').css({ 'color': 'red' })
+                                                    } else {
+                                                        $('.chars_right1').css({ 'color': 'black' })
+                                                    }
+                                                    $('.chars_left1').html(number.value.length);
+                                                    $('.chars_right1').html(max_length - number.value.length);
+                                                    return true;
+                                                }
+                                            </script>
+                                            <div class="display-character pull-right">
+                                                <span class="chars_left1"> 0 </span>/<span class="chars_right1"> 155 </span> ( Ký tự đã nhập / Ký tự cho phép )
+                                            </div>
+                                            <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                @Html.TextBox("MetaDescriptionVN", Model.DocumentSeoViewModels.MetaDescriptionVN, new { @class = "nas-input", placeholder = "Nhập mô tả (Tối đa 160 ký tự)...", onkeyup = "validateCharacterDes(this)" })
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-12 nas-col nas-box-group">
+                                    <fieldset>
+                                        <legend>Quản lý nội dung bài viết</legend>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Tiêu đề:
+                                            </div>
+                                            <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                @Html.TextBox("TitleVN", Model.DocumentSeoViewModels.TitleVN, new { @class = "nas-input", placeholder = "Nhập từ khoá (Tối đa 10 từ)..." })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-md-1 col-sm-12 col-xs-12 nas-col nas-title">
+                                                Nội dung:
+                                            </div>
+                                            <div class="col-md-11 col-sm-12 col-xs-12 nas-col nas-ckeditor">
+                                                @Html.TextArea("ContentVN", Model.DocumentSeoViewModels.ContentVN, new { @id = "ContentVN" })
+                                            </div>
+                                            <script type="text/javascript">
+                                                CKEDITOR.replace("ContentVN");
+                                            </script>
+                                        </div>
+                                        <div class="col-md-12 nas-button">
+                                            <button type="submit" class="btn btn-primary">
+                                                Lưu
+                                            </button>
+                                            <button type="reset" class="btn btn-warning">
+                                                Huỷ bỏ
+                                            </button>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="en">
+                                <div class="col-md-12 nas-col nas-box-group">
+                                    <fieldset>
+                                        <legend>Content manager SEO</legend>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Page title:
+                                            </div>
+                                            <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                @Html.TextBox("TitlePageEN", Model.DocumentSeoViewModels.TitlePageEN, new { @class = "nas-input", placeholder = "Enter title..." })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Description:
+                                            </div>
+                                            <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                @Html.TextBox("MetaDescriptionEN", Model.DocumentSeoViewModels.MetaDescriptionEN, new { @class = "nas-input", placeholder = "Enter description (Maximum 160 characters)..." })
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-12 nas-col nas-box-group">
+                                    <fieldset>
+                                        <legend>Content manager article</legend>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 nas-title">
+                                            <div class="col-md-1 col-sm-3 col-xs-4 nas-col nas-title-content">
+                                                Title:
+                                            </div>
+                                            <div class="col-md-11 col-sm-9 col-xs-8 nas-col">
+                                                @Html.TextBox("TitleEN", Model.DocumentSeoViewModels.TitleEN, new { @class = "nas-input", placeholder = "Enter keyword (Maximum 10 words)..." })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-md-1 col-sm-12 col-xs-12 nas-col nas-title">
+                                                Content:
+                                            </div>
+                                            <div class="col-md-11 col-sm-12 col-xs-12 nas-col nas-ckeditor">
+                                                @Html.TextArea("ContentEN", Model.DocumentSeoViewModels.ContentEN, new { @id = "ContentEN" })
+                                            </div>
+                                            <script type="text/javascript">
+                                                CKEDITOR.replace("ContentEN");
+                                            </script>
+
+                                        </div>
+                                        <div class="col-md-12 nas-button">
+                                            <button type="submit" class="btn btn-primary">
+                                                Save
+                                            </button>
+                                            <button type="reset" class="btn btn-warning">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @using (Html.BeginForm("DeleteMultipleDocument", "Documentation", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="col-sm-12 nwt-showcase">
+                    <div class="col-md-12 nas-col">
+                        <div class="panel panel-default" style="border: 1px solid #ddd; border-radius: 0;">
+                            <div class="panel-heading">
+                                <div class="col-md-12 nas-col">
+                                    <h4 class="col-md-8 col-sm-7 col-xs-12 nas-col title">
+                                        Danh sách ứng dụng
+                                    </h4>
+                                    <div class="col-md-4 col-sm-5 col-xs-12 nas-col nas-action-group">
+                                        <a class="nas-action-create" href="~/tai-lieu/tao-moi-tai-lieu">Tạo mới</a>
+                                        <button type="submit" onclick="return DeleteConfirm()" class="nas-action-removeGroup">
+                                            Xoá nhiều
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <thead>
+                                            <tr>
+                                                <th width="3%">
+
+                                                </th>
+                                                <th width="21%">
+                                                    Tiêu đề
+                                                </th>
+                                                <th width="40%">
+                                                    Mô tả
+                                                </th>
+                                                <th width="5%">
+                                                    Vị trí
+                                                </th>
+                                                <th width="21%">
+                                                    Định tuyến
+                                                </th>
+                                                <th width="10%">
+
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var documentNavi in Model.DocumentNavigationTreeViewModels)
+                                            {
+                                                <tr class="odd gradeX">
+                                                    <td class="nas-title-grid">
+                                                        <input class="nas-checkbox-grid" type="checkbox" name="DocumentId" id="DocumentId" value="@documentNavi.Id" />
+                                                    </td>
+                                                    <td>
+                                                        @documentNavi.TitleVN
+                                                    </td>
+                                                    <td>@documentNavi.DescriptionVN</td>
+                                                    <td>@documentNavi.DisplayOrder</td>
+                                                    <td class="center">@documentNavi.RoutingVN</td>
+                                                    <td class="nas-action">
+                                                        <a href="~/tai-lieu/@documentNavi.RoutingVN"><span class="glyphicons glyphicons-pen nas-action-edit" title="Sửa"></span></a>
+                                                        @Html.ActionLink(" ", "DeleteDocument", new { DocumentId = @documentNavi.Id }, new { onclick = "return DeleteConfirm()", @class = "glyphicons glyphicons-remove nas-action-remove", title = "Xoá" })
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </section>
+
+</section>
+<script type="text/javascript">
+    function DeleteConfirm() {
+        if (confirm("Bạn có chắc chắn muốn xóa bản ghi này?"))
+            return true;
+        else
+            return false;
+    }
+
+</script>

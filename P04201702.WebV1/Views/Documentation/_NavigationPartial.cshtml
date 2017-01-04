@@ -1,0 +1,40 @@
+﻿@model IEnumerable<P04201702.WebV1.Models.DocumentNavigationTreeViewModels>
+
+@helper ShowTree(IEnumerable<P04201702.WebV1.Models.DocumentNavigationTreeViewModels> navs)
+{
+    <ul>
+        @for (int i = 0; i < navs.Count(); i++)
+        {
+            <li>
+                <input type="checkbox" id="node-@navs.ElementAt(i).Id" checked="checked" />
+                <label for="node-@navs.ElementAt(i).Id" class="@navs.ElementAt(i).IsNull-child">
+                    <a href="~/tai-lieu/@navs.ElementAt(i).RoutingVN">@navs.ElementAt(i).TitleVN</a>
+                </label>
+                @if (navs.ElementAt(i).Childs.Any())
+                {
+                    @ShowTree(navs.ElementAt(i).Childs)
+                }
+            </li>
+        }
+    </ul>
+}
+@using (Html.BeginForm("Navigation", "Documentation"))
+{
+    <div class="acidjs-css3-treeview">
+        @ShowTree(Model)
+    </div>
+}
+<script type="text/javascript">
+
+    $(".acidjs-css3-treeview").delegate("label input:checkbox", "change", function () {
+        var
+            checkbox = $(this),
+            nestedList = checkbox.parent().next().next(),
+            selectNestedListCheckbox = nestedList.find("label:not([for]) input:checkbox");
+
+        if (checkbox.is(":checked")) {
+            return selectNestedListCheckbox.prop("checked", true);
+        }
+        selectNestedListCheckbox.prop("checked", false);
+    });
+</script>

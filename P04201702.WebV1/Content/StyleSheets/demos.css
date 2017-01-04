@@ -1,0 +1,112 @@
+﻿.nwt-tip-page {
+    text-align: center;
+    font-size: 1.6em;
+}
+
+.nwt-showcase {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+    .nwt-showcase section {
+        border: 1px solid #ccc;
+        overflow: hidden;
+        padding: 10px 0;
+    }
+
+    .nwt-showcase img {
+        width: 100%;
+    }
+
+    .nwt-showcase h4 {
+        text-align: center;
+    }
+
+    .nwt-showcase ul {
+        padding: 0;
+    }
+
+        .nwt-showcase ul li {
+            font-size: 1.2em;
+        }
+
+            .nwt-showcase ul li i {
+                color: #388E3C;
+            }
+
+    .nwt-showcase i:before {
+        padding: 3px 5px;
+        margin: 0;
+    }
+
+    .nwt-showcase section .nwt-btngroup {
+        text-align: center;
+    }
+
+        .nwt-showcase section .nwt-btngroup a {
+            text-align: center;
+            display: inline-block;
+            padding: 10px;
+            color: #fff;
+        }
+
+            .nwt-showcase section .nwt-btngroup a:first-child {
+                background-color: #03558b;
+                margin-right: 5px;
+            }
+
+                .nwt-showcase section .nwt-btngroup a:first-child:hover {
+                    background-color: #283593;
+                }
+
+            .nwt-showcase section .nwt-btngroup a:last-child {
+                background-color: #F57C00;
+                margin-left: 5px;
+            }
+
+                .nwt-showcase section .nwt-btngroup a:last-child:hover {
+                    background-color: #E65100;
+                }
+
+@-webkit-keyframes hvr-pulse {
+    25% {
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+
+    75% {
+        -webkit-transform: scale(0.95);
+        transform: scale(0.95);
+    }
+}
+
+@keyframes hvr-pulse {
+    25% {
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+
+    75% {
+        -webkit-transform: scale(0.95);
+        transform: scale(0.95);
+    }
+}
+
+.hvr-pulse {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+}
+
+    .hvr-pulse:hover, .hvr-pulse:focus, .hvr-pulse:active {
+        -webkit-animation-name: hvr-pulse;
+        animation-name: hvr-pulse;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+    }

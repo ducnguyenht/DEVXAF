@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>@ViewBag.Title - NAAN Solution</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="description" content="BlackFlib Theme" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keyword" content="Template, Theme, Responsive, Fluid, Retina" />
+  @Html.Partial("~/Views/Shared/Sections/_StyleSheet.cshtml")
+  @RenderSection("PageStyle", false)
+  @Html.Partial("~/Views/Shared/Sections/_JavaScriptTop.cshtml")
+  @Scripts.Render("~/bundles/jquery")
+
+</head>
+<body>
+  <section id="container">
+    @Html.Partial("~/Views/Shared/Sections/_Header.cshtml")
+    @RenderBody()
+    @Html.Partial("~/Views/Shared/Sections/_Footer.cshtml")
+  </section>
+  @RenderSection("scripts", required: false)
+  @Html.Partial("~/Views/Shared/Sections/_JavaScriptBottom.cshtml")
+  @RenderSection("PageJavaScript", false)
+
+  <script>
+        function string_to_slug(String) {
+            {
+            var str = String.toLowerCase();
+            str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+            str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+            str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+            str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+            str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+            str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+            str = str.replace(/đ/g, "d");
+            str = str.replace(/!|\{|\`|\}|\$|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'| |\"|\&|\#|\[|\]|\||~/g, "-");
+            str = str.replace(/-+-/g, "-");
+            str = str.replace(/^\-+|\-+$/g, "");
+            str.trim();
+            return str;
+        }
+        }
+  </script>
+</body>
+</html>
