@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P04201702.Domain", "P042017
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P04201702.WebV1", "P04201702.WebV1\P04201702.WebV1.csproj", "{A56565FE-D001-4D2B-AFCF-2D64B25B61DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCSiteMapProvider", "MVCSiteMapProvider\MVCSiteMapProvider.csproj", "{1A1E14C9-5E6E-4986-9953-D9F72B848C86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A56565FE-D001-4D2B-AFCF-2D64B25B61DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A56565FE-D001-4D2B-AFCF-2D64B25B61DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A56565FE-D001-4D2B-AFCF-2D64B25B61DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A1E14C9-5E6E-4986-9953-D9F72B848C86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A1E14C9-5E6E-4986-9953-D9F72B848C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A1E14C9-5E6E-4986-9953-D9F72B848C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A1E14C9-5E6E-4986-9953-D9F72B848C86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
