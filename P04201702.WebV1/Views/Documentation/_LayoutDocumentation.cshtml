@@ -9,7 +9,8 @@
     <section class="wrapper site-min-height">
         <div class="nas-content" id="nwt-content">
             <section class="ui-widget ui-widget-content" id="nwt-left">
-                @{Html.RenderAction("Navigation", "Documentation");}
+              @Html.Action("Navigation", "Documentation") @*//doi*@
+              @*@{Html.RenderAction("Navigation", "Documentation");}*@
             </section>
             <section class="ui-widget ui-widget-content" id="nwt-right">
                 @RenderBody()
