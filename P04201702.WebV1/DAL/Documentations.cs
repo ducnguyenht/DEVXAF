@@ -23,6 +23,7 @@ namespace P04201702.WebV1.DAL
             if (dbObj != null)
             {
                 Documentation_BO apiObj = new Documentation_BO();
+
                 apiObj.Id = dbObj.Id;
                 apiObj.TitlePageVN = dbObj.TitlePageVN;
                 apiObj.TitlePageEN = dbObj.TitlePageVN;
@@ -198,29 +199,31 @@ namespace P04201702.WebV1.DAL
             var dbObj = P04201702Context.Documentations.Single(where: "PageComponent = @0", parms: new object[] { pageComponent });
             if (dbObj != null)
             {
-                Documentation_BO apiObj = new Documentation_BO();
-                apiObj.Id = dbObj.Id;
-                apiObj.TitlePageVN = dbObj.TitlePageVN;
-                apiObj.TitlePageEN = dbObj.TitlePageEN;
-                apiObj.MetaDescriptionVN = dbObj.MetaDescriptionVN;
-                apiObj.MetaDescriptionEN = dbObj.MetaDescriptionEN;
-                apiObj.TitleVN = dbObj.TitleVN;
-                apiObj.TitleEN = dbObj.TitleEN;
-                apiObj.ImageAvatarUrlVN = dbObj.ImageAvatarUrlVN;
-                apiObj.ImageAvatarUrlEN = dbObj.ImageAvatarUrlEN;
-                apiObj.DescriptionVN = dbObj.DescriptionVN;
-                apiObj.DescriptionEN = dbObj.DescriptionEN;
-                apiObj.ContentVN = dbObj.ContentVN;
-                apiObj.ContentEN = dbObj.ContentEN;
-                apiObj.RoutingVN = dbObj.RoutingVN;
-                apiObj.RoutingEN = dbObj.RoutingEN;
-                apiObj.DisplayOrder = dbObj.DisplayOrder;
-                apiObj.PageComponent = dbObj.PageComponent;
-                apiObj.IsActive = dbObj.IsActive;
-                apiObj.Level = dbObj.Level;
-                apiObj.IsLeaf = dbObj.IsLeaf;
-                apiObj.ParentId = dbObj.ParentId;
-                return apiObj;
+                AutoMapper.Mapper.CreateMap<Documentation, Documentation_BO>();
+                return AutoMapper.Mapper.Map<Documentation_BO>(dbObj);//Dn
+                //Documentation_BO apiObj = new Documentation_BO();
+                //apiObj.Id = dbObj.Id;
+                //apiObj.TitlePageVN = dbObj.TitlePageVN;
+                //apiObj.TitlePageEN = dbObj.TitlePageEN;
+                //apiObj.MetaDescriptionVN = dbObj.MetaDescriptionVN;
+                //apiObj.MetaDescriptionEN = dbObj.MetaDescriptionEN;
+                //apiObj.TitleVN = dbObj.TitleVN;
+                //apiObj.TitleEN = dbObj.TitleEN;
+                //apiObj.ImageAvatarUrlVN = dbObj.ImageAvatarUrlVN;
+                //apiObj.ImageAvatarUrlEN = dbObj.ImageAvatarUrlEN;
+                //apiObj.DescriptionVN = dbObj.DescriptionVN;
+                //apiObj.DescriptionEN = dbObj.DescriptionEN;
+                //apiObj.ContentVN = dbObj.ContentVN;
+                //apiObj.ContentEN = dbObj.ContentEN;
+                //apiObj.RoutingVN = dbObj.RoutingVN;
+                //apiObj.RoutingEN = dbObj.RoutingEN;
+                //apiObj.DisplayOrder = dbObj.DisplayOrder;
+                //apiObj.PageComponent = dbObj.PageComponent;
+                //apiObj.IsActive = dbObj.IsActive;
+                //apiObj.Level = dbObj.Level;
+                //apiObj.IsLeaf = dbObj.IsLeaf;
+                //apiObj.ParentId = dbObj.ParentId;
+                //return apiObj;
             }
             else { return null; }
         }
