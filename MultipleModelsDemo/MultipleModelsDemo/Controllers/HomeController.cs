@@ -47,24 +47,25 @@ namespace MultipleModelsDemo.Controllers
                 //        .ForMember(src => src.PropertyOne, opt => opt.MapFrom(dst => dst.PropertyThree)).ReverseMap();
                 //});
 
-                Mapper.CreateMap<TestOneModel, TestTwoModel>()
-               .ForMember(dst => dst.PropertyFour, opt => opt.MapFrom(src => src.PropertyTwo))
-               .ForMember(dst => dst.PropertyThree, opt => opt.MapFrom(src => src.PropertyOne))
-               .ReverseMapWithForMemberPreserved41();
-                    //if source+dest types are not both reference or both value need to map it explicity
-                   //.ForMember(dst => dst.Age, opt => opt.MapFrom(src => src.YearsOld));
+                // Mapper.CreateMap<TestOneModel, TestTwoModel>()
+                //.ForMember(dst => dst.PropertyFour, opt => opt.MapFrom(src => src.PropertyTwo))
+                //.ForMember(dst => dst.PropertyThree, opt => opt.MapFrom(src => src.PropertyOne))
+                //.ReverseMapWithForMemberPreserved41();
+                //if source+dest types are not both reference or both value need to map it explicity
+                //.ForMember(dst => dst.Age, opt => opt.MapFrom(src => src.YearsOld));
 
                 //var Mapper = MapperConfiguration.CreateMapper());
 
                 #region 4.2 and above
                 //4.2 approach
-                var config = new MapperConfiguration(cfg => {
+                var config = new MapperConfiguration(cfg =>
+                {
                     cfg.CreateMap<TestOneModel, TestTwoModel>()
                     .ForMember(dst => dst.PropertyFour, opt => opt.MapFrom(src => src.PropertyTwo))
                     .ForMember(dst => dst.PropertyThree, opt => opt.MapFrom(src => src.PropertyOne))
                     .ReverseMapWithForMemberPreserved(cfg);
-                        //if source+dest types are not both reference or both value need to map it
-                        //.ForMember(dst => dst.Age, opt => opt.MapFrom(src => src.YearsOld));
+                    //if source+dest types are not both reference or both value need to map it
+                    //.ForMember(dst => dst.Age, opt => opt.MapFrom(src => src.YearsOld));
 
                     //cfg.CreateMap<TeamViewModel, TeamDTO>()
                     //.ForMember(dst => dst.TeamName, opt => opt.MapFrom(src => src.Name))
