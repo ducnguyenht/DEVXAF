@@ -1,0 +1,604 @@
+<#
+// section 1. assembly and import directives
+#>
+<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ assembly name="System" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.Data.Entity.Design" #>
+<#@ assembly name="System.Runtime.Remoting" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Runtime.Remoting.Messaging" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data.Entity.Design.PluralizationServices" #>
+<#@ import namespace="System.Globalization" #>
+<#@ import namespace="System.IO" #>
+<#
+// section 2. configuration
+#>
+<# 
+// ############################################################################
+// # 
+// # ---===> C O D E  G E N E R A T O R  <===---
+// # 
+// #  RG CodeGen Prototype REST Generator 
+// # 
+// ############################################################################
+
+
+// ############################################################################
+// # 
+// # ---===> C O N F I G U R A T I O N  <===---
+// #
+// # connectionString:   Database connection string. Either localDb or SQL Server.
+// # domainNamespace:    Namespace of Domain project. Examples: Art.Domain, Emp.Domain, Car.Domain, etc.
+// # restNamespace:      Namespace of current project. Examples: Art.Rest.v1, Emp.Rest.v2, Car.Rest.v1, etc.
+// # apiRoot:            Baseurl to the REST interface. Example: http://www.mycompany.com/api/v1/.
+// # 
+string connectionString = @"Data Source=T420-WIN10\SQL2016DEV;Initial Catalog=DevProBikeShopDB;Integrated Security=SSPI"; 
+string domainNamespace = "BikeShop.Domain";
+string restNamespace = "yourdevpro.Rest.v1";
+string apiRoot = "http://localhost:45871/api/v1/";
+// # 
+// ############################################################################
+
+// validate configuration
+ 
+string result = IsValid(connectionString, domainNamespace, restNamespace, apiRoot); 
+if (!string.IsNullOrEmpty(result)) 
+{
+	throw new Exception(result);
+}
+
+// ensure folders exist
+
+EnsureFoldersExist();
+
+var pkfks = GetPrimaryKeyRelations(connectionString);
+
+#>
+<#
+// section 3. generate API entity classes
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace <#= restNamespace #>
+{
+	// Generated <#= DateTime.Now #>
+	
+	public class ApiEntity
+	{
+		public string Href { get; set; }
+	}
+}
+<#
+SaveOutput(@"Entities\ApiEntity.cs");
+#>
+<#
+var tables = GetTables(connectionString);
+
+foreach(string tab in tables)
+{
+	string table = "Api" + tab;
+#>
+using System;
+using System.Linq;
+using System.Text;
+using System.Data;
+using System.Collections.Generic;
+using <#= domainNamespace #>;
+
+namespace <#= restNamespace #>
+{
+	// Generated <#= DateTime.Now #>
+	
+	public class <#= table #> : ApiEntity
+	{ 
+<#
+InsertConstructor(tab, pkfks);
+
+foreach(var column in GetColumns(tab, pkfks, connectionString))
+{
+	WriteLine(column.Field);
+}
+#>
+	} 
+}	
+<#
+SaveOutput(@"Entities\" + table + ".cs");
+}
+#>
+<#
+// section 4. generate API controller classes
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Web.Http;
+using AutoMapper;
+using <#= domainNamespace #>;
+
+namespace <#= restNamespace #>
+{
+	// Generated <#= DateTime.Now #>
+	
+	// Add custom code here
+
+	public class BaseApiController : ApiController
+	{
+		static bool initialized = false;
+
+		static BaseApiController()
+		{
+			if (!initialized)
+			{
+<#
+foreach(var table in tables)
+{
+	WriteLine("                Mapper.CreateMap<" + table + ", Api" + table + ">().ForMember(dest => dest.Href, opt => opt.MapFrom(src => src.Id.To" + table + "Href()));");
+}
+#>
+
+<#
+foreach(var table in tables)
+{
+	WriteLine("                Mapper.CreateMap<Api" + table + ", " + table + ">().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Href.ToId()));" );
+}
+#>
+
+				initialized = true;
+			}
+		}
+	}
+
+	// extension methods
+	public static class HrefHelper
+	{
+		static string root = "<#= apiRoot #>";
+
+<#
+foreach(var table in tables)
+{
+	WriteLine(@"        public static string To" + table + @"Href(this int? id) { return root + """ + Pluralize(table.ToLower()) + @"/"" + id; }");
+}
+#>
+
+		public static int? ToId(this string href) 
+		{
+			if (string.IsNullOrEmpty(href)) return null;
+			return int.Parse(href.Substring(href.LastIndexOf('/') + 1)); 
+		}
+
+	}
+}
+<#
+SaveOutput(@"Controllers\BaseApiController.cs");
+#>
+
+<#
+foreach(var table in tables)
+{
+	string pluralTable = Pluralize(table);
+	string apiTable = "Api" + table;
+	string apitable = apiTable.ToLower();
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Web.Http;
+using AutoMapper;
+using <#= domainNamespace #>;
+
+namespace <#= restNamespace #>
+{
+	// Generated <#= DateTime.Now #>
+	
+	// Change code for each method
+
+	public class <#= pluralTable #>Controller : BaseApiController
+	{
+
+		// GET Collection
+
+		[HttpGet]
+		public IEnumerable<<#= apiTable #>> Get(string expand = "")
+		{
+			return new List<<#= apiTable #>>();
+		}
+
+		// GET Single
+
+		[HttpGet]
+		public <#= apiTable #> Get(int? id, string expand = "")
+		{
+			return new <#= apiTable #>();
+		}
+
+		// POST = Insert
+
+		[HttpPost]
+		public <#= apiTable #> Post([FromBody] <#= apiTable #> <#= apitable #>)
+		{
+			return <#= apitable #>;
+		}
+
+		// PUT = Update
+
+		[HttpPut]
+		public <#= apiTable #> Put(int? id, [FromBody] <#= apiTable #> <#= apitable #>)
+		{
+			return <#= apitable #>;
+		}
+
+		// DELETE
+
+		[HttpDelete]
+		public <#= apiTable #> Delete(int? id)
+		{
+			return new <#= apiTable #>();
+		}
+	}
+}
+<#
+SaveOutput(@"Controllers\" + pluralTable + "Controller.cs");
+}
+#>
+<#
+// section 5. Support methods and classes
+#>
+<#+
+
+// Ensures the necessary project folders exist
+
+void EnsureFoldersExist()
+{
+	string frameworkDirectory = GetParentDirectory(Path.GetDirectoryName(Host.TemplateFile),2);
+	
+	string path = Path.Combine(frameworkDirectory, "Entities");
+	if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+
+	path = Path.Combine(frameworkDirectory, "Controllers");
+	if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+}
+
+// Checks if configuration are valid
+
+string IsValid(string connectionString, string domainNamespace, string restNamespace, string apiName)
+{
+	string error = "Configuration error: ";
+
+	if (string.IsNullOrEmpty(connectionString)) return error + "connectionString is missing.";
+	if (string.IsNullOrEmpty(domainNamespace)) return error + "domainNamespace is missing.";
+	if (string.IsNullOrEmpty(restNamespace)) return error + "restNamespace is missing.";
+	if (string.IsNullOrEmpty(apiName)) return error + "apiName is missing.";
+
+	try
+	{
+		var connection = new SqlConnection(connectionString);
+		connection.Open();
+		connection.Close();
+		return "";
+	}
+	catch
+	{ 
+		return error + "connectionString is invalid. Unable to make a connection.";
+	}
+}
+
+// Gets list of tables from database
+
+public IEnumerable<string> GetTables(string connectionString)
+{
+	var sql = @"SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES
+				 WHERE TABLE_NAME NOT LIKE 'aspnet_%'  AND TABLE_NAME NOT LIKE 'webpages_%'
+				   AND TABLE_TYPE = 'BASE TABLE'
+				 ORDER BY TABLE_NAME";
+	
+	using (var connection = new SqlConnection(connectionString))
+	{
+		using (var command = new SqlCommand(sql, connection))
+		{
+			connection.Open();
+			var reader = command.ExecuteReader();
+			
+			while (reader.Read())
+				yield return reader["TABLE_NAME"].ToString();
+		}
+	}
+}
+
+// Gets list of columns for a given table
+
+public IEnumerable<Column> GetColumns (string table, List<PrimaryKeyForeignKey> pkfks, string connectionString)
+{
+	var sql = @"SELECT COLUMN_NAME, DATA_TYPE, IS_NULLABLE, COLUMN_DEFAULT
+				  FROM INFORMATION_SCHEMA.COLUMNS 
+				 WHERE TABLE_NAME = '" + table + @"' 
+				   AND DATA_TYPE NOT IN ('geography', 'geometry')
+				   AND COLUMN_NAME NOT IN ('Id')";
+	
+	var columns = new List<Column>();
+
+	using (var connection = new SqlConnection(connectionString))
+	{
+		using (var command = new SqlCommand(sql, connection))
+		{
+			connection.Open();
+			var reader = command.ExecuteReader();
+			
+			while (reader.Read())
+			{
+				
+			   columns.Add(new Column{ Name=reader["COLUMN_NAME"].ToString(), 
+									   DataType=reader["DATA_TYPE"].ToString(),
+									   IsNullable=reader["IS_NULLABLE"].ToString() == "YES"});
+			}
+		}
+	}
+
+	// check if auditing is supported, which means all audit columns need to be removed
+
+	var auditColumns = new[] { "CreatedOn", "CreatedBy", "ChangedOn", "ChangedBy" };
+
+	var noAuditColumns = columns.Where(c => !auditColumns.Contains(c.Name));
+	if (columns.Count() - noAuditColumns.Count() == 4)
+		columns = noAuditColumns.ToList();
+
+	// change foreign keys
+
+	foreach(var column in columns)
+	{
+		if (column.Name.Length > 2 && column.Name.EndsWith("Id"))
+		{
+			column.Name = column.Name.Substring(0, column.Name.Length - 2);
+			column.DataType = "ApiEntity";
+			column.IsNullable = false;
+		}
+	}
+
+	// Add potential backlinks
+
+	foreach(var pkfk in pkfks)
+	{
+		if (pkfk.FkColumn == (table + "Id"))
+		{
+			columns.Add(new Column {
+				Name = Pluralize(pkfk.FkTable),
+				DataType = "List<ApiEntity>",
+				IsNullable = false
+			});
+		}
+	}
+
+	return columns;
+}
+
+// Column class holds column definitions
+
+public class Column
+{
+	public string Name {get; set; }
+	public string DataType { get; set; }
+	public bool IsNullable { get; set; }
+	
+	public string Field
+	{
+		get
+		{
+			string field = "        public ";
+			field += MapType();
+			field += " " +  Name + " { get; set; }";
+			
+			return field;
+		}
+	}
+	
+	private string MapType() 
+	{
+		string clrType = DataType;
+		try { clrType = SqlMap.Get(DataType); }
+		catch {};
+
+		// string and DateTime are special
+
+		if (clrType == "string") return clrType;
+		if (clrType == "DateTime") return clrType + "?";
+
+		// identifier
+
+		if (Name.ToLower().EndsWith("id"))
+		{
+			if (clrType == "int" || clrType == "Guid") return clrType + "?";
+		}
+
+		return clrType + (IsNullable ? "?": "");
+	}
+}
+
+// Inserts a contructor when child lists are present 
+
+public void InsertConstructor(string table, IEnumerable<PrimaryKeyForeignKey> pkfks) 
+{   
+	
+	bool needConstructor = false;
+	foreach(var pkfk in pkfks)
+	{
+		if (pkfk.FkColumn == (table + "Id"))
+		{
+			needConstructor = true;
+			break;
+		}
+	}
+	if (!needConstructor) return;
+
+	WriteLine("        public Api" + table + "()" );
+	WriteLine("        {" );
+	foreach(var pkfk in pkfks)
+	{
+		if (pkfk.FkColumn == (table + "Id"))
+		{
+			WriteLine("            " + Pluralize(pkfk.FkTable) + " = new List<ApiEntity>();");
+		}
+	}
+	WriteLine("        }" );
+}
+
+// Class that hols primary key foreign key details
+
+public class PrimaryKeyForeignKey
+{
+	public string FkTable { get; set; }
+	public string FkColumn { get; set; }
+	public string PkTable { get; set; }
+	public string PkColumn { get; set; }
+}
+
+// Retrieves list of primary - foreign key relationships
+
+public List<PrimaryKeyForeignKey> GetPrimaryKeyRelations(string connectionString)
+{
+	List<PrimaryKeyForeignKey> list = new List<PrimaryKeyForeignKey>();
+
+	var sql = @"SELECT FK_Table  = FK.TABLE_NAME, FK_Column = CU.COLUMN_NAME, 
+					   PK_Table  = PK.TABLE_NAME, PK_Column = PT.COLUMN_NAME
+				  FROM INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS C 
+				  INNER JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS FK 
+						ON C.CONSTRAINT_NAME = FK.CONSTRAINT_NAME 
+				  INNER JOIN INFORMATION_SCHEMA.TABLE_CONSTRAINTS PK 
+						ON C.UNIQUE_CONSTRAINT_NAME = PK.CONSTRAINT_NAME 
+				  INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE CU 
+						ON C.CONSTRAINT_NAME = CU.CONSTRAINT_NAME 
+				INNER JOIN 
+				( 
+					SELECT i1.TABLE_NAME, i2.COLUMN_NAME 
+					  FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS i1 
+					  INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE i2 
+							ON i1.CONSTRAINT_NAME = i2.CONSTRAINT_NAME 
+					  WHERE i1.CONSTRAINT_TYPE = 'PRIMARY KEY' 
+				) PT 
+				ON PT.TABLE_NAME = PK.TABLE_NAME
+				WHERE FK.TABLE_NAME NOT LIKE 'aspnet_%'  AND FK.TABLE_NAME NOT LIKE 'webpages_%'
+				  AND PK.TABLE_NAME NOT LIKE 'aspnet_%'  AND PK.TABLE_NAME NOT LIKE 'webpages_%'";
+	
+	using (var connection = new SqlConnection(connectionString))
+	{
+		using (var command = new SqlCommand(sql, connection))
+		{
+			connection.Open();
+			var reader = command.ExecuteReader();
+			
+			while (reader.Read())
+			{
+				var pkfk = new PrimaryKeyForeignKey() {
+					FkTable = reader["FK_Table"].ToString(),
+					FkColumn = reader["FK_Column"].ToString(),
+					PkTable = reader["PK_Table"].ToString(),
+					PkColumn = reader["PK_Column"].ToString()
+				};
+				list.Add(pkfk);
+			}
+		}
+	}
+	return list;
+}
+
+// Saves file to disk
+
+void SaveOutput(string outputFileName)
+{
+	string templateDirectory = GetParentDirectory(Path.GetDirectoryName(Host.TemplateFile),2);
+	string outputFilePath = Path.Combine(templateDirectory, outputFileName);
+	
+	if (!File.Exists(outputFilePath))  // important!
+	{
+	   File.WriteAllText(outputFilePath, this.GenerationEnvironment.ToString()); 
+	}
+
+	this.GenerationEnvironment.Remove(0, this.GenerationEnvironment.Length);
+}
+
+// Helper. recurse backward through folders
+
+string GetParentDirectory(string path, int parentCount) 
+{ 
+	if(string.IsNullOrEmpty(path) || parentCount < 1) 
+		return path; 
+ 
+	string parent = Path.GetDirectoryName(path); 
+ 
+	if(--parentCount > 0) 
+		return GetParentDirectory(parent, parentCount); 
+ 
+	return parent; 
+} 
+
+// Returns plural of given word
+
+string Pluralize(string word)
+{
+	var ps = PluralizationService.CreateService(CultureInfo.GetCultureInfo("en-us"));
+	return ps.Pluralize(word);
+}
+
+// Maps Sql types to .NET data types. 
+
+static class SqlMap
+{
+	static readonly Dictionary<string, string> map = new Dictionary<string, string>();
+	static SqlMap()
+	{
+		map["bigint"] = "long";
+		map["binary"] = "byte[]";
+		map["bit"] = "bool";
+		map["char"] = "string";
+		map["date"] = "DateTime";
+		map["datetime"] = "DateTime";
+		map["datetime2"] = "DateTime";
+		map["datetimeoffset"] = "DateTimeOffset";
+		map["decimal"] = "decimal";
+		map["varbinary"] = "byte[]";
+		map["float"] = "double";
+		map["image"] = "byte[]";
+		map["int"] = "int";
+		map["money"] = "decimal	";
+		map["nchar"] = "string";
+		map["ntext"] = "string";
+		map["numeric"] = "decimal";
+		map["nvarchar"] = "string";
+		map["real"] = "float";
+		map["rowversion"] = "byte[]";
+		map["smalldatetime"] = "DateTime";
+		map["smallint"] = "short";
+		map["smallmoney"] = "decimal";
+		map["sql_variant"] = "object";
+		map["text"] = "string";
+		map["time"] = "TimeSpan";
+		map["timestamp"] = "byte[]";
+		map["tinyint"] = "byte";
+		map["uniqueidentifier"] = "Guid";
+		map["varbinary"] = "byte[]";
+		map["varchar"] = "string";
+		map["xml"] = "Xml";
+	}
+
+	// add additional custom types here
+
+	public static void Add(string sqltype, string clrtype)
+	{
+		map[sqltype] = clrtype;
+	}
+
+	public static string Get(string sqltype)
+	{
+		return map[sqltype];
+	}
+}
+
+#>
