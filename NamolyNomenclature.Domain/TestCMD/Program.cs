@@ -34,7 +34,7 @@ namespace TestCMD
                 ht.ExPropsHotel_VN._CancellationPolicy = "chinh sach huy phong galina html";
                 ht.ExPropsHotel_EN._CheckInPolicy = "check in policy galina html";
                 ht.ExPropsHotel_EN._CancellationPolicy = "cancellation policy galina html";
-                ht.IsAlarmService = false;
+                ht.IsAlarmService = true;
                 ht.CreateOrUpdateToDB();
             }
             else
@@ -52,7 +52,9 @@ namespace TestCMD
                 ht.ExPropsHotel_VN._CancellationPolicy = "cap nhat chinh sach huy phong galina  html";
                 ht.ExPropsHotel_EN._CheckInPolicy = "update check in policy galina html";
                 ht.ExPropsHotel_EN._CancellationPolicy = "update cancellation policy galina html";
-                ht.IsAlarmService = true;
+                ht.IsAlarmService = false;
+                ht.IsAirConditioning = true;
+                ht.IsBarLounge = true;
                 ht.CreateOrUpdateToDB();
             }
 
@@ -72,9 +74,17 @@ namespace TestCMD
                 ht1.Website = "www.youandwe.com";
                 ht1.ExPropsHotel_VN._CheckInPolicy = "chinh sach tra phong YAW html";
                 ht1.ExPropsHotel_VN._CancellationPolicy = "chinh sach huy phong YAW html";
+                ht1.ExPropsHotel_VN._CheckOutPolicy = "chinh sach tra phong YAW html";
+                ht1.ExPropsHotel_VN._ChildAndExtraBedRoomPolicy = "chinh sach tre em va them giuong phong YAW html";
+                ht1.ExPropsHotel_VN._ReservationPolicy = "chinh sach dat phong YAW html";
                 ht1.ExPropsHotel_EN._CheckInPolicy = "check in policy YAW  html";
                 ht1.ExPropsHotel_EN._CancellationPolicy = "cancellation policy YAW  html";
+                ht1.ExPropsHotel_EN._CheckOutPolicy = "_CheckOutPolicy YAW  html";
+                ht1.ExPropsHotel_EN._ChildAndExtraBedRoomPolicy = "_ChildAndExtraBedRoomPolicy YAW  html";
+                ht1.ExPropsHotel_EN._ReservationPolicy = "_ReservationPolicy YAW  html";
                 ht1.IsAlarmService = true;
+                ht1.IsBBQFacilities = true;
+                ht1.IsCableTelevision = true;
                 ht1.CreateOrUpdateToDB();
             }
             else

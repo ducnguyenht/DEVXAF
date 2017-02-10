@@ -353,8 +353,6 @@ namespace NamolyNomenclature.Domain
             }
         }
 
-
-
         public void ReadFromDB()
         {
             this.ExPropsHotel_EN = ReadFromDBWithLanguage(Languages.EN);
