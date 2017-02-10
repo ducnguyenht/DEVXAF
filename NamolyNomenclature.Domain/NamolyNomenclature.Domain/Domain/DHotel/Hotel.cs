@@ -24,69 +24,69 @@ namespace NamolyNomenclature.Domain
         //#endregion 1.HotelPolicy
 
         #region 1.FOService
-        public bool IsAlarmServiceFO { get; set; }
-        public bool IsExchangeCurrencyFO { get; set; }
-        public bool IsFrontdesk24HrFO { get; set; }
-        public bool IsLiftsFO { get; set; }
-        public bool IsSpecialHelpServiceFO { get; set; }
-        public bool IsTicketingServiceFO { get; set; }
-        public bool IsTourDeskFO { get; set; }
+        public bool IsAlarmService { get; set; }
+        public bool IsExchangeCurrency { get; set; }
+        public bool IsFrontdesk24Hr { get; set; }
+        public bool IsLifts { get; set; }
+        public bool IsSpecialHelpService { get; set; }
+        public bool IsTicketingService { get; set; }
+        public bool IsTourDesk { get; set; }
         #endregion 1.FOService
 
         #region 2.RoomService
-        public bool IsAirConditioningRS { get; set; }
-        public bool IsCableTelevisionRS { get; set; }
-        public bool IsFanRS { get; set; }
-        public bool IsFreewaterRS { get; set; }
-        public bool IsHairdryerRS { get; set; }
-        public bool IsIronRS { get; set; }
-        public bool IsNonSmokingRoomRS { get; set; }
-        public bool IsSafeRS { get; set; }
-        public bool IsShoeShineToolRS { get; set; }
-        public bool IsSlippersRS { get; set; }
-        public bool IsSmokingRoomRS { get; set; }
-        public bool IsTeaCoffeeRS { get; set; }
-        public bool IsTelephoneRS { get; set; }
-        public bool IsTelevisionRS { get; set; }
-        public bool IsToiletAndBathroomRS { get; set; }
-        public bool IsTowelRS { get; set; }
+        public bool IsAirConditioning { get; set; }
+        public bool IsCableTelevision { get; set; }
+        public bool IsFan { get; set; }
+        public bool IsFreewater { get; set; }
+        public bool IsHairdryer { get; set; }
+        public bool IsIron { get; set; }
+        public bool IsNonSmokingRoom { get; set; }
+        public bool IsSafe { get; set; }
+        public bool IsShoeShineTool { get; set; }
+        public bool IsSlippers { get; set; }
+        public bool IsSmokingRoom { get; set; }
+        public bool IsTeaCoffee { get; set; }
+        public bool IsTelephone { get; set; }
+        public bool IsTelevision { get; set; }
+        public bool IsToiletAndBathroom { get; set; }
+        public bool IsTowel { get; set; }
         #endregion 2.RoomService
 
         #region 3.FoodAndDrink
-        public bool IsBarLoungeFAD { get; set; }
-        public bool IsBBQFacilitiesFAD { get; set; }
-        public bool IsBreakfastFAD { get; set; }
-        public bool IsMinibarFAD { get; set; }
-        public bool IsRestaurantFAD { get; set; }
+        public bool IsBarLounge { get; set; }
+        public bool IsBBQFacilities { get; set; }
+        public bool IsBreakfast { get; set; }
+        public bool IsMinibar { get; set; }
+        public new bool IsRestaurant { get; set; }
         #endregion 3.FoodAndDrink
 
         #region 4.Business
-        public bool IsBusinessCenterB { get; set; }
-        public bool IsConferenceFacilitiesRoomB { get; set; }
-        public bool IsPhotocopyB { get; set; }
+        public bool IsBusinessCenter { get; set; }
+        public bool IsConferenceFacilitiesRoom { get; set; }
+        public bool IsPhotocopy { get; set; }
         #endregion 4.Business
 
         #region 5.Laundry
-        public bool IsDryCleaningFacilitiesL { get; set; }
-        public bool IsLaundryServiceL { get; set; }
+        public bool IsDryCleaningFacilities { get; set; }
+        public bool IsLaundryService { get; set; }
         #endregion 5.Laundry
         #region 6.SportHealthCare
-        public bool IsGolfCourtSHC { get; set; }
-        public bool IsGymFitnessCenterSHC { get; set; }
-        public bool IsPoolSHC { get; set; }
-        public bool IsSpaSaunaSHC { get; set; }
-        public bool IsTennisCourtSHC { get; set; }
+        public bool IsGolfCourt { get; set; }
+        public bool IsGymFitnessCenter { get; set; }
+        public bool IsPool { get; set; }
+        public bool IsSpaSauna { get; set; }
+        public bool IsTennisCourt { get; set; }
         #endregion 6.SportHealthCare
         #region 7.Internet
-        public bool IsWifiAtFOI { get; set; }
-        public bool IsWifiAtRoomI { get; set; }
+        public bool IsWifiAtFO { get; set; }
+        public bool IsWifiAtRoom { get; set; }
         #endregion 7.Internet
         #region 8.ParkingVehicles
-        public bool IsCarParkingPV { get; set; }
-        public bool IsCarRentalPV { get; set; }
-        public bool IsFreeParkingPV { get; set; }
-        public bool IsParkingPV { get; set; }
-        public bool IsPickOffDropOffPV { get; set; }
+        public bool IsCarParking { get; set; }
+        public bool IsCarRental { get; set; }
+        public bool IsFreeParking { get; set; }
+        public bool IsParking { get; set; }
+        public bool IsPickOffDropOff { get; set; }
         #endregion 8.ParkingVehicles
         public ExPropsHotel ExPropsHotel_VN { get; set; }
         public ExPropsHotel ExPropsHotel_EN { get; set; }
@@ -111,7 +111,7 @@ namespace NamolyNomenclature.Domain
                     uow.Insert(ExPropsHotel_EN.CreateChildAndExtraBedRoomPolicy(Languages.EN, this.Id));
                     uow.Insert(ExPropsHotel_EN.CreateReservationPolicy(Languages.EN, this.Id));
 
-                    uow.Insert(CreateExPropNonLang(HotelPropertyKeyName.AlarmService, this.IsAlarmServiceFO.ToString()));
+                    uow.Insert(CreateExPropNonLang(HotelPropertyKeyName.AlarmService, this.IsAlarmService.ToString()));
                 }
             }
             else
@@ -139,20 +139,189 @@ namespace NamolyNomenclature.Domain
                 ReservationPolicy_VN.PropertyValue = this.ExPropsHotel_VN._ReservationPolicy;
 
                 var AlarmService = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.AlarmService);
-                AlarmService.PropertyValue = this.IsAlarmServiceFO.ToString();
+                AlarmService.PropertyValue = this.IsAlarmService.ToString();
+                var ExchangeCurrency = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.ExchangeCurrency);
+                ExchangeCurrency.PropertyValue = this.IsExchangeCurrency.ToString();
+                var Frontdesk24Hr = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.Frontdesk24Hr);
+                Frontdesk24Hr.PropertyValue = this.IsFrontdesk24Hr.ToString();
+                var Lifts = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.Lifts);
+                Lifts.PropertyValue = this.IsLifts.ToString();
+                var SpecialHelpService = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.SpecialHelpService);
+                SpecialHelpService.PropertyValue = this.IsSpecialHelpService.ToString();
+                var TicketingService = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.TicketingService);
+                TicketingService.PropertyValue = this.IsTicketingService.ToString();
+                var TourDesk = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.TourDesk);
+                TourDesk.PropertyValue = this.IsTourDesk.ToString();
+
+                var AirConditioning = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.AirConditioning);
+                AirConditioning.PropertyValue = this.IsAirConditioning.ToString();
+                var CableTelevision = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CableTelevision);
+                CableTelevision.PropertyValue = this.IsCableTelevision.ToString();
+                var Fan = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.Fan);
+                Fan.PropertyValue = this.IsFan.ToString();
+                var Freewater = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.Freewater);
+                Freewater.PropertyValue = this.IsFreewater.ToString();
+                var Hairdryer = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.Hairdryer);
+                Hairdryer.PropertyValue = this.IsHairdryer.ToString();
+                var Iron = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.Iron);
+                Iron.PropertyValue = this.IsIron.ToString();
+                var NonSmokingRoom = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.NonSmokingRoom);
+                NonSmokingRoom.PropertyValue = this.IsNonSmokingRoom.ToString();
+                var Safe = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.Safe);
+                Safe.PropertyValue = this.IsSafe.ToString();
+                var ShoeShineTool = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.ShoeShineTool);
+                ShoeShineTool.PropertyValue = this.IsShoeShineTool.ToString();
+                var Slippers = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.Slippers);
+                Slippers.PropertyValue = this.IsSlippers.ToString();
+                var SmokingRoom = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.SmokingRoom);
+                SmokingRoom.PropertyValue = this.IsSmokingRoom.ToString();
+                var TeaCoffee = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.TeaCoffee);
+                TeaCoffee.PropertyValue = this.IsTeaCoffee.ToString();
+                var Telephone = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.Telephone);
+                Telephone.PropertyValue = this.IsTelephone.ToString();
+                var Television = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.Television);
+                Television.PropertyValue = this.IsTelevision.ToString();
+                var ToiletAndBathroom = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.ToiletAndBathroom);
+                ToiletAndBathroom.PropertyValue = this.IsToiletAndBathroom.ToString();
+                var Towel = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.Towel);
+                Towel.PropertyValue = this.IsTowel.ToString();
+
+                var BarLounge = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.BarLounge);
+                BarLounge.PropertyValue = this.IsBarLounge.ToString();
+                var BBQFacilities = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.BBQFacilities);
+                BBQFacilities.PropertyValue = this.IsBBQFacilities.ToString();
+                var Breakfast = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.Breakfast);
+                Breakfast.PropertyValue = this.IsBreakfast.ToString();
+                var Minibar = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.Minibar);
+                Minibar.PropertyValue = this.IsMinibar.ToString();
+                var Restaurant = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.Restaurant);
+                Restaurant.PropertyValue = this.IsRestaurant.ToString();
+
+                var BusinessCenter = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.BusinessCenter);
+                BusinessCenter.PropertyValue = this.IsBusinessCenter.ToString();
+                var ConferenceFacilitiesRoom = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.ConferenceFacilitiesRoom);
+                ConferenceFacilitiesRoom.PropertyValue = this.IsConferenceFacilitiesRoom.ToString();
+                var Photocopy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.Photocopy);
+                Photocopy.PropertyValue = this.IsPhotocopy.ToString();
+
+                var DryCleaningFacilities = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.DryCleaningFacilities);
+                DryCleaningFacilities.PropertyValue = this.IsDryCleaningFacilities.ToString();
+                var LaundryService = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.LaundryService);
+                LaundryService.PropertyValue = this.IsLaundryService.ToString();
+
+                var GolfCourt = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.GolfCourt);
+                GolfCourt.PropertyValue = this.IsGolfCourt.ToString();
+                var GymFitnessCenter = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.GymFitnessCenter);
+                GymFitnessCenter.PropertyValue = this.IsGymFitnessCenter.ToString();
+                var Pool = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.Pool);
+                Pool.PropertyValue = this.IsPool.ToString();
+                var SpaSauna = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.SpaSauna);
+                SpaSauna.PropertyValue = this.IsSpaSauna.ToString();
+                var TennisCourt = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.TennisCourt);
+                TennisCourt.PropertyValue = this.IsTennisCourt.ToString();
+
+                var WifiAtFO = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.WifiAtFO);
+                WifiAtFO.PropertyValue = this.IsWifiAtFO.ToString();
+                var WifiAtRoom = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.WifiAtRoom);
+                WifiAtRoom.PropertyValue = this.IsWifiAtRoom.ToString();
+
+                var CarParking = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CarParking);
+                CarParking.PropertyValue = this.IsCarParking.ToString();
+                var CarRental = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CarRental);
+                CarRental.PropertyValue = this.IsCarRental.ToString();
+                var FreeParking = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.FreeParking);
+                FreeParking.PropertyValue = this.IsFreeParking.ToString();
+                var Parking = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.Parking);
+                Parking.PropertyValue = this.IsParking.ToString();
+                var PickOffDropOff = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.PickOffDropOff);
+                PickOffDropOff.PropertyValue = this.IsPickOffDropOff.ToString();
+
 
                 using (var uow = new NamolyNomenclatureUnitOfWork())
                 {
                     uow.Update(this as BusinessEntity);
                     uow.Update(CancellationPolicy_EN);
                     uow.Update(CheckInPolicy_EN);
+                    uow.Update(CheckOutPolicy_EN);
+                    uow.Update(ChildAndExtraBedRoomPolicy_EN);
+                    uow.Update(ReservationPolicy_EN);
+
                     uow.Update(CancellationPolicy_VN);
                     uow.Update(CheckInPolicy_VN);
+                    uow.Update(CheckOutPolicy_VN);
+                    uow.Update(ChildAndExtraBedRoomPolicy_VN);
+                    uow.Update(ReservationPolicy_VN);
+
                     uow.Update(AlarmService);
+                    uow.Update(ExchangeCurrency);
+                    uow.Update(Frontdesk24Hr);
+                    uow.Update(Lifts);
+                    uow.Update(SpecialHelpService);
+                    uow.Update(TicketingService);
+                    uow.Update(TourDesk);
+
+                    uow.Update(AirConditioning);
+                    uow.Update(CableTelevision);
+                    uow.Update(Fan);
+                    uow.Update(Freewater);
+                    uow.Update(Hairdryer);
+                    uow.Update(Iron);
+                    uow.Update(NonSmokingRoom);
+                    uow.Update(Safe);
+                    uow.Update(ShoeShineTool);
+                    uow.Update(Slippers);
+                    uow.Update(SmokingRoom);
+                    uow.Update(TeaCoffee);
+                    uow.Update(Telephone);
+                    uow.Update(Television);
+                    uow.Update(ToiletAndBathroom);
+                    uow.Update(Towel);
+
+                    uow.Update(BarLounge);
+                    uow.Update(BBQFacilities);
+                    uow.Update(Breakfast);
+                    uow.Update(Minibar);
+                    uow.Update(Restaurant);
+
+                    uow.Update(BusinessCenter);
+                    uow.Update(ConferenceFacilitiesRoom);
+                    uow.Update(Photocopy);
+
+                    uow.Update(DryCleaningFacilities);
+                    uow.Update(LaundryService);
+
+                    uow.Update(GolfCourt);
+                    uow.Update(GymFitnessCenter);
+                    uow.Update(Pool);
+                    uow.Update(SpaSauna);
+                    uow.Update(TennisCourt);
+
+                    uow.Update(WifiAtFO);
+                    uow.Update(WifiAtRoom);
+
+                    uow.Update(CarParking);
+                    uow.Update(CarRental);
+                    uow.Update(FreeParking);
+                    uow.Update(Parking);
+                    uow.Update(PickOffDropOff);
                 }
             }
         }
 
+
+
+        public void ReadFromDB()
+        {
+            this.ExPropsHotel_VN._CancellationPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CancellationPolicy, Languages.VN).PropertyValue;
+            this.ExPropsHotel_VN._CheckInPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CheckInPolicy, Languages.VN).PropertyValue;
+
+            this.ExPropsHotel_EN._CancellationPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CancellationPolicy, Languages.EN).PropertyValue;
+            this.ExPropsHotel_EN._CheckInPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CheckInPolicy, Languages.EN).PropertyValue;
+
+            var AlarmService_FDB = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.AlarmService);
+            this.IsAlarmService = AlarmService_FDB.PropertyValue.ToBool();
+
+        }
         private BusinessEntityProperty CreateExPropNonLang(HotelPropertyKeyName hotelPropertyKeyName, string PropertyValue)
         {
             var exPropNonLang = new BusinessEntityProperty();
@@ -163,22 +332,6 @@ namespace NamolyNomenclature.Domain
             exPropNonLang.BusinessEntityId = this.Id;
             return exPropNonLang;
         }
-
-        public void ReadFromDB()
-        {
-            this.ExPropsHotel_VN._CancellationPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CancellationPolicy, Languages.VN).PropertyValue;
-            this.ExPropsHotel_VN._CheckInPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CheckInPolicy, Languages.VN).PropertyValue;
-
-            this.ExPropsHotel_EN._CancellationPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CancellationPolicy, Languages.EN).PropertyValue;
-            this.ExPropsHotel_EN._CheckInPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CheckInPolicy, Languages.EN).PropertyValue;
-
-            var AlarmServiceFO_FDB = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.AlarmService);
-            if (AlarmServiceFO_FDB != null)
-            {
-                this.IsAlarmServiceFO = AlarmServiceFO_FDB.PropertyValue.ToBool();
-            }
-        }
-
         private BusinessEntityProperty ReadBusinessEntityDB(int? hotel_Id, HotelPropertyKeyName hotelPropertyKeyName, string language = Languages.VN)
         {
             return NamolyNomenclatureContext.BusinessEntityProperties.Single(

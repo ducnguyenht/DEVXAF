@@ -34,7 +34,7 @@ namespace TestCMD
                 ht.ExPropsHotel_VN._CancellationPolicy = "chinh sach huy phong galina html";
                 ht.ExPropsHotel_EN._CheckInPolicy = "check in policy galina html";
                 ht.ExPropsHotel_EN._CancellationPolicy = "cancellation policy galina html";
-                ht.IsAlarmServiceFO = false;
+                ht.IsAlarmService = false;
                 ht.CreateOrUpdateToDB();
             }
             else
@@ -52,7 +52,7 @@ namespace TestCMD
                 ht.ExPropsHotel_VN._CancellationPolicy = "cap nhat chinh sach huy phong galina  html";
                 ht.ExPropsHotel_EN._CheckInPolicy = "update check in policy galina html";
                 ht.ExPropsHotel_EN._CancellationPolicy = "update cancellation policy galina html";
-                ht.IsAlarmServiceFO = true;
+                ht.IsAlarmService = true;
                 ht.CreateOrUpdateToDB();
             }
 
@@ -74,7 +74,7 @@ namespace TestCMD
                 ht1.ExPropsHotel_VN._CancellationPolicy = "chinh sach huy phong YAW html";
                 ht1.ExPropsHotel_EN._CheckInPolicy = "check in policy YAW  html";
                 ht1.ExPropsHotel_EN._CancellationPolicy = "cancellation policy YAW  html";
-                ht1.IsAlarmServiceFO = true;
+                ht1.IsAlarmService = true;
                 ht1.CreateOrUpdateToDB();
             }
             else
@@ -92,7 +92,7 @@ namespace TestCMD
                 ht.ExPropsHotel_VN._CancellationPolicy = "cap nhat chinh sach huy phong YAW html";
                 ht.ExPropsHotel_EN._CheckInPolicy = "update check in policy YAW html";
                 ht.ExPropsHotel_EN._CancellationPolicy = "update cancellation policy YAW html";
-                ht.IsAlarmServiceFO = false;
+                ht.IsAlarmService = false;
                 ht.CreateOrUpdateToDB();
             }
 
