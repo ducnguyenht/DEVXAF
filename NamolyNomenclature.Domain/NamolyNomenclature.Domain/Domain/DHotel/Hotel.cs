@@ -5,9 +5,9 @@ using System.Data;
 using System.Collections.Generic;
 
 namespace NamolyNomenclature.Domain
-{	
+{
     public class Hotel : BusinessEntity
-	{
+    {
         public Hotel()
         {
             this.IsHotel = true;
@@ -90,20 +90,26 @@ namespace NamolyNomenclature.Domain
         #endregion 8.ParkingVehicles
         public ExPropsHotel ExPropsHotel_VN { get; set; }
         public ExPropsHotel ExPropsHotel_EN { get; set; }
-        
+
         public void CreateOrUpdateToDB()
-        {        
+        {
             if (this.Id == null)
             {
                 using (var uow = new NamolyNomenclatureUnitOfWork())
                 {
                     uow.Insert(this as BusinessEntity);
-                    
-                    uow.Insert(ExPropsHotel_VN.CreateCancellationPolicy(Languages.VN, this.Id));  
+
+                    uow.Insert(ExPropsHotel_VN.CreateCancellationPolicy(Languages.VN, this.Id));
                     uow.Insert(ExPropsHotel_VN.CreateCheckInPolicy(Languages.VN, this.Id));
-                    
+                    uow.Insert(ExPropsHotel_VN.CreateCheckOutPolicy(Languages.VN, this.Id));
+                    uow.Insert(ExPropsHotel_VN.CreateChildAndExtraBedRoomPolicy(Languages.VN, this.Id));
+                    uow.Insert(ExPropsHotel_VN.CreateReservationPolicy(Languages.VN, this.Id));
+
                     uow.Insert(ExPropsHotel_EN.CreateCancellationPolicy(Languages.EN, this.Id));
                     uow.Insert(ExPropsHotel_EN.CreateCheckInPolicy(Languages.EN, this.Id));
+                    uow.Insert(ExPropsHotel_EN.CreateCheckOutPolicy(Languages.EN, this.Id));
+                    uow.Insert(ExPropsHotel_EN.CreateChildAndExtraBedRoomPolicy(Languages.EN, this.Id));
+                    uow.Insert(ExPropsHotel_EN.CreateReservationPolicy(Languages.EN, this.Id));
 
                     uow.Insert(CreateExPropNonLang(HotelPropertyKeyName.AlarmService, this.IsAlarmServiceFO.ToString()));
                 }
@@ -112,15 +118,25 @@ namespace NamolyNomenclature.Domain
             {
                 var CancellationPolicy_EN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CancellationPolicy, Languages.EN);
                 CancellationPolicy_EN.PropertyValue = this.ExPropsHotel_EN._CancellationPolicy;
-                
                 var CheckInPolicy_EN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CheckInPolicy, Languages.EN);
                 CheckInPolicy_EN.PropertyValue = this.ExPropsHotel_EN._CheckInPolicy;
+                var CheckOutPolicy_EN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CheckOutPolicy, Languages.EN);
+                CheckOutPolicy_EN.PropertyValue = this.ExPropsHotel_EN._CheckOutPolicy;
+                var ChildAndExtraBedRoomPolicy_EN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.ChildAndExtraBedRoomPolicy, Languages.EN);
+                ChildAndExtraBedRoomPolicy_EN.PropertyValue = this.ExPropsHotel_EN._ChildAndExtraBedRoomPolicy;
+                var ReservationPolicy_EN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.ReservationPolicy, Languages.EN);
+                ReservationPolicy_EN.PropertyValue = this.ExPropsHotel_EN._ReservationPolicy;
 
                 var CancellationPolicy_VN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CancellationPolicy, Languages.VN);
                 CancellationPolicy_VN.PropertyValue = this.ExPropsHotel_VN._CancellationPolicy;
-
                 var CheckInPolicy_VN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CheckInPolicy, Languages.VN);
                 CheckInPolicy_VN.PropertyValue = this.ExPropsHotel_VN._CheckInPolicy;
+                var CheckOutPolicy_VN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CheckOutPolicy, Languages.VN);
+                CheckOutPolicy_VN.PropertyValue = this.ExPropsHotel_VN._CheckOutPolicy;
+                var ChildAndExtraBedRoomPolicy_VN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.ChildAndExtraBedRoomPolicy, Languages.VN);
+                ChildAndExtraBedRoomPolicy_VN.PropertyValue = this.ExPropsHotel_VN._ChildAndExtraBedRoomPolicy;
+                var ReservationPolicy_VN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.ReservationPolicy, Languages.VN);
+                ReservationPolicy_VN.PropertyValue = this.ExPropsHotel_VN._ReservationPolicy;
 
                 var AlarmService = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.AlarmService);
                 AlarmService.PropertyValue = this.IsAlarmServiceFO.ToString();
@@ -134,7 +150,7 @@ namespace NamolyNomenclature.Domain
                     uow.Update(CheckInPolicy_VN);
                     uow.Update(AlarmService);
                 }
-            }            
+            }
         }
 
         private BusinessEntityProperty CreateExPropNonLang(HotelPropertyKeyName hotelPropertyKeyName, string PropertyValue)
@@ -147,16 +163,17 @@ namespace NamolyNomenclature.Domain
             exPropNonLang.BusinessEntityId = this.Id;
             return exPropNonLang;
         }
-       
-        public void ReadFromDB(){
-            this.ExPropsHotel_VN._CancellationPolicy=ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CancellationPolicy,Languages.VN).PropertyValue;
+
+        public void ReadFromDB()
+        {
+            this.ExPropsHotel_VN._CancellationPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CancellationPolicy, Languages.VN).PropertyValue;
             this.ExPropsHotel_VN._CheckInPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CheckInPolicy, Languages.VN).PropertyValue;
-            
+
             this.ExPropsHotel_EN._CancellationPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CancellationPolicy, Languages.EN).PropertyValue;
             this.ExPropsHotel_EN._CheckInPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CheckInPolicy, Languages.EN).PropertyValue;
-            
+
             var AlarmServiceFO_FDB = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.AlarmService);
-            if (AlarmServiceFO_FDB!=null)
+            if (AlarmServiceFO_FDB != null)
             {
                 this.IsAlarmServiceFO = AlarmServiceFO_FDB.PropertyValue.ToBool();
             }
@@ -164,19 +181,19 @@ namespace NamolyNomenclature.Domain
 
         private BusinessEntityProperty ReadBusinessEntityDB(int? hotel_Id, HotelPropertyKeyName hotelPropertyKeyName, string language = Languages.VN)
         {
-            return  NamolyNomenclatureContext.BusinessEntityProperties.Single(
+            return NamolyNomenclatureContext.BusinessEntityProperties.Single(
                     where: "BusinessEntityId=@0 and PropertyKey=@1 and Language=@2",
                     parms: new object[] { hotel_Id, hotelPropertyKeyName, language });
         }
 
-        private Hotel FindHotelByName(string Name,string language=null)
+        private Hotel FindHotelByName(string Name, string language = null)
         {
             var prop = NamolyNomenclatureContext.Hotels.Single(
-                where: "Name=@0", 
+                where: "Name=@0",
                     parms: new object[] { Name });
             return prop != null ? prop : null;
         }
-	}
+    }
 
     public enum HotelPropertyCategory
     {
