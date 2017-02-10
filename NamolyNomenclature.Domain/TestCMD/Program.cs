@@ -29,8 +29,24 @@ namespace TestCMD
                 //.ForMember(d => d.ExPropsHotel_EN._ChildAndExtraBedRoomPolicy, o => o.MapFrom(s => s.ChildAndExtraBedRoomPolicy_EN))
                 //.ForMember(d => d.ExPropsHotel_EN._ReservationPolicy, o => o.MapFrom(s => s.ReservationPolicy_EN))
                 //;       
-                c.CreateMap<FatherModel, Father>()
-                      .ForMember(dest => dest.Son.Id, opt => opt.MapFrom(src => src.SonId));
+                //c.CreateMap<FatherModel, Father>()
+                //      .ForMember(dest => dest.Son.Id, opt => opt.MapFrom(src => src.SonId));
+
+                c.CreateMap<HotelModel, Hotel>().ForMember(d => d.ExPropsHotel_EN._CancellationPolicy, o => o.MapFrom(s => s.CancellationPolicy_EN));
+
+                //.ForMember(d => d.ExPropsHotel_VN._CancellationPolicy, o => o.MapFrom(s => s.CancellationPolicy_VN))
+                //.ForMember(d => d.ExPropsHotel_VN._CheckInPolicy, o => o.MapFrom(s => s.CheckInPolicy_VN))
+                //.ForMember(d => d.ExPropsHotel_VN._CheckOutPolicy, o => o.MapFrom(s => s.CheckOutPolicy_VN))
+                //.ForMember(d => d.ExPropsHotel_VN._ChildAndExtraBedRoomPolicy, o => o.MapFrom(s => s.ChildAndExtraBedRoomPolicy_VN))
+                //.ForMember(d => d.ExPropsHotel_VN._ReservationPolicy, o => o.MapFrom(s => s.ReservationPolicy_VN));
+
+                //c.CreateMap<HotelModel, Hotel>()
+                //    .ForMember(d=>d.ExPropsHotel_EN, o => o.ResolveUsing(fa =>
+                //    {
+
+                //    }
+                //));
+
             });
             var hotelModel = new HotelModel();
 
