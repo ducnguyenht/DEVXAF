@@ -12,51 +12,17 @@ namespace TestCMD
     {
         static void Main(string[] args)
         {
+            Mapper.Initialize(c =>
+            {
+                c.ReplaceMemberName(@"_VN", "");
+                c.ReplaceMemberName(@"_EN", "");
+                c.CreateMap<Source, Destination>();
+            });
+
+
 
             #region update
             var hsdb2 = NamolyNomenclatureContext.Hotels.Single(48);
-
-            var ht = NamolyNomenclatureContext.Hotels.Single
-                (where: "Name=@0", parms: "galina nha trang");
-            if (ht == null)
-            {
-                ht = new Hotel();
-                ht.Name = "galina nha trang";
-                ht.Address = "so 5 hung vuong nha trang";
-                ht.City = "NT";
-                ht.Code = "galinatrang";
-                ht.Country = "VN";
-                ht.Email = "galina@mail.com";
-                ht.Fax = "1111111111";
-                ht.Phone = "222222222";
-                ht.Website = "www.galinahotel.com";
-                ht.ExPropsHotel_VN._CheckInPolicy = "chinh sach tra phong galina html";
-                ht.ExPropsHotel_VN._CancellationPolicy = "chinh sach huy phong galina html";
-                ht.ExPropsHotel_EN._CheckInPolicy = "check in policy galina html";
-                ht.ExPropsHotel_EN._CancellationPolicy = "cancellation policy galina html";
-                ht.IsAlarmService = true;
-                ht.CreateOrUpdateToDB();
-            }
-            else
-            {
-                ht.Name = "galina nha trang";
-                ht.Address = "Update so 5 hung vuong nha trang";
-                ht.City = "update NT";
-                ht.Code = "updategalinatrang";
-                ht.Country = "VN";
-                ht.Email = "updategalina@mail.com";
-                ht.Fax = "333333333";
-                ht.Phone = "4444444444";
-                ht.Website = "www.updategalinahotel.com";
-                ht.ExPropsHotel_VN._CheckInPolicy = "cap nhat chinh sach tra phong galina html";
-                ht.ExPropsHotel_VN._CancellationPolicy = "cap nhat chinh sach huy phong galina  html";
-                ht.ExPropsHotel_EN._CheckInPolicy = "update check in policy galina html";
-                ht.ExPropsHotel_EN._CancellationPolicy = "update cancellation policy galina html";
-                ht.IsAlarmService = false;
-                ht.IsAirConditioning = true;
-                ht.IsBarLounge = true;
-                ht.CreateOrUpdateToDB();
-            }
 
             var ht1 = NamolyNomenclatureContext.Hotels.Single
                 (where: "Name='You And We'");
@@ -106,11 +72,56 @@ namespace TestCMD
                 ht1.CreateOrUpdateToDB();
             }
 
+            var ht = NamolyNomenclatureContext.Hotels.Single
+                (where: "Name=@0", parms: "galina nha trang");
+            if (ht == null)
+            {
+                ht = new Hotel();
+                ht.Name = "galina nha trang";
+                ht.Address = "so 5 hung vuong nha trang";
+                ht.City = "NT";
+                ht.Code = "galinatrang";
+                ht.Country = "VN";
+                ht.Email = "galina@mail.com";
+                ht.Fax = "1111111111";
+                ht.Phone = "222222222";
+                ht.Website = "www.galinahotel.com";
+                ht.ExPropsHotel_VN._CheckInPolicy = "chinh sach tra phong galina html";
+                ht.ExPropsHotel_VN._CancellationPolicy = "chinh sach huy phong galina html";
+                ht.ExPropsHotel_EN._CheckInPolicy = "check in policy galina html";
+                ht.ExPropsHotel_EN._CancellationPolicy = "cancellation policy galina html";
+                ht.IsAlarmService = true;
+                ht.CreateOrUpdateToDB();
+            }
+            else
+            {
+                ht.Name = "galina nha trang";
+                ht.Address = "Update so 5 hung vuong nha trang";
+                ht.City = "update NT";
+                ht.Code = "updategalinatrang";
+                ht.Country = "VN";
+                ht.Email = "updategalina@mail.com";
+                ht.Fax = "333333333";
+                ht.Phone = "4444444444";
+                ht.Website = "www.updategalinahotel.com";
+                ht.ExPropsHotel_VN._CheckInPolicy = "cap nhat chinh sach tra phong galina html";
+                ht.ExPropsHotel_VN._CancellationPolicy = "cap nhat chinh sach huy phong galina  html";
+                ht.ExPropsHotel_EN._CheckInPolicy = "update check in policy galina html";
+                ht.ExPropsHotel_EN._CancellationPolicy = "update cancellation policy galina html";
+                ht.IsAlarmService = false;
+                ht.IsAirConditioning = true;
+                ht.IsBarLounge = true;
+                ht.CreateOrUpdateToDB();
+            }
+
+
+
             var lstHotel = NamolyNomenclatureContext.Hotels.All();
 
 
 
             #endregion
+
 
 
 
