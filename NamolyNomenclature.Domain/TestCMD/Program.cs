@@ -14,7 +14,7 @@ namespace TestCMD
         {
 
             #region update
-            var hsdb2 = NamolyNomenclatureContext.Hotels.Single(43);
+            var hsdb2 = NamolyNomenclatureContext.Hotels.Single(48);
 
             var ht = NamolyNomenclatureContext.Hotels.Single
                 (where: "Name=@0", parms: "galina nha trang");
@@ -79,21 +79,21 @@ namespace TestCMD
             }
             else
             {
-                ht.Name = "You And We";
-                ht.Address = "Update so 5 YAW";
-                ht.City = "update HCM";
-                ht.Code = "updateyaw";
-                ht.Country = "VN";
-                ht.Email = "yaw@mail.com";
-                ht.Fax = "3333333333";
-                ht.Phone = "444444444";
-                ht.Website = "www.youandwe.com";
-                ht.ExPropsHotel_VN._CheckInPolicy = "cap nhat chinh sach tra phong YAW html";
-                ht.ExPropsHotel_VN._CancellationPolicy = "cap nhat chinh sach huy phong YAW html";
-                ht.ExPropsHotel_EN._CheckInPolicy = "update check in policy YAW html";
-                ht.ExPropsHotel_EN._CancellationPolicy = "update cancellation policy YAW html";
-                ht.IsAlarmService = false;
-                ht.CreateOrUpdateToDB();
+                ht1.Name = "You And We";
+                ht1.Address = "Update so 5 YAW";
+                ht1.City = "update HCM";
+                ht1.Code = "updateyaw";
+                ht1.Country = "VN";
+                ht1.Email = "yaw@mail.com";
+                ht1.Fax = "3333333333";
+                ht1.Phone = "444444444";
+                ht1.Website = "www.youandwe.com";
+                ht1.ExPropsHotel_VN._CheckInPolicy = "cap nhat chinh sach tra phong YAW html";
+                ht1.ExPropsHotel_VN._CancellationPolicy = "cap nhat chinh sach huy phong YAW html";
+                ht1.ExPropsHotel_EN._CheckInPolicy = "update check in policy YAW html";
+                ht1.ExPropsHotel_EN._CancellationPolicy = "update cancellation policy YAW html";
+                ht1.IsAlarmService = false;
+                ht1.CreateOrUpdateToDB();
             }
 
             var lstHotel = NamolyNomenclatureContext.Hotels.All();
