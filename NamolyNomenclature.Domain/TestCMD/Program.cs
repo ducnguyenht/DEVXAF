@@ -118,6 +118,18 @@ namespace TestCMD
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 //var CancellationPolicy_EN = hsdb1.ExPropsHotel_EN._CancellationPolicy;
 //var a= hsdb1.ExPropsHotel_EN._CheckInPolicy;
 //hsdb1.CancellationPolicy = "English Cancellation Policy html...";
