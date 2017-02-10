@@ -70,7 +70,7 @@ namespace TestCMD
         public bool IsBBQFacilities { get; set; }
         public bool IsBreakfast { get; set; }
         public bool IsMinibar { get; set; }
-        public new bool IsRestaurant { get; set; }
+        public bool IsRestaurant { get; set; }
         #endregion 3.FoodAndDrink
 
         #region 4.Business
