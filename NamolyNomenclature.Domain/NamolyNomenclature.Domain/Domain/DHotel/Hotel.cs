@@ -163,26 +163,26 @@ namespace NamolyNomenclature.Domain
             else
             {
                 var CancellationPolicy_EN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CancellationPolicy, Languages.EN);
-                CancellationPolicy_EN.PropertyValue = this.ExPropsHotel_EN._CancellationPolicy;
+                CancellationPolicy_EN.PropertyValue = this.ExPropsHotel_EN.CancellationPolicy;
                 var CheckInPolicy_EN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CheckInPolicy, Languages.EN);
-                CheckInPolicy_EN.PropertyValue = this.ExPropsHotel_EN._CheckInPolicy;
+                CheckInPolicy_EN.PropertyValue = this.ExPropsHotel_EN.CheckInPolicy;
                 var CheckOutPolicy_EN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CheckOutPolicy, Languages.EN);
-                CheckOutPolicy_EN.PropertyValue = this.ExPropsHotel_EN._CheckOutPolicy;
+                CheckOutPolicy_EN.PropertyValue = this.ExPropsHotel_EN.CheckOutPolicy;
                 var ChildAndExtraBedRoomPolicy_EN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.ChildAndExtraBedRoomPolicy, Languages.EN);
-                ChildAndExtraBedRoomPolicy_EN.PropertyValue = this.ExPropsHotel_EN._ChildAndExtraBedRoomPolicy;
+                ChildAndExtraBedRoomPolicy_EN.PropertyValue = this.ExPropsHotel_EN.ChildAndExtraBedRoomPolicy;
                 var ReservationPolicy_EN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.ReservationPolicy, Languages.EN);
-                ReservationPolicy_EN.PropertyValue = this.ExPropsHotel_EN._ReservationPolicy;
+                ReservationPolicy_EN.PropertyValue = this.ExPropsHotel_EN.ReservationPolicy;
 
                 var CancellationPolicy_VN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CancellationPolicy, Languages.VN);
-                CancellationPolicy_VN.PropertyValue = this.ExPropsHotel_VN._CancellationPolicy;
+                CancellationPolicy_VN.PropertyValue = this.ExPropsHotel_VN.CancellationPolicy;
                 var CheckInPolicy_VN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CheckInPolicy, Languages.VN);
-                CheckInPolicy_VN.PropertyValue = this.ExPropsHotel_VN._CheckInPolicy;
+                CheckInPolicy_VN.PropertyValue = this.ExPropsHotel_VN.CheckInPolicy;
                 var CheckOutPolicy_VN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CheckOutPolicy, Languages.VN);
-                CheckOutPolicy_VN.PropertyValue = this.ExPropsHotel_VN._CheckOutPolicy;
+                CheckOutPolicy_VN.PropertyValue = this.ExPropsHotel_VN.CheckOutPolicy;
                 var ChildAndExtraBedRoomPolicy_VN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.ChildAndExtraBedRoomPolicy, Languages.VN);
-                ChildAndExtraBedRoomPolicy_VN.PropertyValue = this.ExPropsHotel_VN._ChildAndExtraBedRoomPolicy;
+                ChildAndExtraBedRoomPolicy_VN.PropertyValue = this.ExPropsHotel_VN.ChildAndExtraBedRoomPolicy;
                 var ReservationPolicy_VN = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.ReservationPolicy, Languages.VN);
-                ReservationPolicy_VN.PropertyValue = this.ExPropsHotel_VN._ReservationPolicy;
+                ReservationPolicy_VN.PropertyValue = this.ExPropsHotel_VN.ReservationPolicy;
 
                 var AlarmService = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.AlarmService);
                 AlarmService.PropertyValue = this.IsAlarmService.ToString();
@@ -407,11 +407,11 @@ namespace NamolyNomenclature.Domain
         private ExPropsHotel ReadFromDBWithLanguage(string language)
         {
             var prop = new ExPropsHotel();
-            prop._CancellationPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CancellationPolicy, language).PropertyValue;
-            prop._CheckInPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CheckInPolicy, language).PropertyValue;
-            prop._CheckOutPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CheckOutPolicy, language).PropertyValue;
-            prop._ChildAndExtraBedRoomPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.ChildAndExtraBedRoomPolicy, language).PropertyValue;
-            prop._ReservationPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.ReservationPolicy, language).PropertyValue;
+            prop.CancellationPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CancellationPolicy, language).PropertyValue;
+            prop.CheckInPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CheckInPolicy, language).PropertyValue;
+            prop.CheckOutPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.CheckOutPolicy, language).PropertyValue;
+            prop.ChildAndExtraBedRoomPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.ChildAndExtraBedRoomPolicy, language).PropertyValue;
+            prop.ReservationPolicy = ReadBusinessEntityDB(this.Id, HotelPropertyKeyName.ReservationPolicy, language).PropertyValue;
             return prop;
         }
         private BusinessEntityProperty CreateExPropNonLang(HotelPropertyKeyName hotelPropertyKeyName, string PropertyValue)
