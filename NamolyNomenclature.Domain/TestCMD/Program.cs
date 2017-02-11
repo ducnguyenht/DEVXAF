@@ -108,7 +108,7 @@ namespace TestCMD
             var lstHotel = NamolyNomenclatureContext.Hotels.All();
             foreach (var item in lstHotel)
             {
-                NamolyNomenclatureContext.Hotels.Delete(item);
+                //NamolyNomenclatureContext.Hotels.Delete(item);
             }
             #endregion
 
@@ -134,6 +134,7 @@ namespace TestCMD
             hotelModel.ReservationPolicy_EN = "reservation room html";
 
             var h = Mapper.Map<Hotel>(hotelModel);
+
             h.ExPropsHotel_EN.CancellationPolicy = hotelModel.CancellationPolicy_EN;
             h.ExPropsHotel_EN.CheckInPolicy = hotelModel.CheckInPolicy_EN;
             h.ExPropsHotel_EN.CheckOutPolicy = hotelModel.CheckOutPolicy_EN;
