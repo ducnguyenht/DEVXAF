@@ -96,6 +96,7 @@ namespace TestCMD
                 ht.Fax = "333333333";
                 ht.Phone = "4444444444";
                 ht.Website = "www.updategalinahotel.com";
+
                 ht.ExPropsHotel_VN.CheckInPolicy = "cap nhat chinh sach tra phong galina html";
                 ht.ExPropsHotel_VN.CancellationPolicy = "cap nhat chinh sach huy phong galina  html";
                 ht.ExPropsHotel_EN.CheckInPolicy = "update check in policy galina html";
