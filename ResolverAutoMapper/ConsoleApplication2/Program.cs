@@ -21,11 +21,11 @@ namespace ConsoleApplication2
                     .ForMember(d => d.A, opt => opt.MapFrom(s => s.A))
                     .ForMember(d => d.Child_VN,
                         opt => opt.MapFrom(
-                            s => Mapper.Map<DomainClass, Child>(s)
+                            s => Mapper.Map<Child>(s)
                             )
                       )
                     .ForMember(d => d.Child_EN,
-                        opt => opt.MapFrom(s => Mapper.Map<DomainClass, Child>(s)));
+                        opt => opt.MapFrom(s => Mapper.Map<Child>(s)));
             });
             var dm = new DomainClass { Id = 1, A = "A", B_VN = "B_VN", B_EN = "B_EN" };
             var pa = Mapper.Map<Parent>(dm);

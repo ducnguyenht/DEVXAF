@@ -22,11 +22,25 @@ namespace ConsoleApplication1
             Mapper.Initialize(cfg =>
             {
                 cfg.RecognizePrefixes("frm");
-                cfg.RecognizePostfixes("_VI");
+                //cfg.RecognizePostfixes("_VI");
+                //cfg.RecognizePostfixes("_EN");
+                cfg.CreateMap<Source, Content>();
                 cfg.CreateMap<Source, Destination>()
+
                     //.ForMember(dest => dest.Content_VN, opt => opt.ResolveUsing<CustomResolverVI>())
-                .ForMember(dest => dest.Content_EN, opt => opt.ResolveUsing<CustomResolverEN>())
-                .ForMember(dest => dest.Content_VN, opt => opt.ResolveUsing(src => { return new Content() { Value1 = src.Value1_VI, Value2 = src.Value2_VI }; }));
+                    //.ForMember(dest => dest.Content_EN, opt => opt.ResolveUsing<CustomResolverEN>())
+                .ForMember(dest => dest.Content_VN, opt => opt.ResolveUsing(
+                        src => { return new Content { Value1 = src.Value1_VI, Value2 = src.Value2_VI }; }
+
+                ))
+                .ForMember(dest => dest.Content_EN, opt => opt.ResolveUsing(
+                    src => Mapper.Map<Content>(src)
+
+                ));
+                // .ForMember(dest => dest.Content_VN, opt => opt.ResolveUsing(
+                //    src => Mapper.Map<Content>(src)
+
+                //));
             });
             var source = new Source
                 {
