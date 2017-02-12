@@ -13,8 +13,9 @@ namespace ConsoleApplication1
         {
             Mapper.Initialize(cfg =>
                 cfg.CreateMap<Source, Destination>()
-                .ForMember(dest => dest.Content_VN, opt => opt.ResolveUsing<CustomResolverVi>())
-                .ForMember(dest => dest.Content_EN, opt => opt.ResolveUsing<CustomResolverEn>())
+                .ForMember(dest => dest.Content_VN, opt => opt.ResolveUsing<CustomResolverVI>())
+                .ForMember(dest => dest.Content_EN, opt => opt.ResolveUsing<CustomResolverEN>())
+
             );
             var source = new Source
                 {

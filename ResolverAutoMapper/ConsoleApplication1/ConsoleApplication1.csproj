@@ -46,8 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Content.cs" />
-    <Compile Include="CustomResolverEn.cs" />
-    <Compile Include="CustomResolverVi.cs" />
+    <Compile Include="CustomResolverEN.cs" />
+    <Compile Include="CustomResolverVI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source.cs" />

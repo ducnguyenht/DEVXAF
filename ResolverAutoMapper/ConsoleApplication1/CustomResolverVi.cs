@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1
 {
-    public class CustomResolverVi : IValueResolver<Source, Destination, Content>
+    public class CustomResolverVI : IValueResolver<Source, Destination, Content>
     {
         public Content Resolve(Source source, Destination destination, Content member, ResolutionContext context)
         {
