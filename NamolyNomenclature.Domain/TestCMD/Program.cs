@@ -137,29 +137,17 @@ namespace TestCMD
                         {
                             return new ExPropsHotel
                             {
-                                CancellationPolicy = src.CancellationPolicy_VN,
-                                CheckInPolicy = src.CheckInPolicy_VN,
-                                CheckOutPolicy = src.CheckOutPolicy_VN,
-                                ChildAndExtraBedRoomPolicy = src.ChildAndExtraBedRoomPolicy_VN,
-                                ReservationPolicy = src.ReservationPolicy_VN
+                                CancellationPolicy = src.CancellationPolicy_EN,
+                                CheckInPolicy = src.CheckInPolicy_EN,
+                                CheckOutPolicy = src.CheckOutPolicy_EN,
+                                ChildAndExtraBedRoomPolicy = src.ChildAndExtraBedRoomPolicy_EN,
+                                ReservationPolicy = src.ReservationPolicy_EN
                             };
                         }
                 ));
             });
             var hotelModel = new HotelModel();
-            hotelModel.Address = "so 5 hung vuong";
-            hotelModel.IsAirConditioning = true;
-            hotelModel.CancellationPolicy_VN = "huy phong html";
-            hotelModel.CheckInPolicy_VN = "nhan phong html";
-            hotelModel.CheckOutPolicy_VN = "tra phong html";
-            hotelModel.ChildAndExtraBedRoomPolicy_VN = "tre em va them giuong html";
-            hotelModel.ReservationPolicy_VN = "dat phong html";
 
-            hotelModel.CancellationPolicy_EN = "cancel room html";
-            hotelModel.CheckInPolicy_EN = "check in room  html";
-            hotelModel.CheckOutPolicy_EN = "check out room  html";
-            hotelModel.ChildAndExtraBedRoomPolicy_EN = "child and extra  html";
-            hotelModel.ReservationPolicy_EN = "reservation room html";
 
             var h = Mapper.Map<Hotel>(hotelModel);
             //h.CreateOrUpdateToDB();
@@ -167,6 +155,22 @@ namespace TestCMD
         }
     }
 }
+
+
+//hotelModel.Address = "so 5 hung vuong";
+//hotelModel.IsAirConditioning = true;
+//hotelModel.CancellationPolicy_VN = "huy phong html";
+//hotelModel.CheckInPolicy_VN = "nhan phong html";
+//hotelModel.CheckOutPolicy_VN = "tra phong html";
+//hotelModel.ChildAndExtraBedRoomPolicy_VN = "tre em va them giuong html";
+//hotelModel.ReservationPolicy_VN = "dat phong html";
+
+//hotelModel.CancellationPolicy_EN = "cancel room html";
+//hotelModel.CheckInPolicy_EN = "check in room  html";
+//hotelModel.CheckOutPolicy_EN = "check out room  html";
+//hotelModel.ChildAndExtraBedRoomPolicy_EN = "child and extra  html";
+//hotelModel.ReservationPolicy_EN = "reservation room html";
+
 
 //h.ExPropsHotel_EN.CancellationPolicy = hotelModel.CancellationPolicy_EN;
 //h.ExPropsHotel_EN.CheckInPolicy = hotelModel.CheckInPolicy_EN;
