@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterCms.Demo.Web", "BetterCms.Demo.Web\BetterCms.Demo.Web.csproj", "{F120D13C-2D36-44CB-894D-769EFE47BCEF}"
 	ProjectSection(ProjectDependencies) = postProject
 		{E45B69FE-434C-4B5D-81B2-C78934A1BF04} = {E45B69FE-434C-4B5D-81B2-C78934A1BF04}
@@ -18,6 +20,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterCMS.Module.Demo", "BetterCMS.Module.Demo\BetterCMS.Module.Demo.csproj", "{E45B69FE-434C-4B5D-81B2-C78934A1BF04}"
 EndProject
 Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
