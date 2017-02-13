@@ -118,10 +118,37 @@ namespace TestCMD
 
             Mapper.Initialize(c =>
             {
-                c.CreateMap<HotelModel, Hotel>();
-                c.CreateMap<HotelModel, ExPropsHotel>();
+                c.CreateMap<HotelModel, Hotel>()
+                .ForMember(dest => dest.ExPropsHotel_VN, opt => opt.ResolveUsing(
+                        src =>
+                        {
+                            return new ExPropsHotel
+                            {
+                                CancellationPolicy = src.CancellationPolicy_VN,
+                                CheckInPolicy = src.CheckInPolicy_VN,
+                                CheckOutPolicy = src.CheckOutPolicy_VN,
+                                ChildAndExtraBedRoomPolicy = src.ChildAndExtraBedRoomPolicy_VN,
+                                ReservationPolicy = src.ReservationPolicy_VN
+                            };
+                        }
+                ))
+                .ForMember(dest => dest.ExPropsHotel_EN, opt => opt.ResolveUsing(
+                        src =>
+                        {
+                            return new ExPropsHotel
+                            {
+                                CancellationPolicy = src.CancellationPolicy_VN,
+                                CheckInPolicy = src.CheckInPolicy_VN,
+                                CheckOutPolicy = src.CheckOutPolicy_VN,
+                                ChildAndExtraBedRoomPolicy = src.ChildAndExtraBedRoomPolicy_VN,
+                                ReservationPolicy = src.ReservationPolicy_VN
+                            };
+                        }
+                ));
             });
             var hotelModel = new HotelModel();
+            hotelModel.Address = "so 5 hung vuong";
+            hotelModel.IsAirConditioning = true;
             hotelModel.CancellationPolicy_VN = "huy phong html";
             hotelModel.CheckInPolicy_VN = "nhan phong html";
             hotelModel.CheckOutPolicy_VN = "tra phong html";
@@ -135,21 +162,23 @@ namespace TestCMD
             hotelModel.ReservationPolicy_EN = "reservation room html";
 
             var h = Mapper.Map<Hotel>(hotelModel);
+            //h.CreateOrUpdateToDB();
 
-            h.ExPropsHotel_EN.CancellationPolicy = hotelModel.CancellationPolicy_EN;
-            h.ExPropsHotel_EN.CheckInPolicy = hotelModel.CheckInPolicy_EN;
-            h.ExPropsHotel_EN.CheckOutPolicy = hotelModel.CheckOutPolicy_EN;
-            h.ExPropsHotel_EN.ChildAndExtraBedRoomPolicy = hotelModel.ChildAndExtraBedRoomPolicy_EN;
-            h.ExPropsHotel_EN.ReservationPolicy = hotelModel.ReservationPolicy_EN;
-
-            h.ExPropsHotel_VN.CancellationPolicy = hotelModel.CancellationPolicy_VN;
-            h.ExPropsHotel_VN.CheckInPolicy = hotelModel.CheckInPolicy_VN;
-            h.ExPropsHotel_VN.CheckOutPolicy = hotelModel.CheckOutPolicy_VN;
-            h.ExPropsHotel_VN.ChildAndExtraBedRoomPolicy = hotelModel.ChildAndExtraBedRoomPolicy_VN;
-            h.ExPropsHotel_VN.ReservationPolicy = hotelModel.ReservationPolicy_VN;
         }
     }
 }
+
+//h.ExPropsHotel_EN.CancellationPolicy = hotelModel.CancellationPolicy_EN;
+//h.ExPropsHotel_EN.CheckInPolicy = hotelModel.CheckInPolicy_EN;
+//h.ExPropsHotel_EN.CheckOutPolicy = hotelModel.CheckOutPolicy_EN;
+//h.ExPropsHotel_EN.ChildAndExtraBedRoomPolicy = hotelModel.ChildAndExtraBedRoomPolicy_EN;
+//h.ExPropsHotel_EN.ReservationPolicy = hotelModel.ReservationPolicy_EN;
+
+//h.ExPropsHotel_VN.CancellationPolicy = hotelModel.CancellationPolicy_VN;
+//h.ExPropsHotel_VN.CheckInPolicy = hotelModel.CheckInPolicy_VN;
+//h.ExPropsHotel_VN.CheckOutPolicy = hotelModel.CheckOutPolicy_VN;
+//h.ExPropsHotel_VN.ChildAndExtraBedRoomPolicy = hotelModel.ChildAndExtraBedRoomPolicy_VN;
+//h.ExPropsHotel_VN.ReservationPolicy = hotelModel.ReservationPolicy_VN;
 
 //.ForMember(d => d.ExPropsHotel_VN._CancellationPolicy, o => o.MapFrom(s => s.CancellationPolicy_VN))
 //.ForMember(d => d.ExPropsHotel_VN._CheckInPolicy, o => o.MapFrom(s => s.CheckInPolicy_VN))
