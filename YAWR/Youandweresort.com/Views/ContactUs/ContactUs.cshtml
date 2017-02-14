@@ -1,0 +1,179 @@
+﻿@model Youandweresort.com.Models.ContactUs
+@{
+    ViewBag.Title = "Contact Us";
+}
+<link href="~/Content/css/ContactUs/ContactUs.css" rel="stylesheet" />
+<section class="nas-room">
+    <section class="banner-img contact-us">
+        <div class="overlay-black"></div>
+        <div class="text text-center name-room-hotel">
+            <h2>Contact us</h2>
+            <p>Lorem Ipsum is simply dummy text</p>
+        </div>
+    </section>
+</section>
+<div class="margin-content">
+    <section class="yaw-introduce-contactus">
+        <div class="padding-content">
+            <h1>Location</h1>
+            <p>
+                Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel. luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel
+            </p>
+        </div>
+    </section>
+    <section class="nas-post-location">
+        <div class="yaw-location">
+            <div class="col-md-3 col-sm-6 col-xs-12 box-location">
+                <div class="yaw-location-img"><span class="glyphicons glyphicons-map"></span></div>
+                <div class="yaw-location-information">Tran Hung Dao Street, Cua Lap Hamlet, Duong To Commune, Phu Quoc Island</div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 box-location">
+                <div class="yaw-location-img"><span class="glyphicons glyphicons-iphone"></span></div>
+                <div class="yaw-location-information">+84 (0) 77 6257979</div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 box-location">
+                <div class="yaw-location-img"><span class="glyphicons glyphicons-fax"></span></div>
+                <div class="yaw-location-information">+84 (0) 77 398 3355</div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 box-location">
+                <div class="yaw-location-img"><span class="glyphicons glyphicons-envelope"></span></div>
+                <div class="yaw-location-information">info@youandweresort.com</div>
+            </div>
+            <section class="col-md-6 col-xs-12" style="overflow:hidden;">
+                @using (Ajax.BeginForm("SendMailCts", "ContactUs", null, new AjaxOptions
+                {
+                    HttpMethod = "POST",
+                    OnBegin = "BookBegin",
+                    OnSuccess = "BookSuccess",
+                    OnFailure = "BookFailure",
+                    InsertionMode = InsertionMode.Replace
+                }, new { @class = "contact-form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <div class="col-md-6 col-sm-6 col-xs-12 form-group " style="overflow:hidden;">
+                        @Html.TextBoxFor(m => m.Name, null, new { @class = "form-control", @placeholder = "Name" })
+                        <div class="form-error-text">
+                            @Html.ValidationMessageFor(m => m.Name)
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12  form-group ">
+                        @Html.TextBoxFor(m => m.Email, null, new { @class = "form-control", @placeholder = "Email", type = "email" })
+                        <div class="form-error-text">
+                            @Html.ValidationMessageFor(m => m.Email)
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-xs-12 form-group " style="overflow:auto;">
+                        @Html.TextBoxFor(m => m.Subject, null, new { @class = "form-control", @placeholder = "Subject" })
+                        <div class="form-error-text">
+                            @Html.ValidationMessageFor(m => m.Subject)
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-xs-12 form-group ">
+                        @Html.TextAreaFor(m => m.Messages, new { @class = "form-control", @placeholder = "Messages", @style = "height:100px" })
+                        <div class="form-error-text">
+                            @Html.ValidationMessageFor(m => m.Messages)
+                        </div>
+                    </div>
+                    <div class="around-spinner">
+                        <div class="around-spinner-table">
+                            <div class="around-spinner-table-cell">
+                                <div class="spinner">
+                                    <div class="rect1"></div>
+                                    <div class="rect2"></div>
+                                    <div class="rect3"></div>
+                                    <div class="rect4"></div>
+                                    <div class="rect5"></div>
+                                </div>
+                                <div style="margin: 20px 0;text-transform: uppercase;font-weight: 600;color: #333;text-align:center">
+                                    <p>Wait a minute</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="success-text">
+                        <div class="around-spinner-table">
+                            <div class="around-spinner-table-cell">
+                                <div class="text">
+                                    Thank you for your contact - We will contact you as soon as possible - Have a good day !!!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="error-text">
+                        <div class="around-spinner-table">
+                            <div class="around-spinner-table-cell">
+                                <div class="text">
+                                    Oh Sorry ! Your contact can not be sent from you right now - Please try again shortly !!!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align:center;">
+                        <input type="submit" class="yaw-button yaw-button-view submit-send" value="Send">
+                    </div>
+                }
+            </section>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9343.765505993477!2d103.96442153326055!3d10.189171949149113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a78dac90570e91%3A0x16cf0279cf044c2f!2zVHLhuqduIEjGsG5nIMSQ4bqhbywgQ-G7rWEgTOG6pXAsIETGsMahbmcgVMahLCB0cC4gUGjDuiBRdeG7kWMsIHThu4luaCBLacOqbiBHaWFuZywgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2sus!4v1481001441876" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <img src="~/Images/shadow-video.png" style="margin:auto;display:block;max-width:100%;height:auto;" />
+            <section class="yaw-other-location">
+                <h4>Other location</h4>
+                <div class="col-md-6 col-xs-12 box-otherlocation">
+                    <h5>Ha Noi City Office</h5>
+                    <div class="img"><img src="~/Images/restaurantbar/food-1.jpg" /></div>
+                    <div class="text">
+                        <ul>
+                            <li>
+                                Tel : +84 (0) 932341771 (Ms Hien)
+                            </li>
+                            <li>
+                                Mail:  sales2@youandweresort.com
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12 box-otherlocation">
+                    <h5>Ho Chi Minh City Office</h5>
+                    <div class="img"><img src="~/Images/restaurantbar/water-1.jpg" /></div>
+                    <div class="text">
+                        <ul>
+                            <li>
+                                Tel: +84 (0) 947296748 (Ms Au)
+                            </li>
+                            <li>
+                                Mail: sales1@youandweresort.com
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+</div>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script type="text/javascript">
+    function BookBegin() {
+        $('.around-spinner').addClass('opacity-appear');
+        $('.submit-send').hide();
+    }
+    function BookSuccess() {
+        $('.around-spinner').removeClass('opacity-appear');
+        $('.success-text').addClass('opacity-appear');
+        $('.submit-send').show();
+        setTimeout(function () {
+            window.location.reload();
+        }, 4000)
+    }
+    function BookFailure() {
+        $('.around-spinner').removeClass('opacity-appear');
+        $('.error-text').addClass('opacity-appear');
+        $('.submit-send').show();
+        setTimeout(function () {
+            window.location.reload();
+        }, 4000)
+    }
+</script>

@@ -1,0 +1,164 @@
+﻿
+@{
+    ViewBag.Title = "Gallery";
+}
+<link href="~/Content/css/Gallery/Gallery.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.filterizr.min.js"></script>
+<script src="~/Scripts/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript">
+    //set chạy filter image
+        $(function() {
+            $('.filtr-container').filterizr();
+        });
+    //set active cho button filter
+        $(function () {
+            $('.simplefilter li').click(function () {
+                $('.simplefilter li').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    //set chạy popup khi click vào hình
+        $(function () {
+            $('#grid-image').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                image: {
+                    cursor: null,
+                    titleSrc: 'title'
+                },
+                callbacks: {
+                    beforeOpen: function() {
+                        this.st.mainClass = this.st.el.attr('data-effect');
+                    }
+                },
+                midClick: true,
+                gallery: {
+                    enabled: true,
+                    preload: [0, 1], // Will preload 0 - before current, and 1 after the current image
+                    navigateByImgClick: true
+                }
+            });
+        });
+</script>
+<section class="nas-room">
+    <section class="banner-img galina-spa">
+        <div class="overlay-black"></div>
+        <div class="text text-center name-room-hotel">
+            <h2>Gallery</h2>
+            <p>Lorem Ipsum is simply dummy text</p>
+        </div>
+    </section>
+</section>
+<section class="yaw-gallery">
+    <div class="col-md-12">
+        <div class="list-filter">
+            <ul class="simplefilter">
+                <li class="active" data-filter="all">All</li>
+                <li data-filter="1">Food</li>
+                <li data-filter="2">Water</li>
+            </ul>
+        </div>
+        <div class="col-md-12">
+            <div class="filtr-container" id="grid-image">
+                <div class="col-xs-12 col-sm-4 col-md-3 filtr-item" data-category="1" data-sort="Food 1">
+                    <a href="~/Images/restaurantbar/food-1.jpg" title="Food" data-effect="mfp-move-horizontal">
+                        <p>
+                            <img class="img-responsive" src="~/Images/restaurantbar/food-1.jpg" alt="sample image" title="Food">
+                        </p>
+                        <span class="item-desc">Food </span>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 filtr-item" data-category="2" data-sort="Dreamhouse">
+                    <a href="~/Images/restaurantbar/water-4.jpg" title="Water" data-effect="mfp-move-horizontal">
+                        <p>
+                            <img class="img-responsive" src="~/Images/restaurantbar/water-4.jpg" alt="Water 4">
+                        </p>
+                        <span class="item-desc">Water </span>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 filtr-item" data-category="1" data-sort="Food 1">
+                    <a href="~/Images/restaurantbar/food-1.jpg" title="Food" data-effect="mfp-move-horizontal">
+                        <p>
+                            <img class="img-responsive" src="~/Images/restaurantbar/food-1.jpg" alt="sample image">
+                        </p>                     
+                        <span class="item-desc">Food </span>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 filtr-item" data-category="1" data-sort="Food 1">
+                    <a href="~/Images/restaurantbar/food-1.jpg" title="Food" data-effect="mfp-move-horizontal">
+                        <p>
+                            <img class="img-responsive" src="~/Images/restaurantbar/food-1.jpg" alt="sample image">
+                        </p>                        
+                        <span class="item-desc">Food </span>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 filtr-item" data-category="2" data-sort="Peaceful lake">
+                    <a href="~/Images/restaurantbar/water-2.jpg" title="Water" data-effect="mfp-move-horizontal">
+                        <p>
+                            <img class="img-responsive" src="~/Images/restaurantbar/water-2.jpg" alt="Water 2">
+                        </p>                       
+                        <span class="item-desc">Water </span>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 filtr-item" data-category="1" data-sort="In production">
+                    <a href="~/Images/restaurantbar/food-4.jpg" title="Food" data-effect="mfp-move-horizontal">
+                        <p>
+                            <img class="img-responsive" src="~/Images/restaurantbar/food-4.jpg" alt="Food 4">
+                        </p>                      
+                        <span class="item-desc">Food </span>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 filtr-item" data-category="1" data-sort="In production">
+                    <a href="~/Images/restaurantbar/food-4.jpg" title="Food" data-effect="mfp-move-horizontal">
+                        <p>
+                            <img class="img-responsive" src="~/Images/restaurantbar/food-4.jpg" alt="Food 4">
+                        </p>                       
+                        <span class="item-desc">Food </span>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 filtr-item" data-category="2" data-sort="Industrial site">
+                    <a href="~/Images/restaurantbar/water-1.jpg" title="Water" data-effect="mfp-move-horizontal">
+                        <p>
+                            <img class="img-responsive" src="~/Images/restaurantbar/water-1.jpg" alt="Water 1">
+                        </p>                      
+                        <span class="item-desc">Water </span>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 filtr-item" data-category="1" data-sort="Food 2">
+                    <a href="~/Images/restaurantbar/food-2.jpg" title="Food" data-effect="mfp-move-horizontal">
+                        <p>
+                            <img class="img-responsive" src="~/Images/restaurantbar/food-2.jpg" alt="sample image">
+                        </p>                      
+                        <span class="item-desc">Food</span>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 filtr-item" data-category="2" data-sort="City lights">
+                    <a href="~/Images/restaurantbar/water-3.jpg" title="Water" data-effect="mfp-move-horizontal">
+                        <p>
+                            <img class="img-responsive" src="~/Images/restaurantbar/water-3.jpg" alt="Water 3">
+                        </p>                    
+                        <span class="item-desc">Water</span>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 filtr-item" data-category="1" data-sort="Food 3">
+                    <a href="~/Images/restaurantbar/food-3.jpg" title="Food" data-effect="mfp-move-horizontal">
+                        <p>
+                            <img class="img-responsive" src="~/Images/restaurantbar/food-3.jpg" alt="sample image">
+                        </p>                        
+                        <span class="item-desc">Food </span>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 filtr-item" data-category="2" data-sort="City lights">
+                    <a href="~/Images/restaurantbar/water-3.jpg" title="Water" data-effect="mfp-move-horizontal">
+                        <p>
+                            <img class="img-responsive" src="~/Images/restaurantbar/water-3.jpg" alt="Water 3">
+                        </p>                       
+                        <span class="item-desc">Water</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

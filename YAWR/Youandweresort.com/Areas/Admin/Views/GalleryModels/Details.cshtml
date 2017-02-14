@@ -1,0 +1,35 @@
+﻿@model Youandweresort.com.Areas.Admin.Models.GalleryModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GalleryModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Gallery_VN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gallery_VN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gallery_EN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gallery_EN)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

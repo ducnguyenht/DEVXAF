@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - You & We Resort</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @*<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=vietnamese" rel="stylesheet">*@
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Condensed:400,600&amp;subset=vietnamese" rel="stylesheet">
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    @*<link href="~/Content/animate.css" rel="stylesheet" />*@
+</head>
+<body >
+    <div class="scroll-top">
+        <span class="halflings halflings-menu-up"></span>
+    </div>
+    @*Post Header*@
+    @{Html.RenderAction("Header", "Default");}
+    @*Post Menu*@
+    @{Html.RenderAction("Navigation", "Default");}
+    <div class="row nas-body"  >
+        @RenderBody()
+    </div>
+    @*Post Footer*@
+    @{Html.RenderAction("Footer", "Default");}
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    @*<div id="fb-root"></div>*@
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+  
+    <script>
+        //Smooth Scroll
+        $(function () {
+            jQuery.scrollSpeed(100, 800);
+        });
+        //Scroll top
+        $(function () {
+            $(".scroll-top").click(function () {
+                $('html,body').animate({
+                    scrollTop: $("header").offset().top
+                },
+                    800);
+            });
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+﻿.banner-img {
+    position: relative;
+    padding: 10% 0;
+    /*margin-bottom: 30px;*/
+}
+ .galina-spa{
+    background: #808080 url('../../../Images/galinaspa/spa.jpg') center bottom no-repeat  fixed;
+    background-size: cover;
+} 
+ .box-mudbath{
+      background: #808080 url('../../../Images/galinaspa/mudbath-service.jpg') center bottom no-repeat  fixed;
+    background-size: cover;
+ }
+ .box-spa{
+      background: #808080 url('../../../Images/galinaspa/spa-service.jpg') center bottom no-repeat  fixed;
+    background-size: cover;
+ }
+
+
+.name-room-hotel {
+    position: relative;
+    z-index: 3;
+}
+
+    .name-room-hotel h2 {
+        font-size: 2.2em;
+        font-weight: 800;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: -.5px;
+    }
+
+    .name-room-hotel p {
+        font-size: 1.2em;
+        color: #fff;
+    }
+    .yaw-introduce-galinaspa .padding-content h1 {
+    font-size: 2.7em;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.padding-content {
+    padding: 20px 15% 40px;
+    text-align: justify;
+    text-align-last: center;
+}
+   .yaw-service-galinaspa h1 {
+        font-size: 1.7em;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+        font-weight: 600;
+        margin: 0 0 15px 0;
+    }
+
+.icon-menu {
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 3;
+}
+
+    .icon-menu:before {
+        content: '';
+        position: absolute;
+        width: 10%;
+        height: 2px;
+        left: 36%;
+        top: 17px;
+        z-index: 2;
+        background: #232323;
+    }
+
+    .icon-menu:after {
+        content: '';
+        position: absolute;
+        width: 10%;
+        height: 2px;
+        right: 36%;
+        top: 17px;
+        z-index: 2;
+        background: #232323;
+    }
+    .service-spa{
+        margin-top:50px;
+    }
+.service-spa .box-spa , .service-spa .box-mudbath {
+    padding-left:0;
+    padding-right:0;
+    position:relative;
+    overflow:hidden;
+}
+@media screen and (max-width:480px){
+    .padding-content{
+            padding: 20px 5% 40px;
+    text-align: justify;
+    text-align-last:center;
+    }
+    .icon-menu:after {
+    right: 30%;
+}
+        .icon-menu:before {
+    left: 30%;
+}
+}

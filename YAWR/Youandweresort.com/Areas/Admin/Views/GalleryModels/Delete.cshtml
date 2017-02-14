@@ -1,0 +1,41 @@
+﻿@model Youandweresort.com.Areas.Admin.Models.GalleryModel
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>GalleryModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Gallery_VN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gallery_VN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gallery_EN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gallery_EN)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

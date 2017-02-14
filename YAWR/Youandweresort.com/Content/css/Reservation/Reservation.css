@@ -1,0 +1,243 @@
+﻿ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#cssmenu {
+    float: left;
+    width: 100%;
+    margin: 0;
+    text-decoration:none;
+}
+#cssmenu li ul {
+    display: none;
+}
+#cssmenu li ul li a {
+    padding: 15px 15px;
+    background: #e8e8e8;
+    color: #666666;
+    border-bottom: 1px dotted #ccc;
+}
+#cssmenu a {
+    line-height: 1.3;
+    text-transform: uppercase;
+    text-decoration:none;
+}
+#cssmenu li > a {
+    font-size: 15px;
+    display: block;
+    background: url(menu_images/pattern.png) top left repeat;
+    color: #ffffff;
+    border-top: none;
+}
+#cssmenu li {
+    background: #FF722A;
+}
+#cssmenu li a.active {
+    background: #e36525;
+    color: #fff;
+}
+#cssmenu li:hover {
+    background: #e36525;
+}
+#cssmenu li > a {
+    display: block;
+    padding: 15px 15px;
+}
+#cssmenu li ul li a:hover {
+    background: pink;
+}
+#cssmenu li ul li a.active {
+    background-color: blue;
+}
+
+
+
+
+.yaw-book {
+    padding: 7%;
+    overflow: hidden;
+    background: #f1f1f1;
+}
+
+
+    .yaw-book label {
+      text-transform: uppercase;
+    font-size: 1em;
+    font-weight: bold;
+    }
+
+    .yaw-book sup {
+        color: rgb(234, 66, 66);
+        font-size: 12px;
+        top: -0.1em;
+        margin-left: 2px;
+    }
+
+    .yaw-book .validate-input select.input-validation-error, .yaw-book .validate-input input.input-validation-error {
+        border-left: 2px solid rgb(234, 66, 66);
+    }
+
+    .yaw-book .validate-input select.valid, .yaw-book .validate-input input.valid {
+        display: block;
+        border-left: 2px solid rgba(26, 188, 121, 0.93);
+    }
+
+.form-error-text {
+    color: rgb(234, 66, 66);
+    margin: 10px 0 0 0;
+    font-style: italic;
+    padding-left: 5px;
+}
+
+.yaw-book-form {
+    background: white;
+    padding: 4%;
+    border: solid 1px rgba(0,0,0,0.1);
+}
+
+    .yaw-book-form .form-group {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .yaw-book-form .form-control {
+        height: 50px;
+        background: #f1f1f1;
+        border: none;
+        box-shadow: none;
+        border-radius: 1px;
+        padding: 6px 10px 6px 35px;
+    }
+
+    .yaw-book-form .icon-for-input {
+        position: absolute;
+        left: 18px;
+        top: 37px;
+        color: #737373;
+        font-size: 13px;
+    }
+
+    .yaw-book-form .textarea {
+        height: 100px;
+            padding: 14px 10px 10px 35px;
+    }
+
+
+
+.spinner {
+    margin: auto;
+    width: 70px;
+    height: 60px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.success-text .text, .error-text .text {
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    padding: 0 30px;
+    letter-spacing: -1px;
+}
+
+.spinner > div {
+    background-color: #333;
+    height: 100%;
+    width: 6px;
+    display: inline-block;
+    -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+    0%, 40%, 100% {
+        -webkit-transform: scaleY(0.4);
+    }
+
+    20% {
+        -webkit-transform: scaleY(1.0);
+    }
+}
+
+@keyframes sk-stretchdelay {
+    0%, 40%, 100% {
+        transform: scaleY(0.4);
+        -webkit-transform: scaleY(0.4);
+    }
+
+    20% {
+        transform: scaleY(1.0);
+        -webkit-transform: scaleY(1.0);
+    }
+}
+
+.around-spinner, .success-text, .error-text {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 999999;
+    background: rgba(230, 229, 229, 0.92);
+    opacity: 0;
+    visibility: hidden;
+    transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+}
+
+.success-text {
+    background: rgba(26, 188, 121, 0.93) !important;
+}
+
+.error-text {
+    background: rgba(234, 66, 66, 0.93) !important;
+}
+
+.opacity-appear {
+    opacity: 1;
+    visibility: visible;
+    transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+}
+
+.around-spinner-table {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.around-spinner-table-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+
+
+  

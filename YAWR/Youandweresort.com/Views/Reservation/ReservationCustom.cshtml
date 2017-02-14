@@ -1,0 +1,336 @@
+﻿
+@{
+    ViewBag.Title = "Reservation Book Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Youandweresort.com.Models.BookRoom
+<link href="~/Content/css/Reservation/Reservation.css" rel="stylesheet" />
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#arrival').datepicker({
+            numberOfMonths: 1,
+            dateFormat: 'dd/mm/yy',
+            minDate: 'dateToday',
+            onSelect: function (dateStr) {
+                var min = $(this).datepicker('getDate');
+                min.setDate(min.getDate() + 1);
+                $('#departure').datepicker('option', 'minDate', min || '0');
+                datepicked();
+            }
+        });
+        //Hàm set , nếu nhập ngày đến không hợp lệ thì tự trả về ngày hiện tại
+        $("#arrival").attr("placeholder", "dd-mm-yyyy").change(function () {
+            $(this).datepicker('setDate', $(this).datepicker('getDate'));
+        });
+        $('#departure').datepicker({
+            numberOfMonths: 1,
+            dateFormat: 'dd/mm/yy',
+            minDate: 'dateToday',
+            onSelect: function (dateStr) {
+                var max = $(this).datepicker('getDate');
+                $('#arrival').datepicker('option', 'maxDate');
+                datepicked();
+            }
+        });
+        //Hàm set , nếu nhập ngày đến không hợp lệ thì tự trả về ngày hiện tại
+        $("#departure").attr("placeholder", "dd-mm-yyyy").change(function () {
+            $(this).datepicker('setDate', $(this).datepicker('getDate'));
+        });
+    });
+    var datepicked = function () {
+        var arrival = $('#arrival');
+        var departure = $('#departure');
+        var nights = $('#nights');
+        var arrivalDate = arrival.datepicker('getDate');
+        var departureDate = departure.datepicker('getDate');
+        if (departureDate && arrivalDate) {
+            var difference = 0;
+            var oneDay = 1000 * 60 * 60 * 24;
+            var difference = Math.ceil((departureDate.getTime() - arrivalDate.getTime()) / oneDay);
+            nights.val(difference);
+        }
+    }
+    $(document).ready(function () {
+        document.getElementById("selectRoomId").selectedIndex = @ViewBag.RoomCode;
+    })
+</script>
+<section class="yaw-book">
+    @using (Ajax.BeginForm("SendMail", "Reservation", null, new AjaxOptions
+    {
+        HttpMethod = "POST",
+        OnBegin = "BookBegin",
+        OnSuccess = "BookSuccess",
+        OnFailure = "BookFailure",
+        InsertionMode = InsertionMode.Replace
+    }, new { @class = "yaw-book-form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="col-md-12" style="margin-bottom:25px;    ">
+            <h1 style="font-size: 1.8em;margin: 0 0 10px; font-weight: bold;color: #790f26;">Booking</h1>
+            <p>Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
+        </div>
+        <div class="col-md-6 form-group validate-input">
+            <label>Arrival<sup>*</sup></label>
+            <div class="icon-for-input"><span class="glyphicons glyphicons-calendar"></span></div>
+            @Html.TextBoxFor(m => m.ArrivalDate, null, new { @class = "form-control", @placeholder = "dd/mm/yyyy", @id = "arrival" })
+            <div class="form-error-text">
+                @Html.ValidationMessageFor(m => m.ArrivalDate)
+            </div>
+        </div>
+        <div class="col-md-6 form-group validate-input">
+            <label>Departure<sup>*</sup></label>
+            <div class="icon-for-input"><span class="glyphicons glyphicons-calendar"></span></div>
+            @Html.TextBoxFor(m => m.DepartureDate, null, new { @class = "form-control", @placeholder = "dd/mm/yyyy", @id = "departure" })
+            <div class="form-error-text">
+                @Html.ValidationMessageFor(m => m.DepartureDate)
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label>Nights</label>
+            <div class="icon-for-input"><span class="glyphicons glyphicons-moon"></span></div>
+            @Html.TextBoxFor(m => m.Nights, null, new { @class = "form-control", @id = "nights", @readonly = true })
+        </div>
+        <div class="col-md-6 form-group validate-input">
+            <label>Kind of Rooms<sup>*</sup></label>
+            <div class="icon-for-input" ><span class="glyphicons glyphicons-bedroom-nightstand"></span></div>
+            @{
+                List<SelectListItem> listRoom = new List<SelectListItem>();
+                listRoom.Add(new SelectListItem
+                {
+                    Text = "Deluxe Sea View / 3.675.000 Vnd /Day",
+                    Value = "Deluxe Sea View / 3.675.000 Vnd /Day",
+                });
+                listRoom.Add(new SelectListItem
+                {
+                    Text = "Premier Deluxe Sea View / 3.675.000 Vnd /Day",
+                    Value = "Premier Deluxe Sea View / 3.675.000 Vnd /Day",
+                });
+                listRoom.Add(new SelectListItem
+                {
+                    Text = "Executive Deluxe Sea View / 4.462.500 Vnd /Day",
+                    Value = "Executive Deluxe Sea View / 4.462.500 Vnd /Day",
+                });
+                listRoom.Add(new SelectListItem
+                {
+                    Text = "Balcony Beachfront Villa / 5.355.000 Vnd /Day",
+                    Value = "Balcony Beachfront Villa / 5.355.000 Vnd /Day",
+                });
+                listRoom.Add(new SelectListItem
+                {
+                    Text = "Ancient Beachfront Villa / 5.932.000 Vnd /Day",
+                    Value = "Ancient Beachfront Villa / 5.932.000 Vnd /Day",
+                });
+                listRoom.Add(new SelectListItem
+                {
+                    Text = "Impeccable Beach Step Villa / 7.140.000 Vnd /Day",
+                    Value = "Impeccable Beach Step Villa / 7.140.000 Vnd /Day",
+                });
+
+            }
+            @Html.DropDownListFor(m => m.Rooms, listRoom, "-- Select Room --", new { @class = "form-control" , @id = "selectRoomId" })
+            <div class="form-error-text">
+                @Html.ValidationMessageFor(m => m.Rooms)
+            </div>
+        </div>
+        <div class="col-md-6 form-group validate-input">
+            <label>Number of Rooms<sup>*</sup></label>
+            <div class="icon-for-input"><span class="glyphicons glyphicons-bedroom-nightstand"></span></div>
+            @{
+                List<SelectListItem> listQuantityRoom = new List<SelectListItem>();
+                listQuantityRoom.Add(new SelectListItem
+                {
+                    Text = "1",
+                    Value = "1",
+                });
+                listQuantityRoom.Add(new SelectListItem
+                {
+                    Text = "2",
+                    Value = "2",
+                });
+                listQuantityRoom.Add(new SelectListItem
+                {
+                    Text = "3",
+                    Value = "3",
+                });
+                listQuantityRoom.Add(new SelectListItem
+                {
+                    Text = "4",
+                    Value = "4",
+                });
+                listQuantityRoom.Add(new SelectListItem
+                {
+                    Text = "5",
+                    Value = "5",
+                });
+                listQuantityRoom.Add(new SelectListItem
+                {
+                    Text = "6",
+                    Value = "6",
+                });
+
+            }
+            @Html.DropDownListFor(m => m.QuantityRooms, listQuantityRoom, "-- Select Quantity Room --", new { @class = "form-control" })
+            <div class="form-error-text">
+                @Html.ValidationMessageFor(m => m.QuantityRooms)
+            </div>
+        </div>
+        <div class="col-md-6 form-group validate-input">
+            <label>Adults<sup>*</sup></label>
+            <div class="icon-for-input"><span class="glyphicons glyphicons-person"></span></div>
+            @{
+                List<SelectListItem> listAdult = new List<SelectListItem>();
+                listAdult.Add(new SelectListItem
+                {
+                    Text = "1",
+                    Value = "1"
+                });
+                listAdult.Add(new SelectListItem
+                {
+                    Text = "2",
+                    Value = "2"
+                });
+                listAdult.Add(new SelectListItem
+                {
+                    Text = "3",
+                    Value = "3"
+                });
+            }
+            @Html.DropDownListFor(m => m.Adults, listAdult, "-- Select Adult --", new { @class = "form-control" })
+            <div class="form-error-text">
+                @Html.ValidationMessageFor(m => m.Adults)
+            </div>
+        </div>
+        <div class="col-md-6 form-group ">
+            <label>Children</label>
+            <div class="icon-for-input"><span class="glyphicons glyphicons-child"></span></div>
+            @{
+                List<SelectListItem> listChildren = new List<SelectListItem>();
+                listChildren.Add(new SelectListItem
+                {
+                    Text = "1",
+                    Value = "1"
+                });
+                listChildren.Add(new SelectListItem
+                {
+                    Text = "2",
+                    Value = "2"
+                });
+                listChildren.Add(new SelectListItem
+                {
+                    Text = "3",
+                    Value = "3"
+                });
+            }
+            @Html.DropDownListFor(m => m.Children, listChildren, "-- Select Children --", new { @class = "form-control" })
+        </div>
+        <div class="col-md-6 form-group validate-input">
+            <label>Full Name<sup>*</sup></label>
+            <div class="icon-for-input"><span class="glyphicons glyphicons-user"></span></div>
+            @Html.TextBoxFor(m => m.FullName, null, new { @class = "form-control", @placeholder = "", @id = "" })
+            <div class="form-error-text">
+                @Html.ValidationMessageFor(m => m.FullName)
+            </div>
+        </div>
+        <div class="col-md-6 form-group validate-input">
+            <label>Email<sup>*</sup></label>
+            <div class="icon-for-input"><span class="glyphicons glyphicons-envelope"></span></div>
+            @Html.TextBoxFor(m => m.Email, null, new { @class = "form-control", @placeholder = "", @id = "", type = "email" })
+            <div class="form-error-text">
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+        </div>
+        <div class="col-md-6 form-group ">
+            <label>Address</label>
+            <div class="icon-for-input"><span class="glyphicons glyphicons-nearby-square"></span></div>
+            @Html.TextBoxFor(m => m.Address, null, new { @class = "form-control", @placeholder = "", @id = "" })
+            @*<div class="form-error-text">
+                    @Html.ValidationMessageFor(m => m.Address)
+                </div>*@
+        </div>
+        <div class="col-md-6 form-group ">
+            <label>Phone</label>
+            <div class="icon-for-input"><span class="glyphicons glyphicons-iphone"></span></div>
+            @Html.TextBoxFor(m => m.Phone, null, new { @class = "form-control", @placeholder = "", @id = "" })
+            @*<div class="form-error-text">
+                    @Html.ValidationMessageFor(m => m.Phone)
+                </div>*@
+        </div>
+        <div class="col-md-12 form-group" style="overflow:hidden;">
+            <label>Special Request</label>
+            <div class="icon-for-input"><span class="glyphicons glyphicons-notes-2"></span></div>
+            @Html.TextAreaFor(m => m.Messages, new { @class = "form-control textarea", @placeholder = "Send Request" })
+        </div>
+        <div class="around-spinner">
+            <div class="around-spinner-table">
+                <div class="around-spinner-table-cell">
+                    <div class="spinner">
+                        <div class="rect1"></div>
+                        <div class="rect2"></div>
+                        <div class="rect3"></div>
+                        <div class="rect4"></div>
+                        <div class="rect5"></div>
+                    </div>
+                    <div style="margin: 20px 0;text-transform: uppercase;font-weight: 600;color: #333;text-align:center">
+                        <p>Wait a minute</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="success-text">
+            <div class="around-spinner-table">
+                <div class="around-spinner-table-cell">
+                    <div class="text">
+                        Thank you for our reservation - We will contact you as soon as possible - Have a good day !!!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="error-text">
+            <div class="around-spinner-table">
+                <div class="around-spinner-table-cell">
+                    <div class="text">
+                        Oh Sorry ! Reservations can not be sent from you right now - Please try again shortly !!!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align:center;">
+            <input type="submit" class="yaw-button yaw-button-view submit-send" value="Send">
+        </div>
+                }
+</section>
+
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+<script type="text/javascript">
+    function BookBegin() {
+        $('.around-spinner').addClass('opacity-appear');
+        $('.submit-send').hide();
+    }
+    function BookSuccess() {
+        $('.around-spinner').removeClass('opacity-appear');
+        $('.success-text').addClass('opacity-appear');
+        $('.submit-send').show();
+        setTimeout(function () {
+            window.location.reload();
+        }, 4000)
+    }
+    function BookFailure() {
+        $('.around-spinner').removeClass('opacity-appear');
+        $('.error-text').addClass('opacity-appear');
+        $('.submit-send').show();
+        setTimeout(function () {
+            window.location.reload();
+        }, 4000)
+    }
+</script>
+
+
+

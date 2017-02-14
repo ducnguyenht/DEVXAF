@@ -1,0 +1,274 @@
+﻿.nas-home {
+    /*post slider*/
+    /*post btn booking*/
+    /*post infor resort*/
+    /*Post event*/
+    /*post follow us*/
+}
+
+.nas-post-event {
+    margin: 50px 0;
+}
+
+.nas-home .nas-slider {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.nas-home .nas-btn-booking {
+    text-align: right;
+    padding: 10px 20px 10px 0;
+    background-color: #eee;
+}
+
+.nas-home .nas-post-infor-resort {
+    margin: 50px 0;
+}
+
+.nas-home .nas-title {
+    font-size: 2.7em;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.nas-home .nas-post-infor-resort .nas-post-content {
+    padding: 20px 15%;
+        text-align: justify;
+    text-align-last: center;
+}
+
+    .nas-home .nas-post-infor-resort .nas-post-content p {
+        line-height: 26px;
+    }
+
+.nas-home .nas-post-event a {
+    text-decoration: none;
+}
+
+    .nas-home .nas-post-event a:hover {
+        text-decoration: none;
+    }
+
+.overlay-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+    .overlay-bg:before {
+        content: "";
+        display: block;
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #fe8c00;
+        background: -webkit-linear-gradient(to left, rgba(222, 98, 98, 0.35), rgba(255, 184, 140, 0.66));
+        background: linear-gradient(to left, rgba(222, 98, 98, 0.35), rgba(255, 184, 140, 0.66));
+    }
+
+.nas-post-location {
+    margin: 20px 50px 10px 50px;
+}
+
+.yaw-location {
+    margin: 45px 0 15px;
+    overflow: auto;
+    text-align: center;
+}
+
+.yaw-location-img {
+    display: inline-block;
+}
+
+    .yaw-location-img span.glyphicons {
+        font-size: 1.8em;
+        border: 2px solid;
+        padding: 5px;
+            color:#790f26;
+    }
+
+.yaw-location-information {
+    margin: 20px 0;
+}
+
+
+
+.nas-home .nas-post-event .nas-title {
+    position: absolute;
+    bottom: 0;
+    /* background-color: rgba(0, 0, 0, 0.67); */
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    border-radius: 0;
+    font-size: 2em;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all 0.4s cubic-bezier(.25,.8,.25,1);
+    -webkit-transition: all 0.4s cubic-bezier(.25,.8,.25,1);
+    -moz-transition: all 0.4s cubic-bezier(.25,.8,.25,1);
+    -o-transition: all 0.4s cubic-bezier(.25,.8,.25,1);
+}
+
+    .nas-home .nas-post-event .nas-title p {
+        margin-bottom: 0;
+        font-size: 0.6em;
+        font-weight: 300;
+    }
+
+    .nas-home .nas-post-event .nas-title:hover {        
+        color: #fff;
+    }
+    .nas-box-event img {
+        transition:all .4s ease-in-out;
+    }
+    .nas-box-event:hover img{
+     /*transform:scale(1.1,1.1);
+     background:red;*/
+    }
+   
+
+.yaw-parallax-tes {
+    position: relative;
+    background: url('../../../Images/testimonial.jpg')no-repeat center center;
+    background-size: cover;
+    transition: background-position 2s ease-in-out;
+    -webkit-transition: background-position 2s ease-in-out;
+    -moz-transition: background-position 2s ease-in-out;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.yaw-testimonial .img img {
+    margin: 30px auto;
+    overflow: hidden;
+    width: 115px;
+    height: 115px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+}
+
+.yaw-testimonial {
+    text-align: center;
+    margin: 7% 0;
+    z-index: 3;
+}
+
+    .yaw-testimonial .yaw-infor-tes {
+        margin-bottom: 13px;
+        position: relative;
+        padding: 0px 66px;
+        color: #fff;
+    }
+
+        .yaw-testimonial .yaw-infor-tes p.information {
+            margin: 20px 0;
+        }
+
+            .yaw-testimonial .yaw-infor-tes p.information:before {
+                 position: absolute;
+    content: "“";
+    top: -20px;
+    margin-left: -17px;
+    font-size: 35px;
+            }
+
+            .yaw-testimonial .yaw-infor-tes p.information:after {
+                position: absolute;
+    content: "„";
+    margin-left: 4px;
+    margin-top: -16px;
+    font-size: 35px;
+            }
+            .yaw-testimonial .yaw-infor-tes p strong {
+                font-size:1.1em;
+                 color:#fff;
+            }
+            .yaw-testimonial .yaw-infor-tes span{
+                font-size:0.9em;
+            }
+
+
+
+
+
+.nas-home .nas-post-event .nas-content {
+    padding: 10px 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .nas-home .nas-post-event .nas-content {
+        margin-top: 15px;
+    }
+      .nas-home .nas-post-event .nas-title {
+        top: 50%;
+        padding: 15px 0;
+    }
+}
+  @media screen and (max-width:991px){
+          .box-location:nth-child(2n+1){
+            clear:both;
+        }
+}
+@media screen and (max-width: 768px) {
+    .nas-home .nas-post-event .nas-content {
+        margin-top: 30px;
+    }
+       .nas-home .nas-post-event .nas-box-event {
+        margin-top: 30px;
+        padding:0 10%;
+    }
+         .nas-home .nas-post-event .nas-title {
+        top: 50%;
+        padding: 15px 0;
+    }
+}
+@media screen and (max-width:480px){
+    .nas-home .nas-post-infor-resort .nas-post-content p{
+        letter-spacing:-1.1px;
+        font-size:1.1em;
+    }
+    .nas-post-location{
+        margin: 20px 5% 10px;
+    }
+}
+@media screen and (max-width: 414px) {
+    .nas-home .nas-post-event .nas-title {
+        top: 58%;
+        padding: 15px 0;
+    }
+    .nas-home .nas-post-infor-resort .nas-post-content{
+        padding: 20px 5%;
+    }
+}
+
+
+.nas-home .nas-post-follow-us {
+    margin: 30px 0;
+}
+
+.nas-home .nas-content {
+    text-align: justify;
+    text-align-last: center;
+    padding: 20px 15% 3px;
+}
+
+.nas-home .nas-post-follow-us .nas-icon ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+    .nas-home .nas-post-follow-us .nas-icon ul li {
+        display: inline-block;
+    }
+
+.nas-home #owl-demo .item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+/*# sourceMappingURL=Home.css.map */

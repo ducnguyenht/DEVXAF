@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6980F486-1B6D-4644-BFC1-AD96871D9596}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Youandweresort.com</RootNamespace>
+    <AssemblyName>Youandweresort.com</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.1\lib\BouncyCastle.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.v13.2">
+      <HintPath>..\www.galinahotel.com.vn\CMSLibs\DevExpress.ExpressApp.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="MailKit, Version=1.10.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailKit.1.10.1\lib\net45\MailKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MimeKit, Version=1.10.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
+      <HintPath>..\packages\MimeKit.1.10.0\lib\net45\MimeKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\GalleryModelsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LayoutModelsController.cs" />
+    <Compile Include="Areas\Admin\Models\GalleryImage.cs" />
+    <Compile Include="Areas\Admin\Controllers\GalleryImagesController.cs" />
+    <Compile Include="Areas\Admin\Models\GalleryItem.cs" />
+    <Compile Include="Areas\Admin\Models\GalleryModel.cs" />
+    <Compile Include="Areas\Admin\Models\LayoutModel.cs" />
+    <Compile Include="Areas\Admin\Models\HeaderModel.cs" />
+    <Compile Include="Controllers\AccomodationController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\DestinationController.cs" />
+    <Compile Include="Controllers\GalinaSpaController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\SpecialOffersController.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
+    <Compile Include="Controllers\RestaurantsBarController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BookRoom.cs" />
+    <Compile Include="Models\ContactUs.cs" />
+    <Compile Include="Models\EmailService.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\YouandweresortcomContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\Accomodation\accomodation.css" />
+    <Content Include="Content\css\Accomodation\accomodation.min.css">
+      <DependentUpon>accomodation.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\ContactUs\ContactUs.css" />
+    <Content Include="Content\css\ContactUs\ContactUs.min.css">
+      <DependentUpon>ContactUs.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\GalinaSpa\GalinaSpa.css" />
+    <Content Include="Content\css\Gallery\Gallery.css" />
+    <Content Include="Content\css\Gallery\Gallery.min.css">
+      <DependentUpon>Gallery.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\Home\Home.css" />
+    <Content Include="Content\css\Home\Home.min.css">
+      <DependentUpon>Home.css</DependentUpon>
+    </Content>
+    <Content Include="Content\css\Reservation\Reservation.css" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\css\SpecialOffers\SpecialOffers.css" />
+    <Content Include="Content\css\RestaurantBar\RestaurantBar.css" />
+    <Content Include="Content\css\RestaurantBar\RestaurantBar.min.css">
+      <DependentUpon>RestaurantBar.css</DependentUpon>
+    </Content>
+    <Content Include="Content\images\header\logo yaw.png" />
+    <Content Include="Content\images\header\logoYouAndWeResort.png" />
+    <Content Include="Content\images\owl.carousel.min.css" />
+    <Content Include="Content\images\owl.theme.default.css" />
+    <Content Include="Content\images\owl.theme.default.min.css" />
+    <Content Include="Content\Site.min.css">
+      <DependentUpon>Site.css</DependentUpon>
+    </Content>
+    <Content Include="EmailForm.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="Images\accomodation\room-1.jpg" />
+    <Content Include="Images\accomodation\room-2.jpg" />
+    <Content Include="Images\accomodation\room-3.jpg" />
+    <Content Include="Images\back.png" />
+    <Content Include="Images\cus-5.jpg" />
+    <Content Include="Images\galinaspa\mudbath-service.jpg" />
+    <Content Include="Images\galinaspa\spa-service.jpg" />
+    <Content Include="Images\galinaspa\spa.jpg" />
+    <Content Include="Images\galinaspa\spa.png" />
+    <Content Include="Images\gallery\gallery.jpg" />
+    <Content Include="Images\logoYouAndWeResort copy.png" />
+    <Content Include="Images\mail.png" />
+    <Content Include="Images\next.png" />
+    <Content Include="Images\promotion\contact-us.jpg" />
+    <Content Include="Images\promotion\promotion-1.jpg" />
+    <Content Include="Images\promotion\promotion-2.jpg" />
+    <Content Include="Images\promotion\promotion.jpg" />
+    <Content Include="Images\restaurantbar\1.jpg" />
+    <Content Include="Images\restaurantbar\2.jpg" />
+    <Content Include="Images\restaurantbar\3.jpg" />
+    <Content Include="Images\restaurantbar\4.jpg" />
+    <Content Include="Images\restaurantbar\5.jpg" />
+    <Content Include="Images\restaurantbar\6.jpg" />
+    <Content Include="Images\restaurantbar\bar.jpg" />
+    <Content Include="Images\restaurantbar\chef.png" />
+    <Content Include="Images\restaurantbar\food-1.jpg" />
+    <Content Include="Images\restaurantbar\food-2.jpg" />
+    <Content Include="Images\restaurantbar\food-3.jpg" />
+    <Content Include="Images\restaurantbar\food-4.jpg" />
+    <Content Include="Images\restaurantbar\restaurant.jpg" />
+    <Content Include="Images\restaurantbar\restaurant1.jpg" />
+    <Content Include="Images\restaurantbar\w1.png" />
+    <Content Include="Images\restaurantbar\w2.png" />
+    <Content Include="Images\restaurantbar\w3.png" />
+    <Content Include="Images\restaurantbar\w4.jpg" />
+    <Content Include="Images\restaurantbar\w5.jpg" />
+    <Content Include="Images\restaurantbar\water-1.jpg" />
+    <Content Include="Images\restaurantbar\water-2.jpg" />
+    <Content Include="Images\restaurantbar\water-3.jpg" />
+    <Content Include="Images\restaurantbar\water-4.jpg" />
+    <Content Include="Images\services\billard.jpg" />
+    <Content Include="Images\services\kids-playground.jpg" />
+    <Content Include="Images\services\live-music.jpg" />
+    <Content Include="Images\services\pool-party.jpg" />
+    <Content Include="Images\services\family-cinema.jpg" />
+    <Content Include="Images\testimonial.jpg" />
+    <Content Include="Images\shadow-video.png" />
+    <Content Include="fonts\glyphicons-filetypes-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-regular.svg" />
+    <Content Include="fonts\glyphicons-social-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\delete.png" />
+    <Content Include="Images\tripadvisor-icon-12004.jpg" />
+    <Content Include="Images\tripadvisor-icon-120041.jpg" />
+    <Content Include="Images\uk-flag.png" />
+    <Content Include="Images\vietnam-flag.png" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\glyphicons-filetypes-regular.eot" />
+    <Content Include="fonts\glyphicons-filetypes-regular.ttf" />
+    <Content Include="fonts\glyphicons-filetypes-regular.woff" />
+    <Content Include="fonts\glyphicons-regular.eot" />
+    <Content Include="fonts\glyphicons-regular.ttf" />
+    <Content Include="fonts\glyphicons-regular.woff" />
+    <Content Include="fonts\glyphicons-social-regular.eot" />
+    <Content Include="fonts\glyphicons-social-regular.ttf" />
+    <Content Include="fonts\glyphicons-social-regular.woff" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\LayoutModels\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\LayoutModels\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\LayoutModels\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\LayoutModels\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\LayoutModels\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\GalleryModels\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\GalleryModels\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\GalleryModels\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\GalleryModels\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\GalleryModels\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\GalleryImages\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\GalleryImages\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\GalleryImages\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\GalleryImages\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\GalleryImages\Index.cshtml" />
+    <None Include="bundleconfig.json" />
+    <None Include="Properties\PublishProfiles\Nhan.Nguyen.pubxml" />
+    <None Include="Properties\PublishProfiles\Nhan.NguyenLap.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bs-collapse.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.filterizr.js" />
+    <Content Include="Scripts\jquery.filterizr.min.js">
+      <DependentUpon>jquery.filterizr.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.magnific-popup.min.js" />
+    <Content Include="Scripts\jQuery.scrollSpeed.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Content\owl.carousel.css" />
+    <Content Include="Content\images\owl.carousel.css" />
+    <Content Include="Scripts\owl-carousel-2\owl.carousel.js" />
+    <Content Include="Scripts\owl-carousel-2\owl.carousel.min.js" />
+    <Content Include="Scripts\owl-carousel\owl.carousel.js" />
+    <Content Include="Scripts\owl-carousel\owl.carousel.min.js" />
+    <Content Include="Content\owl.theme.css" />
+    <Content Include="Content\owl.transitions.css" />
+    <Content Include="Scripts\owl-carousel-2\owl.carousel2.thumbs.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\template.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Default\Header.cshtml" />
+    <Content Include="Views\Default\Navigation.cshtml" />
+    <Content Include="Views\Default\Footer.cshtml" />
+    <Content Include="Views\Accomodation\DeluxeSeaView.cshtml" />
+    <Content Include="Views\Accomodation\PremierDeluxeSeaView.cshtml" />
+    <Content Include="Views\Accomodation\ExecutiveDeluxeSeaView.cshtml" />
+    <Content Include="Views\Accomodation\BalconyBeachfrontVilla.cshtml" />
+    <Content Include="Views\Accomodation\AncientBeachfrontVilla.cshtml" />
+    <Content Include="Views\ContactUs\ContactUs.cshtml" />
+    <Content Include="Views\SpecialOffers\SpecialOffers.cshtml" />
+    <Content Include="Views\Gallery\Gallery.cshtml" />
+    <Content Include="Views\Accomodation\Accomodation.cshtml" />
+    <Content Include="Views\RestaurantsBar\AmarinRestaurant.cshtml" />
+    <Content Include="Views\RestaurantsBar\GalinaBeachRestaurant.cshtml" />
+    <Content Include="Views\RestaurantsBar\HibisBeachBar.cshtml" />
+    <Content Include="Views\GalinaSpa\GalinaSpa.cshtml" />
+    <Content Include="Views\Accomodation\ImpeccableBeachStepVilla.cshtml" />
+    <Content Include="Views\Reservation\Reservation.cshtml" />
+    <Content Include="Views\Services\PoolPrivateBeach.cshtml" />
+    <Content Include="Views\Reservation\ReservationCustom.cshtml" />
+    <Content Include="Views\Services\FamilyCinema.cshtml" />
+    <Content Include="Views\Services\Billiard.cshtml" />
+    <Content Include="Views\Services\KidsPlayground.cshtml" />
+    <Content Include="Views\Services\LiveMusic.cshtml" />
+    <Content Include="Views\Destination\Destination.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Images\home\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CMS.BusinessObject\NamolyHotel.BusinessObjects.csproj">
+      <Project>{55a30729-afb2-496c-9d90-8c883e45e8bf}</Project>
+      <Name>NamolyHotel.BusinessObjects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2225</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:22233/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

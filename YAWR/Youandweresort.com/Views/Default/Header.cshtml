@@ -1,0 +1,234 @@
+﻿@{
+    ViewBag.Title = "Header";
+}
+<header>
+    <section class="cts-us">
+        <div class="max-width max-width-mobile">
+            <div class="cts-us-hotel">          
+                    <a href="~/accomodation" title="Accomodation">Accomodation</a>
+                    <a href="~/special-offers" title="Special Offers">Special Offers</a>
+                <a href="~/reservation" title="Reservation">Reservation</a>
+            </div>
+            <ul>
+                <li>
+                    <span class="glyphicons glyphicons-map"></span>
+                    <a href="https://www.google.com/maps?ll=10.185101,103.97072&z=16&t=m&hl=en-US&gl=US&mapclient=embed&q=Tr%E1%BA%A7n+H%C6%B0ng+%C4%90%E1%BA%A1o+C%E1%BB%ADa+L%E1%BA%A5p,+D%C6%B0%C6%A1ng+T%C6%A1+tp.+Ph%C3%BA+Qu%E1%BB%91c+t%E1%BB%89nh+Ki%C3%AAn+Giang,+Vietnam" target="_blank" title="Address">How to find us</a>
+                </li>
+                <li title="Phone">
+                    <span class="glyphicons glyphicons-iphone"></span>
+                    +84 (0) 77 6257979
+                </li>
+                <li title="Fax">
+                    <span class="glyphicons glyphicons-fax"></span>
+                    +84 (0) 77 398 3355
+                </li>
+                <li title="Email">
+                    <span class="glyphicons glyphicons-envelope"></span>
+                    info@youandweresort.com
+                </li>
+            </ul>
+        </div>
+    </section>
+    <div class="max-width">
+        <div class="row nas-header">
+            <div class="col-md-2 col-sm-3 col-xs-8 nas-post-logo">
+                <a href="~/"><img src="~/Content/images/header/logo yaw.png"  alt="You & We Resort" title="You & We Resort"/></a>
+            </div>
+            <div class="col-md-8 col-sm-7 hidden-xs  nas-slogan">
+                Enjoying sunset on the beach  <br />
+                <p>from your home “Phu Quoc - You & We”</p>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-4 yaw-right-menu">               
+                    <span class="toggle-open glyphicons glyphicons-show-lines"></span>      
+                <div class="col-md-12 nas-post-language">
+                    <ul>
+                        <li><a href=""><img src="~/Images/uk-flag.png" alt="uk flag" /></a></li>
+                        <li><a href=""><img src="~/Images/vietnam-flag.png" alt="vietnam flag" /></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+@*Navigation mobile , không được xóa phần này*@
+<aside>
+    <div class="navbar-mobile" style="position:relative;overflow:hidden;">
+        <div class="outer-close toggle-close">
+            <a class="close"><span></span></a>
+        </div>
+        <div class="panel-group navbar-mobilee" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a href="~/" title="Home">Home</a>
+                    </h4>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#rooms" title="Accomodation">Accomodation</a>
+                        <span class="halflings halflings-menu-down" style="float:right;top:-26px;right:15px;font-size:10px;"></span>
+                    </h4>
+                </div>
+                <div id="rooms" class="panel-collapse collapse">
+                    <ul>
+                        <li>
+                            <a href="~/deluxe-sea-view" title="Deluxe Sea View">
+                                Deluxe Sea View
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/premier-deluxe-sea-view" title="Premier Deluxe Sea View">
+                                Premier Deluxe Sea View
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/executive-deluxe-sea-view" title="Executive Deluxe Sea View">
+                                Executive Deluxe Sea View
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/balcony-beachfront-villa" title="Balcony Beachfront Villa">
+                                Balcony Beachfront Villa
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/ancient-beachfront-villa" title="Ancient Beachfront Villa">
+                                Ancient Beachfront Villa
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/impeccable-beach-step-villa" title="Impeccable Beach Step Villa">
+                                Impeccable Beach Step Villa
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#services" title="Services">Services</a>
+                        <span class="halflings halflings-menu-down" style="float:right;top:-26px;right:15px;font-size:10px;"></span>
+                    </h4>
+                </div>
+                <div id="services" class="panel-collapse collapse">
+                    <ul>
+                        <li>
+                            <a href="~/pool-and-private-beach" title="Pool And Private Beach">
+                                Pool and Private Beach
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/family-cinema" title="Family Cinema">
+                                Family Cinema
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/billiard" title="Billiard">
+                                Billiard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/kids-playground" title="Kids Playground">
+                                Kids Playground
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/live-music" title="Live Music">
+                                Live Music
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#dinning" title="Restaurant & Bar">Dinning</a>
+                        <span class="halflings halflings-menu-down" style="float:right;top:-26px;right:15px;font-size:10px;"></span>
+                    </h4>
+                </div>
+                <div id="dinning" class="panel-collapse collapse">
+                    <ul>
+                        <li>
+                            <a href="~/amarin-restaurant" title="Amarin Restaurant">
+                                Amarin Restaurant
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/galina-beach-restaurant" title="Galina Beach Restaurant">
+                                Galina Beach Restaurant
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/hibis-beach-bar" title="Hibis Beach Bar">
+                                Hibis Beach Bar
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a href="~/galina-spa" title="Galina Spa">Galina Spa</a>
+                    </h4>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a href="~/special-offers" title="Special Offers">Special Offers</a>
+                    </h4>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a href="~/destination" title="Destination">Destination</a>
+                    </h4>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a href="~/gallery" title="Gallery">Gallery</a>
+                    </h4>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a href="~/contact-us" title="Contact Us">Contact us</a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside> 
+<script>
+    (function ($) {
+        $(function () {
+            $('.toggle-open').click(function () {
+                $('aside').addClass('open-menu');
+            });
+            $('.toggle-close').click(function () {
+                $('aside').removeClass('open-menu');
+            });
+            //$('body').click(function () {
+            //    $('aside').removeClass('open-menu');
+            //})
+        });
+        $('.navbar-mobilee').css({ height: $(window).innerHeight() });
+        $(window).resize(function () {
+            if ($(window).width() < 991) {
+                $('.navbar-mobilee').css({ height: $(window).innerHeight() });
+            }
+           
+        })
+    })(jQuery);
+</script>

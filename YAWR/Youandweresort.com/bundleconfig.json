@@ -1,0 +1,50 @@
+[
+  {
+    "outputFileName": "Content/Site.min.css",
+    "inputFiles": [
+      "Content/Site.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/css/Gallery/Gallery.min.css",
+    "inputFiles": [
+      "Content/css/Gallery/Gallery.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/css/Home/Home.min.css",
+    "inputFiles": [
+      "Content/css/Home/Home.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/css/Promotion/Promotion.min.css",
+    "inputFiles": [
+      "Content/css/Promotion/Promotion.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/css/ContactUs/ContactUs.min.css",
+    "inputFiles": [
+      "Content/css/ContactUs/ContactUs.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/css/Accomodation/accomodation.min.css",
+    "inputFiles": [
+      "Content/css/Accomodation/accomodation.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/css/RestaurantBar/RestaurantBar.min.css",
+    "inputFiles": [
+      "Content/css/RestaurantBar/RestaurantBar.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jquery.filterizr.min.js",
+    "inputFiles": [
+      "Scripts/jquery.filterizr.js"
+    ]
+  }
+]
