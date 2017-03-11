@@ -37,7 +37,7 @@ namespace Solution4.Module.BusinessObjects
         private string _PropertyName1;
         //            [RuleUniqueValue("Code", DefaultContexts.Save,
         //CriteriaEvaluationBehavior = CriteriaEvaluationBehavior.BeforeTransaction)]
-        [RuleUniqueValue]
+        [RuleUniqueValue, EditorAlias("TestProp")]
         public string PropertyName1
         {
             get
@@ -63,7 +63,9 @@ namespace Solution4.Module.BusinessObjects
                 SetPropertyValue("PropertyName", ref _PropertyName, value);
             }
         }
-        [EditorAlias("TestProp1")]
+        //[EditorAlias("TestProp1")]
+        [ModelDefault("PredefinedValues",
+    "Predefined Value 1;Predefined Value 2;Predefined Value 3;Predefined Value 4")]
         public string PropertyName2
         {
             get
@@ -74,6 +76,32 @@ namespace Solution4.Module.BusinessObjects
             {
                 SetPropertyValue("PropertyName2", ref _PropertyName2, value);
             }
+        }
+
+        private DomainObject1 _Contact;
+        [NonPersistent, ImmediatePostData]
+        public DomainObject1 Contact
+        {
+            get
+            {
+                if (_Contact == null && !String.IsNullOrEmpty(ContactName))
+                {
+                    _Contact = Session.FindObject<DomainObject1>(new BinaryOperator("PropertyName", ContactName));
+                }
+                return _Contact;
+            }
+            set
+            {
+                SetPropertyValue("Contact", ref _Contact, value);
+                ContactName = _Contact == null ? String.Empty : _Contact._PropertyName;
+            }
+        }
+        private string _ContactName;
+        [Browsable(false)]
+        public string ContactName
+        {
+            get { return _ContactName; }
+            set { SetPropertyValue("ContactName", ref _ContactName, value); }
         }
         //private string _PersistentProperty;
         //[XafDisplayName("My display name"), ToolTip("My hint message")]

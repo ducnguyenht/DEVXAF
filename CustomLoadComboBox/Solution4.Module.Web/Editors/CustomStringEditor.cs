@@ -9,6 +9,7 @@ using DevExpress.ExpressApp.Model;
 using DevExpress.Web.ASPxEditors;
 using DevExpress.ExpressApp;
 using Solution4.Module.BusinessObjects;
+using System.Web.UI;
 
 namespace Solution4.Module.Web.Editors
 {
@@ -33,21 +34,30 @@ namespace Solution4.Module.Web.Editors
                 //        culture.EnglishName + "(" + culture.Name + ")"
                 //        );
                 //}
-                var lst = db.GetObjects<DomainObject1>();
-                foreach (var item in lst)
+                var tt = this.CurrentObject;
+                if (this.CurrentObject != null)
                 {
-                    var t = ((ASPxComboBox)control);
-                    ((ASPxComboBox)control).Items.Add(
-                      item.PropertyName1
-                       );
+                    var lst = db.GetObjects(this.CurrentObject.GetType());
+                    //var lst = db.GetObjects<DomainObject1>();
+                    foreach (var item in lst)
+                    {
+                        var t = ((ASPxComboBox)control);
+                        ((ASPxComboBox)control).Items.Add(
+                            //DataBinder.Eval(DateTime.Now, "TimeOfDay.Hours");
+                            DataBinder.Eval(item, "PropertyName1").ToString()
+                            //item.PropertyName1
+                           );
+                    }
                 }
+
             }
         }
         protected override WebControl CreateEditModeControlCore()
         {
             dropDownControl = RenderHelper.CreateASPxComboBox();
+            dropDownControl.DropDownStyle = DropDownStyle.DropDown;
+            dropDownControl.ItemStyle.Font.Strikeout = true;
             dropDownControl.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
-            dropDownControl.DropDownStyle = DropDownStyle.DropDownList;
             dropDownControl.ValueChanged += new EventHandler(EditValueChangedHandler);
             return dropDownControl;
         }
@@ -55,8 +65,6 @@ namespace Solution4.Module.Web.Editors
         {
             if (dropDownControl != null)
             {
-                dropDownControl.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
-                dropDownControl.DropDownStyle = DropDownStyle.DropDownList;
                 dropDownControl.ValueChanged -= new EventHandler(EditValueChangedHandler);
             }
             base.BreakLinksToControl(unwireEventsOnly);
