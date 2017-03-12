@@ -102,16 +102,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\ViewController1.cs">
+    <Compile Include="Controllers\WebHotkey\WebShortcutsWindowController.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controllers\ViewController1.Designer.cs">
-      <DependentUpon>ViewController1.cs</DependentUpon>
+    <Compile Include="Controllers\WebHotkey\WebShortcutsWindowController.Designer.cs">
+      <DependentUpon>WebShortcutsWindowController.cs</DependentUpon>
     </Compile>
     <Compile Include="Editors\CustomStringEditor.cs" />
-    <Compile Include="Editors\Custom1\MyPropertyEditor.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="WebModule.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -121,9 +118,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controllers\ViewController1.resx">
-      <DependentUpon>ViewController1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="WebModule.resx">
@@ -165,6 +159,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Editors\Custom1\" />
     <Folder Include="Editors\Custom2\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
