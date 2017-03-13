@@ -1,8 +1,10 @@
-﻿using DevExpress.ExpressApp;
+﻿using DevExpress.Data.Filtering;
+using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Editors;
 using DevExpress.ExpressApp.Model;
 using DevExpress.ExpressApp.Web;
 using DevExpress.ExpressApp.Web.Editors.ASPx;
+using DevExpress.ExpressApp.Xpo;
 using DevExpress.Web.ASPxEditors;
 using DevExpress.Xpo;
 using DevExpress.Xpo.DB;
@@ -60,13 +62,32 @@ namespace Solution4.Module.Web.Editors.Custom3
             valueList.Clear();
             //foreach (CultureInfo culture in CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures))
             //    valueList.Add(culture.EnglishName + "(" + culture.Name + ")");
+            string search = e.Filter.ToLower();
             IList<SortProperty> sortProps = new List<SortProperty>();
             sortProps.Add(new SortProperty("PropertyName", SortingDirection.Ascending));
-            var lst = db.CreateCollection(this.CurrentObject.GetType(), null, sortProps);
-            foreach (var item in lst)
+            CriteriaOperator cr = new FunctionOperator(FunctionOperatorType.Contains, new OperandProperty("PropertyName"), search);
+            Session ss = ((XPObjectSpace)db).Session;
+            Type type = this.CurrentObject.GetType();
+            XPView clients = new XPView(ss, type, "PropertyName", cr);
+            var Sorting = new SortingCollection();
+            Sorting.Add(new SortProperty("PropertyName", SortingDirection.Descending));
+            clients.Sorting = Sorting;
+            clients.SkipReturnedRecords = e.BeginIndex;
+            clients.TopReturnedRecords = e.EndIndex;
+            //XPView clients = new XPView(Session.DefaultSession, typeof(PersistentObject1)); 
+            //clients.Properties.Add(new ViewProperty("Name", SortDirection.None, "Name", false, true)); 
+            //PO1_View.Properties.Add(new ViewProperty("Order", SortDirection.Descending, "Order", false, true));
+            foreach (ViewRecord item in clients)
             {
-                valueList.Add(DataBinder.Eval(item, "PropertyName").ToString());
+                //string s = item["PropertyName"].ToString();
+                valueList.Add(item["PropertyName"].ToString());
             }
+
+            //var lst = db.CreateCollection(this.CurrentObject.GetType(), cr, sortProps);
+            //foreach (var item in lst)
+            //{
+            //    valueList.Add(DataBinder.Eval(item, "PropertyName").ToString());
+            //}
 
             filterList = (from u in valueList
                           where u.ToLower().Contains(e.Filter.ToLower())

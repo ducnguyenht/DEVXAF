@@ -33,7 +33,7 @@ namespace Solution4.Module.BusinessObjects
         private string _PropertyName1;
         private string _PropertyName;
 
-        [RuleUniqueValue, EditorAlias("Custom3")]
+        [RuleUniqueValue, EditorAlias("Custom3"), Indexed]
         public string PropertyName
         {
             get
