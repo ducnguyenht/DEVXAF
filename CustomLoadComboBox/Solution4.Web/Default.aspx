@@ -9,6 +9,19 @@
 <head runat="server">
     <title>Main Page</title>
     <meta http-equiv="Expires" content="0" />
+    <%-- <script type="text/javascript">
+        var startTime;
+        function OnBeginCallback() {
+            startTime = new Date();
+        }
+        function OnEndCallback() {
+            var result = new Date() - startTime;
+            result /= 1000;
+            result = result.toString();
+            if(result.length > 4)
+                result = result.substr(0, 4);
+        }
+    </script>--%>
 </head>
 <body class="VerticalTemplate">
     <form id="form2" runat="server">

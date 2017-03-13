@@ -10,6 +10,9 @@ using DevExpress.Web.ASPxEditors;
 using DevExpress.ExpressApp;
 using Solution4.Module.BusinessObjects;
 using System.Web.UI;
+using System.Collections.Generic;
+using DevExpress.Xpo;
+using DevExpress.Xpo.DB;
 
 namespace Solution4.Module.Web.Editors
 {
@@ -28,26 +31,34 @@ namespace Solution4.Module.Web.Editors
             if (ViewEditMode == ViewEditMode.Edit)
             {
 
-                var tt = this.CurrentObject;
+                //var tt = this.CurrentObject;
                 if (this.CurrentObject != null)
                 {
-                    var lst = db.GetObjects(this.CurrentObject.GetType());
+                    //var lst = db.GetObjects(this.CurrentObject.GetType());
+                    IList<SortProperty> sortProps = new List<SortProperty>();
+                    sortProps.Add(new SortProperty("PropertyName", SortingDirection.Ascending));
+                    var lst = db.CreateCollection(this.CurrentObject.GetType(), null, sortProps);
                     //var lst = db.GetObjects<DomainObject1>();
-                    foreach (var item in lst)
+                    var ttt = ((ASPxComboBox)control).Items;
+                    if (ttt.Count < lst.Count)
                     {
-                        try
+                        ttt.Clear();
+                        foreach (var item in lst)
                         {
-                            var t = ((ASPxComboBox)control);
-                            ((ASPxComboBox)control).Items.Add(
-                                //DataBinder.Eval(DateTime.Now, "TimeOfDay.Hours");
-                                DataBinder.Eval(item, "PropertyName").ToString()
-                                //item.PropertyName1
-                               );
-                        }
-                        catch (Exception)
-                        {
-                        }
+                            try
+                            {
+                                //var t = ((ASPxComboBox)control);
+                                ttt.Add(
+                                    //DataBinder.Eval(DateTime.Now, "TimeOfDay.Hours");
+                                 DataBinder.Eval(item, "PropertyName").ToString()
+                                    //item.PropertyName1
+                                );
+                            }
+                            catch (Exception)
+                            {
+                            }
 
+                        }
                     }
                 }
 
@@ -55,10 +66,13 @@ namespace Solution4.Module.Web.Editors
         }
         protected override WebControl CreateEditModeControlCore()
         {
-            dropDownControl = RenderHelper.CreateASPxComboBox();
-            dropDownControl.DropDownStyle = DropDownStyle.DropDown;
-            dropDownControl.ItemStyle.Font.Strikeout = true;
-            dropDownControl.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+            if (dropDownControl == null)
+            {
+                dropDownControl = RenderHelper.CreateASPxComboBox();
+                dropDownControl.DropDownStyle = DropDownStyle.DropDown;
+                dropDownControl.ItemStyle.Font.Strikeout = true;
+                dropDownControl.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+            }
             dropDownControl.ValueChanged += new EventHandler(EditValueChangedHandler);
             return dropDownControl;
         }

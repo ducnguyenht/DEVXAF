@@ -108,6 +108,8 @@
     <Compile Include="Controllers\WebHotkey\WebShortcutsWindowController.Designer.cs">
       <DependentUpon>WebShortcutsWindowController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editors\Custom1\MyPropertyEditor.cs" />
+    <Compile Include="Editors\Custom3\Custom3Editor.cs" />
     <Compile Include="Editors\CustomStringEditor.cs" />
     <Compile Include="WebModule.cs">
       <SubType>Component</SubType>
@@ -159,7 +161,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Editors\Custom1\" />
     <Folder Include="Editors\Custom2\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

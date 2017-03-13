@@ -33,7 +33,7 @@ namespace Solution4.Module.BusinessObjects
         private string _PropertyName1;
         private string _PropertyName;
 
-        [RuleUniqueValue, EditorAlias("TestProp")]
+        [RuleUniqueValue, EditorAlias("Custom3")]
         public string PropertyName
         {
             get
@@ -47,6 +47,7 @@ namespace Solution4.Module.BusinessObjects
         }
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        [RuleUniqueValue, EditorAlias("TestProp1")]
         public string PropertyName1
         {
             get

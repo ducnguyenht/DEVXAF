@@ -1,26 +1,32 @@
-﻿using DevExpress.ExpressApp.Editors;
+﻿using DevExpress.ExpressApp;
+using DevExpress.ExpressApp.Editors;
 using DevExpress.ExpressApp.Model;
 using DevExpress.ExpressApp.Web;
 using DevExpress.ExpressApp.Web.Editors.ASPx;
 using DevExpress.Web.ASPxEditors;
+using DevExpress.Xpo;
+using DevExpress.Xpo.DB;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Solution4.Module.Web.Editors.Custom1
+namespace Solution4.Module.Web.Editors.Custom3
 {
-    [PropertyEditor(typeof(string), "TestProp1", false)]
-    public class CustomStringEditor : ASPxPropertyEditor
+    [PropertyEditor(typeof(string), "Custom3", false)]
+    public class Custom3EditorASPxPropertyEditor : ASPxPropertyEditor, IComplexViewItem
     {
+        private IObjectSpace db;
+        private XafApplication application;
         private ASPxComboBox dropDownControl;
         private List<string> valueList;
         private List<string> filterList;
 
-        public CustomStringEditor(
+        public Custom3EditorASPxPropertyEditor(
             Type objectType, IModelMemberViewItem info)
             : base(objectType, info)
         {
@@ -52,8 +58,15 @@ namespace Solution4.Module.Web.Editors.Custom1
             if (valueList == null)
                 valueList = new List<string>();
             valueList.Clear();
-            foreach (CultureInfo culture in CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures))
-                valueList.Add(culture.EnglishName + "(" + culture.Name + ")");
+            //foreach (CultureInfo culture in CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures))
+            //    valueList.Add(culture.EnglishName + "(" + culture.Name + ")");
+            IList<SortProperty> sortProps = new List<SortProperty>();
+            sortProps.Add(new SortProperty("PropertyName", SortingDirection.Ascending));
+            var lst = db.CreateCollection(this.CurrentObject.GetType(), null, sortProps);
+            foreach (var item in lst)
+            {
+                valueList.Add(DataBinder.Eval(item, "PropertyName").ToString());
+            }
 
             filterList = (from u in valueList
                           where u.ToLower().Contains(e.Filter.ToLower())
@@ -92,6 +105,12 @@ namespace Solution4.Module.Web.Editors.Custom1
                 foreach (string item in filterList)
                     dropDownControl.Items.Add(item);
             }
+        }
+
+        public void Setup(DevExpress.ExpressApp.IObjectSpace objectSpace, DevExpress.ExpressApp.XafApplication application)
+        {
+            this.db = objectSpace;
+            this.application = application;
         }
     }
 }
