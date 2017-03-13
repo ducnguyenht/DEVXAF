@@ -69,6 +69,9 @@ namespace Solution4.Module.Web.Controllers.WebHotkey
             string script = IsSuitableView() ? @"
 window.onkeydown = function(e) { 
     var key = e.keyCode ? e.keyCode : e.which;
+    if (e.altKey) { //Control+Enter=13 83=s
+         e.preventDefault(); 
+    } 
     if (key == 13 && e.ctrlKey) { //Control+Enter=13 83=s
          RaiseXafCallback(globalCallbackControl, 'T171941', 'SaveAction', '', false);
          e.preventDefault(); 

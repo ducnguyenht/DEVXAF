@@ -4,7 +4,7 @@
     <SchemaModule Name="SystemModule" Version="13.2.7.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
-    <DetailView Id="DomainObject1_DetailView">
+    <DetailView Id="DomainObject1_DetailView" DefaultFocusedItem="PropertyName">
       <Items>
         <DashboardViewItem Id="@5a11fd43-0122-49db-8c7a-6dec2da90e12" ViewId="DomainObject1_ListView" ActionsToolbarVisibility="Hide" IsNewNode="True" />
       </Items>
@@ -12,16 +12,13 @@
         <LayoutGroup Id="Main" RelativeSize="32.544378698224854">
           <LayoutGroup Id="SimpleEditors" RelativeSize="100">
             <LayoutGroup Id="DomainObject1" RelativeSize="100">
-              <LayoutItem Id="PropertyName1" SizeConstraintsType="Default" RelativeSize="29.09090909090909" />
               <LayoutItem Id="PropertyName" SizeConstraintsType="Default" RelativeSize="21.818181818181817" />
-              <LayoutItem Id="PropertyName2" SizeConstraintsType="Default" RelativeSize="21.818181818181817" />
-              <LayoutItem Id="Contact" SizeConstraintsType="Default" RelativeSize="27.272727272727273" />
             </LayoutGroup>
           </LayoutGroup>
         </LayoutGroup>
         <LayoutItem Id="@5a11fd43-0122-49db-8c7a-6dec2da90e12" ViewItem="@5a11fd43-0122-49db-8c7a-6dec2da90e12" SizeConstraintsType="Default" Index="1" RelativeSize="67.455621301775153" IsNewNode="True" />
       </Layout>
     </DetailView>
-    <ListView Id="DomainObject1_ListView" NewItemRowPosition="None" />
+    <ListView Id="DomainObject1_ListView" NewItemRowPosition="None" TopReturnedObjects="-1" />
   </Views>
 </Application>

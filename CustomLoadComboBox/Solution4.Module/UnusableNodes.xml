@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="DomainObject1_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="DomainObject1">
+              <LayoutItem Id="PropertyName1" SizeConstraintsType="Default" RelativeSize="29.09090909090909" />
+              <LayoutItem Id="PropertyName2" SizeConstraintsType="Default" RelativeSize="21.818181818181817" />
+              <LayoutItem Id="Contact" SizeConstraintsType="Default" RelativeSize="27.272727272727273" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

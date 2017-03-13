@@ -30,6 +30,7 @@ namespace Solution4.Module.BusinessObjects
         {
             base.AfterConstruction();
         }
+        private string _PropertyName1;
         private string _PropertyName;
 
         [RuleUniqueValue, EditorAlias("TestProp")]
@@ -45,6 +46,18 @@ namespace Solution4.Module.BusinessObjects
             }
         }
 
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string PropertyName1
+        {
+            get
+            {
+                return _PropertyName1;
+            }
+            set
+            {
+                SetPropertyValue("PropertyName1", ref _PropertyName1, value);
+            }
+        }
     }
 }
 //private string _PropertyName2;
