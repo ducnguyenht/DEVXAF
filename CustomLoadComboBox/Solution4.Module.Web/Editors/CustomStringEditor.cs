@@ -27,13 +27,7 @@ namespace Solution4.Module.Web.Editors
         {
             if (ViewEditMode == ViewEditMode.Edit)
             {
-                //foreach (CultureInfo culture in CultureInfo.GetCultures(
-                //CultureTypes.InstalledWin32Cultures))
-                //{
-                //    ((ASPxComboBox)control).Items.Add(
-                //        culture.EnglishName + "(" + culture.Name + ")"
-                //        );
-                //}
+
                 var tt = this.CurrentObject;
                 if (this.CurrentObject != null)
                 {
@@ -41,12 +35,19 @@ namespace Solution4.Module.Web.Editors
                     //var lst = db.GetObjects<DomainObject1>();
                     foreach (var item in lst)
                     {
-                        var t = ((ASPxComboBox)control);
-                        ((ASPxComboBox)control).Items.Add(
-                            //DataBinder.Eval(DateTime.Now, "TimeOfDay.Hours");
-                            DataBinder.Eval(item, "PropertyName1").ToString()
-                            //item.PropertyName1
-                           );
+                        try
+                        {
+                            var t = ((ASPxComboBox)control);
+                            ((ASPxComboBox)control).Items.Add(
+                                //DataBinder.Eval(DateTime.Now, "TimeOfDay.Hours");
+                                DataBinder.Eval(item, "PropertyName").ToString()
+                                //item.PropertyName1
+                               );
+                        }
+                        catch (Exception)
+                        {
+                        }
+
                     }
                 }
 
@@ -77,3 +78,12 @@ namespace Solution4.Module.Web.Editors
         }
     }
 }
+
+
+//foreach (CultureInfo culture in CultureInfo.GetCultures(
+//CultureTypes.InstalledWin32Cultures))
+//{
+//    ((ASPxComboBox)control).Items.Add(
+//        culture.EnglishName + "(" + culture.Name + ")"
+//        );
+//}

@@ -69,11 +69,11 @@ namespace Solution4.Module.Web.Controllers.WebHotkey
             string script = IsSuitableView() ? @"
 window.onkeydown = function(e) { 
     var key = e.keyCode ? e.keyCode : e.which;
-    if (key == 83 && e.ctrlKey) { //Control+Enter=13 83=s
+    if (key == 13 && e.ctrlKey) { //Control+Enter=13 83=s
          RaiseXafCallback(globalCallbackControl, 'T171941', 'SaveAction', '', false);
          e.preventDefault(); 
     }  
-    if (key == 13 && e.ctrlKey) { //Control+Enter=13 83=s
+    if (key == 13 && e.altKey) { //Control+Enter=13 83=s
          RaiseXafCallback(globalCallbackControl, 'T171942', 'SaveAndNewAction', '', false);
          e.preventDefault(); 
     }                                       
@@ -111,3 +111,31 @@ window.onkeydown = function(e) {
     }
 
 }
+//function KeyPress(e) {
+//      var key = window.event? event : e;
+//      if (key.keyCode == 83 && key.ctrlKey) {
+//        RaiseXafCallback(globalCallbackControl, 'T171942', 'SaveAndNewAction', '', false);
+//         e.preventDefault(); 
+//        //alert('Ctrl+z');
+//      }
+//}
+//window.onkeydown = function(e) { 
+//    //var key = e.keyCode ? e.keyCode : e.which;
+//    var key = window.event? event : e;
+//    if (key.ctrlKey && key.keyCode == 13 ) { //Control+Enter=13 83=s
+//         RaiseXafCallback(globalCallbackControl, 'T171942', 'SaveAndNewAction', '', false);
+//         e.preventDefault(); 
+//    } 
+//    if (key == 13 && e.altKey) { //Control+Enter=13 83=s
+//         RaiseXafCallback(globalCallbackControl, 'T171941', 'SaveAction', '', false);
+//         e.preventDefault(); 
+//    }                                       
+//    if (e.ctrlKey && key == 83 ) { //Control+Enter=13 83=s
+//         RaiseXafCallback(globalCallbackControl, 'T171942', 'SaveAndNewAction', '', false);
+//         e.preventDefault(); 
+//    }  
+//    if (key == 13 && e.altKey) { //Control+Enter=13 83=s
+//         RaiseXafCallback(globalCallbackControl, 'T171941', 'SaveAction', '', false);
+//         e.preventDefault(); 
+//    }                                       
+//};" : "window.onkeydown=undefined;";
