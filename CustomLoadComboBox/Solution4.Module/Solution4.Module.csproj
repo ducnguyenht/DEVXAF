@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObjects\DomainObject1.cs" />
+    <Compile Include="Code\Helper\ProjectExtension.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>
     </Compile>

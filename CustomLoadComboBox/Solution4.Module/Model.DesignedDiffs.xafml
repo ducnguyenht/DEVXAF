@@ -19,6 +19,6 @@
         <LayoutItem Id="@5a11fd43-0122-49db-8c7a-6dec2da90e12" ViewItem="@5a11fd43-0122-49db-8c7a-6dec2da90e12" SizeConstraintsType="Default" Index="1" RelativeSize="67.455621301775153" IsNewNode="True" />
       </Layout>
     </DetailView>
-    <ListView Id="DomainObject1_ListView" NewItemRowPosition="None" TopReturnedObjects="-1" />
+    <ListView Id="DomainObject1_ListView" NewItemRowPosition="None" TopReturnedObjects="-1" ShowAutoFilterRow="True" />
   </Views>
 </Application>
