@@ -30,6 +30,7 @@ namespace Solution4.Module.BusinessObjects
         {
             base.AfterConstruction();
         }
+        private DomainObject2 _Obj2;
         private string _PropertyName1;
         private string _PropertyName;
 
@@ -43,6 +44,19 @@ namespace Solution4.Module.BusinessObjects
             set
             {
                 SetPropertyValue("PropertyName", ref _PropertyName, value);
+            }
+        }
+        [EditorAlias("CustomWebLookup")]
+        [DataSourceCriteria("Prop4 == true")]
+        public DomainObject2 Obj2
+        {
+            get
+            {
+                return _Obj2;
+            }
+            set
+            {
+                SetPropertyValue("Obj2", ref _Obj2, value);
             }
         }
 
@@ -59,6 +73,7 @@ namespace Solution4.Module.BusinessObjects
                 SetPropertyValue("PropertyName1", ref _PropertyName1, value);
             }
         }
+
     }
 }
 //private string _PropertyName2;

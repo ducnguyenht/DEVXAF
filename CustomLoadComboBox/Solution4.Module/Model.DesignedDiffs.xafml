@@ -4,6 +4,14 @@
     <SchemaModule Name="SystemModule" Version="13.2.7.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
+    <DetailView Id="Area_DetailView" DefaultFocusedItem="Code" />
+    <ListView Id="Area_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Code" PropertyName="Code" Width="70" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Name" PropertyName="Name" Width="70" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="DisplayName" Removed="True" />
+      </Columns>
+    </ListView>
     <DetailView Id="DomainObject1_DetailView" DefaultFocusedItem="PropertyName">
       <Items>
         <DashboardViewItem Id="@5a11fd43-0122-49db-8c7a-6dec2da90e12" ViewId="DomainObject1_ListView" ActionsToolbarVisibility="Hide" IsNewNode="True" />

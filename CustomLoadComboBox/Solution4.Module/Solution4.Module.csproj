@@ -85,7 +85,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessObjects\Area.cs" />
+    <Compile Include="BusinessObjects\City.cs" />
+    <Compile Include="BusinessObjects\Country.cs" />
     <Compile Include="BusinessObjects\DomainObject1.cs" />
+    <Compile Include="BusinessObjects\DomainObject2.cs" />
+    <Compile Include="BusinessObjects\ExternalOrganization.cs" />
+    <Compile Include="BusinessObjects\Province.cs" />
+    <Compile Include="BusinessObjects\Ward.cs" />
     <Compile Include="Code\Helper\ProjectExtension.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>

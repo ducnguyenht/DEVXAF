@@ -111,6 +111,7 @@
     <Compile Include="Editors\Custom1\MyPropertyEditor.cs" />
     <Compile Include="Editors\Custom3\Custom3Editor.cs" />
     <Compile Include="Editors\CustomStringEditor.cs" />
+    <Compile Include="Editors\ManagerAspxGridLookupPropertyEditors\ManagerAspxGridLookupPropertyEditor.cs" />
     <Compile Include="WebModule.cs">
       <SubType>Component</SubType>
     </Compile>
