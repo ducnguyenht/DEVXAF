@@ -51,6 +51,13 @@ namespace Solution4.Module.Web.Editors.Custom3
             string search = e.Filter.ToLower();//.RemoveDiacritics();
             if (String.IsNullOrEmpty(search)) return;
 
+
+            //XPQuery<Solution4.Module.BusinessObjects.DomainObject1> security = new XPQuery<Solution4.Module.BusinessObjects.DomainObject1>(((XPObjectSpace)db).Session);
+            //var q = from s in security
+            //        where s.Property2 == null
+            //        select new { s.PropertyName, s.Obj2.Prop1 };
+            //var lsit = q.ToList();
+
             XPView clients = new XPView(
                  ((XPObjectSpace)db).Session,
                  this.CurrentObject.GetType(),
