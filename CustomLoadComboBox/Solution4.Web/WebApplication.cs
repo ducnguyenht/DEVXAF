@@ -14,6 +14,8 @@ namespace Solution4.Web
         private DevExpress.ExpressApp.SystemModule.SystemModule module1;
         private DevExpress.ExpressApp.Web.SystemModule.SystemAspNetModule module2;
         private Solution4.Module.Solution4Module module3;
+        private DevExpress.ExpressApp.ConditionalAppearance.ConditionalAppearanceModule conditionalAppearanceModule1;
+        private DevExpress.ExpressApp.Validation.ValidationModule validationModule1;
         private Solution4.Module.Web.Solution4AspNetModule module4;
 
         public Solution4AspNetApplication()
@@ -63,16 +65,25 @@ namespace Solution4.Web
             this.module2 = new DevExpress.ExpressApp.Web.SystemModule.SystemAspNetModule();
             this.module3 = new Solution4.Module.Solution4Module();
             this.module4 = new Solution4.Module.Web.Solution4AspNetModule();
+            this.conditionalAppearanceModule1 = new DevExpress.ExpressApp.ConditionalAppearance.ConditionalAppearanceModule();
+            this.validationModule1 = new DevExpress.ExpressApp.Validation.ValidationModule();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            // 
+            // validationModule1
+            // 
+            this.validationModule1.AllowValidationDetailsAccess = true;
+            this.validationModule1.IgnoreWarningAndInformationRules = false;
             // 
             // Solution4AspNetApplication
             // 
             this.ApplicationName = "Solution4";
+            this.CollectionsEditMode = DevExpress.ExpressApp.Editors.ViewEditMode.Edit;
             this.Modules.Add(this.module1);
             this.Modules.Add(this.module2);
+            this.Modules.Add(this.conditionalAppearanceModule1);
+            this.Modules.Add(this.validationModule1);
             this.Modules.Add(this.module3);
             this.Modules.Add(this.module4);
-
             this.DatabaseVersionMismatch += new System.EventHandler<DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs>(this.Solution4AspNetApplication_DatabaseVersionMismatch);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
