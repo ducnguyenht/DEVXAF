@@ -46,6 +46,8 @@ namespace Solution4.Module.BusinessObjects
                 SetPropertyValue("PropertyName", ref _PropertyName, value);
             }
         }
+
+
         [EditorAlias("CustomWebLookup")]
         [DataSourceCriteria("Prop4 == true")]
         public DomainObject2 Obj2
@@ -61,7 +63,7 @@ namespace Solution4.Module.BusinessObjects
         }
 
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
-        [RuleUniqueValue, EditorAlias("TestProp1")]
+        [RuleUniqueValue]//, EditorAlias("TestProp1")]
         public string PropertyName1
         {
             get
@@ -71,6 +73,21 @@ namespace Solution4.Module.BusinessObjects
             set
             {
                 SetPropertyValue("PropertyName1", ref _PropertyName1, value);
+            }
+        }
+        protected override void OnChanged(string propertyName, object oldValue, object newValue)
+        {
+            base.OnChanged(propertyName, oldValue, newValue);
+            if (propertyName == "Obj2")
+            {
+                if (Obj2 != null)
+                {
+                    PropertyName1 = Obj2.Prop1;
+                }
+                else
+                {
+                    PropertyName1 = "";
+                }
             }
         }
 

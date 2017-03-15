@@ -109,9 +109,8 @@
       <DependentUpon>WebShortcutsWindowController.cs</DependentUpon>
     </Compile>
     <Compile Include="Editors\Custom1\MyPropertyEditor.cs" />
+    <Compile Include="Editors\Custom2\ASPxGridLookupPropertyEditor.cs" />
     <Compile Include="Editors\Custom3\Custom3Editor.cs" />
-    <Compile Include="Editors\CustomStringEditor.cs" />
-    <Compile Include="Editors\ManagerAspxGridLookupPropertyEditors\ManagerAspxGridLookupPropertyEditor.cs" />
     <Compile Include="WebModule.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -122,7 +121,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="WebModule.resx">
       <DependentUpon>WebModule.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -162,7 +160,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Editors\Custom2\" />
+    <Folder Include="Editors\ManagerAspxGridLookupPropertyEditors\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

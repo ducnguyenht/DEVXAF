@@ -9,7 +9,6 @@
       <Columns>
         <ColumnInfo Id="Code" PropertyName="Code" Width="70" Index="1" IsNewNode="True" />
         <ColumnInfo Id="Name" PropertyName="Name" Width="70" Index="2" IsNewNode="True" />
-        <ColumnInfo Id="DisplayName" Removed="True" />
       </Columns>
     </ListView>
     <DetailView Id="DomainObject1_DetailView" DefaultFocusedItem="PropertyName">
@@ -28,5 +27,10 @@
       </Layout>
     </DetailView>
     <ListView Id="DomainObject1_ListView" NewItemRowPosition="Top" TopReturnedObjects="-1" ShowAutoFilterRow="True" />
+    <ListView Id="DomainObject2_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Prop2" PropertyName="Prop2" Width="70" Index="1" IsNewNode="True" />
+      </Columns>
+    </ListView>
   </Views>
 </Application>

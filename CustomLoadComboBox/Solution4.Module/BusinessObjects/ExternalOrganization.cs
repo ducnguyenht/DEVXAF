@@ -81,6 +81,7 @@ namespace NASDMS.Module.BusinessObjects.Operational.CRM.Customer
         }
 
         [DataSourceProperty("AvailableCity")]
+        //[EditorAlias("ASPxGridLookupPropertyEditor")]
         [ImmediatePostData]
         public City City
         {
@@ -108,6 +109,7 @@ namespace NASDMS.Module.BusinessObjects.Operational.CRM.Customer
                 _AvailableCity = new XPCollection<City>(
                    Session, new BinaryOperator("Country.Oid", Country != null ? Country.Oid : Guid.Empty)
                        & new BinaryOperator("Area.Oid", Area != null ? Area.Oid : Guid.Empty));
+
                 return _AvailableCity;
             }
         }
@@ -167,12 +169,36 @@ namespace NASDMS.Module.BusinessObjects.Operational.CRM.Customer
                 return _AvailableWard;
             }
         }
-
-
-
+        private string _Description;
+        [DevExpress.Xpo.Size(SizeAttribute.Unlimited)]
+        public string Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                SetPropertyValue("Description", ref _Description, value);
+            }
+        }
         #endregion Properties
 
-
+        protected override void OnChanged(string propertyName, object oldValue, object newValue)
+        {
+            base.OnChanged(propertyName, oldValue, newValue);
+            if (propertyName == "City")
+            {
+                if (City != null)
+                {
+                    Description = City.Name;
+                }
+                else
+                {
+                    Description = "";
+                }
+            }
+        }
 
 
     }
