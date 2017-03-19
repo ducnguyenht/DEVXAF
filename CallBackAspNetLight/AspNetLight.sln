@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetLight", "AspNetLight\AspNetLight.csproj", "{38BD9F1B-5CD6-4F99-995D-9E039C2AB3C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebGui", "WebGui\WebGui.csproj", "{C8EAD7ED-67E3-4D1D-B684-446A3A6C505D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Release|.NET = Release|.NET
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38BD9F1B-5CD6-4F99-995D-9E039C2AB3C0}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{38BD9F1B-5CD6-4F99-995D-9E039C2AB3C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38BD9F1B-5CD6-4F99-995D-9E039C2AB3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38BD9F1B-5CD6-4F99-995D-9E039C2AB3C0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{38BD9F1B-5CD6-4F99-995D-9E039C2AB3C0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{38BD9F1B-5CD6-4F99-995D-9E039C2AB3C0}.Release|.NET.ActiveCfg = Release|Any CPU
+		{38BD9F1B-5CD6-4F99-995D-9E039C2AB3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38BD9F1B-5CD6-4F99-995D-9E039C2AB3C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38BD9F1B-5CD6-4F99-995D-9E039C2AB3C0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{38BD9F1B-5CD6-4F99-995D-9E039C2AB3C0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C8EAD7ED-67E3-4D1D-B684-446A3A6C505D}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{C8EAD7ED-67E3-4D1D-B684-446A3A6C505D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8EAD7ED-67E3-4D1D-B684-446A3A6C505D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8EAD7ED-67E3-4D1D-B684-446A3A6C505D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C8EAD7ED-67E3-4D1D-B684-446A3A6C505D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C8EAD7ED-67E3-4D1D-B684-446A3A6C505D}.Release|.NET.ActiveCfg = Release|Any CPU
+		{C8EAD7ED-67E3-4D1D-B684-446A3A6C505D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8EAD7ED-67E3-4D1D-B684-446A3A6C505D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8EAD7ED-67E3-4D1D-B684-446A3A6C505D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C8EAD7ED-67E3-4D1D-B684-446A3A6C505D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
