@@ -22,4 +22,87 @@ namespace NASDMS.Systems
         ERROR_ALREADY_EXISTS = 183,
         ERROR_NOT_FOUND = 1168
     }
+    #region AuditTrail
+    public enum CategoryAudit
+    {
+        NA = 0,
+        #region Tài chính kế toán
+        /// <summary>
+        ///  Nhập kho mua hàng,
+        /// </summary>
+        DomainObject1 = 1,
+
+        /// <summary>
+        /// mua hàng không qua kho  
+        /// </summary>
+        OperationalServicePurchaseOrder = 2,
+
+        /// <summary>
+        /// Đơn hàng tổng hợp
+        /// </summary>
+        SalesOrderAllChannel = 3,
+
+        /// <summary>
+        /// Điều chỉnh kho
+        /// </summary>
+        OperationalInventoryAdjustment = 4,
+
+        /// <summary>
+        /// Chuyển kho nội bộ
+        /// </summary>
+        OperationalMovement = 5,
+
+        /// <summary>
+        /// Xuất kho bán hàng
+        /// </summary>
+        OperationalShipment,
+
+        /// <summary>
+        /// Nhập kho hàng trả hàng
+        /// </summary>
+        OperationalReturnFromCustomer,
+
+        /// <summary>
+        /// Yêu cầu đặt hàng nhà máy
+        /// </summary>
+        OperationalPOReceiptRequest,
+
+
+        /// <summary>
+        /// Ủy nhiệm thu
+        /// </summary>
+        ReceiptByBank,
+
+        /// <summary>
+        /// Ủy nhiệm
+        /// </summary>
+        ReceiptByCash,
+        #endregion Tài chính kế toán
+
+    }
+    public enum ActionAudit
+    {
+        NA = 0,
+        /// <summary>
+        /// The created
+        /// </summary>
+        Created = 1,
+        /// <summary>
+        /// The updated
+        /// </summary>
+        Updated = 2,
+        /// <summary>
+        /// The deleted
+        /// </summary>
+        Deleted = 3,
+        /// <summary>
+        /// The login sucess
+        /// </summary>
+        LoginSucess = 4,
+        /// <summary>
+        /// The login false
+        /// </summary>
+        LoginFalse = 5
+    }
+    #endregion
 }

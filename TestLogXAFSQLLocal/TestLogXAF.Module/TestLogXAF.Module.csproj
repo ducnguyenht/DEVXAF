@@ -17,6 +17,8 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
     <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -90,11 +92,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObjects\DomainObject1.cs" />
-    <Compile Include="BusinessObjects\DomainObject2.cs" />
     <Compile Include="BusinessObjects\DomainObject3.cs" />
-    <Compile Include="BusinessObjects\DomainObject4.cs" />
-    <Compile Include="BusinessObjects\History.cs" />
-    <Compile Include="BusinessObjects\HistoryHelper.cs" />
+    <Compile Include="Common\Helper\DevexpressHelperExtension.cs" />
+    <Compile Include="Common\Helper\Master.cs" />
+    <Compile Include="Common\NonPersistents\History.cs" />
+    <Compile Include="Editors\CustomUserControlViewItem.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -135,16 +137,23 @@
     <Content Include="FunctionalTests\Config.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NASDMS.Systems\NASDMS.Systems.csproj">
-      <Project>{ab98f35f-efa2-487b-98f6-9733ab7bc6d4}</Project>
-      <Name>NASDMS.Systems</Name>
+    <ProjectReference Include="..\NASDMS.RDS\NASDMS.RDS.csproj">
+      <Project>{db8ce7d0-2acd-4ebd-b1e0-1a831dd044e5}</Project>
+      <Name>NASDMS.RDS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TestLog.RDS\TestLog.RDS.csproj">
-      <Project>{14639592-bfbe-4b01-8a24-000aa8871098}</Project>
-      <Name>TestLog.RDS</Name>
+    <ProjectReference Include="..\NASDMS.Systems\NASDMS.Systems.csproj">
+      <Project>{686f13a8-93c8-4d64-81ff-a8c3d5d3d4eb}</Project>
+      <Name>NASDMS.Systems</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

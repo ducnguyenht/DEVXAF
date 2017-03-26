@@ -1,3 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application>
+  <NavigationItems>
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="@da438212-22a1-4dd0-9e1a-dc1c498f5b47" Caption="History" ViewId="HistoryLog" IsNewNode="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Options UseServerMode="True" />
+  <SchemaModules>
+    <SchemaModule Name="SystemAspNetModule" Version="13.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="13.2.7.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <DashboardView Id="@e82fade8-8beb-45f2-8b3d-124fd25a51a6" Removed="True" />
+    <ListView Id="History_ListView" UseServerMode="False" />
+    <DashboardView Id="HistoryLog" Caption="HistoryLog" IsNewNode="True">
+      <Items IsNewNode="True">
+        <WebCustomUserControlViewItem Id="@6fb9734e-9b74-4485-b801-e46c132c2646" CustomControlPath="WebUserControl1.ascx" IsNewNode="True" />
+      </Items>
+    </DashboardView>
+  </Views>
 </Application>

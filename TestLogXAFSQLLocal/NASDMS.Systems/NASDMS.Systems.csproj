@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AB98F35F-EFA2-487B-98F6-9733AB7BC6D4}</ProjectGuid>
+    <ProjectGuid>{686F13A8-93C8-4D64-81FF-A8C3D5D3D4EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NASDMS.Systems</RootNamespace>

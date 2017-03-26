@@ -1,2 +1,10 @@
-<?xml version="1.0"?>
-<Application />
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <SchemaModules>
+    <SchemaModule Name="SystemAspNetModule" Version="13.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="13.2.7.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <DashboardView Id="@e82fade8-8beb-45f2-8b3d-124fd25a51a6" IsNewNode="True" />
+  </Views>
+</Application>

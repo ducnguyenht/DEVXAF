@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="Default">
+        <Items Id="Items">
+          <Item Id="@da438212-22a1-4dd0-9e1a-dc1c498f5b47" ViewId="UserControl" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

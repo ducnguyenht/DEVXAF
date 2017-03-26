@@ -11,44 +11,32 @@ using System.Collections.Generic;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
-using TestLog.RDS;
-using TestLog.RDS.Services.AuditTrailServices;
+using NASDMS.Module.Common.NonPersistents;
+using NASDMS.RDS;
+using NASDMS.Module.Common.Helper;
 
 namespace TestLogXAF.Module.BusinessObjects
 {
     [DefaultClassOptions]
     //[ImageName("BO_Contact")]
-    //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
-    //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
+    [DefaultProperty("Test1")]
+    [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (http://documentation.devexpress.com/#Xaf/CustomDocument2701).
     public class DomainObject1 : BaseObject
-    { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (http://documentation.devexpress.com/#Xaf/CustomDocument3146).
+    {
         public DomainObject1(Session session)
             : base(session)
         {
         }
+
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-            // Place your initialization code here (http://documentation.devexpress.com/#Xaf/CustomDocument2834).
         }
-        // Fields...
+        private string _Test2;
         private string _Test1;
-        private string _Test;
-        [RuleUniqueValue(DefaultContexts.Save, CustomMessageTemplate = "test đã tồn tại")]
-        public string test
-        {
-            get
-            {
-                return _Test;
-            }
-            set
-            {
-                SetPropertyValue("test", ref _Test, value);
-            }
-        }
-        [RuleUniqueValue(DefaultContexts.Save, CustomMessageTemplate = "Test1 đã tồn tại")]
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string Test1
         {
             get
@@ -61,6 +49,19 @@ namespace TestLogXAF.Module.BusinessObjects
             }
         }
 
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string Test2
+        {
+            get
+            {
+                return _Test2;
+            }
+            set
+            {
+                SetPropertyValue("Test2", ref _Test2, value);
+            }
+        }
+
         [Association("DomainObject1-DomainObject3s")]
         public XPCollection<DomainObject3> DomainObject3s
         {
@@ -70,77 +71,50 @@ namespace TestLogXAF.Module.BusinessObjects
             }
         }
 
-
-        private readonly IAuditTrailService AuditTrailService = new AuditTrailService();
-
         //[Delayed]
         public List<History> History
         {
             get
             {
-                List<History> lstH = new List<BusinessObjects.History>();
-                List<AuditTrail> auditTrails = new List<AuditTrail>();
-                AuditTrailService.GetAuditTrails(ref auditTrails, this.Oid);
-                foreach (var item in auditTrails)
-                {
-                    History h = new History(Session);
-                    h.ChangedBy = item.ChangedBy;
-                    h.Data = item.Data;
-                    h.ChangedOn = item.ChangedOn.Value;
-                    lstH.Add(h);
-                }
-                return lstH;
+                return DevexpressHelperExtension.LoadHistory(this.Oid, Session);
             }
         }
-
+        private Master helper = new Master();
         protected override void OnChanged(string propertyName, object oldValue, object newValue)
         {
-            base.OnChanged(propertyName, oldValue, newValue);
-            string newValueStr = "";
-            string oldValueStr = "";
-            bool isSaveHistory = false;
-            switch (propertyName)
+            if (!IsSaving && !IsLoading)
             {
-                case "test":
-                    if (oldValue != null)
+                base.OnChanged(propertyName, oldValue, newValue);
+                try
+                {
+                    string[] IgnoreProperty = { "OptimisticLockField", "OptimisticLockFieldInDataLayer" };
+                    if (oldValue != newValue && !IgnoreProperty.Contains(propertyName))
                     {
-                        oldValueStr = oldValue.ToString();
+                        helper.UpdateDetail(propertyName.ToLocalization(this), oldValue.ToCustomString(), newValue.ToCustomString(),this.Session.IsNewObject(this));
                     }
-                    newValueStr = this.test;
-                    isSaveHistory = true;
-                    break;
-                case "Test1":
-                    if (oldValue != null)
-                    {
-                        oldValueStr = oldValue.ToString();
-                    }
-                    newValueStr = this.Test1;
-                    isSaveHistory = true;
-                    break;
+                }
+                catch (Exception) { }
             }
-
-            if (isSaveHistory)
-            {
-                string s = TrackHistory(propertyName, newValueStr, oldValueStr);
-            }
-
-        }
-        HistoryHelper helper = new HistoryHelper();
-        public string TrackHistory(string propertyName, string newValueStr, string oldValueStr)
-        {
-            helper.UpdateDetail(propertyName, oldValueStr, newValueStr);
-            return helper.DescriptionHistory();
         }
 
         protected override void OnSaving()
         {
             base.OnSaving();
-            if (helper.DescriptionHistory() != "")
+            #region AuditTrail
+            try
             {
-                string ChangedBy = "User A";
-                AuditTrailService.AddAuditTrail(this.Oid, ChangedBy, helper.DescriptionHistory());
+                if (!IsDeleted)
+                {
+                    helper.ToHistory(this.Oid, "user A", NASDMS.Systems.CategoryAudit.DomainObject1, Session.IsNewObject(this));
+                }
+                else
+                {
+                    helper.ToHistory(this.Oid, "user A", NASDMS.Systems.CategoryAudit.DomainObject1, false, this.Test1);
+                }
+                OnChanged("History");
             }
-            OnChanged("History");
+            catch (Exception) { }
+            #endregion AuditTrail
         }
 
 

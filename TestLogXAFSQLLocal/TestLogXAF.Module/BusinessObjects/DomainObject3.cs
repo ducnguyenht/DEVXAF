@@ -1,23 +1,16 @@
-using System;
-using System.Linq;
-using System.Text;
 using DevExpress.Xpo;
 using DevExpress.ExpressApp;
-using System.ComponentModel;
-using DevExpress.ExpressApp.DC;
-using DevExpress.Data.Filtering;
 using DevExpress.Persistent.Base;
-using System.Collections.Generic;
-using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
-using DevExpress.Persistent.Validation;
-using TestLog.RDS.Services.AuditTrailServices;
-
+using System;
+using NASDMS.Module.Common.Helper;
+using System.Linq;
+using System.ComponentModel;
 namespace TestLogXAF.Module.BusinessObjects
 {
     [DefaultClassOptions]
     //[ImageName("BO_Contact")]
-    //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
+    [DefaultProperty("Code")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (http://documentation.devexpress.com/#Xaf/CustomDocument2701).
@@ -74,47 +67,55 @@ namespace TestLogXAF.Module.BusinessObjects
                 SetPropertyValue("DomainObject1", ref _DomainObject1, value);
             }
         }
-        HistoryHelper helper = new HistoryHelper();
+        private static Master helper = new Master();
         protected override void OnChanged(string propertyName, object oldValue, object newValue)
         {
             base.OnChanged(propertyName, oldValue, newValue);
-            string newValueStr = "";
-            string oldValueStr = "";
-            bool isSaveHistory = false;
-            switch (propertyName)
+            if (!IsSaving && !IsLoading)
             {
-                case "Code":
-                    if (oldValue != null)
+                base.OnChanged(propertyName, oldValue, newValue);
+                try
+                {
+                    string[] IgnoreProperty = { "OptimisticLockField", "OptimisticLockFieldInDataLayer" };
+                    if (oldValue != newValue && !IgnoreProperty.Contains(propertyName))
                     {
-                        oldValueStr = oldValue.ToString();
+                        helper.UpdateDetail(propertyName.ToLocalization(this).ToChildHistory(), oldValue.ToCustomString(), newValue.ToCustomString(), this.Session.IsNewObject(this));
                     }
-                    newValueStr = this.Code;
-                    isSaveHistory = true;
-                    break;
-                case "Name":
-                    if (oldValue != null)
-                    {
-                        oldValueStr = oldValue.ToString();
-                    }
-                    newValueStr = this.Name;
-                    isSaveHistory = true;
-                    break;
-            }
-            if (isSaveHistory)
-            {
-                //DomainObject1.TrackHistory("\t\t" + propertyName, oldValueStr, newValueStr);
-                helper.UpdateDetail("\t\t" + propertyName, oldValueStr, newValueStr);
+                }
+                catch (Exception) { }
             }
         }
-        private readonly IAuditTrailService AuditTrailService = new AuditTrailService();
         protected override void OnSaving()
         {
             base.OnSaving();
-            if (helper.DescriptionHistory() != "")
+
+            #region AuditTrail
+            try
             {
-                string ChangedBy = "userA";
-                AuditTrailService.AddAuditTrail(DomainObject1.Oid, ChangedBy, helper.DescriptionHistory());
+                if (this.DomainObject1 != null)
+                {
+                    helper.ToHistory(this.DomainObject1.Oid, "user A", NASDMS.Systems.CategoryAudit.DomainObject1, Session.IsNewObject(this));
+                }
+                if (helper.deleted.Count > 0 && IsDeleted)
+                {
+                    foreach (var item in helper.deleted)
+                    {
+                        var deletedItem = item.ToObject<DomainObject3>();
+                        helper.ToHistory(helper.Oid, "user A", NASDMS.Systems.CategoryAudit.DomainObject1, Session.IsNewObject(this), deletedItem.Code);
+                    }
+                    helper.deleted.Clear();
+                }
             }
+            catch (Exception)
+            {
+            }
+            #endregion AuditTrail
+        }
+        protected override void OnDeleting()
+        {
+            base.OnDeleting();
+            helper.deleted.Add(this);
+            helper.Oid = this.DomainObject1.Oid;
         }
     }
 }

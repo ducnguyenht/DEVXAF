@@ -9,9 +9,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLogXAF.Module.Web", "Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLogXAF.Web", "TestLogXAF.Web\TestLogXAF.Web.csproj", "{82A6DBC9-B1B4-44E4-9718-55DF930CD349}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLog.RDS", "TestLog.RDS\TestLog.RDS.csproj", "{14639592-BFBE-4B01-8A24-000AA8871098}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NASDMS.Systems", "NASDMS.Systems\NASDMS.Systems.csproj", "{686F13A8-93C8-4D64-81FF-A8C3D5D3D4EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NASDMS.Systems", "NASDMS.Systems\NASDMS.Systems.csproj", "{AB98F35F-EFA2-487B-98F6-9733AB7BC6D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NASDMS.RDS", "NASDMS.RDS\NASDMS.RDS.csproj", "{DB8CE7D0-2ACD-4EBD-B1E0-1A831DD044E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{895950B7-8323-4D15-919F-A28B8BEF0A47}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
@@ -42,18 +49,18 @@ Global
 		{82A6DBC9-B1B4-44E4-9718-55DF930CD349}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
 		{82A6DBC9-B1B4-44E4-9718-55DF930CD349}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82A6DBC9-B1B4-44E4-9718-55DF930CD349}.Release|Any CPU.Build.0 = Release|Any CPU
-		{14639592-BFBE-4B01-8A24-000AA8871098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{14639592-BFBE-4B01-8A24-000AA8871098}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{14639592-BFBE-4B01-8A24-000AA8871098}.EasyTest|Any CPU.ActiveCfg = Release|Any CPU
-		{14639592-BFBE-4B01-8A24-000AA8871098}.EasyTest|Any CPU.Build.0 = Release|Any CPU
-		{14639592-BFBE-4B01-8A24-000AA8871098}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{14639592-BFBE-4B01-8A24-000AA8871098}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB98F35F-EFA2-487B-98F6-9733AB7BC6D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB98F35F-EFA2-487B-98F6-9733AB7BC6D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB98F35F-EFA2-487B-98F6-9733AB7BC6D4}.EasyTest|Any CPU.ActiveCfg = Release|Any CPU
-		{AB98F35F-EFA2-487B-98F6-9733AB7BC6D4}.EasyTest|Any CPU.Build.0 = Release|Any CPU
-		{AB98F35F-EFA2-487B-98F6-9733AB7BC6D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB98F35F-EFA2-487B-98F6-9733AB7BC6D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{686F13A8-93C8-4D64-81FF-A8C3D5D3D4EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{686F13A8-93C8-4D64-81FF-A8C3D5D3D4EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{686F13A8-93C8-4D64-81FF-A8C3D5D3D4EB}.EasyTest|Any CPU.ActiveCfg = Release|Any CPU
+		{686F13A8-93C8-4D64-81FF-A8C3D5D3D4EB}.EasyTest|Any CPU.Build.0 = Release|Any CPU
+		{686F13A8-93C8-4D64-81FF-A8C3D5D3D4EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{686F13A8-93C8-4D64-81FF-A8C3D5D3D4EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB8CE7D0-2ACD-4EBD-B1E0-1A831DD044E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB8CE7D0-2ACD-4EBD-B1E0-1A831DD044E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB8CE7D0-2ACD-4EBD-B1E0-1A831DD044E5}.EasyTest|Any CPU.ActiveCfg = Release|Any CPU
+		{DB8CE7D0-2ACD-4EBD-B1E0-1A831DD044E5}.EasyTest|Any CPU.Build.0 = Release|Any CPU
+		{DB8CE7D0-2ACD-4EBD-B1E0-1A831DD044E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB8CE7D0-2ACD-4EBD-B1E0-1A831DD044E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
