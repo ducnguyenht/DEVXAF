@@ -18,6 +18,10 @@ namespace WebApplication1.Models
             string orderBy = "";
             //var products = ArtContext.Products.Paged(out model.TotalRows, where: where, orderBy: orderBy, page: page, pageSize: pageSize, parms: parms);
 
+            //            SELECT a.i, a.j, (
+            //    SELECT count(*) from test b where a.j >= b.j AND a.i = b.i
+            //) AS row_number FROM test a
+
             var lst = db.AuditTrails.Paged(out ttotal, page: startRecord + 1, pageSize: maxRecords).ToList();
             total = ttotal;
             return lst;
