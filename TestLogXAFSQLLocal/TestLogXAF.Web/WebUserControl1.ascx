@@ -3,7 +3,7 @@
 <%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
 <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" KeyFieldName="Id">
     <Columns>
-        <dx:GridViewCommandColumn ShowClearFilterButton="True" ShowDeleteButton="True" VisibleIndex="0">
+        <dx:GridViewCommandColumn ShowClearFilterButton="True" VisibleIndex="0">
         </dx:GridViewCommandColumn>
         <dx:GridViewDataTextColumn FieldName="Id" VisibleIndex="1" ShowInCustomizationForm="True">
         </dx:GridViewDataTextColumn>

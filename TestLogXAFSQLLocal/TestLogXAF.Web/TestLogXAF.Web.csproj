@@ -177,6 +177,7 @@
     <Content Include="WebUserControl1.ascx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuditTrailViewModel.cs" />
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
