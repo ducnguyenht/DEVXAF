@@ -70,20 +70,26 @@ namespace TestLogXAF.Module.BusinessObjects
         private static Master helper = new Master();
         protected override void OnChanged(string propertyName, object oldValue, object newValue)
         {
-            base.OnChanged(propertyName, oldValue, newValue);
             if (!IsSaving && !IsLoading)
             {
                 base.OnChanged(propertyName, oldValue, newValue);
                 try
                 {
-                    string[] IgnoreProperty = { "OptimisticLockField", "OptimisticLockFieldInDataLayer" };
+                    string[] IgnoreProperty = { "DomainObject1", "GCRecord", "OptimisticLockField", "OptimisticLockFieldInDataLayer" };
                     if (oldValue != newValue && !IgnoreProperty.Contains(propertyName))
                     {
+                        helper.Oid = this.Oid;
                         helper.UpdateDetail(propertyName.ToLocalization(this).ToChildHistory(), oldValue.ToCustomString(), newValue.ToCustomString(), this.Session.IsNewObject(this));
+
                     }
                 }
                 catch (Exception) { }
             }
+        }
+
+        public override string ToString()
+        {
+            return this.Name + " ; " + this.Code;
         }
         protected override void OnSaving()
         {
@@ -94,14 +100,15 @@ namespace TestLogXAF.Module.BusinessObjects
             {
                 if (this.DomainObject1 != null)
                 {
-                    helper.ToHistory(this.DomainObject1.Oid, "user A", NASDMS.Systems.CategoryAudit.DomainObject1, Session.IsNewObject(this));
+                    helper.Oid = this.Oid;
+                    helper.ToHistory(this.DomainObject1.Oid, this.ToString(), "user A", NASDMS.Systems.CategoryAudit.DomainObject1, Session.IsNewObject(this));
                 }
                 if (helper.deleted.Count > 0 && IsDeleted)
                 {
                     foreach (var item in helper.deleted)
                     {
                         var deletedItem = item.ToObject<DomainObject3>();
-                        helper.ToHistory(helper.Oid, "user A", NASDMS.Systems.CategoryAudit.DomainObject1, Session.IsNewObject(this), deletedItem.Code);
+                        helper.ToHistory(helper.OidDeleted, "", "user A", NASDMS.Systems.CategoryAudit.DomainObject1, Session.IsNewObject(this), deletedItem.Code);
                     }
                     helper.deleted.Clear();
                 }
@@ -114,8 +121,12 @@ namespace TestLogXAF.Module.BusinessObjects
         protected override void OnDeleting()
         {
             base.OnDeleting();
-            helper.deleted.Add(this);
-            helper.Oid = this.DomainObject1.Oid;
+            var find = helper.deleted.Find(x => x.ToObject<DomainObject3>().Oid == this.Oid);
+            if (find == null)
+            {
+                helper.deleted.Add(this);
+                helper.OidDeleted = this.DomainObject1.Oid;
+            }
         }
     }
 }

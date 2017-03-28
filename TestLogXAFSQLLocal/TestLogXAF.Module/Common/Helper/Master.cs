@@ -16,6 +16,7 @@ namespace NASDMS.Module.Common.Helper
         public List<Detail> list { get; set; }
         public List<object> deleted { get; set; }
         public Guid Oid { get; set; }
+        public Guid OidDeleted { get; set; }
         public void UpdateDetail(string propertyName, string oldValue, string newValue, bool IsNewObject)
         {
             if (IsNewObject)
@@ -24,25 +25,20 @@ namespace NASDMS.Module.Common.Helper
                 detail.propertyName = propertyName;
                 detail.oldValue = oldValue;
                 detail.newValue = newValue;
+                detail.Oid = this.Oid;
+                detail.action = Action.Created;
                 list.Add(detail);
             }
             else
             {
-                var listTemp = list.Where(w => w.propertyName == propertyName && w.oldValue == oldValue && w.newValue==w.newValue).FirstOrDefault();
-                if (listTemp == null)
-                {
-                    Detail detail = new Detail();
-                    detail.propertyName = propertyName;
-                    detail.oldValue = oldValue;
-                    detail.newValue = newValue;
-                    list.Add(detail);
-                }
-                else
-                {
-                    listTemp.newValue = newValue;
-                }
+                Detail detail = new Detail();
+                detail.propertyName = propertyName;
+                detail.oldValue = oldValue;
+                detail.newValue = newValue;
+                detail.Oid = this.Oid;
+                detail.action = Action.Updated;
+                list.Add(detail);
             }
-
         }
         public string DescriptionTemp { get; set; }
         public string DescriptionHistory()
@@ -52,7 +48,7 @@ namespace NASDMS.Module.Common.Helper
             {
                 foreach (var listHistory in list)
                 {
-                    DescriptionTemp += listHistory.propertyName + ": " + listHistory.oldValue + " -> " + listHistory.newValue + Environment.NewLine;
+                    DescriptionTemp += listHistory.propertyName + ": " + listHistory.oldValue + " => " + listHistory.newValue + Environment.NewLine;
                 }
                 return DescriptionTemp;
             }
@@ -64,5 +60,13 @@ namespace NASDMS.Module.Common.Helper
         public string propertyName { get; set; }
         public string oldValue { get; set; }
         public string newValue { get; set; }
+        public Guid Oid { get; set; }
+        public Action action { get; set; }
+    }
+    public enum Action
+    {
+        Created,
+        Updated,
+        Deleted
     }
 }

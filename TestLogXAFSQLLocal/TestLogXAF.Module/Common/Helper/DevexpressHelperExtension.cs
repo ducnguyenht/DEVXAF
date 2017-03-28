@@ -39,6 +39,8 @@ public static class DevexpressHelperExtension
     }
 
 
+
+
     /// <summary>
     /// Save AuditTrail to Mysql.
     /// </summary>
@@ -48,15 +50,23 @@ public static class DevexpressHelperExtension
     /// <param name="category">The category.</param>
     /// <param name="IsNewObj">if set to <c>true</c> [is new object].</param>
     /// <param name="nameObjectDeleted">The name object deleted.</param>
-    public static void ToHistory(this Master HistoryHelper, Guid Oid, string ChangedBy, CategoryAudit Category, bool IsNewObject = false, string NameObjectDeleted = null)
+    public static void ToHistory(this Master HistoryHelper, Guid Oid, string ObjToString, string ChangedBy, CategoryAudit Category, bool IsNewObject = false, string NameObjectDeleted = null)
     {
         if (IsNewObject)
         {
             if (HistoryHelper.DescriptionHistory() != "")
             {
                 NASDMS.RDS.Services.AuditTrailServices.IAuditTrailService AuditTrailService = new NASDMS.RDS.Services.AuditTrailServices.AuditTrailService();
-                AuditTrailService.AddAuditTrail(Oid, ChangedBy, HistoryHelper.DescriptionTemp, Category, ActionAudit.Created);
-                HistoryHelper.list.Clear();
+                var temp = new Master();
+                temp.list = HistoryHelper.list.Where(o => o.action == NASDMS.Module.Common.Helper.Action.Created).ToList();
+                if (temp.DescriptionHistory() != "")
+                {
+                    AuditTrailService.AddAuditTrail(Oid, ChangedBy, temp.DescriptionHistory(), Category, ActionAudit.Created);
+                    foreach (var item in temp.list)
+                    {
+                        HistoryHelper.list.Remove(item);
+                    }
+                }
             }
         }
         else
@@ -66,8 +76,21 @@ public static class DevexpressHelperExtension
                 if (HistoryHelper.DescriptionHistory() != "")
                 {
                     NASDMS.RDS.Services.AuditTrailServices.IAuditTrailService AuditTrailService = new NASDMS.RDS.Services.AuditTrailServices.AuditTrailService();
-                    AuditTrailService.AddAuditTrail(Oid, ChangedBy, HistoryHelper.DescriptionTemp, Category, ActionAudit.Updated);
-                    HistoryHelper.list.Clear();
+                    var finds = HistoryHelper.list.Where(o => o.Oid == HistoryHelper.Oid).ToList();
+                    var DescriptionTemp = "";
+                    if (finds != null)
+                    {
+                        foreach (var listHistory in finds)
+                        {
+                            DescriptionTemp += listHistory.propertyName + ": " + listHistory.oldValue + " -> " + listHistory.newValue + Environment.NewLine;
+                        }
+                    }
+                    foreach (var item in finds)
+                    {
+                        HistoryHelper.list.Remove(item);
+
+                    }
+                    AuditTrailService.AddAuditTrail(Oid, ChangedBy, ObjToString + Environment.NewLine + DescriptionTemp, Category, ActionAudit.Updated);
                 }
             }
             else
