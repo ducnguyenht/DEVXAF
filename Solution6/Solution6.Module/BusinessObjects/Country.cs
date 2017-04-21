@@ -20,9 +20,9 @@ namespace Solution6.Module.BusinessObjects
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (http://documentation.devexpress.com/#Xaf/CustomDocument2701).
-    public class DomainObject1 : BaseObject
+    public class Country : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (http://documentation.devexpress.com/#Xaf/CustomDocument3146).
-        public DomainObject1(Session session)
+        public Country(Session session)
             : base(session)
         {
         }
@@ -32,47 +32,31 @@ namespace Solution6.Module.BusinessObjects
             // Place your initialization code here (http://documentation.devexpress.com/#Xaf/CustomDocument2834).
         }
         // Fields...
-        private City _City;
-        private Country _Country;
-        private string _Address;
-        [Size(1028)]
-        [EditorAlias("Custom3")]
-        public string Address
+        private string _Name;
+        private string _Code;
+
+        public string Code
         {
             get
             {
-                return _Address;
+                return _Code;
             }
             set
             {
-                SetPropertyValue("address", ref _Address, value);
+                SetPropertyValue("Code", ref _Code, value);
             }
         }
 
-        public Country Country
+        public string Name
         {
             get
             {
-                return _Country;
+                return _Name;
             }
             set
             {
-                SetPropertyValue("Country", ref _Country, value);
+                SetPropertyValue("Name", ref _Name, value);
             }
         }
-
-        public City City
-        {
-            get
-            {
-                return _City;
-            }
-            set
-            {
-                SetPropertyValue("City", ref _City, value);
-            }
-        }
-
-
     }
 }

@@ -1,3 +1,17 @@
-﻿<?xml version="1.0" ?>
-<Application Title="Solution6" Logo="ExpressAppLogo" />
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="Solution6" Logo="ExpressAppLogo">
+  <NavigationItems>
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="DomainObject1_ListView" Index="0" />
+          <Item Id="Country_ListView" Index="1" />
+          <Item Id="City_ListView" Index="2" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="13.2.7.0" IsNewNode="True" />
+  </SchemaModules>
+</Application>
