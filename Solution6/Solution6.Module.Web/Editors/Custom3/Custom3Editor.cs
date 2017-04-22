@@ -52,12 +52,13 @@ namespace Solution4.Module.Web.Editors.Custom3
             dropDownControl.Callback += dropDownControl_Callback;
             return dropDownControl;
         }
-
+        
         void dropDownControl_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
         {
             string search = e.Parameter.ToLower();//.RemoveDiacritics();
             if (String.IsNullOrEmpty(search)) return;
             dropDownControl.Text = e.Parameter;
+
             var requestUri = string.Format("http://maps.googleapis.com/maps/api/geocode/json?address={0}&sensor=false", Uri.EscapeDataString(search));
             System.Net.WebClient wc = new System.Net.WebClient();
             System.IO.Stream stream = wc.OpenRead(requestUri);
@@ -71,6 +72,7 @@ namespace Solution4.Module.Web.Editors.Custom3
                              from p in json["results"]
                              select (string)p["formatted_address"];
             dropDownControl.Items.Clear();
+            dropDownControl.Items.Add(e.Parameter);
             foreach (var item in postTitles)
             {
                 dropDownControl.Items.Add(item);

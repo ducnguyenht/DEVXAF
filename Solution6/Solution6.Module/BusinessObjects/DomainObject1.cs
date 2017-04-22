@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Text;
 using DevExpress.Xpo;
@@ -17,7 +17,7 @@ namespace Solution6.Module.BusinessObjects
     [DefaultClassOptions]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
-    //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
+    [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Top)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (http://documentation.devexpress.com/#Xaf/CustomDocument2701).
     public class DomainObject1 : BaseObject
@@ -32,11 +32,13 @@ namespace Solution6.Module.BusinessObjects
             // Place your initialization code here (http://documentation.devexpress.com/#Xaf/CustomDocument2834).
         }
         // Fields...
+        private string _String1;
         private City _City;
         private Country _Country;
         private string _Address;
         [Size(1028)]
-        [EditorAlias("Custom3")]
+        [ImmediatePostData]
+        [EditorAlias("Custom3"), VisibleInListView(true)]
         public string Address
         {
             get
@@ -45,10 +47,21 @@ namespace Solution6.Module.BusinessObjects
             }
             set
             {
-                SetPropertyValue("address", ref _Address, value);
+                SetPropertyValue("Address", ref _Address, value);
             }
         }
 
+        public string String1
+        {
+            get
+            {
+                return _String1;
+            }
+            set
+            {
+                SetPropertyValue("String1", ref _String1, value);
+            }
+        }
         public Country Country
         {
             get
@@ -72,7 +85,51 @@ namespace Solution6.Module.BusinessObjects
                 SetPropertyValue("City", ref _City, value);
             }
         }
+        protected override void OnSaving()
+        {
+            base.OnSaving();
+            if (Country == null || City == null)
+            {
+                if (!String.IsNullOrEmpty(Address))
+                {
+                    string strThanhPho = "";
+                    string strQuocGia = "";
+                    var split = Address.Split(',');
 
+                    if (Country == null && split.Count()==5 && split[4].Trim() != "")
+                    {
+                        
+                       
+                        var idx = Address.IndexOf(',');
+                        var t = 1;
 
+                        strQuocGia = split[4].Trim();
+                        strQuocGia = strQuocGia.ToLower() == "vietnam" ? "Việt Nam" : strQuocGia;
+                        var objQuocGia = Session.FindObject<Country>(new BinaryOperator("Name", strQuocGia));
+                        if (objQuocGia == null)
+                        {
+                            objQuocGia = new Country(Session);
+                            objQuocGia.Name = strQuocGia;
+                            objQuocGia.Save();
+                        }
+                        this.Country = objQuocGia;
+                    }
+                    if (City == null && split.Count()==5 && split[3].Trim() != "")
+                    {
+                        strThanhPho = split[3].Trim();
+                        var objThanhPho = Session.FindObject<City>(new BinaryOperator("Name", strThanhPho));
+                        if (objThanhPho == null)
+                        {
+                            objThanhPho = new City(Session);
+                            objThanhPho.Name = strThanhPho;
+                            objThanhPho.Save();
+                        }
+                        this.City = objThanhPho;
+                    }
+
+                }
+            }
+            //123 Ngô Đức Kế, phường 12, Bình Thạnh, Hồ Chí Minh, Vietnam
+        }
     }
 }

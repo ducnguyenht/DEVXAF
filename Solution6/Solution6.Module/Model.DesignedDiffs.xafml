@@ -14,4 +14,23 @@
   <SchemaModules>
     <SchemaModule Name="SystemModule" Version="13.2.7.0" IsNewNode="True" />
   </SchemaModules>
+  <Views>
+    <ListView Id="Country_ListView" ShowAutoFilterRow="True" />
+    <DetailView Id="DomainObject1_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="23.060796645702307">
+            <LayoutGroup Id="DomainObject1" RelativeSize="100">
+              <LayoutItem Id="Address" ViewItem="Address" SizeConstraintsType="Default" Index="0" RelativeSize="29.09090909090909" IsNewNode="True" />
+              <LayoutItem Id="Country" SizeConstraintsType="Default" Index="2" RelativeSize="21.818181818181817" />
+              <LayoutItem Id="City" SizeConstraintsType="Default" Index="3" RelativeSize="27.272727272727273" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" Direction="Horizontal" RelativeSize="76.939203354297689" Caption="Address">
+            <LayoutItem Id="Address" Removed="True" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
 </Application>
