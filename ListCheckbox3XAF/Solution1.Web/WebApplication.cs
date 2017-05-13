@@ -82,18 +82,19 @@ namespace Solution1.Web
             // 
             // sqlConnection1
             // 
-            this.sqlConnection1.ConnectionString = @"Integrated Security=SSPI;Pooling=false;Data Source=.\SQLEXPRESS;Initial Catalog=Solution1";
+            this.sqlConnection1.ConnectionString = "Integrated Security=SSPI;Pooling=false;Data Source=.\\SQLEXPRESS;Initial Catalog=S" +
+    "olution1";
             this.sqlConnection1.FireInfoMessageEventOnUserErrors = false;
             // 
             // Solution1AspNetApplication
             // 
             this.ApplicationName = "Solution1";
+            this.CollectionsEditMode = DevExpress.ExpressApp.Editors.ViewEditMode.Edit;
             this.Connection = this.sqlConnection1;
             this.Modules.Add(this.module1);
             this.Modules.Add(this.module2);
             this.Modules.Add(this.module3);
             this.Modules.Add(this.module4);
-
             this.DatabaseVersionMismatch += new System.EventHandler<DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs>(this.Solution1AspNetApplication_DatabaseVersionMismatch);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 

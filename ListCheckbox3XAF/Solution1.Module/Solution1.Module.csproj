@@ -82,6 +82,20 @@
   <ItemGroup>
     <Compile Include="BusinessObjects\Container.cs" />
     <Compile Include="BusinessObjects\Currency.cs" />
+    <Compile Include="BusinessObjects\DomainObject1.cs" />
+    <Compile Include="BusinessObjects\DomainObject2.cs" />
+    <Compile Include="Controllers\ViewController1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\ViewController1.Designer.cs">
+      <DependentUpon>ViewController1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ViewController2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\ViewController2.Designer.cs">
+      <DependentUpon>ViewController2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Module.cs">
       <SubType>Component</SubType>
     </Compile>

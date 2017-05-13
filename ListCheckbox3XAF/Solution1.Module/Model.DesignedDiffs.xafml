@@ -1,3 +1,9 @@
-﻿<?xml version="1.0" ?>
-<Application Title="Solution1" Logo="ExpressAppLogo" />
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="Solution1" Logo="ExpressAppLogo">
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="13.2.7.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <ListView Id="DomainObject1_DomainObject2s_ListView" IsGroupPanelVisible="True" />
+  </Views>
+</Application>
