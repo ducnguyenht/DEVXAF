@@ -5,21 +5,21 @@
     <Columns>
         <dx:GridViewCommandColumn ShowClearFilterButton="True" VisibleIndex="0">
         </dx:GridViewCommandColumn>
-        <dx:GridViewDataTextColumn FieldName="Id" VisibleIndex="1" ShowInCustomizationForm="True">
+        <dx:GridViewDataTextColumn FieldName="Id" VisibleIndex="1">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="Oid" VisibleIndex="2" ShowInCustomizationForm="True">
+        <dx:GridViewDataTextColumn FieldName="Oid" VisibleIndex="2" Visible="False">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="Data" VisibleIndex="3" ShowInCustomizationForm="True">
+        <dx:GridViewDataMemoColumn FieldName="Data" VisibleIndex="3">
+        </dx:GridViewDataMemoColumn>
+        <dx:GridViewDataTextColumn FieldName="ChangedBy" VisibleIndex="4">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="ChangedBy" VisibleIndex="4" ShowInCustomizationForm="True">
+        <dx:GridViewDataTextColumn FieldName="CategoryAudit" VisibleIndex="5">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="Category" VisibleIndex="5" ShowInCustomizationForm="True">
+        <dx:GridViewDataTextColumn FieldName="ActionAudit" VisibleIndex="6">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="Action" VisibleIndex="6" ShowInCustomizationForm="True">
-        </dx:GridViewDataTextColumn>
-        <dx:GridViewDataDateColumn FieldName="ChangedOn" VisibleIndex="7" ShowInCustomizationForm="True">
+        <dx:GridViewDataDateColumn FieldName="ChangedOn" VisibleIndex="7">
         </dx:GridViewDataDateColumn>
-        <dx:GridViewDataCheckColumn FieldName="IsValid" ReadOnly="True" VisibleIndex="8" ShowInCustomizationForm="True">
+        <dx:GridViewDataCheckColumn FieldName="IsValid" ReadOnly="True" VisibleIndex="8">
         </dx:GridViewDataCheckColumn>
     </Columns>
     <Settings ShowFilterRow="True" />
