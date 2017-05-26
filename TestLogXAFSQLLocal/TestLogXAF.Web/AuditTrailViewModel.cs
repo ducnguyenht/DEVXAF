@@ -60,7 +60,7 @@ namespace TestLogXAF.Web
             {
                 NASDMS.RDS.Services.AuditTrailServices.IAuditTrailService AuditTrailService = new NASDMS.RDS.Services.AuditTrailServices.AuditTrailService();
                 List<NASDMS.RDS.AuditTrail> auditTrails = new List<NASDMS.RDS.AuditTrail>();
-                AuditTrailService.GetAuditTrails()
+                //AuditTrailService.GetAuditTrails()
                 result = 99;
             }
             catch (Exception e)
