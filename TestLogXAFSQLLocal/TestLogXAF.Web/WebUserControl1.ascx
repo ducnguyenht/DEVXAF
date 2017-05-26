@@ -1,7 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="WebUserControl1.ascx.cs" Inherits="TestLogXAF.Web.WebUserControl1" %>
 <%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGridView" tagprefix="dx" %>
 <%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
-<dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" KeyFieldName="Id">
+<dx:ASPxGridView ID="ASPxGridView1" 
+    DataSourceForceStandardPaging="True"
+     DataSourceID="ods"
+    runat="server" AutoGenerateColumns="False" KeyFieldName="Id">
     <Columns>
         <dx:GridViewCommandColumn ShowClearFilterButton="True" VisibleIndex="0">
         </dx:GridViewCommandColumn>
@@ -19,11 +22,18 @@
         </dx:GridViewDataTextColumn>
         <dx:GridViewDataDateColumn FieldName="ChangedOn" VisibleIndex="7">
         </dx:GridViewDataDateColumn>
-        <dx:GridViewDataCheckColumn FieldName="IsValid" ReadOnly="True" VisibleIndex="8">
-        </dx:GridViewDataCheckColumn>
     </Columns>
+    <SettingsPager AlwaysShowPager="True">
+    </SettingsPager>
     <Settings ShowFilterRow="True" />
 </dx:ASPxGridView>
+
+            <asp:ObjectDataSource ID="ods" runat="server" SortParameterName="sortColumns" EnablePaging="true"
+                StartRowIndexParameterName="startRecord" MaximumRowsParameterName="maxRecords"
+                SelectCountMethod="GetPeopleCount" SelectMethod="GetAuditTrailsPaged" TypeName="AuditTrailViewModel"></asp:ObjectDataSource>
+
+<%--<asp:ObjectDataSource ID="ObjectDataSource1" runat="server"></asp:ObjectDataSource>--%>
+
 
 
 

@@ -27,6 +27,21 @@ namespace NASDMS.RDS.ORM.Helper
             }
         }
 
+        internal static List<AuditTrail> GetAuditTrailsPaged(Int32 startRecord, Int32 maxRecords, String sortColumns)
+        {
+            try
+            {
+                var auditTrails = db.AuditTrails.All(where: "SELECT * FROM table LIMIT @0 OFFSET @1", parms: new object[] { startRecord, maxRecords }, orderBy: "ChangedOn DESC");
+                return auditTrails.ToList();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+
         internal static void AddAuditTrail(Guid Oid, string ChangedBy, string Data, CategoryAudit category, ActionAudit action)
         {
             try

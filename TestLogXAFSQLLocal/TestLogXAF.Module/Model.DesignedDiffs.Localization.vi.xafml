@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Localization>
+    <LocalizationGroup Name="Enums">
+      <LocalizationGroup Name="NASDMS.Systems.ActionAudit">
+        <LocalizationItem Name="Created" Value="Tạo mới" />
+        <LocalizationItem Name="Deleted" Value="Xoá" />
+        <LocalizationItem Name="LoginFalse" Value="Đăng nhập thất bại" />
+        <LocalizationItem Name="LoginSucess" Value="Đăng nhập thành công" />
+        <LocalizationItem Name="Updated" Value="Cập nhật" />
+      </LocalizationGroup>
+    </LocalizationGroup>
+  </Localization>
+</Application>

@@ -11,6 +11,25 @@ namespace NASDMS.RDS.Services.AuditTrailServices
     public class AuditTrailService : IAuditTrailService
     {
         public static bool IsReadyForLogging = true;
+
+        public NASDMS.Systems.ErrorCode GetAuditTrailsPaged(ref List<AuditTrail> auditTrails, Int32 startRecord, Int32 maxRecords, String sortColumns)
+        {
+            ErrorCode err = ErrorCode.ERROR_SUCCESS;
+            if (IsReadyForLogging == false)
+            {
+                return err;
+            }
+            try
+            {
+                auditTrails = RDSAuditTrail.GetAuditTrailsPaged( startRecord,  maxRecords,  sortColumns);
+                return err;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         public NASDMS.Systems.ErrorCode GetAuditTrails(ref List<AuditTrail> auditTrails, Guid Oid)
         {
             ErrorCode err = ErrorCode.ERROR_SUCCESS;
