@@ -548,6 +548,12 @@ namespace Namoly.Booking.Engine.Repository.Spark
 
 		// retrieves a single object by id
 
+        public T Single(Guid? id)
+        {
+            string sql = CreateSelect(keyName + " = @0 ");
+            return db.Read(sql, Make, id).FirstOrDefault();
+        }
+
 		public T Single(int? id)
 		{
 			string sql = CreateSelect(keyName + " = @0 ");
@@ -1024,6 +1030,11 @@ namespace Namoly.Booking.Engine.Repository.Spark
 	public partial class Repository<T> where T : Entity<T>, new()
 	{
 		static T t = new T();
+
+        public virtual T Single(Guid? id)
+        {
+            return t.Single(id);
+        }
 
 		public virtual T Single(int? id)
 		{
