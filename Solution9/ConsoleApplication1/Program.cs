@@ -12,10 +12,12 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
             var aa = db.BBBBs.All();
-            BBBB b = new BBBB { Name = "asdfsd" };//Id = Guid.NewGuid(), 
+            BBBB b = new BBBB { Name = "asdfsd234234asdfsadf" };//Id = Guid.NewGuid(), 
             db.BBBBs.Insert(b);
             var cc = db.BBBBs.All();
             var tt = 1;
+            var ttt = b;
+            var sdfsd = 1;
         }
     }
 }

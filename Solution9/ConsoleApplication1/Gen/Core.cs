@@ -126,17 +126,16 @@ namespace Namoly.Booking.Engine.Repository.Spark
 		}
 
 		// insert a new record
-
-		public int Insert(string sql, params object[] parms)
+        //changed dn
+		public Guid Insert(string sql, params object[] parms)
 		{
 			try
 			{
 				using (var connection = CreateConnection())
 				{
-					using (var command = CreateCommand(sql + ";SELECT SCOPE_IDENTITY();", connection, parms))
-					{
-                        command.ExecuteScalar().ToString();
-                        return 0;//int.Parse(command.ExecuteScalar().ToString());
+					using (var command = CreateCommand(sql , connection, parms))
+                    {//+ ";SELECT SCOPE_IDENTITY();"                     
+                        return new Guid(command.ExecuteScalar().ToString());//int.Parse(command.ExecuteScalar().ToString());
 					}
 				}
 			}
@@ -815,7 +814,7 @@ namespace Namoly.Booking.Engine.Repository.Spark
 				vals.AppendFormat("@{0}, ", key);
 			}
 
-			string sql = "INSERT INTO {0} ({1}) VALUES ({2})";
+            string sql = "INSERT INTO {0} ({1}) OUTPUT INSERTED.Id VALUES ({2})";//changed dn
 			sqlInsert = string.Format(sql, tableName.Bracket(), cols.TrimEnd(), vals.TrimEnd());
 		}
 
