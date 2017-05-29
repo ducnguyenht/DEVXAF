@@ -1,0 +1,5 @@
+http://125.212.219.137/api.leftbrainconnectors.vn/lbcservice.svc/PublicationItem?$select=PublicationWebPosts,PublicationRelatives,PublicationItemProperties,Language&$expand=PublicationWebPosts,PublicationItemProperties,PublicationRelatives&$filter=Language%20eq%20%27VN%27%20and%20PublicationWebPosts/any(c:%20c/WebPostCode%20eq%204)&$top=5&$skip=2&$inlinecount=allpages&$format=json
+
+http://125.212.219.137/api.leftbrainconnectors.vn/lbcservice.svc/PublicationItem?$select=PublicationWebPosts,PublicationRelatives,PublicationItemProperties,Language&$expand=PublicationWebPosts,PublicationItemProperties,PublicationRelatives&$filter=Language%20eq%20%27VN%27%20and%20PublicationWebPosts/any(c:%20c/WebPostCode%20eq%204)&$top=5&$skip=2&$format=json
+
+http://125.212.219.137/api.leftbrainconnectors.vn/lbcservice.svc/PublicationItem?$select=PublicationWebPosts,PublicationRelatives,PublicationItemProperties,Language&$expand=PublicationWebPosts,PublicationItemProperties,PublicationRelatives&$filter=Language%20eq%20%27EN%27%20and%20PublicationWebPosts/any(c:%20c/WebPostCode%20eq%204)&$format=json
