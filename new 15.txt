@@ -3,3 +3,36 @@ http://125.212.219.137/api.leftbrainconnectors.vn/lbcservice.svc/PublicationItem
 http://125.212.219.137/api.leftbrainconnectors.vn/lbcservice.svc/PublicationItem?$select=PublicationWebPosts,PublicationRelatives,PublicationItemProperties,Language&$expand=PublicationWebPosts,PublicationItemProperties,PublicationRelatives&$filter=Language%20eq%20%27VN%27%20and%20PublicationWebPosts/any(c:%20c/WebPostCode%20eq%204)&$top=5&$skip=2&$format=json
 
 http://125.212.219.137/api.leftbrainconnectors.vn/lbcservice.svc/PublicationItem?$select=PublicationWebPosts,PublicationRelatives,PublicationItemProperties,Language&$expand=PublicationWebPosts,PublicationItemProperties,PublicationRelatives&$filter=Language%20eq%20%27EN%27%20and%20PublicationWebPosts/any(c:%20c/WebPostCode%20eq%204)&$format=json
+
+
+http://125.212.219.137/api.leftbrainconnectors.vn/lbcservice.svc/PublicationItem?$expand=PublicationWebPosts,PublicationItemProperties,PublicationRelatives&$format=json
+
+http://localhost:33959/lbcservice.svc/PublicationItem?$select=PublicationWebPosts,PublicationRelatives,PublicationItemProperties,Language&$expand=PublicationWebPosts,PublicationItemProperties,PublicationRelatives&$filter=Language%20eq%20%27VN%27%20and%20PublicationWebPosts/any(c:%20c/WebPostCode%20eq%201)&$format=json
+
+http://localhost:33959/lbcservice.svc/PublicationItem?$select=PublicationWebPosts,PublicationRelatives,PublicationItemProperties,Language&$expand=PublicationWebPosts,PublicationItemProperties,PublicationRelatives&$filter=Language%20eq%20%27VN%27%20and%20PublicationWebPosts/any(c:%20c/WebPostCode%20eq%201)&$format=json
+
+http://localhost:33959/GetPublicationItemProperty?WebPostCode=3&Language eq 'VN' & Attribute eq 'adfsdf'
+
+
+http://125.212.219.137/api.leftbrainconnectors.vn/lbcservice.svc/PublicationItem?$expand=PublicationWebPosts,PublicationItemProperties,PublicationRelatives&$formatWebPostCode=3&=json
+
+http://localhost:33959/lbcservice.svc/GetPublicationItemProperty?WebPostCode=3 & Language = 'VN' & Attribute = 'SDFS'
+
+http://localhost:33959/lbcservice.svc/PublicationItem?$select=PublicationWebPosts,PublicationRelatives,PublicationItemProperties,Language&$expand=PublicationWebPosts,PublicationItemProperties,PublicationRelatives&$filter=Language eq 'VN' and PublicationWebPosts/any(c:%20c/WebPostCode eq 1)&$format=json
+
+http://125.212.219.137/api.leftbrainconnectors.vn/lbcservice.svc/PublicationItem?$select=PublicationWebPosts,PublicationRelatives,PublicationItemProperties,Language&$expand=PublicationWebPosts,PublicationItemProperties,PublicationRelatives&$filter=Language eq 'VN' and PublicationWebPosts/any(c:%20c/WebPostCode eq 1)&$format=json
+
+http://125.212.219.137/api.leftbrainconnectors.vn/lbcservice.svc/PublicationItem?$select=PublicationWebPosts,PublicationItemProperties,PublicationRelatives&$filter=Language eq 'VN' and PublicationWebPosts/any(c:%20c/WebPostCode eq 1)&$format=json
+
+
+http://125.212.219.137/api.leftbrainconnectors.vn/lbcservice.svc/PublicationWebPost?&$format=json
+.
+http://125.212.219.137/api.leftbrainconnectors.vn/lbcservice.svc/PublicationWebPost?$filter=WebPostCode eq 3&format=json
+
+http://125.212.219.137/api.leftbrainconnectors.vn/lbcservice.svc/PublicationWebPost?$filter=WebPostCode eq 3&$expand=PublicationItems&$format=json
+
+http://125.212.219.137/api.leftbrainconnectors.vn/lbcservice.svc/PublicationWebPost?$filter=WebPostCode eq 3&$format=json
+
+http://125.212.219.137/api.leftbrainconnectors.vn/lbcservice.svc/PublicationWebPost?$filter=WebPostCode eq 3&Language eq'VN'&$expand=PublicationItems&$format=json
+
+http://125.212.219.137/api.leftbrainconnectors.vn/lbcservice.svc/PublicationItem?$expand=PublicationWebPosts,PublicationItemProperties,PublicationRelatives&$format=json
