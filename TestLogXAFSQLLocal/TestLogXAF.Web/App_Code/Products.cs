@@ -36,7 +36,7 @@ public class People {
     {
         VerifySortColumns(sortColumns);
        int TotalRow = 0;
-        var data = NASDMSContext.AuditTrails.Paged(out TotalRow, null, "ChangedOn DESC", startRecord/maxRecords, maxRecords, null).ToList();
+        var data = NASDMSContext.AuditTrails.Paged(out TotalRow, null, "ChangedOn DESC", (startRecord /maxRecords) +1, maxRecords, null).ToList();
         TotalRows = TotalRow;
         return data;
         
