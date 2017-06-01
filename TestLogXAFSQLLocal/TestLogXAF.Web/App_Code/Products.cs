@@ -36,53 +36,12 @@ public class People {
     {
         VerifySortColumns(sortColumns);
        int TotalRow = 0;
-
-        var db = NASDMSContext.AuditTrails.All(); ;
-        //var data =  db.AuditTrails.All();//.Paged(out TotalRow, null, null, startRecord, maxRecords, null);
-     
-        var data = NASDMSContext.AuditTrails.Paged(out TotalRow, null, "ChangedOn DESC", startRecord, maxRecords, null).ToList();
+        var data = NASDMSContext.AuditTrails.Paged(out TotalRow, null, "ChangedOn DESC", startRecord/maxRecords, maxRecords, null).ToList();
         TotalRows = TotalRow;
-        var sadfwe = 34534;
-        //String sqlColumns = "[ContactID], [FirstName], [LastName], [EmailAddress], [Phone]";
-        //String sqlTable = "[Person].[Contact]";
-        //String sqlSortColumn = "[ContactID]";
-
-        //if (!String.IsNullOrEmpty(sortColumns))         
-        //    sqlSortColumn = sortColumns;
-
-        //String sqlCommand = String.Format(
-        //   "SELECT * FROM (" +
-        //   "    SELECT ROW_NUMBER() OVER (ORDER BY {0}) AS rownumber," +
-        //   "        {1}" +
-        //   "    FROM {2}" +
-        //   ") AS foo " +
-        //   "WHERE rownumber >= {3} AND rownumber <= {4}",
-        //   sqlSortColumn,
-        //   sqlColumns,
-        //   sqlTable,
-        //   startRecord + 1, startRecord + maxRecords
-        //);
-
-        //SqlConnection conn = new SqlConnection(_connectionString);
-        //SqlDataAdapter da = new SqlDataAdapter(sqlCommand, conn);
-
-        //DataSet ds = new DataSet();
-
-        //try {
-        //    conn.Open();
-        //    da.Fill(ds, "People");
-        //}
-        //catch (SqlException e) {
-        //    // Handle exception.
-        //}
-        //finally {
-        //    conn.Close();
-        //}
-
-        //if (ds.Tables["People"] != null)
-        //    return ds.Tables["People"];
-
         return data;
+        
+
+       
     }
 
 
@@ -110,25 +69,66 @@ public class People {
 
     public static Int32 GetPeopleCount() {
 
-        //string sqlCommand = "SELECT COUNT ([ContactID]) FROM [Person].[Contact]";
-
-        //SqlConnection conn = new SqlConnection(_connectionString);
-        //SqlCommand command = new SqlCommand(sqlCommand, conn);
-        //SqlDataAdapter da = new SqlDataAdapter(sqlCommand, conn);
-
-        //Int32 result = 0;
-
-        //try {
-        //    conn.Open();
-        //    result = (Int32)command.ExecuteScalar();
-        //}
-        //catch (SqlException e) {
-        //    // Handle exception.
-        //}
-        //finally {
-        //    conn.Close();
-        //}
 
         return TotalRows;
     }
 }
+//String sqlColumns = "[ContactID], [FirstName], [LastName], [EmailAddress], [Phone]";
+//String sqlTable = "[Person].[Contact]";
+//String sqlSortColumn = "[ContactID]";
+
+//if (!String.IsNullOrEmpty(sortColumns))         
+//    sqlSortColumn = sortColumns;
+
+//String sqlCommand = String.Format(
+//   "SELECT * FROM (" +
+//   "    SELECT ROW_NUMBER() OVER (ORDER BY {0}) AS rownumber," +
+//   "        {1}" +
+//   "    FROM {2}" +
+//   ") AS foo " +
+//   "WHERE rownumber >= {3} AND rownumber <= {4}",
+//   sqlSortColumn,
+//   sqlColumns,
+//   sqlTable,
+//   startRecord + 1, startRecord + maxRecords
+//);
+
+//SqlConnection conn = new SqlConnection(_connectionString);
+//SqlDataAdapter da = new SqlDataAdapter(sqlCommand, conn);
+
+//DataSet ds = new DataSet();
+
+//try {
+//    conn.Open();
+//    da.Fill(ds, "People");
+//}
+//catch (SqlException e) {
+//    // Handle exception.
+//}
+//finally {
+//    conn.Close();
+//}
+
+//if (ds.Tables["People"] != null)
+//    return ds.Tables["People"];
+
+
+
+//string sqlCommand = "SELECT COUNT ([ContactID]) FROM [Person].[Contact]";
+
+//SqlConnection conn = new SqlConnection(_connectionString);
+//SqlCommand command = new SqlCommand(sqlCommand, conn);
+//SqlDataAdapter da = new SqlDataAdapter(sqlCommand, conn);
+
+//Int32 result = 0;
+
+//try {
+//    conn.Open();
+//    result = (Int32)command.ExecuteScalar();
+//}
+//catch (SqlException e) {
+//    // Handle exception.
+//}
+//finally {
+//    conn.Close();
+//}
