@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6c5293ed9c184668829c279d6522c7a4" Name="Diagram1">
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.AspNetRole" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.AspNetUserClaim" Width="1.5" PointX="17.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.AspNetUserLogin" Width="1.5" PointX="17.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.AspNetUser" Width="1.5" PointX="15" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.BusinessField" Width="1.5" PointX="7.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.BusinessLicenseType" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.BusinessType" Width="1.5" PointX="7.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.City" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.Company" Width="1.5" PointX="7.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.CompanyBusinessField" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.CompanyBusinessType" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.Country" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.EducationLevel" Width="1.5" PointX="10.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.Ethnic" Width="1.5" PointX="10.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.Member" Width="1.5" PointX="12.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.MemberEducationLevel" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.MemberMemberTitle" Width="1.5" PointX="15" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.MemberTitle" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.Province" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="YBAHCM_CRMModel.Religion" Width="1.5" PointX="10.5" PointY="12.5" IsExpanded="true" />
+        <AssociationConnector Association="YBAHCM_CRMModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="YBAHCM_CRMModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="YBAHCM_CRMModel.FK_Company_BusinessField_BusinessField" ManuallyRouted="false" />
+        <AssociationConnector Association="YBAHCM_CRMModel.FK_Company_BusinessLicenseType" ManuallyRouted="false" />
+        <AssociationConnector Association="YBAHCM_CRMModel.FK_Company_BusinessType_BusinessType" ManuallyRouted="false" />
+        <AssociationConnector Association="YBAHCM_CRMModel.FK_City_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="YBAHCM_CRMModel.FK_Province_City" ManuallyRouted="false" />
+        <AssociationConnector Association="YBAHCM_CRMModel.FK_Company_BusinessField_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="YBAHCM_CRMModel.FK_Company_BusinessType_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="YBAHCM_CRMModel.FK_Company_Province" ManuallyRouted="false" />
+        <AssociationConnector Association="YBAHCM_CRMModel.FK_Member_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="YBAHCM_CRMModel.FK_Member_EducationLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="YBAHCM_CRMModel.FK_Member_Ethnic" ManuallyRouted="false" />
+        <AssociationConnector Association="YBAHCM_CRMModel.FK_Member_MemberTitle_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="YBAHCM_CRMModel.FK_Member_Province" ManuallyRouted="false" />
+        <AssociationConnector Association="YBAHCM_CRMModel.FK_Member_Religion" ManuallyRouted="false" />
+        <AssociationConnector Association="YBAHCM_CRMModel.FK_Member_MemberTitle_MemberTitle" ManuallyRouted="false" />
+        <AssociationConnector Association="YBAHCM_CRMModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

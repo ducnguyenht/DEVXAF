@@ -1,0 +1,1835 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="cms_ybanewModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="adgroups">
+          <Key>
+            <PropertyRef Name="adgroupID" />
+          </Key>
+          <Property Name="adgroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ADgroupname" Type="nvarchar" MaxLength="50" />
+          <Property Name="desc_" Type="ntext" />
+          <Property Name="value_" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'cms_ybanew.dbo.Admins' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="adminID" />
+            <PropertyRef Name="email" />
+            <PropertyRef Name="isactive" />
+            <PropertyRef Name="isdelete" />
+            <PropertyRef Name="functionNo" />
+          </Key>
+          <Property Name="adminID" Type="int" Nullable="false" />
+          <Property Name="adminname" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="fullname" Type="nvarchar" MaxLength="200" />
+          <Property Name="email" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="isdelete" Type="bit" Nullable="false" />
+          <Property Name="functionNo" Type="int" Nullable="false" />
+          <Property Name="page_redirect" Type="varchar" MaxLength="50" />
+          <Property Name="folder_main" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="cus_ads">
+          <Key>
+            <PropertyRef Name="cusID" />
+          </Key>
+          <Property Name="cusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_daidien" Type="nvarchar" MaxLength="50" />
+          <Property Name="address_" Type="nvarchar" MaxLength="50" />
+          <Property Name="company_" Type="nvarchar" MaxLength="50" />
+          <Property Name="tel" Type="varchar" MaxLength="50" />
+          <Property Name="email_" Type="varchar" MaxLength="50" />
+          <Property Name="typeid" Type="int" />
+          <Property Name="group_userid" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'cms_ybanew.dbo.documents' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="documents">
+          <Key>
+            <PropertyRef Name="documentID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="isactive" />
+            <PropertyRef Name="isdelete" />
+            <PropertyRef Name="datecreate" />
+          </Key>
+          <Property Name="documentID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Contents" Type="nvarchar" MaxLength="200" />
+          <Property Name="moredescription" Type="ntext" />
+          <Property Name="filename" Type="varchar" MaxLength="50" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="isdelete" Type="bit" Nullable="false" />
+          <Property Name="datecreate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dtproperties">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="property" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="objectid" Type="int" />
+          <Property Name="property" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="value" Type="varchar" MaxLength="255" />
+          <Property Name="uvalue" Type="nvarchar" MaxLength="255" />
+          <Property Name="lvalue" Type="image" />
+          <Property Name="version" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="events">
+          <Key>
+            <PropertyRef Name="newsID" />
+          </Key>
+          <Property Name="newsID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title_" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="groupID" Type="int" Nullable="false" />
+          <Property Name="userinputID" Type="int" Nullable="false" />
+          <Property Name="keyword_" Type="nvarchar" MaxLength="200" />
+          <Property Name="content_" Type="ntext" Nullable="false" />
+          <Property Name="image_" Type="varchar" MaxLength="100" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="isdelete" Type="bit" Nullable="false" />
+          <Property Name="fromdate_" Type="datetime" Nullable="false" />
+          <Property Name="todate_" Type="datetime" Nullable="false" />
+          <Property Name="location" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="moderator" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="agenda" Type="nvarchar" MaxLength="500" />
+          <Property Name="shortdesc" Type="nvarchar" MaxLength="1000" />
+          <Property Name="numview" Type="int" />
+          <Property Name="option_" Type="bit" Nullable="false" />
+          <Property Name="iscomment" Type="bit" Nullable="false" />
+          <Property Name="lastupdate" Type="datetime" />
+          <Property Name="isdoitac" Type="bit" />
+          <Property Name="parentid" Type="int" />
+        </EntityType>
+        <EntityType Name="group_user">
+          <Key>
+            <PropertyRef Name="groupid" />
+          </Key>
+          <Property Name="groupid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="groupname" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="isdelete" Type="bit" Nullable="false" />
+          <Property Name="priority" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'cms_ybanew.dbo.imageuploads' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="imageuploads">
+          <Key>
+            <PropertyRef Name="imageuploadID" />
+          </Key>
+          <Property Name="imageuploadID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="images_" Type="varchar" MaxLength="100" />
+          <Property Name="userid" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Informations">
+          <Key>
+            <PropertyRef Name="informationID" />
+          </Key>
+          <Property Name="informationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="parentID" Type="int" Nullable="false" />
+          <Property Name="InformationName" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="informationCode" Type="varchar" MaxLength="50" />
+          <Property Name="priority" Type="int" />
+          <Property Name="isactive" Type="bit" />
+          <Property Name="isdelete" Type="bit" />
+          <Property Name="datecreate" Type="datetime" />
+          <Property Name="siteID" Type="int" />
+          <Property Name="userID" Type="int" />
+          <Property Name="link_" Type="varchar" MaxLength="300" />
+          <Property Name="description_" Type="nvarchar" MaxLength="500" />
+          <Property Name="opion_" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'cms_ybanew.dbo.MailDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MailDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Result" />
+            <PropertyRef Name="MailManagementID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Result" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="MailManagementID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MailHost">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="int" Nullable="false" />
+          <Property Name="mailserver" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="mailport" Type="int" Nullable="false" />
+          <Property Name="mailuser" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="mailpass" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'cms_ybanew.dbo.MailManagement' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MailManagement">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="DateSend" />
+            <PropertyRef Name="Subject" />
+            <PropertyRef Name="Total" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateSend" Type="datetime" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Total" Type="int" Nullable="false" />
+          <Property Name="ReSendID" Type="int" />
+          <Property Name="TotalTime" Type="nvarchar" MaxLength="20" />
+          <Property Name="userid" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'cms_ybanew.dbo.news' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="news">
+          <Key>
+            <PropertyRef Name="newsID" />
+            <PropertyRef Name="groupID" />
+            <PropertyRef Name="userinputID" />
+            <PropertyRef Name="date_action" />
+            <PropertyRef Name="isactive" />
+            <PropertyRef Name="isdelete" />
+            <PropertyRef Name="datelastupdate" />
+            <PropertyRef Name="numview" />
+            <PropertyRef Name="vote" />
+            <PropertyRef Name="priority" />
+          </Key>
+          <Property Name="newsID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="groupID" Type="int" Nullable="false" />
+          <Property Name="userinputID" Type="int" Nullable="false" />
+          <Property Name="title_" Type="nvarchar" MaxLength="200" />
+          <Property Name="keyword_" Type="nvarchar" MaxLength="500" />
+          <Property Name="content_" Type="ntext" />
+          <Property Name="date_action" Type="datetime" Nullable="false" />
+          <Property Name="image_" Type="varchar" MaxLength="50" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="isdelete" Type="bit" Nullable="false" />
+          <Property Name="datelastupdate" Type="datetime" Nullable="false" />
+          <Property Name="shortdesc" Type="nvarchar" MaxLength="2000" />
+          <Property Name="numview" Type="int" Nullable="false" />
+          <Property Name="isbao" Type="bit" />
+          <Property Name="parentID" Type="int" />
+          <Property Name="ishome" Type="bit" />
+          <Property Name="vote" Type="int" Nullable="false" />
+          <Property Name="priority" Type="int" Nullable="false" />
+          <Property Name="poem" Type="nvarchar" MaxLength="255" />
+          <Property Name="urlsite" Type="nvarchar" MaxLength="500" />
+          <Property Name="iscomment" Type="bit" />
+          <Property Name="date_view" Type="datetime" />
+          <Property Name="isregister" Type="bit" />
+          <Property Name="date_close" Type="datetime" />
+          <Property Name="newsid_connect" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="partners">
+          <Key>
+            <PropertyRef Name="newsID" />
+          </Key>
+          <Property Name="newsID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title_" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="groupID" Type="int" Nullable="false" />
+          <Property Name="userinputID" Type="int" Nullable="false" />
+          <Property Name="keyword_" Type="nvarchar" MaxLength="200" />
+          <Property Name="content_" Type="ntext" Nullable="false" />
+          <Property Name="image_" Type="varchar" MaxLength="100" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="isdelete" Type="bit" Nullable="false" />
+          <Property Name="location" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="cityid" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="fax" Type="nvarchar" MaxLength="30" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" />
+          <Property Name="manager" Type="nvarchar" MaxLength="50" />
+          <Property Name="website" Type="nvarchar" MaxLength="500" />
+          <Property Name="shortdesc" Type="nvarchar" MaxLength="1000" />
+          <Property Name="numview" Type="int" />
+          <Property Name="isintro" Type="bit" />
+          <Property Name="dateupdate" Type="datetime" />
+          <Property Name="priority_" Type="int" />
+        </EntityType>
+        <EntityType Name="projects">
+          <Key>
+            <PropertyRef Name="proid" />
+          </Key>
+          <Property Name="proid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="proname" Type="nvarchar" MaxLength="255" />
+          <Property Name="progroupid" Type="int" />
+          <Property Name="provinceid" Type="int" />
+          <Property Name="clientid" Type="nvarchar" MaxLength="100" />
+          <Property Name="pro_year" Type="int" />
+          <Property Name="metiarial" Type="smallint" />
+          <Property Name="offshore" Type="bit" />
+          <Property Name="soid" Type="int" />
+          <Property Name="lengh" Type="int" />
+          <Property Name="Diameter" Type="int" />
+          <Property Name="details" Type="ntext" />
+          <Property Name="img_icon" Type="varchar" MaxLength="100" />
+          <Property Name="datecreated" Type="datetime" />
+          <Property Name="isactive" Type="bit" />
+          <Property Name="isdelete" Type="bit" />
+          <Property Name="userid" Type="int" />
+          <Property Name="proname_en" Type="nvarchar" MaxLength="255" />
+          <Property Name="details_en" Type="ntext" />
+        </EntityType>
+        <EntityType Name="projectsen">
+          <Key>
+            <PropertyRef Name="proid" />
+          </Key>
+          <Property Name="proid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="proname" Type="nvarchar" MaxLength="255" />
+          <Property Name="progroupid" Type="int" />
+          <Property Name="provinceid" Type="int" />
+          <Property Name="clientid" Type="nvarchar" MaxLength="100" />
+          <Property Name="pro_year" Type="int" />
+          <Property Name="metiarial" Type="smallint" />
+          <Property Name="offshore" Type="bit" />
+          <Property Name="soid" Type="bit" />
+          <Property Name="lengh" Type="int" />
+          <Property Name="Diameter" Type="int" />
+          <Property Name="details" Type="ntext" />
+          <Property Name="img_icon" Type="varchar" MaxLength="100" />
+          <Property Name="datecreated" Type="datetime" />
+          <Property Name="isactive" Type="bit" />
+          <Property Name="isdelete" Type="bit" />
+          <Property Name="userid" Type="int" />
+          <Property Name="proname_en" Type="nvarchar" MaxLength="255" />
+          <Property Name="details_en" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tbl_ads">
+          <Key>
+            <PropertyRef Name="adID" />
+          </Key>
+          <Property Name="adID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="groupID" Type="int" Nullable="false" />
+          <Property Name="Ad_cusID" Type="int" Nullable="false" />
+          <Property Name="Adname" Type="nvarchar" MaxLength="100" />
+          <Property Name="image_" Type="varchar" MaxLength="100" />
+          <Property Name="ad_desc" Type="nvarchar" MaxLength="500" />
+          <Property Name="date_start" Type="datetime" />
+          <Property Name="date_end" Type="datetime" />
+          <Property Name="price_" Type="float" />
+          <Property Name="url_link" Type="varchar" MaxLength="200" />
+          <Property Name="clicknum" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ad_active" Type="bit" Nullable="false" />
+          <Property Name="ad_delete" Type="bit" Nullable="false" />
+          <Property Name="ischarge" Type="bit" Nullable="false" />
+          <Property Name="datelastupdate" Type="datetime" Nullable="false" />
+          <Property Name="fileattach" Type="varchar" MaxLength="255" />
+          <Property Name="totalmonth" Type="float" />
+          <Property Name="totalclick" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="priority" Type="int" />
+          <Property Name="f_width" Type="int" />
+          <Property Name="f_height" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_albums">
+          <Key>
+            <PropertyRef Name="albumid_" />
+          </Key>
+          <Property Name="albumid_" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="albumname" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="creater" Type="int" Nullable="false" />
+          <Property Name="isdelete" Type="bit" Nullable="false" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="date_" Type="datetime" Nullable="false" />
+          <Property Name="roleaccess" Type="int" Nullable="false" />
+          <Property Name="priority" Type="int" />
+          <Property Name="pic_" Type="varchar" MaxLength="100" />
+          <Property Name="type_" Type="smallint" />
+          <Property Name="desc_" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="tbl_club">
+          <Key>
+            <PropertyRef Name="clubid" />
+          </Key>
+          <Property Name="clubid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ishome" Type="bit" Nullable="false" />
+          <Property Name="club_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="club_desc" Type="ntext" />
+          <Property Name="club_help" Type="ntext" />
+          <Property Name="club_album" Type="int" Nullable="false" />
+          <Property Name="prirority_" Type="int" Nullable="false" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="isdelete" Type="bit" Nullable="false" />
+          <Property Name="dis_" Type="int" />
+          <Property Name="pic_" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'cms_ybanew.dbo.tbl_club_news' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbl_club_news">
+          <Key>
+            <PropertyRef Name="newsid" />
+            <PropertyRef Name="clubid" />
+          </Key>
+          <Property Name="newsid" Type="int" Nullable="false" />
+          <Property Name="clubid" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'cms_ybanew.dbo.tbl_club_user' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbl_club_user">
+          <Key>
+            <PropertyRef Name="userid" />
+            <PropertyRef Name="clubid" />
+            <PropertyRef Name="chucvu" />
+            <PropertyRef Name="date_join" />
+            <PropertyRef Name="ismanager" />
+            <PropertyRef Name="isactive" />
+            <PropertyRef Name="isdelete" />
+          </Key>
+          <Property Name="userid" Type="int" Nullable="false" />
+          <Property Name="clubid" Type="int" Nullable="false" />
+          <Property Name="chucvu" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="date_join" Type="datetime" Nullable="false" />
+          <Property Name="ismanager" Type="bit" Nullable="false" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="isdelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'cms_ybanew.dbo.tbl_comments' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbl_comments">
+          <Key>
+            <PropertyRef Name="newsid" />
+            <PropertyRef Name="commentid" />
+            <PropertyRef Name="datepost" />
+            <PropertyRef Name="isshow" />
+            <PropertyRef Name="name_" />
+            <PropertyRef Name="title" />
+            <PropertyRef Name="content_" />
+          </Key>
+          <Property Name="newsid" Type="int" Nullable="false" />
+          <Property Name="commentid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="datepost" Type="datetime" Nullable="false" />
+          <Property Name="isshow" Type="bit" Nullable="false" />
+          <Property Name="name_" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email_" Type="varchar" MaxLength="100" />
+          <Property Name="title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="content_" Type="ntext" Nullable="false" />
+          <Property Name="isregister" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_event_news">
+          <Key>
+            <PropertyRef Name="newsid" />
+            <PropertyRef Name="eventid" />
+          </Key>
+          <Property Name="newsid" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="eventid" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_events_comment">
+          <Key>
+            <PropertyRef Name="commentid" />
+          </Key>
+          <Property Name="newsid" Type="int" Nullable="false" />
+          <Property Name="commentid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="datepost" Type="datetime" Nullable="false" />
+          <Property Name="isshow" Type="bit" Nullable="false" />
+          <Property Name="name_" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email_" Type="varchar" MaxLength="100" />
+          <Property Name="title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="content_" Type="ntext" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_events_users">
+          <Key>
+            <PropertyRef Name="events_com" />
+          </Key>
+          <Property Name="events_com" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="newsid" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="userid" Type="int" Nullable="false" />
+          <Property Name="option_" Type="smallint" Nullable="false" />
+          <Property Name="date_" Type="datetime" Nullable="false" />
+          <Property Name="fullname" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="position" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="companyname" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="sex_" Type="nvarchar" MaxLength="10" />
+          <Property Name="email_" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="info_" Type="nvarchar" MaxLength="3000" />
+        </EntityType>
+        <EntityType Name="tbl_faqs">
+          <Key>
+            <PropertyRef Name="faqid" />
+          </Key>
+          <Property Name="faqid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="faq_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="date_" Type="datetime" Nullable="false" />
+          <Property Name="content_" Type="ntext" Nullable="false" />
+          <Property Name="date_anwser" Type="datetime" Nullable="false" />
+          <Property Name="content_anwser" Type="ntext" Nullable="false" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="priority" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'cms_ybanew.dbo.tbl_industry' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbl_industry">
+          <Key>
+            <PropertyRef Name="industryid" />
+          </Key>
+          <Property Name="industryid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="industryname" Type="nvarchar" MaxLength="255" />
+          <Property Name="industrydesc" Type="nvarchar" MaxLength="3500" />
+          <Property Name="isdelete" Type="bit" />
+          <Property Name="priority" Type="float" />
+        </EntityType>
+        <EntityType Name="tbl_laws">
+          <Key>
+            <PropertyRef Name="lawid" />
+          </Key>
+          <Property Name="lawid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code_" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="title_" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="typeid" Type="int" Nullable="false" />
+          <Property Name="industryid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="coquan" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="date_" Type="datetime" Nullable="false" />
+          <Property Name="date_use" Type="datetime" />
+          <Property Name="user_sing" Type="nvarchar" MaxLength="100" />
+          <Property Name="file_" Type="varchar" MaxLength="100" />
+          <Property Name="option_" Type="smallint" Nullable="false" />
+          <Property Name="isdelete" Type="bit" Nullable="false" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+          <Property Name="priority" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'cms_ybanew.dbo.TBL_LOAIBAO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TBL_LOAIBAO">
+          <Key>
+            <PropertyRef Name="LOAIBAO_ID" />
+          </Key>
+          <Property Name="LOAIBAO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LOAIBAO_NAME" Type="nvarchar" MaxLength="500" />
+          <Property Name="LOAIBAO_CONTENT" Type="ntext" />
+          <Property Name="LOAIBAO_SORT" Type="int" />
+          <Property Name="LOAIBAO_ONOFF" Type="tinyint" />
+          <Property Name="LOAIBAO_DATECREATE" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'cms_ybanew.dbo.TBL_MUCLUC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TBL_MUCLUC">
+          <Key>
+            <PropertyRef Name="MUCLUC_ID" />
+          </Key>
+          <Property Name="MUCLUC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LOAIBAO_ID" Type="int" />
+          <Property Name="SOBAO_ID" Type="int" />
+          <Property Name="MUCLUC_NAME" Type="nvarchar" MaxLength="400" />
+          <Property Name="MUCLUC_DESC" Type="ntext" />
+          <Property Name="MUCLUC_KEYWORD" Type="ntext" />
+          <Property Name="MUCLUC_CONTENT" Type="ntext" />
+          <Property Name="MUCLUC_SORT" Type="int" />
+          <Property Name="MUCLUC_ONOFF" Type="tinyint" />
+          <Property Name="MUCLUC_DATECREATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_photosalbum">
+          <Key>
+            <PropertyRef Name="photoid_" />
+          </Key>
+          <Property Name="albumid_" Type="int" Nullable="false" />
+          <Property Name="photoid_" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="photoname_" Type="nvarchar" MaxLength="500" />
+          <Property Name="creater" Type="int" Nullable="false" />
+          <Property Name="date_" Type="datetime" Nullable="false" />
+          <Property Name="photopath_" Type="varchar" MaxLength="100" />
+          <Property Name="numberview" Type="int" Nullable="false" />
+          <Property Name="priority" Type="int" />
+          <Property Name="desc_" Type="nvarchar" MaxLength="1000" />
+          <Property Name="showhome" Type="bit" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'cms_ybanew.dbo.TBL_SOBAO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TBL_SOBAO">
+          <Key>
+            <PropertyRef Name="SOBAO_ID" />
+          </Key>
+          <Property Name="SOBAO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LOAIBAO_ID" Type="int" />
+          <Property Name="SOBAO_NAME" Type="nchar" MaxLength="200" />
+          <Property Name="SOBAO_DESC" Type="ntext" />
+          <Property Name="SOBAO_BACKGROUND" Type="varchar" MaxLength="100" />
+          <Property Name="SOBAO_ONOFF" Type="tinyint" />
+          <Property Name="SOBAO_DATECREATE" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="cms_ybanewModelStoreContainer">
+          <EntitySet Name="adgroups" EntityType="Self.adgroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cus_ads" EntityType="Self.cus_ads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dtproperties" EntityType="Self.dtproperties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="events" EntityType="Self.events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="group_user" EntityType="Self.group_user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Informations" EntityType="Self.Informations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MailHost" EntityType="Self.MailHost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="partners" EntityType="Self.partners" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="projects" EntityType="Self.projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="projectsen" EntityType="Self.projectsen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_ads" EntityType="Self.tbl_ads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_albums" EntityType="Self.tbl_albums" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_club" EntityType="Self.tbl_club" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_event_news" EntityType="Self.tbl_event_news" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_events_comment" EntityType="Self.tbl_events_comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_events_users" EntityType="Self.tbl_events_users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_faqs" EntityType="Self.tbl_faqs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_laws" EntityType="Self.tbl_laws" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_photosalbum" EntityType="Self.tbl_photosalbum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admins" EntityType="Self.Admins" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Admins].[adminID] AS [adminID], 
+    [Admins].[adminname] AS [adminname], 
+    [Admins].[password] AS [password], 
+    [Admins].[fullname] AS [fullname], 
+    [Admins].[email] AS [email], 
+    [Admins].[isactive] AS [isactive], 
+    [Admins].[isdelete] AS [isdelete], 
+    [Admins].[functionNo] AS [functionNo], 
+    [Admins].[page_redirect] AS [page_redirect], 
+    [Admins].[folder_main] AS [folder_main]
+    FROM [dbo].[Admins] AS [Admins]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="documents" EntityType="Self.documents" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [documents].[documentID] AS [documentID], 
+    [documents].[Name] AS [Name], 
+    [documents].[Contents] AS [Contents], 
+    [documents].[moredescription] AS [moredescription], 
+    [documents].[filename] AS [filename], 
+    [documents].[isactive] AS [isactive], 
+    [documents].[isdelete] AS [isdelete], 
+    [documents].[datecreate] AS [datecreate]
+    FROM [dbo].[documents] AS [documents]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="imageuploads" EntityType="Self.imageuploads" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [imageuploads].[imageuploadID] AS [imageuploadID], 
+    [imageuploads].[images_] AS [images_], 
+    [imageuploads].[userid] AS [userid]
+    FROM [dbo].[imageuploads] AS [imageuploads]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MailDetail" EntityType="Self.MailDetail" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MailDetail].[ID] AS [ID], 
+    [MailDetail].[Email] AS [Email], 
+    [MailDetail].[Result] AS [Result], 
+    [MailDetail].[MailManagementID] AS [MailManagementID]
+    FROM [dbo].[MailDetail] AS [MailDetail]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MailManagement" EntityType="Self.MailManagement" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MailManagement].[ID] AS [ID], 
+    [MailManagement].[DateSend] AS [DateSend], 
+    [MailManagement].[Subject] AS [Subject], 
+    [MailManagement].[Total] AS [Total], 
+    [MailManagement].[ReSendID] AS [ReSendID], 
+    [MailManagement].[TotalTime] AS [TotalTime], 
+    [MailManagement].[userid] AS [userid]
+    FROM [dbo].[MailManagement] AS [MailManagement]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="news" EntityType="Self.news" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [news].[newsID] AS [newsID], 
+    [news].[groupID] AS [groupID], 
+    [news].[userinputID] AS [userinputID], 
+    [news].[title_] AS [title_], 
+    [news].[keyword_] AS [keyword_], 
+    [news].[content_] AS [content_], 
+    [news].[date_action] AS [date_action], 
+    [news].[image_] AS [image_], 
+    [news].[isactive] AS [isactive], 
+    [news].[isdelete] AS [isdelete], 
+    [news].[datelastupdate] AS [datelastupdate], 
+    [news].[shortdesc] AS [shortdesc], 
+    [news].[numview] AS [numview], 
+    [news].[isbao] AS [isbao], 
+    [news].[parentID] AS [parentID], 
+    [news].[ishome] AS [ishome], 
+    [news].[vote] AS [vote], 
+    [news].[priority] AS [priority], 
+    [news].[poem] AS [poem], 
+    [news].[urlsite] AS [urlsite], 
+    [news].[iscomment] AS [iscomment], 
+    [news].[date_view] AS [date_view], 
+    [news].[isregister] AS [isregister], 
+    [news].[date_close] AS [date_close], 
+    [news].[newsid_connect] AS [newsid_connect]
+    FROM [dbo].[news] AS [news]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_club_news" EntityType="Self.tbl_club_news" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_club_news].[newsid] AS [newsid], 
+    [tbl_club_news].[clubid] AS [clubid]
+    FROM [dbo].[tbl_club_news] AS [tbl_club_news]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_club_user" EntityType="Self.tbl_club_user" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_club_user].[userid] AS [userid], 
+    [tbl_club_user].[clubid] AS [clubid], 
+    [tbl_club_user].[chucvu] AS [chucvu], 
+    [tbl_club_user].[date_join] AS [date_join], 
+    [tbl_club_user].[ismanager] AS [ismanager], 
+    [tbl_club_user].[isactive] AS [isactive], 
+    [tbl_club_user].[isdelete] AS [isdelete]
+    FROM [dbo].[tbl_club_user] AS [tbl_club_user]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_comments" EntityType="Self.tbl_comments" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_comments].[newsid] AS [newsid], 
+    [tbl_comments].[commentid] AS [commentid], 
+    [tbl_comments].[datepost] AS [datepost], 
+    [tbl_comments].[isshow] AS [isshow], 
+    [tbl_comments].[name_] AS [name_], 
+    [tbl_comments].[email_] AS [email_], 
+    [tbl_comments].[title] AS [title], 
+    [tbl_comments].[content_] AS [content_], 
+    [tbl_comments].[isregister] AS [isregister]
+    FROM [dbo].[tbl_comments] AS [tbl_comments]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_industry" EntityType="Self.tbl_industry" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_industry].[industryid] AS [industryid], 
+    [tbl_industry].[industryname] AS [industryname], 
+    [tbl_industry].[industrydesc] AS [industrydesc], 
+    [tbl_industry].[isdelete] AS [isdelete], 
+    [tbl_industry].[priority] AS [priority]
+    FROM [dbo].[tbl_industry] AS [tbl_industry]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TBL_LOAIBAO" EntityType="Self.TBL_LOAIBAO" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TBL_LOAIBAO].[LOAIBAO_ID] AS [LOAIBAO_ID], 
+    [TBL_LOAIBAO].[LOAIBAO_NAME] AS [LOAIBAO_NAME], 
+    [TBL_LOAIBAO].[LOAIBAO_CONTENT] AS [LOAIBAO_CONTENT], 
+    [TBL_LOAIBAO].[LOAIBAO_SORT] AS [LOAIBAO_SORT], 
+    [TBL_LOAIBAO].[LOAIBAO_ONOFF] AS [LOAIBAO_ONOFF], 
+    [TBL_LOAIBAO].[LOAIBAO_DATECREATE] AS [LOAIBAO_DATECREATE]
+    FROM [dbo].[TBL_LOAIBAO] AS [TBL_LOAIBAO]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TBL_MUCLUC" EntityType="Self.TBL_MUCLUC" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TBL_MUCLUC].[MUCLUC_ID] AS [MUCLUC_ID], 
+    [TBL_MUCLUC].[LOAIBAO_ID] AS [LOAIBAO_ID], 
+    [TBL_MUCLUC].[SOBAO_ID] AS [SOBAO_ID], 
+    [TBL_MUCLUC].[MUCLUC_NAME] AS [MUCLUC_NAME], 
+    [TBL_MUCLUC].[MUCLUC_DESC] AS [MUCLUC_DESC], 
+    [TBL_MUCLUC].[MUCLUC_KEYWORD] AS [MUCLUC_KEYWORD], 
+    [TBL_MUCLUC].[MUCLUC_CONTENT] AS [MUCLUC_CONTENT], 
+    [TBL_MUCLUC].[MUCLUC_SORT] AS [MUCLUC_SORT], 
+    [TBL_MUCLUC].[MUCLUC_ONOFF] AS [MUCLUC_ONOFF], 
+    [TBL_MUCLUC].[MUCLUC_DATECREATE] AS [MUCLUC_DATECREATE]
+    FROM [dbo].[TBL_MUCLUC] AS [TBL_MUCLUC]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TBL_SOBAO" EntityType="Self.TBL_SOBAO" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TBL_SOBAO].[SOBAO_ID] AS [SOBAO_ID], 
+    [TBL_SOBAO].[LOAIBAO_ID] AS [LOAIBAO_ID], 
+    [TBL_SOBAO].[SOBAO_NAME] AS [SOBAO_NAME], 
+    [TBL_SOBAO].[SOBAO_DESC] AS [SOBAO_DESC], 
+    [TBL_SOBAO].[SOBAO_BACKGROUND] AS [SOBAO_BACKGROUND], 
+    [TBL_SOBAO].[SOBAO_ONOFF] AS [SOBAO_ONOFF], 
+    [TBL_SOBAO].[SOBAO_DATECREATE] AS [SOBAO_DATECREATE]
+    FROM [dbo].[TBL_SOBAO] AS [TBL_SOBAO]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="cms_ybanewModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="adgroup">
+          <Key>
+            <PropertyRef Name="adgroupID" />
+          </Key>
+          <Property Name="adgroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ADgroupname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="desc_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="value_" Type="Double" />
+        </EntityType>
+        <EntityType Name="cus_ads">
+          <Key>
+            <PropertyRef Name="cusID" />
+          </Key>
+          <Property Name="cusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_daidien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="company_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email_" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="typeid" Type="Int32" />
+          <Property Name="group_userid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dtproperty">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="property" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="objectid" Type="Int32" />
+          <Property Name="property" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="value" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="uvalue" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="lvalue" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="version" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="event">
+          <Key>
+            <PropertyRef Name="newsID" />
+          </Key>
+          <Property Name="newsID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title_" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="groupID" Type="Int32" Nullable="false" />
+          <Property Name="userinputID" Type="Int32" Nullable="false" />
+          <Property Name="keyword_" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="content_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="image_" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="isdelete" Type="Boolean" Nullable="false" />
+          <Property Name="fromdate_" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="todate_" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="location" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="moderator" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="agenda" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="shortdesc" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="numview" Type="Int32" />
+          <Property Name="option_" Type="Boolean" Nullable="false" />
+          <Property Name="iscomment" Type="Boolean" Nullable="false" />
+          <Property Name="lastupdate" Type="DateTime" Precision="3" />
+          <Property Name="isdoitac" Type="Boolean" />
+          <Property Name="parentid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="group_user">
+          <Key>
+            <PropertyRef Name="groupid" />
+          </Key>
+          <Property Name="groupid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="groupname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isdelete" Type="Boolean" Nullable="false" />
+          <Property Name="priority" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Information">
+          <Key>
+            <PropertyRef Name="informationID" />
+          </Key>
+          <Property Name="informationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="parentID" Type="Int32" Nullable="false" />
+          <Property Name="InformationName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="informationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="priority" Type="Int32" />
+          <Property Name="isactive" Type="Boolean" />
+          <Property Name="isdelete" Type="Boolean" />
+          <Property Name="datecreate" Type="DateTime" Precision="3" />
+          <Property Name="siteID" Type="Int32" />
+          <Property Name="userID" Type="Int32" />
+          <Property Name="link_" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="description_" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="opion_" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="MailHost">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="Int32" Nullable="false" />
+          <Property Name="mailserver" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mailport" Type="Int32" Nullable="false" />
+          <Property Name="mailuser" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mailpass" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="partner">
+          <Key>
+            <PropertyRef Name="newsID" />
+          </Key>
+          <Property Name="newsID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title_" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="groupID" Type="Int32" Nullable="false" />
+          <Property Name="userinputID" Type="Int32" Nullable="false" />
+          <Property Name="keyword_" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="content_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="image_" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="isdelete" Type="Boolean" Nullable="false" />
+          <Property Name="location" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cityid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fax" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="manager" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="website" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="shortdesc" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="numview" Type="Int32" />
+          <Property Name="isintro" Type="Boolean" />
+          <Property Name="dateupdate" Type="DateTime" Precision="3" />
+          <Property Name="priority_" Type="Int32" />
+        </EntityType>
+        <EntityType Name="project">
+          <Key>
+            <PropertyRef Name="proid" />
+          </Key>
+          <Property Name="proid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="proname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="progroupid" Type="Int32" />
+          <Property Name="provinceid" Type="Int32" />
+          <Property Name="clientid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="pro_year" Type="Int32" />
+          <Property Name="metiarial" Type="Int16" />
+          <Property Name="offshore" Type="Boolean" />
+          <Property Name="soid" Type="Int32" />
+          <Property Name="lengh" Type="Int32" />
+          <Property Name="Diameter" Type="Int32" />
+          <Property Name="details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="img_icon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="datecreated" Type="DateTime" Precision="3" />
+          <Property Name="isactive" Type="Boolean" />
+          <Property Name="isdelete" Type="Boolean" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="proname_en" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="details_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="projectsen">
+          <Key>
+            <PropertyRef Name="proid" />
+          </Key>
+          <Property Name="proid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="proname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="progroupid" Type="Int32" />
+          <Property Name="provinceid" Type="Int32" />
+          <Property Name="clientid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="pro_year" Type="Int32" />
+          <Property Name="metiarial" Type="Int16" />
+          <Property Name="offshore" Type="Boolean" />
+          <Property Name="soid" Type="Boolean" />
+          <Property Name="lengh" Type="Int32" />
+          <Property Name="Diameter" Type="Int32" />
+          <Property Name="details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="img_icon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="datecreated" Type="DateTime" Precision="3" />
+          <Property Name="isactive" Type="Boolean" />
+          <Property Name="isdelete" Type="Boolean" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="proname_en" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="details_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_ads">
+          <Key>
+            <PropertyRef Name="adID" />
+          </Key>
+          <Property Name="adID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="groupID" Type="Int32" Nullable="false" />
+          <Property Name="Ad_cusID" Type="Int32" Nullable="false" />
+          <Property Name="Adname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="image_" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ad_desc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="date_start" Type="DateTime" Precision="3" />
+          <Property Name="date_end" Type="DateTime" Precision="3" />
+          <Property Name="price_" Type="Double" />
+          <Property Name="url_link" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="clicknum" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ad_active" Type="Boolean" Nullable="false" />
+          <Property Name="ad_delete" Type="Boolean" Nullable="false" />
+          <Property Name="ischarge" Type="Boolean" Nullable="false" />
+          <Property Name="datelastupdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fileattach" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="totalmonth" Type="Double" />
+          <Property Name="totalclick" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="priority" Type="Int32" />
+          <Property Name="f_width" Type="Int32" />
+          <Property Name="f_height" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_albums">
+          <Key>
+            <PropertyRef Name="albumid_" />
+          </Key>
+          <Property Name="albumid_" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="albumname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="creater" Type="Int32" Nullable="false" />
+          <Property Name="isdelete" Type="Boolean" Nullable="false" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="date_" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="roleaccess" Type="Int32" Nullable="false" />
+          <Property Name="priority" Type="Int32" />
+          <Property Name="pic_" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="type_" Type="Int16" />
+          <Property Name="desc_" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_club">
+          <Key>
+            <PropertyRef Name="clubid" />
+          </Key>
+          <Property Name="clubid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ishome" Type="Boolean" Nullable="false" />
+          <Property Name="club_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="club_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="club_help" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="club_album" Type="Int32" Nullable="false" />
+          <Property Name="prirority_" Type="Int32" Nullable="false" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="isdelete" Type="Boolean" Nullable="false" />
+          <Property Name="dis_" Type="Int32" />
+          <Property Name="pic_" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_event_news">
+          <Key>
+            <PropertyRef Name="newsid" />
+            <PropertyRef Name="eventid" />
+          </Key>
+          <Property Name="newsid" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="eventid" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_events_comment">
+          <Key>
+            <PropertyRef Name="commentid" />
+          </Key>
+          <Property Name="newsid" Type="Int32" Nullable="false" />
+          <Property Name="commentid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datepost" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="isshow" Type="Boolean" Nullable="false" />
+          <Property Name="name_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email_" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="content_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_events_users">
+          <Key>
+            <PropertyRef Name="events_com" />
+          </Key>
+          <Property Name="events_com" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="newsid" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="userid" Type="Int32" Nullable="false" />
+          <Property Name="option_" Type="Int16" Nullable="false" />
+          <Property Name="date_" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fullname" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="position" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="companyname" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sex_" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="email_" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="info_" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_faqs">
+          <Key>
+            <PropertyRef Name="faqid" />
+          </Key>
+          <Property Name="faqid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="faq_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date_" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="content_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date_anwser" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="content_anwser" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="priority" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_laws">
+          <Key>
+            <PropertyRef Name="lawid" />
+          </Key>
+          <Property Name="lawid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code_" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="title_" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="typeid" Type="Int32" Nullable="false" />
+          <Property Name="industryid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="coquan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date_" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="date_use" Type="DateTime" Precision="3" />
+          <Property Name="user_sing" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="file_" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="option_" Type="Int16" Nullable="false" />
+          <Property Name="isdelete" Type="Boolean" Nullable="false" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="priority" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_photosalbum">
+          <Key>
+            <PropertyRef Name="photoid_" />
+          </Key>
+          <Property Name="albumid_" Type="Int32" Nullable="false" />
+          <Property Name="photoid_" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="photoname_" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="creater" Type="Int32" Nullable="false" />
+          <Property Name="date_" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="photopath_" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="numberview" Type="Int32" Nullable="false" />
+          <Property Name="priority" Type="Int32" />
+          <Property Name="desc_" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="showhome" Type="Boolean" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="adminID" />
+            <PropertyRef Name="email" />
+            <PropertyRef Name="isactive" />
+            <PropertyRef Name="isdelete" />
+            <PropertyRef Name="functionNo" />
+          </Key>
+          <Property Name="adminID" Type="Int32" Nullable="false" />
+          <Property Name="adminname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fullname" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="isdelete" Type="Boolean" Nullable="false" />
+          <Property Name="functionNo" Type="Int32" Nullable="false" />
+          <Property Name="page_redirect" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="folder_main" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="document">
+          <Key>
+            <PropertyRef Name="documentID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="isactive" />
+            <PropertyRef Name="isdelete" />
+            <PropertyRef Name="datecreate" />
+          </Key>
+          <Property Name="documentID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contents" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="moredescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="filename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="isdelete" Type="Boolean" Nullable="false" />
+          <Property Name="datecreate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="imageupload">
+          <Key>
+            <PropertyRef Name="imageuploadID" />
+          </Key>
+          <Property Name="imageuploadID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="images_" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="userid" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="MailDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Result" />
+            <PropertyRef Name="MailManagementID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Result" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MailManagementID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MailManagement">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="DateSend" />
+            <PropertyRef Name="Subject" />
+            <PropertyRef Name="Total" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateSend" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Subject" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Total" Type="Int32" Nullable="false" />
+          <Property Name="ReSendID" Type="Int32" />
+          <Property Name="TotalTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="userid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="news">
+          <Key>
+            <PropertyRef Name="newsID" />
+            <PropertyRef Name="groupID" />
+            <PropertyRef Name="userinputID" />
+            <PropertyRef Name="date_action" />
+            <PropertyRef Name="isactive" />
+            <PropertyRef Name="isdelete" />
+            <PropertyRef Name="datelastupdate" />
+            <PropertyRef Name="numview" />
+            <PropertyRef Name="vote" />
+            <PropertyRef Name="priority" />
+          </Key>
+          <Property Name="newsID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="groupID" Type="Int32" Nullable="false" />
+          <Property Name="userinputID" Type="Int32" Nullable="false" />
+          <Property Name="title_" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="keyword_" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="content_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_action" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="image_" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="isdelete" Type="Boolean" Nullable="false" />
+          <Property Name="datelastupdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="shortdesc" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="numview" Type="Int32" Nullable="false" />
+          <Property Name="isbao" Type="Boolean" />
+          <Property Name="parentID" Type="Int32" />
+          <Property Name="ishome" Type="Boolean" />
+          <Property Name="vote" Type="Int32" Nullable="false" />
+          <Property Name="priority" Type="Int32" Nullable="false" />
+          <Property Name="poem" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="urlsite" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="iscomment" Type="Boolean" />
+          <Property Name="date_view" Type="DateTime" Precision="3" />
+          <Property Name="isregister" Type="Boolean" />
+          <Property Name="date_close" Type="DateTime" Precision="3" />
+          <Property Name="newsid_connect" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="tbl_club_news">
+          <Key>
+            <PropertyRef Name="newsid" />
+            <PropertyRef Name="clubid" />
+          </Key>
+          <Property Name="newsid" Type="Int32" Nullable="false" />
+          <Property Name="clubid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_club_user">
+          <Key>
+            <PropertyRef Name="userid" />
+            <PropertyRef Name="clubid" />
+            <PropertyRef Name="chucvu" />
+            <PropertyRef Name="date_join" />
+            <PropertyRef Name="ismanager" />
+            <PropertyRef Name="isactive" />
+            <PropertyRef Name="isdelete" />
+          </Key>
+          <Property Name="userid" Type="Int32" Nullable="false" />
+          <Property Name="clubid" Type="Int32" Nullable="false" />
+          <Property Name="chucvu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date_join" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ismanager" Type="Boolean" Nullable="false" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <Property Name="isdelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_comments">
+          <Key>
+            <PropertyRef Name="newsid" />
+            <PropertyRef Name="commentid" />
+            <PropertyRef Name="datepost" />
+            <PropertyRef Name="isshow" />
+            <PropertyRef Name="name_" />
+            <PropertyRef Name="title" />
+            <PropertyRef Name="content_" />
+          </Key>
+          <Property Name="newsid" Type="Int32" Nullable="false" />
+          <Property Name="commentid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datepost" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="isshow" Type="Boolean" Nullable="false" />
+          <Property Name="name_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email_" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="content_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isregister" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbl_industry">
+          <Key>
+            <PropertyRef Name="industryid" />
+          </Key>
+          <Property Name="industryid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="industryname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="industrydesc" Type="String" MaxLength="3500" FixedLength="false" Unicode="true" />
+          <Property Name="isdelete" Type="Boolean" />
+          <Property Name="priority" Type="Double" />
+        </EntityType>
+        <EntityType Name="TBL_LOAIBAO">
+          <Key>
+            <PropertyRef Name="LOAIBAO_ID" />
+          </Key>
+          <Property Name="LOAIBAO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LOAIBAO_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LOAIBAO_CONTENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LOAIBAO_SORT" Type="Int32" />
+          <Property Name="LOAIBAO_ONOFF" Type="Byte" />
+          <Property Name="LOAIBAO_DATECREATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TBL_MUCLUC">
+          <Key>
+            <PropertyRef Name="MUCLUC_ID" />
+          </Key>
+          <Property Name="MUCLUC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LOAIBAO_ID" Type="Int32" />
+          <Property Name="SOBAO_ID" Type="Int32" />
+          <Property Name="MUCLUC_NAME" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="MUCLUC_DESC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MUCLUC_KEYWORD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MUCLUC_CONTENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MUCLUC_SORT" Type="Int32" />
+          <Property Name="MUCLUC_ONOFF" Type="Byte" />
+          <Property Name="MUCLUC_DATECREATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TBL_SOBAO">
+          <Key>
+            <PropertyRef Name="SOBAO_ID" />
+          </Key>
+          <Property Name="SOBAO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LOAIBAO_ID" Type="Int32" />
+          <Property Name="SOBAO_NAME" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="SOBAO_DESC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SOBAO_BACKGROUND" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SOBAO_ONOFF" Type="Byte" />
+          <Property Name="SOBAO_DATECREATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="cms_ybanewEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="adgroups" EntityType="Self.adgroup" />
+          <EntitySet Name="cus_ads" EntityType="Self.cus_ads" />
+          <EntitySet Name="dtproperties" EntityType="Self.dtproperty" />
+          <EntitySet Name="events" EntityType="Self.event" />
+          <EntitySet Name="group_user" EntityType="Self.group_user" />
+          <EntitySet Name="Informations" EntityType="Self.Information" />
+          <EntitySet Name="MailHosts" EntityType="Self.MailHost" />
+          <EntitySet Name="partners" EntityType="Self.partner" />
+          <EntitySet Name="projects" EntityType="Self.project" />
+          <EntitySet Name="projectsens" EntityType="Self.projectsen" />
+          <EntitySet Name="tbl_ads" EntityType="Self.tbl_ads" />
+          <EntitySet Name="tbl_albums" EntityType="Self.tbl_albums" />
+          <EntitySet Name="tbl_club" EntityType="Self.tbl_club" />
+          <EntitySet Name="tbl_event_news" EntityType="Self.tbl_event_news" />
+          <EntitySet Name="tbl_events_comment" EntityType="Self.tbl_events_comment" />
+          <EntitySet Name="tbl_events_users" EntityType="Self.tbl_events_users" />
+          <EntitySet Name="tbl_faqs" EntityType="Self.tbl_faqs" />
+          <EntitySet Name="tbl_laws" EntityType="Self.tbl_laws" />
+          <EntitySet Name="tbl_photosalbum" EntityType="Self.tbl_photosalbum" />
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="documents" EntityType="Self.document" />
+          <EntitySet Name="imageuploads" EntityType="Self.imageupload" />
+          <EntitySet Name="MailDetails" EntityType="Self.MailDetail" />
+          <EntitySet Name="MailManagements" EntityType="Self.MailManagement" />
+          <EntitySet Name="news" EntityType="Self.news" />
+          <EntitySet Name="tbl_club_news" EntityType="Self.tbl_club_news" />
+          <EntitySet Name="tbl_club_user" EntityType="Self.tbl_club_user" />
+          <EntitySet Name="tbl_comments" EntityType="Self.tbl_comments" />
+          <EntitySet Name="tbl_industry" EntityType="Self.tbl_industry" />
+          <EntitySet Name="TBL_LOAIBAO" EntityType="Self.TBL_LOAIBAO" />
+          <EntitySet Name="TBL_MUCLUC" EntityType="Self.TBL_MUCLUC" />
+          <EntitySet Name="TBL_SOBAO" EntityType="Self.TBL_SOBAO" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="cms_ybanewModelStoreContainer" CdmEntityContainer="cms_ybanewEntities">
+          <EntitySetMapping Name="adgroups">
+            <EntityTypeMapping TypeName="cms_ybanewModel.adgroup">
+              <MappingFragment StoreEntitySet="adgroups">
+                <ScalarProperty Name="adgroupID" ColumnName="adgroupID" />
+                <ScalarProperty Name="ADgroupname" ColumnName="ADgroupname" />
+                <ScalarProperty Name="desc_" ColumnName="desc_" />
+                <ScalarProperty Name="value_" ColumnName="value_" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cus_ads">
+            <EntityTypeMapping TypeName="cms_ybanewModel.cus_ads">
+              <MappingFragment StoreEntitySet="cus_ads">
+                <ScalarProperty Name="cusID" ColumnName="cusID" />
+                <ScalarProperty Name="Name_daidien" ColumnName="Name_daidien" />
+                <ScalarProperty Name="address_" ColumnName="address_" />
+                <ScalarProperty Name="company_" ColumnName="company_" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="email_" ColumnName="email_" />
+                <ScalarProperty Name="typeid" ColumnName="typeid" />
+                <ScalarProperty Name="group_userid" ColumnName="group_userid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dtproperties">
+            <EntityTypeMapping TypeName="cms_ybanewModel.dtproperty">
+              <MappingFragment StoreEntitySet="dtproperties">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="objectid" ColumnName="objectid" />
+                <ScalarProperty Name="property" ColumnName="property" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="uvalue" ColumnName="uvalue" />
+                <ScalarProperty Name="lvalue" ColumnName="lvalue" />
+                <ScalarProperty Name="version" ColumnName="version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="events">
+            <EntityTypeMapping TypeName="cms_ybanewModel.event">
+              <MappingFragment StoreEntitySet="events">
+                <ScalarProperty Name="newsID" ColumnName="newsID" />
+                <ScalarProperty Name="title_" ColumnName="title_" />
+                <ScalarProperty Name="groupID" ColumnName="groupID" />
+                <ScalarProperty Name="userinputID" ColumnName="userinputID" />
+                <ScalarProperty Name="keyword_" ColumnName="keyword_" />
+                <ScalarProperty Name="content_" ColumnName="content_" />
+                <ScalarProperty Name="image_" ColumnName="image_" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="isdelete" ColumnName="isdelete" />
+                <ScalarProperty Name="fromdate_" ColumnName="fromdate_" />
+                <ScalarProperty Name="todate_" ColumnName="todate_" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="moderator" ColumnName="moderator" />
+                <ScalarProperty Name="agenda" ColumnName="agenda" />
+                <ScalarProperty Name="shortdesc" ColumnName="shortdesc" />
+                <ScalarProperty Name="numview" ColumnName="numview" />
+                <ScalarProperty Name="option_" ColumnName="option_" />
+                <ScalarProperty Name="iscomment" ColumnName="iscomment" />
+                <ScalarProperty Name="lastupdate" ColumnName="lastupdate" />
+                <ScalarProperty Name="isdoitac" ColumnName="isdoitac" />
+                <ScalarProperty Name="parentid" ColumnName="parentid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="group_user">
+            <EntityTypeMapping TypeName="cms_ybanewModel.group_user">
+              <MappingFragment StoreEntitySet="group_user">
+                <ScalarProperty Name="groupid" ColumnName="groupid" />
+                <ScalarProperty Name="groupname" ColumnName="groupname" />
+                <ScalarProperty Name="isdelete" ColumnName="isdelete" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Informations">
+            <EntityTypeMapping TypeName="cms_ybanewModel.Information">
+              <MappingFragment StoreEntitySet="Informations">
+                <ScalarProperty Name="informationID" ColumnName="informationID" />
+                <ScalarProperty Name="parentID" ColumnName="parentID" />
+                <ScalarProperty Name="InformationName" ColumnName="InformationName" />
+                <ScalarProperty Name="informationCode" ColumnName="informationCode" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="isdelete" ColumnName="isdelete" />
+                <ScalarProperty Name="datecreate" ColumnName="datecreate" />
+                <ScalarProperty Name="siteID" ColumnName="siteID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="link_" ColumnName="link_" />
+                <ScalarProperty Name="description_" ColumnName="description_" />
+                <ScalarProperty Name="opion_" ColumnName="opion_" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MailHosts">
+            <EntityTypeMapping TypeName="cms_ybanewModel.MailHost">
+              <MappingFragment StoreEntitySet="MailHost">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="mailserver" ColumnName="mailserver" />
+                <ScalarProperty Name="mailport" ColumnName="mailport" />
+                <ScalarProperty Name="mailuser" ColumnName="mailuser" />
+                <ScalarProperty Name="mailpass" ColumnName="mailpass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="partners">
+            <EntityTypeMapping TypeName="cms_ybanewModel.partner">
+              <MappingFragment StoreEntitySet="partners">
+                <ScalarProperty Name="newsID" ColumnName="newsID" />
+                <ScalarProperty Name="title_" ColumnName="title_" />
+                <ScalarProperty Name="groupID" ColumnName="groupID" />
+                <ScalarProperty Name="userinputID" ColumnName="userinputID" />
+                <ScalarProperty Name="keyword_" ColumnName="keyword_" />
+                <ScalarProperty Name="content_" ColumnName="content_" />
+                <ScalarProperty Name="image_" ColumnName="image_" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="isdelete" ColumnName="isdelete" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="cityid" ColumnName="cityid" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="fax" ColumnName="fax" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="manager" ColumnName="manager" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="shortdesc" ColumnName="shortdesc" />
+                <ScalarProperty Name="numview" ColumnName="numview" />
+                <ScalarProperty Name="isintro" ColumnName="isintro" />
+                <ScalarProperty Name="dateupdate" ColumnName="dateupdate" />
+                <ScalarProperty Name="priority_" ColumnName="priority_" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="projects">
+            <EntityTypeMapping TypeName="cms_ybanewModel.project">
+              <MappingFragment StoreEntitySet="projects">
+                <ScalarProperty Name="proid" ColumnName="proid" />
+                <ScalarProperty Name="proname" ColumnName="proname" />
+                <ScalarProperty Name="progroupid" ColumnName="progroupid" />
+                <ScalarProperty Name="provinceid" ColumnName="provinceid" />
+                <ScalarProperty Name="clientid" ColumnName="clientid" />
+                <ScalarProperty Name="pro_year" ColumnName="pro_year" />
+                <ScalarProperty Name="metiarial" ColumnName="metiarial" />
+                <ScalarProperty Name="offshore" ColumnName="offshore" />
+                <ScalarProperty Name="soid" ColumnName="soid" />
+                <ScalarProperty Name="lengh" ColumnName="lengh" />
+                <ScalarProperty Name="Diameter" ColumnName="Diameter" />
+                <ScalarProperty Name="details" ColumnName="details" />
+                <ScalarProperty Name="img_icon" ColumnName="img_icon" />
+                <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="isdelete" ColumnName="isdelete" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="proname_en" ColumnName="proname_en" />
+                <ScalarProperty Name="details_en" ColumnName="details_en" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="projectsens">
+            <EntityTypeMapping TypeName="cms_ybanewModel.projectsen">
+              <MappingFragment StoreEntitySet="projectsen">
+                <ScalarProperty Name="proid" ColumnName="proid" />
+                <ScalarProperty Name="proname" ColumnName="proname" />
+                <ScalarProperty Name="progroupid" ColumnName="progroupid" />
+                <ScalarProperty Name="provinceid" ColumnName="provinceid" />
+                <ScalarProperty Name="clientid" ColumnName="clientid" />
+                <ScalarProperty Name="pro_year" ColumnName="pro_year" />
+                <ScalarProperty Name="metiarial" ColumnName="metiarial" />
+                <ScalarProperty Name="offshore" ColumnName="offshore" />
+                <ScalarProperty Name="soid" ColumnName="soid" />
+                <ScalarProperty Name="lengh" ColumnName="lengh" />
+                <ScalarProperty Name="Diameter" ColumnName="Diameter" />
+                <ScalarProperty Name="details" ColumnName="details" />
+                <ScalarProperty Name="img_icon" ColumnName="img_icon" />
+                <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="isdelete" ColumnName="isdelete" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="proname_en" ColumnName="proname_en" />
+                <ScalarProperty Name="details_en" ColumnName="details_en" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_ads">
+            <EntityTypeMapping TypeName="cms_ybanewModel.tbl_ads">
+              <MappingFragment StoreEntitySet="tbl_ads">
+                <ScalarProperty Name="adID" ColumnName="adID" />
+                <ScalarProperty Name="groupID" ColumnName="groupID" />
+                <ScalarProperty Name="Ad_cusID" ColumnName="Ad_cusID" />
+                <ScalarProperty Name="Adname" ColumnName="Adname" />
+                <ScalarProperty Name="image_" ColumnName="image_" />
+                <ScalarProperty Name="ad_desc" ColumnName="ad_desc" />
+                <ScalarProperty Name="date_start" ColumnName="date_start" />
+                <ScalarProperty Name="date_end" ColumnName="date_end" />
+                <ScalarProperty Name="price_" ColumnName="price_" />
+                <ScalarProperty Name="url_link" ColumnName="url_link" />
+                <ScalarProperty Name="clicknum" ColumnName="clicknum" />
+                <ScalarProperty Name="ad_active" ColumnName="ad_active" />
+                <ScalarProperty Name="ad_delete" ColumnName="ad_delete" />
+                <ScalarProperty Name="ischarge" ColumnName="ischarge" />
+                <ScalarProperty Name="datelastupdate" ColumnName="datelastupdate" />
+                <ScalarProperty Name="fileattach" ColumnName="fileattach" />
+                <ScalarProperty Name="totalmonth" ColumnName="totalmonth" />
+                <ScalarProperty Name="totalclick" ColumnName="totalclick" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+                <ScalarProperty Name="f_width" ColumnName="f_width" />
+                <ScalarProperty Name="f_height" ColumnName="f_height" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_albums">
+            <EntityTypeMapping TypeName="cms_ybanewModel.tbl_albums">
+              <MappingFragment StoreEntitySet="tbl_albums">
+                <ScalarProperty Name="albumid_" ColumnName="albumid_" />
+                <ScalarProperty Name="albumname" ColumnName="albumname" />
+                <ScalarProperty Name="creater" ColumnName="creater" />
+                <ScalarProperty Name="isdelete" ColumnName="isdelete" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="date_" ColumnName="date_" />
+                <ScalarProperty Name="roleaccess" ColumnName="roleaccess" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+                <ScalarProperty Name="pic_" ColumnName="pic_" />
+                <ScalarProperty Name="type_" ColumnName="type_" />
+                <ScalarProperty Name="desc_" ColumnName="desc_" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_club">
+            <EntityTypeMapping TypeName="cms_ybanewModel.tbl_club">
+              <MappingFragment StoreEntitySet="tbl_club">
+                <ScalarProperty Name="clubid" ColumnName="clubid" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="ishome" ColumnName="ishome" />
+                <ScalarProperty Name="club_name" ColumnName="club_name" />
+                <ScalarProperty Name="club_desc" ColumnName="club_desc" />
+                <ScalarProperty Name="club_help" ColumnName="club_help" />
+                <ScalarProperty Name="club_album" ColumnName="club_album" />
+                <ScalarProperty Name="prirority_" ColumnName="prirority_" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="isdelete" ColumnName="isdelete" />
+                <ScalarProperty Name="dis_" ColumnName="dis_" />
+                <ScalarProperty Name="pic_" ColumnName="pic_" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_event_news">
+            <EntityTypeMapping TypeName="cms_ybanewModel.tbl_event_news">
+              <MappingFragment StoreEntitySet="tbl_event_news">
+                <ScalarProperty Name="newsid" ColumnName="newsid" />
+                <ScalarProperty Name="eventid" ColumnName="eventid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_events_comment">
+            <EntityTypeMapping TypeName="cms_ybanewModel.tbl_events_comment">
+              <MappingFragment StoreEntitySet="tbl_events_comment">
+                <ScalarProperty Name="newsid" ColumnName="newsid" />
+                <ScalarProperty Name="commentid" ColumnName="commentid" />
+                <ScalarProperty Name="datepost" ColumnName="datepost" />
+                <ScalarProperty Name="isshow" ColumnName="isshow" />
+                <ScalarProperty Name="name_" ColumnName="name_" />
+                <ScalarProperty Name="email_" ColumnName="email_" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="content_" ColumnName="content_" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_events_users">
+            <EntityTypeMapping TypeName="cms_ybanewModel.tbl_events_users">
+              <MappingFragment StoreEntitySet="tbl_events_users">
+                <ScalarProperty Name="events_com" ColumnName="events_com" />
+                <ScalarProperty Name="newsid" ColumnName="newsid" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="option_" ColumnName="option_" />
+                <ScalarProperty Name="date_" ColumnName="date_" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="companyname" ColumnName="companyname" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="sex_" ColumnName="sex_" />
+                <ScalarProperty Name="email_" ColumnName="email_" />
+                <ScalarProperty Name="info_" ColumnName="info_" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_faqs">
+            <EntityTypeMapping TypeName="cms_ybanewModel.tbl_faqs">
+              <MappingFragment StoreEntitySet="tbl_faqs">
+                <ScalarProperty Name="faqid" ColumnName="faqid" />
+                <ScalarProperty Name="faq_name" ColumnName="faq_name" />
+                <ScalarProperty Name="date_" ColumnName="date_" />
+                <ScalarProperty Name="content_" ColumnName="content_" />
+                <ScalarProperty Name="date_anwser" ColumnName="date_anwser" />
+                <ScalarProperty Name="content_anwser" ColumnName="content_anwser" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_laws">
+            <EntityTypeMapping TypeName="cms_ybanewModel.tbl_laws">
+              <MappingFragment StoreEntitySet="tbl_laws">
+                <ScalarProperty Name="lawid" ColumnName="lawid" />
+                <ScalarProperty Name="code_" ColumnName="code_" />
+                <ScalarProperty Name="title_" ColumnName="title_" />
+                <ScalarProperty Name="typeid" ColumnName="typeid" />
+                <ScalarProperty Name="industryid" ColumnName="industryid" />
+                <ScalarProperty Name="coquan" ColumnName="coquan" />
+                <ScalarProperty Name="date_" ColumnName="date_" />
+                <ScalarProperty Name="date_use" ColumnName="date_use" />
+                <ScalarProperty Name="user_sing" ColumnName="user_sing" />
+                <ScalarProperty Name="file_" ColumnName="file_" />
+                <ScalarProperty Name="option_" ColumnName="option_" />
+                <ScalarProperty Name="isdelete" ColumnName="isdelete" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_photosalbum">
+            <EntityTypeMapping TypeName="cms_ybanewModel.tbl_photosalbum">
+              <MappingFragment StoreEntitySet="tbl_photosalbum">
+                <ScalarProperty Name="albumid_" ColumnName="albumid_" />
+                <ScalarProperty Name="photoid_" ColumnName="photoid_" />
+                <ScalarProperty Name="photoname_" ColumnName="photoname_" />
+                <ScalarProperty Name="creater" ColumnName="creater" />
+                <ScalarProperty Name="date_" ColumnName="date_" />
+                <ScalarProperty Name="photopath_" ColumnName="photopath_" />
+                <ScalarProperty Name="numberview" ColumnName="numberview" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+                <ScalarProperty Name="desc_" ColumnName="desc_" />
+                <ScalarProperty Name="showhome" ColumnName="showhome" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="cms_ybanewModel.Admin">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="adminID" ColumnName="adminID" />
+                <ScalarProperty Name="adminname" ColumnName="adminname" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="isdelete" ColumnName="isdelete" />
+                <ScalarProperty Name="functionNo" ColumnName="functionNo" />
+                <ScalarProperty Name="page_redirect" ColumnName="page_redirect" />
+                <ScalarProperty Name="folder_main" ColumnName="folder_main" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="documents">
+            <EntityTypeMapping TypeName="cms_ybanewModel.document">
+              <MappingFragment StoreEntitySet="documents">
+                <ScalarProperty Name="documentID" ColumnName="documentID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+                <ScalarProperty Name="moredescription" ColumnName="moredescription" />
+                <ScalarProperty Name="filename" ColumnName="filename" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="isdelete" ColumnName="isdelete" />
+                <ScalarProperty Name="datecreate" ColumnName="datecreate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="imageuploads">
+            <EntityTypeMapping TypeName="cms_ybanewModel.imageupload">
+              <MappingFragment StoreEntitySet="imageuploads">
+                <ScalarProperty Name="imageuploadID" ColumnName="imageuploadID" />
+                <ScalarProperty Name="images_" ColumnName="images_" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MailDetails">
+            <EntityTypeMapping TypeName="cms_ybanewModel.MailDetail">
+              <MappingFragment StoreEntitySet="MailDetail">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="MailManagementID" ColumnName="MailManagementID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MailManagements">
+            <EntityTypeMapping TypeName="cms_ybanewModel.MailManagement">
+              <MappingFragment StoreEntitySet="MailManagement">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DateSend" ColumnName="DateSend" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="ReSendID" ColumnName="ReSendID" />
+                <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="news">
+            <EntityTypeMapping TypeName="cms_ybanewModel.news">
+              <MappingFragment StoreEntitySet="news">
+                <ScalarProperty Name="newsID" ColumnName="newsID" />
+                <ScalarProperty Name="groupID" ColumnName="groupID" />
+                <ScalarProperty Name="userinputID" ColumnName="userinputID" />
+                <ScalarProperty Name="title_" ColumnName="title_" />
+                <ScalarProperty Name="keyword_" ColumnName="keyword_" />
+                <ScalarProperty Name="content_" ColumnName="content_" />
+                <ScalarProperty Name="date_action" ColumnName="date_action" />
+                <ScalarProperty Name="image_" ColumnName="image_" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="isdelete" ColumnName="isdelete" />
+                <ScalarProperty Name="datelastupdate" ColumnName="datelastupdate" />
+                <ScalarProperty Name="shortdesc" ColumnName="shortdesc" />
+                <ScalarProperty Name="numview" ColumnName="numview" />
+                <ScalarProperty Name="isbao" ColumnName="isbao" />
+                <ScalarProperty Name="parentID" ColumnName="parentID" />
+                <ScalarProperty Name="ishome" ColumnName="ishome" />
+                <ScalarProperty Name="vote" ColumnName="vote" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+                <ScalarProperty Name="poem" ColumnName="poem" />
+                <ScalarProperty Name="urlsite" ColumnName="urlsite" />
+                <ScalarProperty Name="iscomment" ColumnName="iscomment" />
+                <ScalarProperty Name="date_view" ColumnName="date_view" />
+                <ScalarProperty Name="isregister" ColumnName="isregister" />
+                <ScalarProperty Name="date_close" ColumnName="date_close" />
+                <ScalarProperty Name="newsid_connect" ColumnName="newsid_connect" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_club_news">
+            <EntityTypeMapping TypeName="cms_ybanewModel.tbl_club_news">
+              <MappingFragment StoreEntitySet="tbl_club_news">
+                <ScalarProperty Name="newsid" ColumnName="newsid" />
+                <ScalarProperty Name="clubid" ColumnName="clubid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_club_user">
+            <EntityTypeMapping TypeName="cms_ybanewModel.tbl_club_user">
+              <MappingFragment StoreEntitySet="tbl_club_user">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="clubid" ColumnName="clubid" />
+                <ScalarProperty Name="chucvu" ColumnName="chucvu" />
+                <ScalarProperty Name="date_join" ColumnName="date_join" />
+                <ScalarProperty Name="ismanager" ColumnName="ismanager" />
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="isdelete" ColumnName="isdelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_comments">
+            <EntityTypeMapping TypeName="cms_ybanewModel.tbl_comments">
+              <MappingFragment StoreEntitySet="tbl_comments">
+                <ScalarProperty Name="newsid" ColumnName="newsid" />
+                <ScalarProperty Name="commentid" ColumnName="commentid" />
+                <ScalarProperty Name="datepost" ColumnName="datepost" />
+                <ScalarProperty Name="isshow" ColumnName="isshow" />
+                <ScalarProperty Name="name_" ColumnName="name_" />
+                <ScalarProperty Name="email_" ColumnName="email_" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="content_" ColumnName="content_" />
+                <ScalarProperty Name="isregister" ColumnName="isregister" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_industry">
+            <EntityTypeMapping TypeName="cms_ybanewModel.tbl_industry">
+              <MappingFragment StoreEntitySet="tbl_industry">
+                <ScalarProperty Name="industryid" ColumnName="industryid" />
+                <ScalarProperty Name="industryname" ColumnName="industryname" />
+                <ScalarProperty Name="industrydesc" ColumnName="industrydesc" />
+                <ScalarProperty Name="isdelete" ColumnName="isdelete" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_LOAIBAO">
+            <EntityTypeMapping TypeName="cms_ybanewModel.TBL_LOAIBAO">
+              <MappingFragment StoreEntitySet="TBL_LOAIBAO">
+                <ScalarProperty Name="LOAIBAO_ID" ColumnName="LOAIBAO_ID" />
+                <ScalarProperty Name="LOAIBAO_NAME" ColumnName="LOAIBAO_NAME" />
+                <ScalarProperty Name="LOAIBAO_CONTENT" ColumnName="LOAIBAO_CONTENT" />
+                <ScalarProperty Name="LOAIBAO_SORT" ColumnName="LOAIBAO_SORT" />
+                <ScalarProperty Name="LOAIBAO_ONOFF" ColumnName="LOAIBAO_ONOFF" />
+                <ScalarProperty Name="LOAIBAO_DATECREATE" ColumnName="LOAIBAO_DATECREATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_MUCLUC">
+            <EntityTypeMapping TypeName="cms_ybanewModel.TBL_MUCLUC">
+              <MappingFragment StoreEntitySet="TBL_MUCLUC">
+                <ScalarProperty Name="MUCLUC_ID" ColumnName="MUCLUC_ID" />
+                <ScalarProperty Name="LOAIBAO_ID" ColumnName="LOAIBAO_ID" />
+                <ScalarProperty Name="SOBAO_ID" ColumnName="SOBAO_ID" />
+                <ScalarProperty Name="MUCLUC_NAME" ColumnName="MUCLUC_NAME" />
+                <ScalarProperty Name="MUCLUC_DESC" ColumnName="MUCLUC_DESC" />
+                <ScalarProperty Name="MUCLUC_KEYWORD" ColumnName="MUCLUC_KEYWORD" />
+                <ScalarProperty Name="MUCLUC_CONTENT" ColumnName="MUCLUC_CONTENT" />
+                <ScalarProperty Name="MUCLUC_SORT" ColumnName="MUCLUC_SORT" />
+                <ScalarProperty Name="MUCLUC_ONOFF" ColumnName="MUCLUC_ONOFF" />
+                <ScalarProperty Name="MUCLUC_DATECREATE" ColumnName="MUCLUC_DATECREATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_SOBAO">
+            <EntityTypeMapping TypeName="cms_ybanewModel.TBL_SOBAO">
+              <MappingFragment StoreEntitySet="TBL_SOBAO">
+                <ScalarProperty Name="SOBAO_ID" ColumnName="SOBAO_ID" />
+                <ScalarProperty Name="LOAIBAO_ID" ColumnName="LOAIBAO_ID" />
+                <ScalarProperty Name="SOBAO_NAME" ColumnName="SOBAO_NAME" />
+                <ScalarProperty Name="SOBAO_DESC" ColumnName="SOBAO_DESC" />
+                <ScalarProperty Name="SOBAO_BACKGROUND" ColumnName="SOBAO_BACKGROUND" />
+                <ScalarProperty Name="SOBAO_ONOFF" ColumnName="SOBAO_ONOFF" />
+                <ScalarProperty Name="SOBAO_DATECREATE" ColumnName="SOBAO_DATECREATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
