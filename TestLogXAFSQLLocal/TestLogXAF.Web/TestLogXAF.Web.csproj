@@ -177,7 +177,7 @@
     <Content Include="WebUserControl1.ascx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuditTrailViewModel.cs" />
+    <Content Include="App_Code\Products.cs" />
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
@@ -247,6 +247,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="Model_vi.xafml">
+      <DependentUpon>Model.xafml</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\duc.nguyen.pubxml" />
     <None Include="ReadMe.txt" />
     <None Include="Web.Debug.config">
@@ -259,6 +264,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

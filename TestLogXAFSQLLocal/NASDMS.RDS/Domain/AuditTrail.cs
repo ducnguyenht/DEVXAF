@@ -8,11 +8,11 @@ using NASDMS.Systems;
 
 namespace NASDMS.RDS
 {
-    // Generated 03/23/2017 09:57:49
+	// Generated 06/01/2017 17:22:32
+	
+	// Add custom code inside partial class
 
-    // Add custom code inside partial class
-
-    public partial class AuditTrail : Entity<AuditTrail>
+	public partial class AuditTrail : Entity<AuditTrail>
     {
         [EnumDataType(typeof(CategoryAudit))]
         public CategoryAudit CategoryAudit
@@ -39,5 +39,5 @@ namespace NASDMS.RDS
                 this.Action = (int)value;
             }
         }
-    }
-}
+	} 
+}	

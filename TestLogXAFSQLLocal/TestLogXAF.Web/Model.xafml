@@ -4,7 +4,12 @@
     <Items>
       <Item Id="Default">
         <Items>
-          <Item Id="@da438212-22a1-4dd0-9e1a-dc1c498f5b47" Caption="History" ViewId="HistoryLog" IsNewNode="True" />
+          <Item Id="DomainObject3_ListView" Index="0" />
+          <Item Id="DomainObject1_ListView" Index="1" />
+          <Item Id="DomainObject5_ListView" Index="2" />
+          <Item Id="DomainObject6_ListView" Index="3" />
+          <Item Id="History_ListView" Index="4" />
+          <Item Id="@da438212-22a1-4dd0-9e1a-dc1c498f5b47" Caption="History" ViewId="HistoryLog" Index="5" IsNewNode="True" />
         </Items>
       </Item>
     </Items>

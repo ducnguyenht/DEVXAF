@@ -47,7 +47,7 @@ namespace NASDMS.RDS.ORM.Helper
             try
             {
                 AuditTrail h = new AuditTrail();
-                h.Oid = Oid.ToString();
+                h.Oid = Oid;
                 h.ChangedBy = ChangedBy;
                 h.Data = Data;
                 h.ChangedOn = DateTime.Now;

@@ -32,10 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -65,6 +61,11 @@
     <Compile Include="_Spark\Core.cs" />
     <Compile Include="_Spark\Data.cs" />
     <Compile Include="_Spark\Domain.cs" />
+    <Compile Include="_Spark\GeneratorMysql\DomainGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DomainGenerator.tt</DependentUpon>
+    </Compile>
     <Compile Include="_Spark\Repository.cs" />
     <Compile Include="_Spark\UnitOfWork.cs" />
   </ItemGroup>
@@ -83,8 +84,12 @@
       <Name>NASDMS.Systems</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="_Spark\GeneratorMysql\" />
+    <Content Include="_Spark\GeneratorMysql\DomainGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DomainGenerator.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

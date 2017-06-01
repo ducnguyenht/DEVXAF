@@ -1,4 +1,217 @@
+﻿<#
+// section 1. assembly and import directives
+#>
+<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ assembly name="System" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.Data.Entity.Design" #>
+<#@ assembly name="System.Runtime.Remoting" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Runtime.Remoting.Messaging" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data.Entity.Design.PluralizationServices" #>
+<#@ import namespace="System.Globalization" #>
+<#@ import namespace="System.IO" #>
+<#
+// section 2. configuration
+#>   
+<#  
+// ############################################################################
+// #  
+// # ---===> C O D E  G E N E R A T O R  <===---
+// #
+// #  RG CodeGen Prototype Domain Generator -- 
+// # 
+// ############################################################################
+
+// ############################################################################
+// # 
+// # ---===> C O N F I G U R A T I O N  <===---
+// #
+// # connectionString:   Database connection string. Either localDb or SQL Server.
+// # domainNamespace:    Namespace of current project. Examples: Art.Domain, Emp.Domain, Car.Domain, etc.
+// # appName:            Short identifier of application. Examples: Art, Emp, Car, Plan, Doc, etc.
+// #
+string connectionString = @"Persist Security Info=True;Password=123456;User ID=sa;Data Source=.\SQLEXPRESS;Initial Catalog=AuditTrailPhucSinh";  
+string domainNamespace = "NASDMS.RDS";  
+string appName = "NASDMS";     
+// # 
+// ############################################################################
+
+// validate configuration
+
+string result = IsValid(connectionString, domainNamespace, appName); 
+if (!string.IsNullOrEmpty(result)) 
+{
+	throw new Exception(result);
+}
+
+// ensure all folders exist
+
+EnsureFoldersExist();
+
+#>
+<#
+// section 3. partial files (extension points)
+#>
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Data.Common;
+using System.Data;
+using System.Dynamic;
+using System.Transactions;
+using System.Configuration;
+
+namespace <#= domainNamespace #>
+{
+	// Generated <#= DateTime.Now #>
+
+	// Add custom code inside partial class
+
+	public partial class Db
+	{
+	}
+}
+<#
+SaveOutput(@"Data\Data.partial.cs");
+#>
+using System;
+using System.Linq;
+using System.Text;
+using System.Data;
+using System.Collections.Generic;
+
+namespace <#= domainNamespace #>
+{
+	// Generated <#= DateTime.Now #>
+
+	// Add custom code inside partial class
+
+	public partial class <#= appName + "Db" #> : Db
+	{
+	}
+}
+<#
+SaveOutput(@"Data\" + appName + "Data.cs");
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Reflection;
+using System.Data;
+using System.Threading;
+
+namespace <#= domainNamespace #>
+{
+	// Generated <#= DateTime.Now #>
+
+	// Add custom code inside partial class
+
+	public partial class Entity<T> where T : Entity<T>, new()
+	{
+	}
+}
+<#
+SaveOutput(@"Domain\Entity.partial.cs");
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace <#= domainNamespace #>
+{
+	// Generated <#= DateTime.Now #>
+
+	// Add custom code inside partial class
+
+	public partial class Repository<T> where T : Entity<T>, new()
+	{
+	}
+}
+<#
+SaveOutput(@"Repository\Repository.partial.cs");
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace <#= domainNamespace #>
+{
+	// Generated <#= DateTime.Now #>
+
+	// Add custom code inside partial classes
+
+	public partial class UnitOfWork : IDisposable
+	{
+	}
+
+	public partial class UnitOfWorkDistributed : IDisposable
+	{
+	}
+}
+<#
+SaveOutput(@"UnitOfWork\UnitOfWork.partial.cs");
+#>
+<#
+var tables = GetTables(connectionString);
+
+// customizable partial entity classes
+
+foreach(string table in tables)
+    {if(table!="sysdiagrams"){
+#>
+using System;
+using System.Linq;
+using System.Text;
+using System.Data;
+using System.Collections.Generic;
+
+namespace <#=                domainNamespace #>
+{
+	// Generated <#=                DateTime.Now #>
 	
+	// Add custom code inside partial class
+
+	public partial class <#=                table #> : Entity<<#=                table #>> 
+	{ 
+	} 
+}	
+<#
+
+            SaveOutput(@"Domain\" + table + ".cs");
+       
+#>
+using System;
+using System.Linq;
+using System.Text;
+using System.Data;
+using System.Collections.Generic;
+
+namespace <#= domainNamespace #>
+{ 
+	// Generated <#= DateTime.Now #>
+
+	// Add custom code inside partial class
+
+	public partial class <#= Pluralize(table) #> : Repository<<#= table #>> 
+	{ 
+	}
+}	
+<#
+SaveOutput(@"Repository\" + Pluralize(table) + ".cs");
+             }
+}
+#>	
+<#
+// section 4. Core classes
+#>
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,20 +224,11 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 
-namespace NASDMS.RDS
+namespace <#= domainNamespace #>
 {
-    // ############################################################################
-    // #
-    // #        ---==>  T H I S  F I L E  W A S  G E N E R A T E D  <==---
-    // #
-    // # This file was generated by the CodeGen Prototype
-    // # Generated on 6/1/2017 5:22:32 PM
-    // #
-    // # Edits to this file may cause incorrect behavior and will be lost
-    // # if the code is regenerated.
-    // #
-    // ############################################################################
-	
+<#
+WriteHeader(); 
+#>	
 	#region Data Layer
 
 	public partial class Db
@@ -454,7 +658,7 @@ namespace NASDMS.RDS
 
 		static void InitDb(Db _db, string table, string key)
 		{
-			db = _db ?? new NASDMSDb();
+			db = _db ?? new <#= appName + "Db" #>();
 			tableName = table ?? typeof(T).Name;
 			keyName = key ?? "Id";
 		}
@@ -1153,3 +1357,408 @@ namespace NASDMS.RDS
 
 	#endregion
 }
+<#
+Save(@"Core.cs");
+#>	
+using System;
+using System.Linq;
+using System.Text;
+using System.Data;
+using System.Collections.Generic;
+
+namespace <#= domainNamespace #>
+{
+<#
+WriteHeader(); 
+#>	
+	// <#= appName #> Db
+
+	public partial class <#= appName + "Db" #> : Db
+	{
+		public <#= appName + "Db" #>() : base("<#= appName #>") {}
+	}
+}
+<#
+Save("Data.cs");
+#>	
+using System;
+using System.Linq;
+using System.Text;
+using System.Data;
+using System.Collections.Generic;
+
+namespace <#= domainNamespace #>
+{
+<#
+WriteHeader(); 
+#>	
+	// <#= appName #> Unit-of-Work
+
+	public partial class <#= appName + "UnitOfWork" #> : UnitOfWork
+	{
+		public <#= appName + "UnitOfWork" #>() : base(new <#= appName + "Db" #>()) { }
+	}
+}
+<#
+Save("UnitOfWork.cs");
+#>	
+using System;
+using System.Linq;
+using System.Text;
+using System.Data;
+using System.Collections.Generic;
+
+namespace <#= domainNamespace #>
+{
+<#
+WriteHeader(); 
+#>	
+	// <#= appName #> Context. hosts all repositories
+
+	public static class <#= appName + "Context" #>
+	{
+		static Db db = new <#= appName + "Db();" #>
+		
+		// entity specific repositories
+
+<#
+foreach(string table in tables)
+{  
+        if(table!="sysdiagrams"){ 
+            WriteLine("        public static " + Pluralize(table) + " " + Pluralize(table) + " { get { return new " + Pluralize(table) + "(); } }");
+        }
+}
+#>
+
+		// general purpose operations
+
+		public static void Execute(string sql, params object[] parms) { db.Execute( sql, parms ); }
+		public static IEnumerable<dynamic> Query(string sql, params object[] parms) { return db.Query( sql, parms ); }
+		public static object Scalar(string sql, params object[] parms) { return db.Scalar( sql, parms ); }
+
+		public static DataSet GetDataSet(string sql, params object[] parms) { return db.GetDataSet( sql, parms ); }
+		public static DataTable GetDataTable(string sql, params object[] parms) { return db.GetDataTable( sql, parms ); }
+		public static DataRow GetDataRow(string sql, params object[] parms) { return db.GetDataRow( sql, parms ); }
+	}
+}
+<#
+Save("Repository.cs");
+#>	
+using System;
+using System.Linq;
+using System.Text;
+using System.Data;
+using System.Collections.Generic;
+
+namespace <#= domainNamespace #>
+{ 
+<#
+WriteHeader(); 
+#>	
+	// <#= appName #> Domain objects
+<#
+foreach(string table in tables)
+    {
+        if(table!="sysdiagrams"){
+#>	
+	public partial class <#=                table #> : Entity<<#=                table #>>
+	{
+		public <#=                table #>() { }
+		public <#=                table #>(bool defaults) : base(defaults) { }
+
+<#
+            foreach(Column column in GetColumns(table, connectionString))
+            {
+                WriteLine(column.Field);
+            }
+#>
+<#
+            WriteLine("    }");	
+        }
+    }
+#>
+}
+<#
+Save( "Domain.cs");
+#>	
+<#
+// section 5. Support methods and classes
+#>
+<#+
+
+// Verifies that all folders exist
+
+void EnsureFoldersExist()
+{
+	string frameworkDirectory = GetParentDirectory(Path.GetDirectoryName(Host.TemplateFile),2);
+	
+	string path = Path.Combine(frameworkDirectory, "Data");
+	if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+
+	path = Path.Combine(frameworkDirectory, "Domain");
+	if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+
+	path = Path.Combine(frameworkDirectory, "Repository");
+	if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+
+	path = Path.Combine(frameworkDirectory, "UnitOfWork");
+	if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+}
+
+// Check if configuration values are valid
+
+string IsValid(string connectionString, string domainNamespace, string appName)
+{
+	string error = "Configuration error: ";
+
+	if (string.IsNullOrEmpty(connectionString)) return error + "connectionString is missing.";
+	if (string.IsNullOrEmpty(domainNamespace)) return error + "domainNamespace is missing.";
+	if (string.IsNullOrEmpty(appName)) return error + "appName is missing.";
+
+	try
+	{
+		var connection = new SqlConnection(connectionString);
+		connection.Open();
+		connection.Close();
+		return "";
+	}
+	catch
+	{ 
+		return error + "connectionString is invalid. Unable to make a connection.";
+	}
+}
+
+// Writes out header
+
+void WriteHeader()
+{
+	WriteLine("    // ############################################################################");
+	WriteLine("    // #");                                                                          
+	WriteLine("    // #        ---==>  T H I S  F I L E  W A S  G E N E R A T E D  <==---");        
+	WriteLine("    // #");    
+	WriteLine("    // # This file was generated by the CodeGen Prototype");
+	WriteLine("    // # Generated on " + DateTime.Now); 
+	WriteLine("    // #");
+	WriteLine("    // # Edits to this file may cause incorrect behavior and will be lost");
+	WriteLine("    // # if the code is regenerated.");
+	WriteLine("    // #");
+	WriteLine("    // ############################################################################");
+}
+
+// Retrieves tables from database
+
+public IEnumerable<string> GetTables(string connectionString)
+{
+	var sql = @"SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES
+				 WHERE TABLE_NAME NOT LIKE 'aspnet_%'  AND TABLE_NAME NOT LIKE 'webpages_%'
+				   AND TABLE_TYPE = 'BASE TABLE'
+				 ORDER BY TABLE_NAME";
+	
+	using (var connection = new SqlConnection(connectionString))
+	{
+		using (var command = new SqlCommand(sql, connection))
+		{
+			connection.Open();
+			var reader = command.ExecuteReader();
+			
+			while (reader.Read())
+				yield return reader["TABLE_NAME"].ToString();
+		}
+	}
+}
+
+// Retrieves columns information for a given table.
+
+public IEnumerable<Column> GetColumns (string table, string connectionString)
+{
+	var sql = @"SELECT COLUMN_NAME, DATA_TYPE, IS_NULLABLE, COLUMN_DEFAULT
+				  FROM INFORMATION_SCHEMA.COLUMNS 
+				 WHERE TABLE_NAME = '" + table + @"' 
+				   AND DATA_TYPE NOT IN ('geography', 'geometry')";
+	
+	var auditColumns = new[] { "CreatedOn", "CreatedBy", "ChangedOn", "ChangedBy" };
+
+	using (var connection = new SqlConnection(connectionString))
+	{
+		using (var command = new SqlCommand(sql, connection))
+		{
+			connection.Open();
+			var reader = command.ExecuteReader();
+	
+			var columns = new List<Column>();
+			while (reader.Read())
+			{
+				columns.Add(new Column{ Name=reader["COLUMN_NAME"].ToString(), 
+										DataType=reader["DATA_TYPE"].ToString(),
+										IsNullable=reader["IS_NULLABLE"].ToString() == "YES"});
+			}
+
+			// only if all four audit columns are present will auditing be supported
+
+			var noAuditColumns = columns.Where(c => !auditColumns.Contains(c.Name));
+			if (columns.Count() - noAuditColumns.Count() == 4)
+				return noAuditColumns;
+
+			return columns;
+		}
+	}
+}
+
+// Column class. Holds and renders column data
+
+public class Column
+{
+	public string Name { get; set; }
+	public string DataType { get; set; }
+	public bool IsNullable { get; set; }
+	
+	public string Field
+	{
+		get
+		{
+			string field = "        public ";
+			field += MapType();
+			field += " " +  Name + " { get; set; }";
+			
+			return field;
+		}
+	}
+	
+	private string MapType() 
+	{
+		string clrType = DataType;
+		try { clrType = SqlMap.Get(DataType); }
+		catch {};
+
+		// string and DateTime are special
+		if (clrType == "string") return clrType;
+		if (clrType == "DateTime") return clrType + "?";
+
+		// identifier
+		if (Name.ToLower().EndsWith("id"))
+		{
+			if (clrType == "int" || clrType == "Guid") return clrType + "?";
+		}
+
+		return clrType + (IsNullable ? "?": "");
+	}
+}
+
+// Save output to one folder below
+
+void Save(string outputFileName)
+{
+	string templateDirectory = GetParentDirectory(Path.GetDirectoryName(Host.TemplateFile),1);
+	string outputFilePath = Path.Combine(templateDirectory, outputFileName);
+	
+	//if (!File.Exists(outputFilePath))  // important!
+	//{
+		File.WriteAllText(outputFilePath, this.GenerationEnvironment.ToString()); 
+	//}
+	this.GenerationEnvironment.Remove(0, this.GenerationEnvironment.Length);
+}
+
+// Save output to two folders below
+
+void SaveOutput(string outputFileName)
+{
+	string templateDirectory = GetParentDirectory(Path.GetDirectoryName(Host.TemplateFile),2);
+	string outputFilePath = Path.Combine(templateDirectory, outputFileName);
+	
+	//if (!File.Exists(outputFilePath))  // important! don't override files.
+	//{
+	   File.WriteAllText(outputFilePath, this.GenerationEnvironment.ToString()); 
+	//}
+
+	this.GenerationEnvironment.Remove(0, this.GenerationEnvironment.Length);
+}
+
+// Helper. recurse backward through folders
+
+string GetParentDirectory(string path, int parentCount) 
+{ 
+	if(string.IsNullOrEmpty(path) || parentCount < 1) 
+		return path; 
+ 
+	string parent = Path.GetDirectoryName(path); 
+ 
+	if(--parentCount > 0) 
+		return GetParentDirectory(parent, parentCount); 
+ 
+	return parent; 
+} 
+
+// Returns the plural of a given word
+
+string Pluralize(string word)
+{
+	var ps = PluralizationService.CreateService(CultureInfo.GetCultureInfo("en-us"));
+	return ps.Pluralize(word);
+}
+
+// Return root namespace of project
+
+string RootNamespace(string name)
+{
+	string[] ns = name.Split('.');
+	var sb = new StringBuilder();
+	for(int i = 0; i < ns.Length - 2; i++)
+		sb.Append(ns[i] + ".");
+
+	return sb.ToString().TrimEnd('.');
+}
+
+// Maps Sql data types to C# types
+
+static class SqlMap
+{
+	static readonly Dictionary<string, string> map = new Dictionary<string, string>();
+	static SqlMap()
+	{
+		map["bigint"] = "long";
+		map["binary"] = "byte[]";
+		map["bit"] = "bool";
+		map["char"] = "string";
+		map["date"] = "DateTime";
+		map["datetime"] = "DateTime";
+		map["datetime2"] = "DateTime";
+		map["datetimeoffset"] = "DateTimeOffset";
+		map["decimal"] = "decimal";
+		map["varbinary"] = "byte[]";
+		map["float"] = "double";
+		map["image"] = "byte[]";
+		map["int"] = "int";
+		map["money"] = "decimal	";
+		map["nchar"] = "string";
+		map["ntext"] = "string";
+		map["numeric"] = "decimal";
+		map["nvarchar"] = "string";
+		map["real"] = "float";
+		map["rowversion"] = "byte[]";
+		map["smalldatetime"] = "DateTime";
+		map["smallint"] = "short";
+		map["smallmoney"] = "decimal";
+		map["sql_variant"] = "object";
+		map["text"] = "string";
+		map["time"] = "TimeSpan";
+		map["timestamp"] = "byte[]";
+		map["tinyint"] = "byte";
+		map["uniqueidentifier"] = "Guid";
+		map["varbinary"] = "byte[]";
+		map["varchar"] = "string";
+		map["xml"] = "Xml";
+	}
+
+	// add additional custom types here
+	public static void Add(string sqltype, string clrtype)
+	{
+		map[sqltype] = clrtype;
+	}
+
+	public static string Get(string sqltype)
+	{
+		return map[sqltype];
+	}
+}
+
+#>
