@@ -330,21 +330,35 @@ WriteHeader();
 		}
 
 		// insert a new record
-
-		public int Insert(string sql, params object[] parms)
+        //changed by dn
+		public Guid Insert(string sql, params object[] parms)
 		{
 			try
 			{
 				using (var connection = CreateConnection())
 				{
-					using (var command = CreateCommand(sql + ";SELECT SCOPE_IDENTITY();", connection, parms))
-					{
-						return int.Parse(command.ExecuteScalar().ToString());
+					using (var command = CreateCommand(sql , connection, parms))
+                    {//+ ";SELECT SCOPE_IDENTITY();"                     
+                        return new Guid(command.ExecuteScalar().ToString());//int.Parse(command.ExecuteScalar().ToString());
 					}
 				}
 			}
 			catch (Exception ex) { throw new DbException(sql, parms, ex); }
 		}
+		//public int Insert(string sql, params object[] parms)
+		//{
+			//try
+			//{
+				//using (var connection = CreateConnection())
+				//{
+					//using (var command = CreateCommand(sql + ";SELECT SCOPE_IDENTITY();", connection, parms))
+					//{
+						//return int.Parse(command.ExecuteScalar().ToString());
+					//}
+				//}
+			//}
+			//catch (Exception ex) { throw new DbException(sql, parms, ex); }
+		//}
 
 		// update an existing record
 
@@ -751,7 +765,11 @@ WriteHeader();
 		#endregion
 
 		// retrieves a single object by id
-
+        public T Single(Guid? id)
+		{
+			string sql = CreateSelect(keyName + " = @0 ");
+			return db.Read(sql, Make, id).FirstOrDefault();
+		}
 		public T Single(int? id)
 		{
 			string sql = CreateSelect(keyName + " = @0 ");
@@ -1018,7 +1036,8 @@ WriteHeader();
 				vals.AppendFormat("@{0}, ", key);
 			}
 
-			string sql = "INSERT INTO {0} ({1}) VALUES ({2})";
+			//string sql = "INSERT INTO {0} ({1}) VALUES ({2})";
+            string sql = "INSERT INTO {0} ({1}) OUTPUT INSERTED.Id VALUES ({2})";//changed dn
 			sqlInsert = string.Format(sql, tableName.Bracket(), cols.TrimEnd(), vals.TrimEnd());
 		}
 
@@ -1228,7 +1247,11 @@ WriteHeader();
 	public partial class Repository<T> where T : Entity<T>, new()
 	{
 		static T t = new T();
-
+        //changed by dn
+        public virtual T Single(Guid? id)
+        {
+            return t.Single(id);
+        }
 		public virtual T Single(int? id)
 		{
 			return t.Single(id);

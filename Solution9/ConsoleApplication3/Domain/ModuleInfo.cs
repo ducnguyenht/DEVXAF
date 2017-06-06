@@ -4,13 +4,13 @@ using System.Text;
 using System.Data;
 using System.Collections.Generic;
 
-namespace Namoly.Booking.Engine.Repository.Spark
+namespace Solution10.Domain
 {
-	// Generated 06/06/2017 15:05:07
+	// Generated 06/06/2017 17:20:56
 	
 	// Add custom code inside partial class
 
-	public partial class BBBB : Entity<BBBB> 
+	public partial class ModuleInfo : Entity<ModuleInfo> 
 	{ 
 	} 
 }	
