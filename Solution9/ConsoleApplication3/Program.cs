@@ -23,7 +23,7 @@ namespace ConsoleApplication3
             var all1 = db.DemoAs.All();
             var cc = o1;
             var tt = db.DemoAs.Single(o1.Oid);
-            db.DemoAs.Delete(o1);
+            //db.DemoAs.Delete(o1);
             var ttt = 1;
             //AAAA a = new AAAA { BBBB = new Guid("140512b2-c499-4602-bccf-50e30260a5b1"), NameAAA = "AAAA1" };
             //db.AAAAs.Insert(a);
