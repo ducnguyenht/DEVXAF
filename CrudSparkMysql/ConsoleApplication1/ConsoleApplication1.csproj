@@ -59,12 +59,6 @@
     <Compile Include="Repository\Repository.partial.cs" />
     <Compile Include="Repository\TestHistories.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.partial.cs" />
-    <Compile Include="_SparkMySql\CodeGen\DomainGenerator.cs">
-      <DependentUpon>DomainGenerator.tt</DependentUpon>
-      <SubType>Code</SubType>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
     <Compile Include="_SparkMySql\Core.cs" />
     <Compile Include="_SparkMySql\Data.cs" />
     <Compile Include="_SparkMySql\Domain.cs" />
@@ -74,16 +68,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="_SparkMySql\CodeGen\DomainGeneratorMysql.ttsdfd" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="_SparkMySql\CodeGen\DomainGenerator.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DomainGenerator.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

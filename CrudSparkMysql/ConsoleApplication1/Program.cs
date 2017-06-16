@@ -25,15 +25,18 @@ namespace ConsoleApplication1
             ad.Data = "test insert 1";
             ad.ChangedBy = "Duc.Nguyen";
             ad.ChangedOn = DateTime.Now;
-            db.AuditTrails.Insert(ad);
+            //db.AuditTrails.Insert(ad);
             ad.ChangedBy = "Duc.Nguyen 1";
-            var objdelete = db.AuditTrails.All().Where(o => o.ChangedBy == "Duc.Nguyen 1").FirstOrDefault();
-            db.AuditTrails.Delete(ad);
-            if (objdelete!=null)
-            {
-                db.AuditTrails.Delete(objdelete);
-            }
-           
+            //new object[] { Id, typeof(ContactMapModels).AssemblyQualifiedName })
+            //parms: new object[] { "b08c9206-4ce9-4d44-a484-67f5292e0a35" });
+            var objdelete = db.AuditTrails.All(where: "Oid=@0", parms: new object[] { "b08c9206-4ce9-4d44-a484-67f5292e0a35" });//.Where(o => o.ChangedBy == "Duc.Nguyen").FirstOrDefault();
+            var tasdf = 1;
+            //db.AuditTrails.Delete(ad);
+            //if (objdelete != null)
+            //{
+            //    db.AuditTrails.Delete(objdelete);
+            //}
+
 
 
             MySqlConnection mainDB = MySqlMain.OpenConnection();
