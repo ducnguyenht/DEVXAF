@@ -672,9 +672,9 @@ WriteHeader();
 
 		static void InitDb(Db _db, string table, string key)
 		{
-			db = _db ?? new <#= appName + "Db" #>();
+			db = _db ?? new Solution10Db();
 			tableName = table ?? typeof(T).Name;
-			keyName = key ?? "Id";
+			keyName = key ?? "Oid";// changed dn
 		}
 
 		// creates a column-to-property map and their default values
@@ -1035,9 +1035,6 @@ WriteHeader();
 				cols.AppendFormat("{0}, ", key);
 				vals.AppendFormat("@{0}, ", key);
 			}
-
-			//string sql = "INSERT INTO {0} ({1}) VALUES ({2})";
-            //string sql = "INSERT INTO {0} ({1}) OUTPUT INSERTED.Id VALUES ({2})";//changed dn
 			string sql = "INSERT INTO {0} (Oid,{1}) OUTPUT INSERTED.Oid VALUES (NewId(),{2})";//changed 
             sqlInsert = string.Format(sql, tableName.Bracket(), cols.TrimEnd(), vals.TrimEnd());
 		}

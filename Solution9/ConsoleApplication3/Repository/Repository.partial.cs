@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Solution10.Domain
 {
-	// Generated 06/06/2017 17:20:56
+	// Generated 06/16/2017 16:52:34
 
 	// Add custom code inside partial class
 

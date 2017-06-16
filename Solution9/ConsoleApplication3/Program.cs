@@ -22,6 +22,8 @@ namespace ConsoleApplication3
                 Description="a1new",
             };
             db.DemoAs.Insert(o1);
+            o1.Code = "a1new upadate";
+            o1.Update();
             var all1 = db.DemoAs.All();
             var cc = o1;
             var tt = db.DemoAs.Single(o1.Oid);
@@ -31,7 +33,11 @@ namespace ConsoleApplication3
             var all11 = db.DemoAs.All();
             DemoB b = new DemoB { Code = "ASD", Name = "BBB1", Price = 123123 };
             db.DemoBs.Insert(b);
-
+            var bs = db.DemoBs.All();
+            var findb = db.DemoBs.Single(new Guid("61188c91-0a4a-4235-b08f-79f70bc0cf6e"));
+            b.Delete();
+            bs = db.DemoBs.All();
+            //db.DemoBs.Delete(b);
             var sdfsd = 1;
         }
     }
