@@ -48,11 +48,6 @@
     <Compile Include="AGenerator\Data.cs" />
     <Compile Include="AGenerator\Domain.cs" />
     <Compile Include="AGenerator\Repository.cs" />
-    <Compile Include="AGenerator\SQLSERVER\DomainGenerator.cs">
-      <DependentUpon>DomainGenerator.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="AGenerator\UnitOfWork.cs" />
     <Compile Include="Data\Data.partial.cs" />
     <Compile Include="Data\Solution10Data.cs" />
@@ -76,13 +71,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AGenerator\SQLSERVER\DomainGenerator.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DomainGenerator.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Folder Include="AGenerator\SQLSERVER\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

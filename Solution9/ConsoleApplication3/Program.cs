@@ -25,7 +25,7 @@ namespace ConsoleApplication3
             var all1 = db.DemoAs.All();
             var cc = o1;
             var tt = db.DemoAs.Single(o1.Oid);
-            Console.WriteLine(tt);
+            Console.WriteLine(tt.ToString());
             result = Console.ReadLine();
             db.DemoAs.Delete(o1);
             var ttt = 1;
