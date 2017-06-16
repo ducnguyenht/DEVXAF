@@ -65,10 +65,10 @@
     <Compile Include="_Spark\Core.cs" />
     <Compile Include="_Spark\Data.cs" />
     <Compile Include="_Spark\Domain.cs" />
-    <Compile Include="_Spark\GeneratorMysql\DomainGenerator.cs">
+    <Compile Include="_Spark\GeneratorMysql\GeneratorMysql.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DomainGenerator.tt</DependentUpon>
+      <DependentUpon>GeneratorMysql.tt</DependentUpon>
     </Compile>
     <Compile Include="_Spark\Repository.cs" />
     <Compile Include="_Spark\UnitOfWork.cs" />
@@ -89,9 +89,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="_Spark\GeneratorMysql\DomainGenerator.tt">
+    <Content Include="_Spark\GeneratorMysql\GeneratorMysql.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DomainGenerator.cs</LastGenOutput>
+      <LastGenOutput>GeneratorMysql.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup />
