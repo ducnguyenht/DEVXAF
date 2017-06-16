@@ -75,7 +75,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="AGenerator\SQLSERVER\DomainGenerator.ttrrr" />
+    <Content Include="AGenerator\SQLSERVER\DomainGeneratorGuid.ttrrr" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
