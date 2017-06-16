@@ -29,6 +29,7 @@ namespace ConsoleApplication3
             result = Console.ReadLine();
             db.DemoAs.Delete(o1);
             var ttt = 1;
+            var all11 = db.DemoAs.All();
             //AAAA a = new AAAA { BBBB = new Guid("140512b2-c499-4602-bccf-50e30260a5b1"), NameAAA = "AAAA1" };
             //db.AAAAs.Insert(a);
             //var cc = db.BBBBs.All();
