@@ -27,15 +27,11 @@ namespace ConsoleApplication3
             var tt = db.DemoAs.Single(o1.Oid);
             Console.WriteLine(tt.ToString());
             result = Console.ReadLine();
-            db.DemoAs.Delete(o1);
-            var ttt = 1;
+            //db.DemoAs.Delete(o1);
             var all11 = db.DemoAs.All();
-            //AAAA a = new AAAA { BBBB = new Guid("140512b2-c499-4602-bccf-50e30260a5b1"), NameAAA = "AAAA1" };
-            //db.AAAAs.Insert(a);
-            //var cc = db.BBBBs.All();
-            //var dd = db.AAAAs.All();
-            var ttasdas = 1;
-            //var ttt = b;
+            DemoB b = new DemoB { Code = "ASD", Name = "BBB1", Price = 123123 };
+            db.DemoBs.Insert(b);
+
             var sdfsd = 1;
         }
     }

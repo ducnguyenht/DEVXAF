@@ -470,7 +470,7 @@ namespace Solution10.Domain
 		{
 			db = _db ?? new Solution10Db();
 			tableName = table ?? typeof(T).Name;
-			keyName = key ?? "Oid";
+			keyName = key ?? "Oid";// changed dn
 		}
 
 		// creates a column-to-property map and their default values
