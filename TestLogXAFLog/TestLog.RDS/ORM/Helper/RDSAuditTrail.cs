@@ -1,9 +1,10 @@
-﻿using System;
+﻿using NASDMS.Systems;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Db = TestLog.RDS.DucTestMySqlEntities;
+using db = TestLog.RDS.TestLogContext;
 namespace TestLog.RDS.ORM.Helper
 {
     public static class RDSAuditTrail
@@ -12,11 +13,15 @@ namespace TestLog.RDS.ORM.Helper
         {
             try
             {
-                Db db = new Db();
+                //Db db = new Db();
                 string oid = Oid.ToString();
-                var auditTrails = db.AuditTrails.Where(o => o.Oid == oid).OrderByDescending(o => o.ChangedOn).ToList();
-                db.Dispose();
-                return auditTrails;
+                //.All(where: "IsActive=@0", parms: new { IsActive })
+                //var auditTrails = db.AuditTrails.All();//.Where(o => o.Oid == oid);//(where: "Oid=@0", parms: new { oid });//.Where(    o => o.Oid == oid).OrderByDescending(o => o.ChangedOn).ToList();
+                var auditTrails = db.AuditTrails.All(where: "Oid=@0", parms: new object[] { oid });//.Where(    o => o.Oid == oid).OrderByDescending(o => o.ChangedOn).ToList();
+
+
+                //db.Dispose();
+                return auditTrails.ToList();
             }
             catch (Exception e)
             {
@@ -24,19 +29,22 @@ namespace TestLog.RDS.ORM.Helper
             }
         }
 
-        internal static void AddAuditTrail(Guid Oid, string ChangedBy, string Data)
+        internal static void AddAuditTrail(Guid Oid, string ChangedBy, string Data, CategoryAudit category, ActionAudit action)
         {
             try
             {
-                Db db = new Db();
+                //Db db = new Db();
                 AuditTrail h = new AuditTrail();
                 h.Oid = Oid.ToString();
                 h.ChangedBy = ChangedBy;
                 h.Data = Data;
                 h.ChangedOn = DateTime.Now;
-                db.AuditTrails.Add(h);
-                db.SaveChanges();
-                db.Dispose();
+                h.CategoryAudit = category;
+                h.ActionAudit = action;
+                db.AuditTrails.Insert(h);
+                //db.AuditTrails.Add(h);
+                //db.SaveChanges();
+                //db.Dispose();
             }
             catch (Exception e)
             {

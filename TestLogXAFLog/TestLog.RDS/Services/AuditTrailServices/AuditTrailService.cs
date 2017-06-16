@@ -30,7 +30,7 @@ namespace TestLog.RDS.Services.AuditTrailServices
         }
 
 
-        public ErrorCode AddAuditTrail(Guid Oid, string ChangedBy, string Data)
+        public ErrorCode AddAuditTrail(Guid Oid, string ChangedBy, string Data, CategoryAudit category, ActionAudit action)
         {
             ErrorCode err = ErrorCode.ERROR_SUCCESS;
             if (IsReadyForLogging == false)
@@ -39,7 +39,7 @@ namespace TestLog.RDS.Services.AuditTrailServices
             }
             try
             {
-                RDSAuditTrail.AddAuditTrail(Oid, ChangedBy, Data);
+                RDSAuditTrail.AddAuditTrail(Oid, ChangedBy, Data, category, action);
                 return err;
             }
             catch (Exception e)

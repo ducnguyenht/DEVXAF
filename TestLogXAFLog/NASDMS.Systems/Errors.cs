@@ -22,4 +22,37 @@ namespace NASDMS.Systems
         ERROR_ALREADY_EXISTS = 183,
         ERROR_NOT_FOUND = 1168
     }
+
+    #region AuditTrail
+    public enum CategoryAudit
+    {
+        DomainObject1,
+        DomainObject3,
+    }
+    public enum ActionAudit
+    {
+        /// <summary>
+        /// The created
+        /// </summary>
+        Created = 0,
+        /// <summary>
+        /// The updated
+        /// </summary>
+        Updated = 1,
+        /// <summary>
+        /// The deleted
+        /// </summary>
+        Deleted = 2,
+        /// <summary>
+        /// The login sucess
+        /// </summary>
+        LoginSucess = 3,
+        /// <summary>
+        /// The login false
+        /// </summary>
+        LoginFalse = 4
+    }
+    #endregion
+
+
 }

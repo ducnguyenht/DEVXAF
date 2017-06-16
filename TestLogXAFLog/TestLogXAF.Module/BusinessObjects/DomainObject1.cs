@@ -18,7 +18,7 @@ namespace TestLogXAF.Module.BusinessObjects
 {
     [DefaultClassOptions]
     //[ImageName("BO_Contact")]
-    //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
+    [DefaultProperty("test")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (http://documentation.devexpress.com/#Xaf/CustomDocument2701).
@@ -86,7 +86,9 @@ namespace TestLogXAF.Module.BusinessObjects
                     History h = new History(Session);
                     h.ChangedBy = item.ChangedBy;
                     h.Data = item.Data;
-                    h.ChangedOn = item.ChangedOn;
+                    h.ChangedOn = item.ChangedOn.Value;
+                    h.Category = item.CategoryAudit;
+                    h.Action = item.ActionAudit;
                     lstH.Add(h);
                 }
                 return lstH;
@@ -135,14 +137,33 @@ namespace TestLogXAF.Module.BusinessObjects
         protected override void OnSaving()
         {
             base.OnSaving();
-            if (helper.DescriptionHistory() != "")
+            if (!IsDeleted)
+            {
+                if (Session.IsNewObject(this))
+                {
+                    if (helper.DescriptionHistory() != "")
+                    {
+                        string ChangedBy = "User A";
+                        AuditTrailService.AddAuditTrail(this.Oid, ChangedBy, helper.DescriptionHistory(), NASDMS.Systems.CategoryAudit.DomainObject1, NASDMS.Systems.ActionAudit.Created);
+                    }
+                }
+                else
+                {
+                    if (helper.DescriptionHistory() != "")
+                    {
+                        string ChangedBy = "User A";
+                        AuditTrailService.AddAuditTrail(this.Oid, ChangedBy, helper.DescriptionHistory(), NASDMS.Systems.CategoryAudit.DomainObject1, NASDMS.Systems.ActionAudit.Updated);
+                    }
+                }
+            }
+            else
             {
                 string ChangedBy = "User A";
-                AuditTrailService.AddAuditTrail(this.Oid, ChangedBy, helper.DescriptionHistory());
+                AuditTrailService.AddAuditTrail(this.Oid, ChangedBy, this.ToString(), NASDMS.Systems.CategoryAudit.DomainObject1, NASDMS.Systems.ActionAudit.Deleted);
             }
+
             OnChanged("History");
         }
-
 
     }
 }

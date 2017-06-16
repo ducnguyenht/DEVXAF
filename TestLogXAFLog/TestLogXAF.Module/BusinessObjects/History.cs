@@ -12,6 +12,7 @@ using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.ExpressApp.ConditionalAppearance;
+using NASDMS.Systems;
 
 namespace TestLogXAF.Module.BusinessObjects
 {
@@ -42,6 +43,8 @@ namespace TestLogXAF.Module.BusinessObjects
         //public string ChangedBy { get; set; }
         //public Nullable<System.DateTime> ChangedOn { get; set; }
         // Fields...
+        private ActionAudit _Action;
+        private CategoryAudit _Category;
         private DateTime _ChangedOn;
         private string _ChangedBy;
         private string _Data;
@@ -93,7 +96,31 @@ namespace TestLogXAF.Module.BusinessObjects
                 SetPropertyValue("Data", ref _Data, value);
             }
         }
+        //[Browsable(false)]
+        public CategoryAudit Category
+        {
+            get
+            {
+                return _Category;
+            }
+            set
+            {
+                SetPropertyValue("Category", ref _Category, value);
+            }
+        }
 
+        //[Browsable(false)]
+        public ActionAudit Action
+        {
+            get
+            {
+                return _Action;
+            }
+            set
+            {
+                SetPropertyValue("Action", ref _Action, value);
+            }
+        }
 
 
     }

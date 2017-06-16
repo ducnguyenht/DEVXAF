@@ -11,6 +11,6 @@ namespace TestLog.RDS.Services.AuditTrailServices
     {
 
         ErrorCode GetAuditTrails(ref List<AuditTrail> auditTrails, Guid Oid);
-        ErrorCode AddAuditTrail(Guid Oid, string ChangedBy, string Data);
+        ErrorCode AddAuditTrail(Guid Oid, string ChangedBy, string Data, CategoryAudit category, ActionAudit action);
     }
 }

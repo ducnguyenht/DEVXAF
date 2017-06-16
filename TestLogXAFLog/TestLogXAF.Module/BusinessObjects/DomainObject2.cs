@@ -88,7 +88,7 @@ namespace TestLogXAF.Module.BusinessObjects
                     History h = new History(Session);
                     h.ChangedBy = item.ChangedBy;
                     h.Data = item.Data;
-                    h.ChangedOn = item.ChangedOn;
+                    h.ChangedOn = item.ChangedOn.Value;
                     lstH.Add(h);
                 }
                 return lstH;
@@ -140,12 +140,12 @@ namespace TestLogXAF.Module.BusinessObjects
         protected override void OnSaved()
         {
             base.OnSaved();
-            if (helper.DescriptionHistory() != "")
-            {
-                string ChangedBy = "User A";
-                AuditTrailService.AddAuditTrail(this.Oid, ChangedBy, helper.DescriptionHistory());
-            }
-            OnChanged("History");
+            //if (helper.DescriptionHistory() != "")
+            //{
+            //    string ChangedBy = "User A";
+            //    AuditTrailService.AddAuditTrail(this.Oid, ChangedBy, helper.DescriptionHistory(), NASDMS.Systems.CategoryAudit.DomainObject2, NASDMS.Systems.ActionAudit.action1);
+            //}
+            //OnChanged("History");
         }
     }
 }

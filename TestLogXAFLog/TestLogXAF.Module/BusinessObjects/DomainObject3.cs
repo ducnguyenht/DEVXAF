@@ -75,6 +75,7 @@ namespace TestLogXAF.Module.BusinessObjects
             }
         }
         HistoryHelper helper = new HistoryHelper();
+        private readonly IAuditTrailService AuditTrailService = new AuditTrailService();
         protected override void OnChanged(string propertyName, object oldValue, object newValue)
         {
             base.OnChanged(propertyName, oldValue, newValue);
@@ -106,15 +107,15 @@ namespace TestLogXAF.Module.BusinessObjects
                 helper.UpdateDetail("\t\t" + propertyName, oldValueStr, newValueStr);
             }
         }
-        private readonly IAuditTrailService AuditTrailService = new AuditTrailService();
+
         protected override void OnSaving()
         {
             base.OnSaving();
-            if (helper.DescriptionHistory() != "")
-            {
-                string ChangedBy = "userA";
-                AuditTrailService.AddAuditTrail(DomainObject1.Oid, ChangedBy, helper.DescriptionHistory());
-            }
+            //if (helper.DescriptionHistory() != "")
+            //{
+            //    string ChangedBy = "userA";
+            //    AuditTrailService.AddAuditTrail(DomainObject1.Oid, ChangedBy, helper.DescriptionHistory(this.GetType().Name), NASDMS.Systems.CategoryAudit.DomainObject1, NASDMS.Systems.ActionAudit.action1);
+            //}
         }
     }
 }

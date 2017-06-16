@@ -28,9 +28,13 @@ public class HistoryHelper
             listTemp.newValue = newValue;
         }
     }
-    public string DescriptionHistory()
+    public string DescriptionHistory(string childTable = null)
     {
         string DescriptionTemp = "";
+        if (!String.IsNullOrEmpty(childTable))
+        {
+            DescriptionTemp = childTable + Environment.NewLine;
+        }
         if (list != null)
         {
             foreach (var listHistory in list)

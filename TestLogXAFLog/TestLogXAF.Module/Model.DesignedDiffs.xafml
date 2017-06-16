@@ -1,3 +1,32 @@
-﻿<?xml version="1.0" ?>
-<Application Title="TestLogXAF" Logo="ExpressAppLogo" />
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="TestLogXAF" Logo="ExpressAppLogo">
+  <NavigationItems>
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="History_ListView" ViewId="History_ListView_Copy" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="13.2.7.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <ListView Id="History_ListView">
+      <Columns>
+        <ColumnInfo Id="Action" Removed="True" />
+        <ColumnInfo Id="Category" Removed="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="History_ListView_Copy" ClassName="TestLogXAF.Module.BusinessObjects.History" ShowAutoFilterRow="True" UseServerMode="True" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="ChangedOn" PropertyName="ChangedOn" Width="70" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="ChangedBy" PropertyName="ChangedBy" Width="70" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Data" PropertyName="Data" Width="70" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Category" PropertyName="Category" Width="70" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Action" PropertyName="Action" Width="70" Index="4" IsNewNode="True" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>
